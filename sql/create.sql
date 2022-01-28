@@ -51,8 +51,8 @@ CREATE UNIQUE INDEX "time_interval_unique_index"
 --- Individual dispatches for specific locations and time intervals
 CREATE TABLE dispatch."dispatch"(
     "id" BIGSERIAL NOT NULL,
-    "location_id" BIGINT NOT NULL,
-    "resource_id" BIGINT NOT NULL,
+    "location_id" BIGINT NOT NULL,  -- cross-ref to another DB
+    "resource_id" BIGINT NOT NULL,  -- cross-ref to another DB
     "time_interval_id" BIGINT NOT NULL
 );
 ALTER TABLE dispatch."dispatch"
