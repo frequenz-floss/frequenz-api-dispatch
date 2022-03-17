@@ -48,15 +48,30 @@ CREATE UNIQUE INDEX "time_interval_unique_index"
     ON dispatch."time_interval"("start_time", "end_time");
 
 
+--- Individual types of resource to dispatch
+CREATE TABLE dispatch."resource"(
+    "id" BIGSERIAL NOT NULL,
+    "type" VARCHAR(64) NOT NULL
+);
+ALTER TABLE dispatch."resource"
+    ADD PRIMARY KEY("id");
+CREATE UNIQUE INDEX "resource_unique_index"
+    ON dispatch."resource"("type");
+
+
 --- Individual dispatches for specific locations and time intervals
 CREATE TABLE dispatch."dispatch"(
     "id" BIGSERIAL NOT NULL,
     "location_id" BIGINT NOT NULL,  -- cross-ref to another DB
-    "resource_id" BIGINT NOT NULL,  -- cross-ref to another DB
+    "resource_id" BIGINT NOT NULL,
     "time_interval_id" BIGINT NOT NULL
 );
 ALTER TABLE dispatch."dispatch"
     ADD PRIMARY KEY("id");
+ALTER TABLE dispatch."dispatch"
+    ADD CONSTRAINT "dispatch_resource_id_foreign"
+        FOREIGN KEY("resource_id")
+        REFERENCES dispatch."resource"("id");
 ALTER TABLE dispatch."dispatch"
     ADD CONSTRAINT "dispatch_time_interval_id_foreign"
         FOREIGN KEY("time_interval_id")
