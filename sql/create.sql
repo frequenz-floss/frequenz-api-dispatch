@@ -36,18 +36,6 @@ CREATE TYPE dispatch."dispatch_status" AS ENUM (
 );
 
 
---- When dispatch takes place
-CREATE TABLE dispatch."time_interval"(
-    "id" BIGSERIAL NOT NULL,
-    "start_time" TIMESTAMP(0) WITH TIME zone NOT NULL,
-    "end_time" TIMESTAMP(0) WITH TIME zone NOT NULL
-);
-ALTER TABLE dispatch."time_interval"
-    ADD PRIMARY KEY("id");
-CREATE UNIQUE INDEX "time_interval_unique_index"
-    ON dispatch."time_interval"("start_time", "end_time");
-
-
 --- Types of dispatch that can be requested
 CREATE TABLE dispatch."dispatch_type"(
     "id" BIGSERIAL NOT NULL,
@@ -64,7 +52,8 @@ CREATE TABLE dispatch."dispatch"(
     "id" BIGSERIAL NOT NULL,
     "location_id" BIGINT NOT NULL,  -- cross-ref to another DB
     "dispatch_type_id" BIGINT NOT NULL,
-    "time_interval_id" BIGINT NOT NULL
+    "start_time" TIMESTAMP(0) WITH TIME ZONE NOT NULL,
+    "end_time" TIMESTAMP(0) WITH TIME ZONE NOT NULL
 );
 ALTER TABLE dispatch."dispatch"
     ADD PRIMARY KEY("id");
@@ -72,15 +61,12 @@ ALTER TABLE dispatch."dispatch"
     ADD CONSTRAINT "dispatch_dispatch_type_id_foreign"
         FOREIGN KEY("dispatch_type_id")
         REFERENCES dispatch."dispatch_type"("id");
-ALTER TABLE dispatch."dispatch"
-    ADD CONSTRAINT "dispatch_time_interval_id_foreign"
-        FOREIGN KEY("time_interval_id")
-        REFERENCES dispatch."time_interval"("id");
 CREATE UNIQUE INDEX "dispatch_unique_index"
     ON dispatch."dispatch"(
         "location_id",
         "dispatch_type_id",
-        "time_interval_id"
+        "start_time",
+        "end_time"
     );
 
 
