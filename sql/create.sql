@@ -1,8 +1,4 @@
-/*******************************************************************************
-
-    (Re)create database (uncomment if needed)
-
-*******************************************************************************/
+-- (Re)create database (uncomment if needed)
 
 /*
 DROP DATABASE IF EXISTS dispatch;
@@ -22,19 +18,13 @@ CREATE DATABASE dispatch
 CREATE SCHEMA IF NOT EXISTS dispatch
     AUTHORIZATION postgres;
 
-
-/*******************************************************************************
-
-    Custom domains and types used in the schema
-
-*******************************************************************************/
+-- Custom domains and types used in the schema
 
 CREATE TYPE dispatch."dispatch_status" AS ENUM (
     'ACTIVE',
     'INACTIVE',
     'SIMULATED'
 );
-
 
 --- Types of dispatch that can be requested
 CREATE TABLE dispatch."dispatch_type"(
@@ -45,7 +35,6 @@ ALTER TABLE dispatch."dispatch_type"
     ADD PRIMARY KEY("id");
 CREATE UNIQUE INDEX "dispatch_type_unique_index"
     ON dispatch."dispatch_type"("type");
-
 
 --- Individual dispatches for specific locations and time intervals
 CREATE TABLE dispatch."dispatch"(
@@ -68,7 +57,6 @@ CREATE UNIQUE INDEX "dispatch_unique_index"
         "start_time",
         "end_time"
     );
-
 
 --- Modifications to the settings for individual dispatches
 CREATE TABLE dispatch."dispatch_modification"(
