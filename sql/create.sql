@@ -50,7 +50,7 @@ CREATE UNIQUE INDEX "dispatch_type_unique_index"
 --- Individual dispatches for specific locations and time intervals
 CREATE TABLE dispatch."dispatch"(
     "id" BIGSERIAL NOT NULL,
-    "location_id" BIGINT NOT NULL,  -- cross-ref to another DB
+    "microgrid_id" BIGINT NOT NULL,  -- cross-ref to another DB
     "dispatch_type_id" BIGINT NOT NULL,
     "start_time" TIMESTAMP(0) WITH TIME ZONE NOT NULL,
     "end_time" TIMESTAMP(0) WITH TIME ZONE NOT NULL
@@ -63,7 +63,7 @@ ALTER TABLE dispatch."dispatch"
         REFERENCES dispatch."dispatch_type"("id");
 CREATE UNIQUE INDEX "dispatch_unique_index"
     ON dispatch."dispatch"(
-        "location_id",
+        "microgrid_id",
         "dispatch_type_id",
         "start_time",
         "end_time"
