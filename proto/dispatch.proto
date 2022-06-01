@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package dispatch;
+
+import "google/protobuf/empty.proto";
+
+service Dispatch {
+    // Returns a list of all dispatches
+    rpc ListAllDispatches(google.protobuf.Empty) returns (DispatchList) {
+        option (google.api.http) = {
+            get: "/v1/dispatches"
+        };
+    }
+}
+
+// Message representing one dispatch
+message Dispatch {
+    // The dispatch identifier
+    uint64 id = 1;
+    // The microgrid identifier
+    uint64 microgrid_id = 2;
+    // The type of dispatch
+    string type = 3;
+    // The start time as unix timestamp
+    int64 start_time = 4;
+    // The end time as unix timestamp
+    int64 end_time = 5;
+}
+
+// A list of dispatches
+message DispatchList { repeated Dispatch dispatches = 1; }
