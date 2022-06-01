@@ -39,40 +39,34 @@ enum DispatchType {
     DISPATCH_TYPE_FCR = 4;
 }
 
-// Encapsulation of dispatch ID to be used as a parameter for RPC methods
-message DispatchIdParam { uint64 id = 1; }
+// Filter parameter for specifying multiple time intervals
+message TimeIntervalFilter {
+    // Filter by end_time >= this timestamp
+    google.protobuf.Timestamp from = 1;
 
-// Encapsulation of microgrid ID to be used as a parameter for RPC methods
-message MicrogridIdParam { uint64 id = 1; }
-
-// Encapsulation of component ID to be used as a parameter for RPC methods
-message ComponentIdParam { uint64 id = 1; }
-
-// Encapsulation of component type ID to be used as a parameter for RPC methods
-message ComponentTypeIdParam { uint64 id = 1; }
+    // Filter by start_time < this timestamp
+    google.protobuf.Timestamp to = 2;
+}
 
 // Parameters for filtering the dispatch list
 message DispatchFilter {
-    // Get a specific dispatch ID
-    DispatchIdParam id = 1;
+    // Filter by dispatch ID
+    repeated uint64 id = 1;
 
     // Filter by microgrid ID
-    MicrogridIdParam microgrid_id = 2;
+    repeated uint64 microgrid_id = 2;
 
     // Filter by dispatch type
-    DispatchType type = 3;
+    repeated DispatchType type = 3;
 
     // Filter by component ID
-    ComponentIdParam component_id = 4;
+    repeated uint64 component_id = 4;
 
     // Filter by component type ID
-    ComponentTypeIdParam component_type_id = 5;
+    repeated uint64 component_type_id = 5;
 
-    // Filter by end_time >= this timestamp
-    Timestamp from = 6;
-
-    // Filter by start_time < this timestamp
-    Timestamp to = 7;
+    // Filter by time interval
+    repeated TimeIntervalFilter time_interval = 6;
 }
 
 // Message representing one dispatch
