@@ -42,7 +42,7 @@ CREATE TABLE dispatch."dispatch"(
     "microgrid_id" BIGINT NOT NULL,  -- cross-ref to another DB
     "dispatch_type_id" BIGINT NOT NULL,
     "start_time" TIMESTAMP(0) WITH TIME ZONE NOT NULL,
-    "end_time" TIMESTAMP(0) WITH TIME ZONE NOT NULL,
+    "end_time" TIMESTAMP(0) WITH TIME ZONE NULL,
     "component_type_id" BIGINT[] NOT NULL DEFAULT '{}',  -- cross-refs to another DB
     "component_id" BIGINT[] NOT NULL DEFAULT '{}'  -- cross-refs to another DB
 );
@@ -52,7 +52,7 @@ ALTER TABLE dispatch."dispatch"
     ADD CONSTRAINT "dispatch_dispatch_type_id_foreign"
         FOREIGN KEY("dispatch_type_id")
         REFERENCES dispatch."dispatch_type"("id");
-CREATE UNIQUE INDEX "dispatch_unique_index"
+CREATE UNIQUE INDEX "dispatch_with_end_time_unique_index"
     ON dispatch."dispatch"(
         "microgrid_id",
         "dispatch_type_id",
@@ -60,7 +60,15 @@ CREATE UNIQUE INDEX "dispatch_unique_index"
         "end_time",
         "component_type_id",
         "component_id"
-    );
+    ) WHERE "end_time" IS NOT NULL;
+CREATE UNIQUE INDEX "dispatch_without_end_time_unique_index"
+    ON dispatch."dispatch"(
+        "microgrid_id",
+        "dispatch_type_id",
+        "start_time",
+        "component_type_id",
+        "component_id"
+    ) WHERE "end_time" IS NULL;
 
 --- Modifications to the settings for individual dispatches
 CREATE TABLE dispatch."dispatch_modification"(
