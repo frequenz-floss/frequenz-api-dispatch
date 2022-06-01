@@ -1,30 +1,61 @@
+// Dispatch gRPC API definition.
+//
+// Copyright:
+// Copyright 2022 Frequenz Energy-as-a-Service GmbH
+//
+// License:
+// All rights reserved.
+
 syntax = "proto3";
 
 package dispatch;
 
 import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
 
 service Dispatch {
     // Returns a list of all dispatches
-    rpc ListAllDispatches(google.protobuf.Empty) returns (DispatchList) {
+    rpc ListDispatches(google.protobuf.Empty) returns (DispatchList) {
         option (google.api.http) = {
             get: "/v1/dispatches"
         };
     }
 }
 
+// Possible dispatch types
+enum DispatchType {
+    // Unspecified dispatch type, used mainly for error handling
+    DISPATCH_TYPE_UNSPECIFIED = 0;
+
+    // Shutdown dispatch event
+    DISPATCH_TYPE_SHUTDOWN = 1;
+
+    // Charge battery dispatch event
+    DISPATCH_TYPE_BATTERY_CHARGE = 2;
+
+    // Discharge battery dispatch event
+    DISPATCH_TYPE_BATTERY_DISCHARGE = 3;
+
+    // Frequency containment reserve dispatch event
+    DISPATCH_TYPE_FCR = 4;
+}
+
 // Message representing one dispatch
 message Dispatch {
     // The dispatch identifier
     uint64 id = 1;
+
     // The microgrid identifier
     uint64 microgrid_id = 2;
+
     // The type of dispatch
-    string type = 3;
+    DispatchType type = 3;
+
     // The start time as unix timestamp
-    int64 start_time = 4;
+    google.protobuf.Timestamp start_time = 4;
+
     // The end time as unix timestamp
-    int64 end_time = 5;
+    google.protobuf.Timestamp end_time = 5;
 }
 
 // A list of dispatches
