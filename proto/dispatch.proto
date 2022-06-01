@@ -10,12 +10,11 @@ syntax = "proto3";
 
 package dispatch;
 
-import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 
 service Dispatch {
     // Returns a list of all dispatches
-    rpc ListDispatches(google.protobuf.Empty) returns (DispatchList) {
+    rpc ListDispatches(DispatchFilter) returns (DispatchList) {
         option (google.api.http) = {
             get: "/v1/dispatches"
         };
@@ -38,6 +37,24 @@ enum DispatchType {
 
     // Frequency containment reserve dispatch event
     DISPATCH_TYPE_FCR = 4;
+}
+
+// Parameters for filtering the dispatch list
+message DispatchFilter {
+    // Get a specific dispatch ID
+    uint64 id = 1;
+
+    // Filter by microgrid ID
+    uint64 microgrid_id = 2;
+
+    // Filter by dispatch type
+    DispatchType type = 3;
+
+    // Filter by end_time >= this timestamp
+    Timestamp from = 4;
+
+    // Filter by start_time < this timestamp
+    Timestamp to = 5;
 }
 
 // Message representing one dispatch
