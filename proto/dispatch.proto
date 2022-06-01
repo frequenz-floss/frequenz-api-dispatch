@@ -39,13 +39,19 @@ enum DispatchType {
     DISPATCH_TYPE_FCR = 4;
 }
 
+// Encapsulation of dispatch ID to be used as a parameter for rpc methods
+message DispatchIdParam { uint64 id = 1; }
+
+// Encapsulation of microgrid ID to be used as a parameter for rpc methods
+message MicrogridIdParam { uint64 id = 1; }
+
 // Parameters for filtering the dispatch list
 message DispatchFilter {
     // Get a specific dispatch ID
-    uint64 id = 1;
+    DispatchIdParam id = 1;
 
     // Filter by microgrid ID
-    uint64 microgrid_id = 2;
+    MicrogridIdParam microgrid_id = 2;
 
     // Filter by dispatch type
     DispatchType type = 3;
