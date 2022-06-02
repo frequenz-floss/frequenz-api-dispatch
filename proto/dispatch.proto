@@ -10,6 +10,7 @@ syntax = "proto3";
 
 package dispatch;
 
+import "google/api/annotations.proto";
 import "google/protobuf/timestamp.proto";
 
 service DispatchService {
