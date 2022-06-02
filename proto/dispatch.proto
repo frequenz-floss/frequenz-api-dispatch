@@ -12,7 +12,7 @@ package dispatch;
 
 import "google/protobuf/timestamp.proto";
 
-service Dispatch {
+service DispatchService {
     // Returns a list of all dispatches
     rpc ListDispatches(DispatchFilter) returns (DispatchList) {
         option (google.api.http) = {
