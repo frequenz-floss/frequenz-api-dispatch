@@ -11,6 +11,7 @@ syntax = "proto3";
 package dispatch;
 
 import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 
 service DispatchService {
@@ -18,6 +19,13 @@ service DispatchService {
     rpc ListDispatches(DispatchFilter) returns (DispatchList) {
         option (google.api.http) = {
             get: "/v1/dispatches"
+        };
+    }
+
+    // Create a new dispatch
+    rpc CreateDispatch(DispatchCreateRequest) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            post: "/v1/dispatches"
         };
     }
 }
@@ -90,3 +98,18 @@ message Dispatch {
 
 // A list of dispatches
 message DispatchList { repeated Dispatch dispatches = 1; }
+
+// Message to create a new dispatch with the given attributes
+message DispatchCreateRequest {
+    // The microgrid identifier
+    uint64 microgrid_id = 1;
+
+    // The type of dispatch
+    DispatchType type = 2;
+
+    // The start time
+    google.protobuf.Timestamp start_time = 3;
+
+    // The end time
+    google.protobuf.Timestamp end_time = 4;
+}
