@@ -81,10 +81,10 @@ message Dispatch {
     // The type of dispatch
     DispatchType type = 3;
 
-    // The start time as unix timestamp
+    // The start time
     google.protobuf.Timestamp start_time = 4;
 
-    // The end time as unix timestamp
+    // The end time
     google.protobuf.Timestamp end_time = 5;
 }
 
