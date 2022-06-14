@@ -78,6 +78,15 @@ message DispatchFilter {
     repeated TimeIntervalFilter time_interval = 6;
 }
 
+// Component ID and type ID pair
+message DispatchComponent {
+    // The component ID
+    uint64 id = 1;
+
+    // The component type
+    uint64 type = 2;
+}
+
 // Message representing one dispatch
 message Dispatch {
     // The dispatch identifier
@@ -94,6 +103,9 @@ message Dispatch {
 
     // The end time
     google.protobuf.Timestamp end_time = 5;
+
+    // The components
+    repeated DispatchComponent components = 6;
 }
 
 // A list of dispatches
@@ -112,4 +124,7 @@ message DispatchCreateRequest {
 
     // The end time
     google.protobuf.Timestamp end_time = 4;
+
+    // The components
+    repeated DispatchComponent components = 5;
 }
