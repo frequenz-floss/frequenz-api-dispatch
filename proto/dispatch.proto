@@ -75,7 +75,7 @@ message DispatchFilter {
     repeated uint64 component_type_id = 5;
 
     // Filter by time interval
-    repeated TimeIntervalFilter time_interval = 6;
+    TimeIntervalFilter time_interval = 6;
 }
 
 // Component ID and type ID pair
