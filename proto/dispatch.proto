@@ -12,6 +12,7 @@ package dispatch;
 
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
 service DispatchService {
@@ -46,6 +47,21 @@ enum DispatchType {
 
     // Frequency containment reserve dispatch event
     DISPATCH_TYPE_FCR = 4;
+}
+
+// Possible dispatch statuses
+enum DispatchStatus {
+    // Unspecified dispatch status, used mainly for error handling
+    DISPATCH_STATUS_UNSPECIFIED = 0;
+
+    // Active dispatch status
+    DISPATCH_STATUS_ACTIVE = 1;
+
+    // Inactive dispatch status
+    DISPATCH_STATUS_INACTIVE = 2;
+
+    // Simulated dispatch status
+    DISPATCH_STATUS_SIMULATED = 3;
 }
 
 // Filter parameter for specifying multiple time intervals
@@ -100,6 +116,15 @@ message Dispatch {
 
     // The component type IDs
     repeated uint64 component_type_id = 7;
+
+    // The creation time
+    google.protobuf.Timestamp create_time = 8;
+
+    // The dispatch status
+    DispatchStatus status = 9;
+
+    // The dispatch settings, dynamic JSON
+    google.protobuf.Struct settings = 10;
 }
 
 // A list of dispatches
@@ -124,4 +149,10 @@ message DispatchCreateRequest {
 
     // The component type IDs
     repeated uint64 component_type_id = 6;
+
+    // The dispatch status
+    DispatchStatus status = 7;
+
+    // The dispatch settings, dynamic JSON
+    google.protobuf.Struct settings = 8;
 }

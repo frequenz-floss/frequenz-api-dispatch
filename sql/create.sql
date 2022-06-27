@@ -44,7 +44,10 @@ CREATE TABLE dispatch."dispatch"(
     "start_time" TIMESTAMP(0) WITH TIME ZONE NOT NULL,
     "end_time" TIMESTAMP(0) WITH TIME ZONE NULL,
     "component_type_id" BIGINT[] NOT NULL DEFAULT '{}',  -- cross-refs to another DB
-    "component_id" BIGINT[] NOT NULL DEFAULT '{}'  -- cross-refs to another DB
+    "component_id" BIGINT[] NOT NULL DEFAULT '{}',  -- cross-refs to another DB
+    "create_time" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT current_timestamp,
+    "status" dispatch."dispatch_status" NOT NULL,
+    "settings" JSON NULL  -- contents determined by dispatch type
 );
 ALTER TABLE dispatch."dispatch"
     ADD PRIMARY KEY("id");
@@ -69,18 +72,3 @@ CREATE UNIQUE INDEX "dispatch_without_end_time_unique_index"
         "component_type_id",
         "component_id"
     ) WHERE "end_time" IS NULL;
-
---- Modifications to the settings for individual dispatches
-CREATE TABLE dispatch."dispatch_modification"(
-    "id" BIGSERIAL NOT NULL,
-    "create_time" TIMESTAMP WITH TIME zone NOT NULL DEFAULT current_timestamp,
-    "dispatch_id" BIGINT NOT NULL,
-    "status" dispatch."dispatch_status" NOT NULL,
-    "settings" JSON NULL  -- contents determined by dispatch type
-);
-ALTER TABLE dispatch."dispatch_modification"
-    ADD PRIMARY KEY("id");
-ALTER TABLE dispatch."dispatch_modification"
-    ADD CONSTRAINT "dispatch_modification_dispatch_id_foreign"
-        FOREIGN KEY("dispatch_id")
-        REFERENCES dispatch."dispatch"("id");
