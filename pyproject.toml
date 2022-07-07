@@ -1,0 +1,8 @@
+[build-system]
+requires = [
+    "grpcio-tools >= 1.33.2, < 2",
+    "setuptools >= 60.10.0, < 62",
+    "setuptools_scm[toml] >= 6.4.2, < 7",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
