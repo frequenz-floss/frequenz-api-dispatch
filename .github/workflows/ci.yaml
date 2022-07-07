@@ -1,0 +1,32 @@
+name: frequenz-api-dispatch
+
+on: [pull_request, push, release]
+
+jobs:
+  tests:
+    strategy:
+      matrix:
+        os:
+          - ubuntu-20.04
+        python-version:
+          - 3.7
+          - 3.8
+          - 3.9
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Fetch sources
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install required Python packages
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install tox
+      - name: run tox
+        run: tox -r
