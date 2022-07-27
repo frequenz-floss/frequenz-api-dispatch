@@ -1,3 +1,4 @@
 build/*
 py/frequenz_api_dispatch.egg-info/*
 py/fz_api/*
+.tox/*
