@@ -28,7 +28,7 @@ setuptools.setup(
     cmdclass={"build_py": BuildProto},
     install_requires=[
         "googleapis-common-protos >= 1.50.0, < 2",
-        "grpcio >= 1.33.2, < 2",
+        "grpcio >= 1.47, < 2",
     ],
     package_dir={"": "py"},
     packages=setuptools.find_namespace_packages(where="py"),
