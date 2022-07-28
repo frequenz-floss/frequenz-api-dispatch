@@ -29,6 +29,7 @@ setuptools.setup(
     install_requires=[
         "googleapis-common-protos >= 1.50.0, < 2",
         "grpcio >= 1.47, < 2",
+        "protobuf >= 3.19, < 4",
     ],
     package_dir={"": "py"},
     packages=setuptools.find_namespace_packages(where="py"),
