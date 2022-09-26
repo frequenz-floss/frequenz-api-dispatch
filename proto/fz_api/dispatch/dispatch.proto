@@ -47,6 +47,16 @@ enum DispatchType {
 
     // Frequency containment reserve dispatch event
     DISPATCH_TYPE_FCR = 4;
+
+    // FCR prequalification test - charge
+    // This dispatch type starts a charge-based FCR prequalifcation test
+    // To charge a battery, use BATTERY_CHARGE
+    DISPATCH_TYPE_FCR_TEST_CHARGE = 5;
+
+    // FCR prequalification test - discharge
+    // This dispatch type starts a discharge-based FCR prequalifcation test
+    // To discharge a battery, use BATTERY_DISCHARGE
+    DISPATCH_TYPE_FCR_TEST_DISCHARGE = 6;
 }
 
 // Possible dispatch statuses
