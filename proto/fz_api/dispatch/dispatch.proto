@@ -15,6 +15,8 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
+import "frequenz/api/microgrid/microgrid.proto";
+
 service DispatchService {
     // Returns a list of all dispatches
     rpc ListDispatches(DispatchFilter) returns (DispatchList) {
@@ -98,7 +100,7 @@ message DispatchFilter {
     repeated uint64 component_id = 4;
 
     // Filter by component category ID
-    repeated uint64 component_category_id = 5;
+    repeated frequenz.api.microgrid.ComponentCategory component_category_id = 5;
 
     // Filter by time interval
     TimeIntervalFilter time_interval = 6;
@@ -125,7 +127,7 @@ message Dispatch {
     repeated uint64 component_id = 6;
 
     // The component category IDs
-    repeated uint64 component_category_id = 7;
+    repeated frequenz.api.microgrid.ComponentCategory component_category_id = 7;
 
     // The creation time
     google.protobuf.Timestamp create_time = 8;
@@ -158,7 +160,7 @@ message DispatchCreateRequest {
     repeated uint64 component_id = 5;
 
     // The component category IDs
-    repeated uint64 component_category_id = 6;
+    repeated frequenz.api.microgrid.ComponentCategory component_category_id = 6;
 
     // The dispatch status
     DispatchStatus status = 7;
