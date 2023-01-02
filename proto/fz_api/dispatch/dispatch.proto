@@ -97,8 +97,8 @@ message DispatchFilter {
     // Filter by component ID
     repeated uint64 component_id = 4;
 
-    // Filter by component type ID
-    repeated uint64 component_type_id = 5;
+    // Filter by component category ID
+    repeated uint64 component_category_id = 5;
 
     // Filter by time interval
     TimeIntervalFilter time_interval = 6;
@@ -124,8 +124,8 @@ message Dispatch {
     // The component IDs
     repeated uint64 component_id = 6;
 
-    // The component type IDs
-    repeated uint64 component_type_id = 7;
+    // The component category IDs
+    repeated uint64 component_category_id = 7;
 
     // The creation time
     google.protobuf.Timestamp create_time = 8;
@@ -157,8 +157,8 @@ message DispatchCreateRequest {
     // The component IDs
     repeated uint64 component_id = 5;
 
-    // The component type IDs
-    repeated uint64 component_type_id = 6;
+    // The component category IDs
+    repeated uint64 component_category_id = 6;
 
     // The dispatch status
     DispatchStatus status = 7;
