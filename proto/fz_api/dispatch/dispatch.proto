@@ -100,6 +100,7 @@ message DispatchFilter {
     repeated uint64 component_id = 4;
 
     // Filter by component category ID
+    // Component categories should be one of inverter, battery, EV charger, etc
     repeated frequenz.api.microgrid.ComponentCategory component_category_id = 5;
 
     // Filter by time interval
@@ -127,6 +128,7 @@ message Dispatch {
     repeated uint64 component_id = 6;
 
     // The component category IDs
+    // Component categories should be one of inverter, battery, EV charger, etc
     repeated frequenz.api.microgrid.ComponentCategory component_category_id = 7;
 
     // The creation time
@@ -160,6 +162,7 @@ message DispatchCreateRequest {
     repeated uint64 component_id = 5;
 
     // The component category IDs
+    // Component categories should be one of inverter, battery, EV charger, etc
     repeated frequenz.api.microgrid.ComponentCategory component_category_id = 6;
 
     // The dispatch status
