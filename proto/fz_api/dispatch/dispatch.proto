@@ -31,6 +31,13 @@ service DispatchService {
             post: "/v1/dispatches"
         };
     }
+
+    // Update a dispatch
+    rpc UpdateDispatch(DispatchUpdateRequest) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            patch: "/v1/dispatches"
+        };
+    }
 }
 
 // Possible dispatch types
@@ -170,4 +177,38 @@ message DispatchCreateRequest {
 
     // The dispatch settings, dynamic JSON
     google.protobuf.Struct settings = 8;
+}
+
+// Message to update the dispatch with the given ID, with the given attributes
+message DispatchUpdateRequest {
+    // The dispatch identifier
+    uint64 id = 1;
+
+    // The microgrid identifier
+    uint64 microgrid_id = 2;
+
+    // The type of dispatch
+    DispatchType type = 3;
+
+    // The start time
+    google.protobuf.Timestamp start_time = 4;
+
+    // The end time
+    google.protobuf.Timestamp end_time = 5;
+
+    // The component IDs
+    repeated uint64 component_id = 6;
+
+    // The component category IDs
+    // Component categories should be one of inverter, battery, EV charger, etc
+    repeated frequenz.api.microgrid.ComponentCategory component_category_id = 7;
+
+    // The creation time
+    google.protobuf.Timestamp create_time = 8;
+
+    // The dispatch status
+    DispatchStatus status = 9;
+
+    // The dispatch settings, dynamic JSON
+    google.protobuf.Struct settings = 10;
 }
