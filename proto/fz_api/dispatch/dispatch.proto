@@ -104,11 +104,11 @@ message DispatchFilter {
     repeated DispatchType type = 3;
 
     // Filter by component ID
-    repeated uint64 component_id = 4;
+    repeated uint64 component_ids = 4;
 
     // Filter by component category ID
     // Component categories should be one of inverter, battery, EV charger, etc
-    repeated frequenz.api.microgrid.ComponentCategory component_category_id = 5;
+    repeated frequenz.api.microgrid.ComponentCategory component_category_ids = 5;
 
     // Filter by time interval
     TimeIntervalFilter time_interval = 6;
@@ -132,11 +132,11 @@ message Dispatch {
     google.protobuf.Timestamp end_time = 5;
 
     // The component IDs
-    repeated uint64 component_id = 6;
+    repeated uint64 component_ids = 6;
 
     // The component category IDs
     // Component categories should be one of inverter, battery, EV charger, etc
-    repeated frequenz.api.microgrid.ComponentCategory component_category_id = 7;
+    repeated frequenz.api.microgrid.ComponentCategory component_category_ids = 7;
 
     // The creation time
     google.protobuf.Timestamp create_time = 8;
@@ -166,11 +166,11 @@ message DispatchCreateRequest {
     google.protobuf.Timestamp end_time = 4;
 
     // The component IDs
-    repeated uint64 component_id = 5;
+    repeated uint64 component_ids = 5;
 
     // The component category IDs
     // Component categories should be one of inverter, battery, EV charger, etc
-    repeated frequenz.api.microgrid.ComponentCategory component_category_id = 6;
+    repeated frequenz.api.microgrid.ComponentCategory component_category_ids = 6;
 
     // The dispatch status
     DispatchStatus status = 7;
@@ -197,11 +197,11 @@ message DispatchUpdateRequest {
     google.protobuf.Timestamp end_time = 5;
 
     // The component IDs
-    repeated uint64 component_id = 6;
+    repeated uint64 component_ids = 6;
 
     // The component category IDs
     // Component categories should be one of inverter, battery, EV charger, etc
-    repeated frequenz.api.microgrid.ComponentCategory component_category_id = 7;
+    repeated frequenz.api.microgrid.ComponentCategory component_category_ids = 7;
 
     // The creation time
     google.protobuf.Timestamp create_time = 8;
