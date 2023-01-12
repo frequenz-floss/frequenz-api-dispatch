@@ -85,11 +85,17 @@ enum DispatchStatus {
 
 // Filter parameter for specifying multiple time intervals
 message TimeIntervalFilter {
-    // Filter by end_time >= this timestamp
-    google.protobuf.Timestamp from = 1;
+    // Filter by start_time >= this timestamp
+    google.protobuf.Timestamp start_from = 1;
 
     // Filter by start_time < this timestamp
-    google.protobuf.Timestamp to = 2;
+    google.protobuf.Timestamp start_to = 2;
+
+    // Filter by end_time >= this timestamp
+    google.protobuf.Timestamp end_from = 3;
+
+    // Filter by end_time < this timestamp
+    google.protobuf.Timestamp end_to = 4;
 }
 
 // Parameters for filtering the dispatch list
