@@ -27,9 +27,8 @@ setuptools.setup(
     use_scm_version={"version_scheme": "post-release"},
     cmdclass={"build_py": BuildProto},
     install_requires=[
-        "googleapis-common-protos >= 1.50.0, < 2",
-        "grpcio >= 1.47, < 2",
-        "protobuf >= 3.19, < 4",
+        "googleapis-common-protos ~= 1.56.2",
+        "grpcio ~= 1.51.0",
     ],
     package_dir={"": "py"},
     packages=setuptools.find_namespace_packages(where="py"),
