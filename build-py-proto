@@ -14,7 +14,6 @@ protos="$(find ./proto -type f -name "*.proto")"
 python -m grpc_tools.protoc \
     -I proto \
     -I submodules/api-common-protos \
-    -I submodules/frequenz-api-microgrid/proto \
     --python_out=py \
     --grpc_python_out=py \
     ${protos}

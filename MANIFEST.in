@@ -1,3 +1,2 @@
 recursive-include submodules/api-common-protos/google *.proto
-recursive-include submodules/frequenz-api-microgrid/proto/frequenz *.proto
 exclude tox.ini

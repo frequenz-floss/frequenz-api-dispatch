@@ -1,6 +1,3 @@
 [submodule "submodules/api-common-protos"]
 	path = submodules/api-common-protos
 	url = git@github.com:googleapis/api-common-protos.git
-[submodule "submodules/frequenz-api-microgrid"]
-	path = submodules/frequenz-api-microgrid
-	url = git@github.com:frequenz-floss/frequenz-api-microgrid.git
