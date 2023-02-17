@@ -2,8 +2,8 @@
 requires = [
     "grpcio-tools >= 1.47, < 2",
     "protobuf >= 3.19, < 4",
-    "setuptools >= 60.10.0, < 62",
-    "setuptools_scm[toml] >= 6.4.2, < 7",
+    "setuptools >= 67.3.2, < 68",
+    "setuptools_scm[toml] >= 7.1.0, < 8",
     "wheel"
 ]
 build-backend = "setuptools.build_meta"
