@@ -1,4 +1,7 @@
 build/*
 py/frequenz_api_dispatch.egg-info/*
-py/fz_api/*
+py/fz_api/**/*_pb2.py
+py/fz_api/**/*_pb2.pyi
+py/fz_api/**/*_pb2_grpc.py
+py/fz_api/**/*_pb2_grpc.pyi
 .tox/*
