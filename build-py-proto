@@ -15,5 +15,7 @@ python -m grpc_tools.protoc \
     -I proto \
     -I submodules/api-common-protos \
     --python_out=py \
+    --mypy_out=py \
     --grpc_python_out=py \
+    --mypy_grpc_out=py \
     ${protos}

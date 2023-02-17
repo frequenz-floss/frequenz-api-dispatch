@@ -1,7 +1,8 @@
 [build-system]
 requires = [
-    "grpcio-tools >= 1.47, < 2",
-    "protobuf >= 3.19, < 4",
+    "mypy-protobuf >= 3.4.0, < 4",
+    "grpcio-tools >= 1.50, < 2",
+    "protobuf >= 4.21.8, < 5",
     "setuptools >= 67.3.2, < 68",
     "setuptools_scm[toml] >= 7.1.0, < 8",
     "wheel"

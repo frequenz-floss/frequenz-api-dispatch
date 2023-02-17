@@ -31,6 +31,13 @@ setuptools.setup(
         "grpcio ~= 1.51.0",
     ],
     package_dir={"": "py"},
+    include_package_data=True,
+    package_data={
+        "fz_api.dispatch": [
+            "py.typed",
+            "*.pyi",
+            ],
+        },
     packages=setuptools.find_namespace_packages(where="py"),
     python_requires=">= 3.7, < 4",
 )
