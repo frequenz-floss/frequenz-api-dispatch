@@ -236,16 +236,16 @@ message DispatchUpdateRequest {
     uint64 id = 1;
 
     // The microgrid identifier
-    uint64 microgrid_id = 2;
+    optional uint64 microgrid_id = 2;
 
     // The type of dispatch
-    DispatchType type = 3;
+    optional DispatchType type = 3;
 
     // The start time
-    google.protobuf.Timestamp start_time = 4;
+    optional google.protobuf.Timestamp start_time = 4;
 
     // The end time
-    google.protobuf.Timestamp end_time = 5;
+    optional google.protobuf.Timestamp end_time = 5;
 
     // The component IDs
     repeated uint64 component_ids = 6;
@@ -255,11 +255,11 @@ message DispatchUpdateRequest {
     repeated ComponentCategory component_category_ids = 7;
 
     // The creation time
-    google.protobuf.Timestamp create_time = 8;
+    optional google.protobuf.Timestamp create_time = 8;
 
     // The dispatch status
-    DispatchStatus status = 9;
+    optional DispatchStatus status = 9;
 
     // The dispatch settings, dynamic JSON
-    google.protobuf.Struct settings = 10;
+    optional google.protobuf.Struct settings = 10;
 }
