@@ -4,6 +4,7 @@ py/fz_api/**/*_pb2.py
 py/fz_api/**/*_pb2.pyi
 py/fz_api/**/*_pb2_grpc.py
 py/fz_api/**/*_pb2_grpc.pyi
+*.egg-info
 .nox/*
 __pycache__
 .coverage

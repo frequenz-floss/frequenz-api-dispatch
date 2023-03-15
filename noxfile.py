@@ -63,31 +63,6 @@ def pylint(session: nox.Session) -> None:
     )
 
 
-# This doesn't include the entire src/ folder because the instantaneous_peak_shaving actor
-# is still not ready to be checked
-@nox.session
-def mypy(session: nox.Session) -> None:
-    """Check code with mypy.
-
-    Args:
-        session: the nox session.
-    """
-    session.install(
-        ".",
-        "nox",
-        *MYPY_DEPS,
-    )
-    session.run(
-        "mypy",
-        "--ignore-missing-imports",
-        "--install-types",
-        "--namespace-packages",
-        "--non-interactive",
-        "--strict",
-        *_source_file_paths(session),
-    )
-
-
 @nox.session
 def docstrings(session: nox.Session, install_deps: bool = True) -> None:
     """Check docstring tone with pydocstyle and param descriptions with darglint.
