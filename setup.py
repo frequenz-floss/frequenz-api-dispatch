@@ -3,7 +3,7 @@
 Copyright © 2022 Frequenz Energy-as-a-Service GmbH.
 """
 
-from distutils.command.build_py import build_py
+from distutils.command.build_py import build_py # pylint: disable=deprecated-module
 import sys
 import subprocess
 
@@ -13,7 +13,7 @@ import setuptools
 class BuildProto(build_py):
     """Command class to build the Python protobuf files."""
 
-    def run(self):
+    def run(self) -> None:
         """Build the Python protobuf files and run regular `build_py`."""
         subprocess.check_call(["./build-py-proto", sys.executable], shell=True)
         build_py.run(self)
