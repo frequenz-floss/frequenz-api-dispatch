@@ -12,7 +12,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "frequenz-api-dispatch-spec"
+name = "frequenz-api-dispatch"
 description = "Frequenz API dispatch spec"
 readme = "README.md"
 license = { text = "MIT" }
