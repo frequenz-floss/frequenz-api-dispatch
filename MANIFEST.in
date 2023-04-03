@@ -1,2 +1,7 @@
+exclude .gitignore
+exclude .gitmodules
+exclude CODEOWNERS
+exclude noxfile.py
+recursive-exclude .github *
+recursive-exclude pytests *
 recursive-include submodules/api-common-protos/google *.proto
-exclude tox.ini
