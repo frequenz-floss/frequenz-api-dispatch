@@ -43,7 +43,7 @@ def formatting(session: nox.Session, install_deps: bool = True) -> None:
     if install_deps:
         session.install(*FMT_DEPS)
 
-    session.run("black", "--check", "--diff", "py", "pytests", "noxfile.py")
+    session.run("black", "--check", "--diff", "pytests", "noxfile.py")
 
 
 # This doesn't include the entire src/ folder because the instantaneous_peak_shaving actor

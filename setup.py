@@ -30,7 +30,7 @@ class CompileProto(setuptools.Command):
             + """-m grpc_tools.protoc
                     -I submodules/api-common-protos
                     -I proto
-                    -I proto/fz_api/dispatch
+                    -I proto/frequenz.api.dispatch
                     --python_out=py
                     --grpc_python_out=py
                     --mypy_out=py

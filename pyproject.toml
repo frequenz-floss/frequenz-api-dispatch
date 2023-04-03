@@ -40,4 +40,4 @@ dynamic = [ "version" ]
 "" = "py"
 
 [tool.setuptools.package-data]
-"fz_api.dispatch" = [ "py.typed", "*.pyi" ]
+"frequenz.api.dispatch" = [ "py.typed", "*.pyi" ]
