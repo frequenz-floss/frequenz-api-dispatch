@@ -37,6 +37,12 @@ dynamic = ["version"]
 name = "Frequenz Energy-as-a-Service GmbH"
 email = "floss@frequenz.com"
 
+[project.urls]
+Changelog = "https://github.com/frequenz-floss/frequenz-api-dispatch/releases"
+Repository = "https://github.com/frequenz-floss/frequenz-api-dispatch"
+Issues = "https://github.com/frequenz-floss/frequenz-api-dispatch/issues"
+Support = "https://github.com/frequenz-floss/frequenz-api-dispatch/discussions/categories/support"
+
 [tool.setuptools.package-dir]
 "" = "py"
 
