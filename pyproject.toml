@@ -1,13 +1,13 @@
 [build-system]
 requires = [
-    "mypy-protobuf >= 3.4.0, < 4",
-    "grpcio-tools >= 1.50, < 2",
-    "protobuf >= 4.21.8, < 5",
-    "setuptools >= 67.3.2, < 68",
-    "setuptools-protobuf >= 0.1.6, < 0.2.0",
-    "setuptools_scm[toml] >= 7.1.0, < 8",
-    "setuptools-protobuf",
-    "wheel"
+  "mypy-protobuf >= 3.4.0, < 4",
+  "grpcio-tools >= 1.50, < 2",
+  "protobuf >= 4.21.8, < 5",
+  "setuptools >= 67.3.2, < 68",
+  "setuptools-protobuf >= 0.1.6, < 0.2.0",
+  "setuptools_scm[toml] >= 7.1.0, < 8",
+  "setuptools-protobuf",
+  "wheel",
 ]
 build-backend = "setuptools.build_meta"
 
@@ -16,28 +16,28 @@ name = "frequenz-api-dispatch"
 description = "Frequenz API dispatch spec"
 readme = "README.md"
 license = { text = "MIT" }
-keywords = [ "frequenz", "api", "microgrid", "grpc" ]
+keywords = ["frequenz", "api", "microgrid", "grpc"]
 classifiers = [
-   "Development Status :: 3 - Alpha",
-   "Intended Audience :: Developers",
-   "License :: OSI Approved :: MIT License",
-   "Programming Language :: Python :: 3",
-   "Programming Language :: Python :: 3 :: Only",
-   "Programming Language :: Python :: 3.7",
-   "Programming Language :: Python :: 3.8",
-   "Programming Language :: Python :: 3.9",
-   "Programming Language :: Python :: 3.10",
-   "Topic :: Software Development :: Libraries",
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Topic :: Software Development :: Libraries",
 ]
 requires-python = ">= 3.7, < 4"
 dependencies = [
-    "googleapis-common-protos >= 1.56.2, < 2",
-    "grpcio >= 1.51.1, < 2",
+  "googleapis-common-protos >= 1.56.2, < 2",
+  "grpcio >= 1.51.1, < 2",
 ]
-dynamic = [ "version" ]
+dynamic = ["version"]
 
 [tool.setuptools.package-dir]
 "" = "py"
 
 [tool.setuptools.package-data]
-"frequenz.api.dispatch" = [ "py.typed", "*.pyi" ]
+"frequenz.api.dispatch" = ["py.typed", "*.pyi"]
