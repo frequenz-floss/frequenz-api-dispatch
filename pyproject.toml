@@ -32,6 +32,10 @@ dependencies = [
 ]
 dynamic = ["version"]
 
+[[project.authors]]
+name = "Frequenz Energy-as-a-Service GmbH"
+email = "floss@frequenz.com"
+
 [tool.setuptools.package-dir]
 "" = "py"
 
