@@ -41,3 +41,6 @@ email = "floss@frequenz.com"
 
 [tool.setuptools.package-data]
 "frequenz.api.dispatch" = ["py.typed", "*.pyi"]
+
+[tool.setuptools_scm]
+version_scheme = "post-release"
