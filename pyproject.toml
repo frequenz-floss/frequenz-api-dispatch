@@ -46,5 +46,8 @@ Support = "https://github.com/frequenz-floss/frequenz-api-dispatch/discussions/c
 [tool.setuptools.package-dir]
 "" = "py"
 
+[tool.setuptools.package-data]
+"*" = ["*.pyi"]
+
 [tool.setuptools_scm]
 version_scheme = "post-release"
