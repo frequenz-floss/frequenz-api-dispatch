@@ -47,3 +47,6 @@ Support = "https://github.com/frequenz-floss/frequenz-api-dispatch/discussions/c
 
 [tool.setuptools_scm]
 version_scheme = "post-release"
+
+[tools.pytest.ini_options]
+testpaths = ["pytests"]
