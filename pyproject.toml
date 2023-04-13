@@ -1,9 +1,8 @@
 [build-system]
 requires = [
-  "mypy-protobuf >= 3.4.0, < 4",
-  "grpcio-tools >= 1.50, < 2",
   "setuptools >= 67.3.2, < 68",
   "setuptools_scm[toml] >= 7.1.0, < 8",
+  "frequenz-repo-config[api] == 0.1.0",
 ]
 build-backend = "setuptools.build_meta"
 
@@ -32,6 +31,25 @@ dynamic = ["version"]
 [[project.authors]]
 name = "Frequenz Energy-as-a-Service GmbH"
 email = "floss@frequenz.com"
+
+[project.optional-dependencies]
+dev-docstrings = ["pydocstyle == 6.3.0", "darglint == 1.8.1"]
+dev-formatting = ["black == 23.3.0", "isort == 5.12.0"]
+dev-mypy = [
+  "mypy == 1.1.1",
+  # For checking the noxfile and tests
+  "frequenz-api-dispatch[dev-noxfile,dev-pytest]",
+]
+dev-noxfile = ["nox == 2022.11.21", "frequenz-repo-config[api] == 0.1.0"]
+dev-pylint = [
+  "pylint == 2.17.1",
+  # For checking the noxfile and tests
+  "frequenz-api-dispatch[dev-noxfile,dev-pytest]",
+]
+dev-pytest = ["pytest == 7.2.2"]
+dev = [
+  "frequenz-api-dispatch[dev-docstrings,dev-formatting,dev-mypy,dev-noxfile,dev-pylint,dev-pytest]",
+]
 
 [project.urls]
 Changelog = "https://github.com/frequenz-floss/frequenz-api-dispatch/releases"

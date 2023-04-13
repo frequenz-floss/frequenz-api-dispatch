@@ -1,2 +1,0 @@
-googleapis-common-protos ~= 1.56.2
-grpcio ~= 1.51.1
