@@ -15,6 +15,8 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
+import "frequenz/api/dispatch/fcr/prequalification.proto";
+
 service DispatchService {
     // Returns a list of all dispatches
     rpc ListDispatches(DispatchFilter) returns (DispatchList) {
@@ -55,15 +57,11 @@ enum DispatchType {
     // Frequency containment reserve dispatch event
     DISPATCH_TYPE_FCR = 4;
 
-    // FCR prequalification test - charge
-    // This dispatch type starts a charge-based FCR prequalifcation test
-    // To charge a battery, use BATTERY_CHARGE
-    DISPATCH_TYPE_FCR_TEST_CHARGE = 5;
+    // FCR prequalification, charge test
+    DISPATCH_TYPE_FCR_PREQUALIFICATION_CHARGE = 5;
 
-    // FCR prequalification test - discharge
-    // This dispatch type starts a discharge-based FCR prequalifcation test
-    // To discharge a battery, use BATTERY_DISCHARGE
-    DISPATCH_TYPE_FCR_TEST_DISCHARGE = 6;
+    // FCR prequalification, discharge test
+    DISPATCH_TYPE_FCR_PREQUALIFICATION_DISCHARGE = 6;
 }
 
 // Possible dispatch statuses
@@ -126,7 +124,7 @@ enum ComponentCategory {
     // A node in the circuit, where all connections meet.
     // Note that this will be removed in the next release.
     COMPONENT_CATEGORY_JUNCTION = 15;
-  }
+}
 
 // Filter parameter for specifying multiple time intervals
 message TimeIntervalFilter {
@@ -165,6 +163,12 @@ message DispatchFilter {
     TimeIntervalFilter time_interval = 6;
 }
 
+message DispatchSettings {
+    oneof settings {
+        dispatch.fcr.prequalification.FcrPrequalificationSettings fcr_prequal_settings = 1;
+    }
+}
+
 // Message representing one dispatch
 message Dispatch {
     // The dispatch identifier
@@ -195,8 +199,8 @@ message Dispatch {
     // The dispatch status
     DispatchStatus status = 9;
 
-    // The dispatch settings, dynamic JSON
-    google.protobuf.Struct settings = 10;
+    // The dispatch settings
+    DispatchSettings settings = 10;
 }
 
 // A list of dispatches
@@ -226,8 +230,8 @@ message DispatchCreateRequest {
     // The dispatch status
     DispatchStatus status = 7;
 
-    // The dispatch settings, dynamic JSON
-    google.protobuf.Struct settings = 8;
+    // The dispatch settings
+    DispatchSettings settings = 8;
 }
 
 // Message to update the dispatch with the given ID, with the given attributes
@@ -260,6 +264,6 @@ message DispatchUpdateRequest {
     // The dispatch status
     optional DispatchStatus status = 9;
 
-    // The dispatch settings, dynamic JSON
-    optional google.protobuf.Struct settings = 10;
+    // The dispatch settings
+    optional DispatchSettings settings = 10;
 }
