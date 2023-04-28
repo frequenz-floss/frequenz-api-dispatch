@@ -141,6 +141,24 @@ message TimeIntervalFilter {
     google.protobuf.Timestamp end_to = 4;
 }
 
+// Parameter for controlling which components a dispatch applies to
+// Either a set of component IDs, or all components belonging to a certain category
+message DispatchComponentSelector {
+    oneof selector {
+        // Set of component IDs
+        DispatchComponentIDs dispatch_component_ids = 1;
+
+        // Component category
+        ComponentCategory dispatch_component_category = 2;
+    }
+}
+
+// Wrapper for controlling dispatches with a set of component IDs
+message DispatchComponentIDs {
+    // Set of component IDs
+    repeated uint64 component_ids = 1;
+}
+
 // Parameters for filtering the dispatch list
 message DispatchFilter {
     // Filter by dispatch ID
