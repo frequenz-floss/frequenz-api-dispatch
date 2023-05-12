@@ -170,15 +170,11 @@ message DispatchFilter {
     // Filter by dispatch type
     repeated DispatchType type = 3;
 
-    // Filter by component ID
-    repeated uint64 component_ids = 4;
-
-    // Filter by component category ID
-    // Component categories should be one of inverter, battery, EV charger, etc
-    repeated ComponentCategory component_category_ids = 5;
+    // Filter by component ID or category
+    repeated DispatchComponentSelector selector = 4;
 
     // Filter by time interval
-    TimeIntervalFilter time_interval = 6;
+    TimeIntervalFilter time_interval = 5;
 }
 
 message DispatchSettings {
@@ -204,21 +200,17 @@ message Dispatch {
     // The end time
     google.protobuf.Timestamp end_time = 5;
 
-    // The component IDs
-    repeated uint64 component_ids = 6;
-
-    // The component category IDs
-    // Component categories should be one of inverter, battery, EV charger, etc
-    repeated ComponentCategory component_category_ids = 7;
+    // The component selector
+    DispatchComponentSelector selector = 6;
 
     // The creation time
-    google.protobuf.Timestamp create_time = 8;
+    google.protobuf.Timestamp create_time = 7;
 
     // The dispatch status
-    DispatchStatus status = 9;
+    DispatchStatus status = 8;
 
     // The dispatch settings
-    DispatchSettings settings = 10;
+    DispatchSettings settings = 9;
 }
 
 // A list of dispatches
@@ -238,18 +230,14 @@ message DispatchCreateRequest {
     // The end time
     google.protobuf.Timestamp end_time = 4;
 
-    // The component IDs
-    repeated uint64 component_ids = 5;
-
-    // The component category IDs
-    // Component categories should be one of inverter, battery, EV charger, etc
-    repeated ComponentCategory component_category_ids = 6;
+    // The component selector
+    DispatchComponentSelector selector = 5;
 
     // The dispatch status
-    DispatchStatus status = 7;
+    DispatchStatus status = 6;
 
     // The dispatch settings
-    DispatchSettings settings = 8;
+    DispatchSettings settings = 7;
 }
 
 // Message to update the dispatch with the given ID, with the given attributes
@@ -269,19 +257,15 @@ message DispatchUpdateRequest {
     // The end time
     optional google.protobuf.Timestamp end_time = 5;
 
-    // The component IDs
-    repeated uint64 component_ids = 6;
-
-    // The component category IDs
-    // Component categories should be one of inverter, battery, EV charger, etc
-    repeated ComponentCategory component_category_ids = 7;
+    // The component selector
+    optional DispatchComponentSelector selector = 6;
 
     // The creation time
-    optional google.protobuf.Timestamp create_time = 8;
+    optional google.protobuf.Timestamp create_time = 7;
 
     // The dispatch status
-    optional DispatchStatus status = 9;
+    optional DispatchStatus status = 8;
 
     // The dispatch settings
-    optional DispatchSettings settings = 10;
+    optional DispatchSettings settings = 9;
 }
