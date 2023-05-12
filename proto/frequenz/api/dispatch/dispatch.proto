@@ -8,7 +8,7 @@
 
 syntax = "proto3";
 
-package dispatch;
+package frequenz.api.dispatch;
 
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
@@ -18,254 +18,257 @@ import "google/protobuf/timestamp.proto";
 import "frequenz/api/dispatch/fcr/prequalification.proto";
 
 service DispatchService {
-    // Returns a list of all dispatches
-    rpc ListDispatches(DispatchFilter) returns (DispatchList) {
-        option (google.api.http) = {
-            get: "/v1/dispatches"
-        };
-    }
+  // Returns a list of all dispatches
+  rpc ListDispatches(DispatchFilter) returns (DispatchList) {
+    option (google.api.http) = {
+      get: "/v1/dispatches"
+    };
+  }
 
-    // Create a new dispatch
-    rpc CreateDispatch(DispatchCreateRequest) returns (google.protobuf.Empty) {
-        option (google.api.http) = {
-            post: "/v1/dispatches"
-        };
-    }
+  // Create a new dispatch
+  rpc CreateDispatch(DispatchCreateRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/v1/dispatches"
+    };
+  }
 
-    // Update a dispatch
-    rpc UpdateDispatch(DispatchUpdateRequest) returns (google.protobuf.Empty) {
-        option (google.api.http) = {
-            patch: "/v1/dispatches"
-        };
-    }
+  // Update a dispatch
+  rpc UpdateDispatch(DispatchUpdateRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      patch: "/v1/dispatches"
+    };
+  }
 }
 
 // Possible dispatch types
 enum DispatchType {
-    // Unspecified dispatch type, used mainly for error handling
-    DISPATCH_TYPE_UNSPECIFIED = 0;
+  // Unspecified dispatch type, used mainly for error handling
+  DISPATCH_TYPE_UNSPECIFIED = 0;
 
-    // Shutdown dispatch event
-    DISPATCH_TYPE_SHUTDOWN = 1;
+  // Shutdown dispatch event
+  DISPATCH_TYPE_SHUTDOWN = 1;
 
-    // Charge battery dispatch event
-    DISPATCH_TYPE_BATTERY_CHARGE = 2;
+  // Charge battery dispatch event
+  DISPATCH_TYPE_BATTERY_CHARGE = 2;
 
-    // Discharge battery dispatch event
-    DISPATCH_TYPE_BATTERY_DISCHARGE = 3;
+  // Discharge battery dispatch event
+  DISPATCH_TYPE_BATTERY_DISCHARGE = 3;
 
-    // Frequency containment reserve dispatch event
-    DISPATCH_TYPE_FCR = 4;
+  // Frequency containment reserve dispatch event
+  DISPATCH_TYPE_FCR = 4;
 
-    // FCR prequalification, charge test
-    DISPATCH_TYPE_FCR_PREQUALIFICATION_CHARGE = 5;
+  // FCR prequalification, charge test
+  DISPATCH_TYPE_FCR_PREQUALIFICATION_CHARGE = 5;
 
-    // FCR prequalification, discharge test
-    DISPATCH_TYPE_FCR_PREQUALIFICATION_DISCHARGE = 6;
+  // FCR prequalification, discharge test
+  DISPATCH_TYPE_FCR_PREQUALIFICATION_DISCHARGE = 6;
 }
 
 // Possible dispatch statuses
 enum DispatchStatus {
-    // Unspecified dispatch status, used mainly for error handling
-    DISPATCH_STATUS_UNSPECIFIED = 0;
+  // Unspecified dispatch status, used mainly for error handling
+  DISPATCH_STATUS_UNSPECIFIED = 0;
 
-    // Active dispatch status
-    DISPATCH_STATUS_ACTIVE = 1;
+  // Active dispatch status
+  DISPATCH_STATUS_ACTIVE = 1;
 
-    // Inactive dispatch status
-    DISPATCH_STATUS_INACTIVE = 2;
+  // Inactive dispatch status
+  DISPATCH_STATUS_INACTIVE = 2;
 
-    // Simulated dispatch status
-    DISPATCH_STATUS_SIMULATED = 3;
+  // Simulated dispatch status
+  DISPATCH_STATUS_SIMULATED = 3;
 }
 
 // Enumerated component categories.
 // NB: This is currently a copy of the microgrid API's ComponentCategory
 // It will be moved to a shared repository eventually
 enum ComponentCategory {
-    // An unknown component categories, useful for error handling, and marking
-    // unknown components in a list of components with otherwise known categories.
-    COMPONENT_CATEGORY_UNSPECIFIED = 0;
+  // An unknown component categories, useful for error handling, and marking
+  // unknown components in a list of components with otherwise known categories.
+  COMPONENT_CATEGORY_UNSPECIFIED = 0;
 
-    // The point where the local microgrid is connected to the grid.
-    COMPONENT_CATEGORY_GRID = 1;
+  // The point where the local microgrid is connected to the grid.
+  COMPONENT_CATEGORY_GRID = 1;
 
-    // A meter, for measuring electrical metrics, e.g., current, voltage, etc.
-    COMPONENT_CATEGORY_METER = 2;
+  // A meter, for measuring electrical metrics, e.g., current, voltage, etc.
+  COMPONENT_CATEGORY_METER = 2;
 
-    // An electricity generator, with batteries or solar energy.
-    COMPONENT_CATEGORY_INVERTER = 3;
+  // An electricity generator, with batteries or solar energy.
+  COMPONENT_CATEGORY_INVERTER = 3;
 
-    // A DC-DC converter.
-    COMPONENT_CATEGORY_CONVERTER = 4;
+  // A DC-DC converter.
+  COMPONENT_CATEGORY_CONVERTER = 4;
 
-    // A storage system for electrical energy, used by inverters.
-    COMPONENT_CATEGORY_BATTERY = 5;
+  // A storage system for electrical energy, used by inverters.
+  COMPONENT_CATEGORY_BATTERY = 5;
 
-    // A station for charging electrical vehicles.
-    COMPONENT_CATEGORY_EV_CHARGER = 6;
+  // A station for charging electrical vehicles.
+  COMPONENT_CATEGORY_EV_CHARGER = 6;
 
-    // A sensor for measuring ambient metrics, e.g., temperature, humidity, etc.
-    COMPONENT_CATEGORY_SENSOR = 7;
+  // A sensor for measuring ambient metrics, e.g., temperature, humidity, etc.
+  COMPONENT_CATEGORY_SENSOR = 7;
 
-    // A crypto miner.
-    COMPONENT_CATEGORY_CRYPTO_MINER = 8;
+  // A crypto miner.
+  COMPONENT_CATEGORY_CRYPTO_MINER = 8;
 
-    // An electrolyzer for converting water into hydrogen and oxygen.
-    COMPONENT_CATEGORY_ELECTROLYZER = 9;
+  // An electrolyzer for converting water into hydrogen and oxygen.
+  COMPONENT_CATEGORY_ELECTROLYZER = 9;
 
-    // A heat and power combustion plant (CHP stands for combined heat and power).
-    COMPONENT_CATEGORY_CHP = 10;
+  // A heat and power combustion plant (CHP stands for combined heat and power).
+  COMPONENT_CATEGORY_CHP = 10;
 
-    // An electrical load in the microgrid, consuming AC electricity.
-    // Note that this will be removed in the next release.
-    COMPONENT_CATEGORY_LOAD = 14;
+  // An electrical load in the microgrid, consuming AC electricity.
+  // Note that this will be removed in the next release.
+  COMPONENT_CATEGORY_LOAD = 14;
 
-    // A node in the circuit, where all connections meet.
-    // Note that this will be removed in the next release.
-    COMPONENT_CATEGORY_JUNCTION = 15;
+  // A node in the circuit, where all connections meet.
+  // Note that this will be removed in the next release.
+  COMPONENT_CATEGORY_JUNCTION = 15;
 }
 
 // Filter parameter for specifying multiple time intervals
 message TimeIntervalFilter {
-    // Filter by start_time >= this timestamp
-    google.protobuf.Timestamp start_from = 1;
+  // Filter by start_time >= this timestamp
+  google.protobuf.Timestamp start_from = 1;
 
-    // Filter by start_time < this timestamp
-    google.protobuf.Timestamp start_to = 2;
+  // Filter by start_time < this timestamp
+  google.protobuf.Timestamp start_to = 2;
 
-    // Filter by end_time >= this timestamp
-    google.protobuf.Timestamp end_from = 3;
+  // Filter by end_time >= this timestamp
+  google.protobuf.Timestamp end_from = 3;
 
-    // Filter by end_time < this timestamp
-    google.protobuf.Timestamp end_to = 4;
+  // Filter by end_time < this timestamp
+  google.protobuf.Timestamp end_to = 4;
 }
 
 // Parameter for controlling which components a dispatch applies to
-// Either a set of component IDs, or all components belonging to a certain category
+// Either a set of component IDs, or all components belonging to a category
 message DispatchComponentSelector {
-    oneof selector {
-        // Set of component IDs
-        DispatchComponentIDs dispatch_component_ids = 1;
+  oneof selector {
+    // Set of component IDs
+    DispatchComponentIDs dispatch_component_ids = 1;
 
-        // Component category
-        ComponentCategory dispatch_component_category = 2;
-    }
+    // Component category
+    ComponentCategory dispatch_component_category = 2;
+  }
 }
 
 // Wrapper for controlling dispatches with a set of component IDs
 message DispatchComponentIDs {
-    // Set of component IDs
-    repeated uint64 component_ids = 1;
+  // Set of component IDs
+  repeated uint64 component_ids = 1;
 }
 
 // Parameters for filtering the dispatch list
 message DispatchFilter {
-    // Filter by dispatch ID
-    repeated uint64 id = 1;
+  // Filter by dispatch ID
+  repeated uint64 ids = 1;
 
-    // Filter by microgrid ID
-    repeated uint64 microgrid_id = 2;
+  // Filter by microgrid ID
+  repeated uint64 microgrid_ids = 2;
 
-    // Filter by dispatch type
-    repeated DispatchType type = 3;
+  // Filter by dispatch type
+  repeated DispatchType types = 3;
 
-    // Filter by component ID or category
-    repeated DispatchComponentSelector selector = 4;
+  // Filter by component ID or category
+  repeated DispatchComponentSelector selectors = 4;
 
-    // Filter by time interval
-    TimeIntervalFilter time_interval = 5;
+  // Filter by time interval
+  TimeIntervalFilter time_interval = 5;
 }
 
 message DispatchSettings {
-    oneof settings {
-        dispatch.fcr.prequalification.FcrPrequalificationSettings fcr_prequal_settings = 1;
-    }
+  oneof settings {
+    fcr.prequalification.FcrPrequalificationSettings fcr_prequal_settings = 1;
+  }
 }
 
 // Message representing one dispatch
 message Dispatch {
-    // The dispatch identifier
-    uint64 id = 1;
+  // The dispatch identifier
+  uint64 id = 1;
 
-    // The microgrid identifier
-    uint64 microgrid_id = 2;
+  // The microgrid identifier
+  uint64 microgrid_id = 2;
 
-    // The type of dispatch
-    DispatchType type = 3;
+  // The type of dispatch
+  DispatchType type = 3;
 
-    // The start time
-    google.protobuf.Timestamp start_time = 4;
+  // The start time
+  google.protobuf.Timestamp start_time = 4;
 
-    // The end time
-    google.protobuf.Timestamp end_time = 5;
+  // The end time
+  google.protobuf.Timestamp end_time = 5;
 
-    // The component selector
-    DispatchComponentSelector selector = 6;
+  // The component selector
+  DispatchComponentSelector selector = 6;
 
-    // The creation time
-    google.protobuf.Timestamp create_time = 7;
+  // The creation time
+  google.protobuf.Timestamp create_time = 7;
 
-    // The dispatch status
-    DispatchStatus status = 8;
+  // The dispatch status
+  DispatchStatus status = 8;
 
-    // The dispatch settings
-    DispatchSettings settings = 9;
+  // The dispatch settings
+  DispatchSettings settings = 9;
 }
 
 // A list of dispatches
-message DispatchList { repeated Dispatch dispatches = 1; }
+message DispatchList {
+  // The dispatches
+  repeated Dispatch dispatches = 1;
+}
 
 // Message to create a new dispatch with the given attributes
 message DispatchCreateRequest {
-    // The microgrid identifier
-    uint64 microgrid_id = 1;
+  // The microgrid identifier
+  uint64 microgrid_id = 1;
 
-    // The type of dispatch
-    DispatchType type = 2;
+  // The type of dispatch
+  DispatchType type = 2;
 
-    // The start time
-    google.protobuf.Timestamp start_time = 3;
+  // The start time
+  google.protobuf.Timestamp start_time = 3;
 
-    // The end time
-    google.protobuf.Timestamp end_time = 4;
+  // The end time
+  google.protobuf.Timestamp end_time = 4;
 
-    // The component selector
-    DispatchComponentSelector selector = 5;
+  // The component selector
+  DispatchComponentSelector selector = 5;
 
-    // The dispatch status
-    DispatchStatus status = 6;
+  // The dispatch status
+  DispatchStatus status = 6;
 
-    // The dispatch settings
-    DispatchSettings settings = 7;
+  // The dispatch settings
+  DispatchSettings settings = 7;
 }
 
 // Message to update the dispatch with the given ID, with the given attributes
 message DispatchUpdateRequest {
-    // The dispatch identifier
-    uint64 id = 1;
+  // The dispatch identifier
+  uint64 id = 1;
 
-    // The microgrid identifier
-    optional uint64 microgrid_id = 2;
+  // The microgrid identifier
+  optional uint64 microgrid_id = 2;
 
-    // The type of dispatch
-    optional DispatchType type = 3;
+  // The type of dispatch
+  optional DispatchType type = 3;
 
-    // The start time
-    optional google.protobuf.Timestamp start_time = 4;
+  // The start time
+  optional google.protobuf.Timestamp start_time = 4;
 
-    // The end time
-    optional google.protobuf.Timestamp end_time = 5;
+  // The end time
+  optional google.protobuf.Timestamp end_time = 5;
 
-    // The component selector
-    optional DispatchComponentSelector selector = 6;
+  // The component selector
+  optional DispatchComponentSelector selector = 6;
 
-    // The creation time
-    optional google.protobuf.Timestamp create_time = 7;
+  // The creation time
+  optional google.protobuf.Timestamp create_time = 7;
 
-    // The dispatch status
-    optional DispatchStatus status = 8;
+  // The dispatch status
+  optional DispatchStatus status = 8;
 
-    // The dispatch settings
-    optional DispatchSettings settings = 9;
+  // The dispatch settings
+  optional DispatchSettings settings = 9;
 }
