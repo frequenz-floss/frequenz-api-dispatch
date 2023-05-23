@@ -15,6 +15,8 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
+import "frequenz/api/common/components.proto";
+
 import "frequenz/api/dispatch/fcr/prequalification.proto";
 
 service DispatchService {
@@ -76,54 +78,7 @@ enum DispatchStatus {
   DISPATCH_STATUS_INACTIVE = 2;
 
   // Simulated dispatch status
-  DISPATCH_STATUS_SIMULATED = 3;
-}
-
-// Enumerated component categories.
-// NB: This is currently a copy of the microgrid API's ComponentCategory
-// It will be moved to a shared repository eventually
-enum ComponentCategory {
-  // An unknown component categories, useful for error handling, and marking
-  // unknown components in a list of components with otherwise known categories.
-  COMPONENT_CATEGORY_UNSPECIFIED = 0;
-
-  // The point where the local microgrid is connected to the grid.
-  COMPONENT_CATEGORY_GRID = 1;
-
-  // A meter, for measuring electrical metrics, e.g., current, voltage, etc.
-  COMPONENT_CATEGORY_METER = 2;
-
-  // An electricity generator, with batteries or solar energy.
-  COMPONENT_CATEGORY_INVERTER = 3;
-
-  // A DC-DC converter.
-  COMPONENT_CATEGORY_CONVERTER = 4;
-
-  // A storage system for electrical energy, used by inverters.
-  COMPONENT_CATEGORY_BATTERY = 5;
-
-  // A station for charging electrical vehicles.
-  COMPONENT_CATEGORY_EV_CHARGER = 6;
-
-  // A sensor for measuring ambient metrics, e.g., temperature, humidity, etc.
-  COMPONENT_CATEGORY_SENSOR = 7;
-
-  // A crypto miner.
-  COMPONENT_CATEGORY_CRYPTO_MINER = 8;
-
-  // An electrolyzer for converting water into hydrogen and oxygen.
-  COMPONENT_CATEGORY_ELECTROLYZER = 9;
-
-  // A heat and power combustion plant (CHP stands for combined heat and power).
-  COMPONENT_CATEGORY_CHP = 10;
-
-  // An electrical load in the microgrid, consuming AC electricity.
-  // Note that this will be removed in the next release.
-  COMPONENT_CATEGORY_LOAD = 14;
-
-  // A node in the circuit, where all connections meet.
-  // Note that this will be removed in the next release.
-  COMPONENT_CATEGORY_JUNCTION = 15;
+  DISPATCH_STATUS_SIMULATE = 3;
 }
 
 // Filter parameter for specifying multiple time intervals
@@ -149,7 +104,7 @@ message DispatchComponentSelector {
     DispatchComponentIDs dispatch_component_ids = 1;
 
     // Component category
-    ComponentCategory dispatch_component_category = 2;
+    frequenz.api.common.ComponentCategory dispatch_component_category = 2;
   }
 }
 
