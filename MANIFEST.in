@@ -5,4 +5,4 @@ exclude noxfile.py
 recursive-exclude .github *
 recursive-exclude pytests *
 recursive-include submodules/api-common-protos/google *.proto
-recursive-include submodules/frequenz-api-common/proto/freqzenz *.proto
+recursive-include submodules/frequenz-api-common/proto *.proto
