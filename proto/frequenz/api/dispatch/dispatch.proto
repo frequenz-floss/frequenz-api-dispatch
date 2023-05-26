@@ -104,7 +104,7 @@ message DispatchComponentSelector {
     DispatchComponentIDs dispatch_component_ids = 1;
 
     // Component category
-    frequenz.api.common.ComponentCategory dispatch_component_category = 2;
+    frequenz.api.common.components.ComponentCategory dispatch_component_category = 2;
   }
 }
 
