@@ -2,7 +2,7 @@
 requires = [
   "setuptools >= 67.3.2, < 68",
   "setuptools_scm[toml] >= 7.1.0, < 8",
-  "frequenz-repo-config[api] == 0.1.0",
+  "frequenz-repo-config[api] == 0.2.0",
 ]
 build-backend = "setuptools.build_meta"
 
@@ -41,7 +41,7 @@ dev-mypy = [
   # For checking the noxfile and tests
   "frequenz-api-dispatch[dev-noxfile,dev-pytest]",
 ]
-dev-noxfile = ["nox == 2022.11.21", "frequenz-repo-config[api] == 0.1.0"]
+dev-noxfile = ["nox == 2022.11.21", "frequenz-repo-config[api] == 0.2.0"]
 dev-pylint = [
   "pylint == 2.17.1",
   # For checking the noxfile and tests
