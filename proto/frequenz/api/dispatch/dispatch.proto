@@ -6,6 +6,8 @@
 // License:
 // All rights reserved.
 
+// protolint:disable MAX_LINE_LENGTH
+
 syntax = "proto3";
 
 package frequenz.api.dispatch;
