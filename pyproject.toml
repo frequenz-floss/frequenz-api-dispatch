@@ -23,6 +23,7 @@ classifiers = [
 ]
 requires-python = ">= 3.11, < 4"
 dependencies = [
+  "frequenz-api-common >= 0.2.0, < 0.3",
   "googleapis-common-protos >= 1.56.2, < 2",
   "grpcio >= 1.51.1, < 2",
 ]
