@@ -1,0 +1,25 @@
+// FCR prequalificaton dispatch settings protobuf definition.
+//
+// Copyright:
+// Copyright 2023 Frequenz Energy-as-a-Service GmbH
+//
+// License:
+// All rights reserved.
+
+syntax = "proto3";
+
+package frequenz.api.dispatch.fcr.prequalification;
+
+message FcrPrequalificationSettings {
+  // The maximum power to use during the SoC preparation phase.
+  optional uint32 power_limit_preparation = 1;
+
+  // The maximum power to use during the operation phase.
+  optional uint32 power_limit_operation = 2;
+
+  // The upper SoC bound.
+  optional uint32 soc_bound_upper = 3;
+
+  // The lower SoC bound.
+  optional uint32 soc_bound_lower = 4;
+}

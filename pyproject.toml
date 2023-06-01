@@ -1,0 +1,71 @@
+[build-system]
+requires = [
+  "setuptools >= 67.3.2, < 68",
+  "setuptools_scm[toml] >= 7.1.0, < 8",
+  "frequenz-repo-config[api] == 0.2.0",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "frequenz-api-dispatch"
+description = "Frequenz dispatch gRPC API and bindings"
+readme = "README.md"
+license = { text = "MIT" }
+keywords = ["frequenz", "api", "microgrid", "grpc", "dispatch"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Software Development :: Libraries",
+]
+requires-python = ">= 3.11, < 4"
+dependencies = [
+  "frequenz-api-common >= 0.2.0, < 0.3",
+  "googleapis-common-protos >= 1.56.2, < 2",
+  "grpcio >= 1.51.1, < 2",
+]
+dynamic = ["version"]
+
+[[project.authors]]
+name = "Frequenz Energy-as-a-Service GmbH"
+email = "floss@frequenz.com"
+
+[project.optional-dependencies]
+dev-docstrings = ["pydocstyle == 6.3.0", "darglint == 1.8.1"]
+dev-formatting = ["black == 23.3.0", "isort == 5.12.0"]
+dev-mypy = [
+  "mypy == 1.1.1",
+  # For checking the noxfile and tests
+  "frequenz-api-dispatch[dev-noxfile,dev-pytest]",
+]
+dev-noxfile = ["nox == 2022.11.21", "frequenz-repo-config[api] == 0.2.0"]
+dev-pylint = [
+  "pylint == 2.17.1",
+  # For checking the noxfile and tests
+  "frequenz-api-dispatch[dev-noxfile,dev-pytest]",
+]
+dev-pytest = ["pytest == 7.2.2"]
+dev = [
+  "frequenz-api-dispatch[dev-docstrings,dev-formatting,dev-mypy,dev-noxfile,dev-pylint,dev-pytest]",
+]
+
+[project.urls]
+Changelog = "https://github.com/frequenz-floss/frequenz-api-dispatch/releases"
+Repository = "https://github.com/frequenz-floss/frequenz-api-dispatch"
+Issues = "https://github.com/frequenz-floss/frequenz-api-dispatch/issues"
+Support = "https://github.com/frequenz-floss/frequenz-api-dispatch/discussions/categories/support"
+
+[tool.setuptools.package-dir]
+"" = "py"
+
+[tool.setuptools.package-data]
+"*" = ["*.pyi"]
+
+[tool.setuptools_scm]
+version_scheme = "post-release"
+
+[tools.pytest.ini_options]
+testpaths = ["pytests"]
