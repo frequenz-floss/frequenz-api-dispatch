@@ -1,3 +1,3 @@
 # Release notes
 
-- Initial open source release
+- Removed unused import that broke protoc compilations.
