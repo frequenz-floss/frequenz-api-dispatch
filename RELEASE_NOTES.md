@@ -1,3 +1,3 @@
 # Release notes
 
-- Removed unused import that broke protoc compilations.
+- Added python module & test case for submodule `fcr`.
