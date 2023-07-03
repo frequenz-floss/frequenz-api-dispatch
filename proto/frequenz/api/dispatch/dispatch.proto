@@ -135,7 +135,7 @@ message DispatchFilter {
 
 message DispatchSettings {
   oneof settings {
-    fcr.prequalification.FcrPrequalificationSettings fcr_prequal_settings = 1;
+    fcr.prequalification.FcrPrequalificationSettings fcr_prequalification = 1;
   }
 }
 
