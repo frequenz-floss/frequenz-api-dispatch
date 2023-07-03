@@ -27,4 +27,13 @@ message FcrPrequalificationSettings {
 
   // The SoC bound.
   optional SoCBound soc_bound = 3;
+
+  // Whether the initial SoC should be calculated or
+  // simply taken from the SoC bound.
+  //
+  // If true, the initial SoC for the operational phases is calculated
+  // based on the SoC bound and the power limit for the operational phase.
+  //
+  // If false, the initial SoC is set to the lower or upper SoC bound.
+  bool calculate_start_soc = 4;
 }
