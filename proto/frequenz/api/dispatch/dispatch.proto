@@ -14,11 +14,10 @@ package frequenz.api.dispatch;
 
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
 import "frequenz/api/common/components.proto";
-
-import "frequenz/api/dispatch/fcr/prequalification.proto";
 
 service DispatchService {
   // Returns a list of all dispatches
@@ -133,12 +132,6 @@ message DispatchFilter {
   TimeIntervalFilter time_interval = 5;
 }
 
-message DispatchSettings {
-  oneof settings {
-    fcr.prequalification.FcrPrequalificationSettings fcr_prequal_settings = 1;
-  }
-}
-
 // Message representing one dispatch
 message Dispatch {
   // The dispatch identifier
@@ -166,7 +159,7 @@ message Dispatch {
   DispatchStatus status = 8;
 
   // The dispatch settings
-  DispatchSettings settings = 9;
+  google.protobuf.Struct settings = 9;
 }
 
 // A list of dispatches
@@ -196,7 +189,7 @@ message DispatchCreateRequest {
   DispatchStatus status = 6;
 
   // The dispatch settings
-  DispatchSettings settings = 7;
+  google.protobuf.Struct settings = 7;
 }
 
 // Message to update the dispatch with the given ID, with the given attributes
@@ -226,5 +219,5 @@ message DispatchUpdateRequest {
   optional DispatchStatus status = 8;
 
   // The dispatch settings
-  optional DispatchSettings settings = 9;
+  optional google.protobuf.Struct settings = 9;
 }
