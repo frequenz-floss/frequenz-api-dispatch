@@ -64,6 +64,10 @@ enum DispatchType {
 
   // FCR prequalification, discharge test
   DISPATCH_TYPE_FCR_PREQUALIFICATION_DISCHARGE = 6;
+
+  // FCR prequalification, cancellation of a charge and discharge test
+  // for a given battery
+  DISPATCH_TYPE_FCR_PREQUALIFICATION_CANCEL = 7;
 }
 
 // Possible dispatch statuses
