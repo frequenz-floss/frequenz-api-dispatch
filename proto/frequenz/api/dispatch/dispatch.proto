@@ -158,8 +158,8 @@ message Dispatch {
   // The dispatch status
   DispatchStatus status = 8;
 
-  // The dispatch settings
-  google.protobuf.Struct settings = 9;
+  // The dispatch payload
+  google.protobuf.Struct payload = 9;
 }
 
 // A list of dispatches
@@ -188,8 +188,8 @@ message DispatchCreateRequest {
   // The dispatch status
   DispatchStatus status = 6;
 
-  // The dispatch settings
-  google.protobuf.Struct settings = 7;
+  // The dispatch payload
+  google.protobuf.Struct payload = 7;
 }
 
 // Message to update the dispatch with the given ID, with the given attributes
@@ -218,6 +218,6 @@ message DispatchUpdateRequest {
   // The dispatch status
   optional DispatchStatus status = 8;
 
-  // The dispatch settings
-  optional google.protobuf.Struct settings = 9;
+  // The dispatch payload
+  optional google.protobuf.Struct payload = 9;
 }
