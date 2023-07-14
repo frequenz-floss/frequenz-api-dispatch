@@ -42,34 +42,6 @@ service DispatchService {
   }
 }
 
-// Possible dispatch types
-enum DispatchType {
-  // Unspecified dispatch type, used mainly for error handling
-  DISPATCH_TYPE_UNSPECIFIED = 0;
-
-  // Shutdown dispatch event
-  DISPATCH_TYPE_SHUTDOWN = 1;
-
-  // Charge battery dispatch event
-  DISPATCH_TYPE_BATTERY_CHARGE = 2;
-
-  // Discharge battery dispatch event
-  DISPATCH_TYPE_BATTERY_DISCHARGE = 3;
-
-  // Frequency containment reserve dispatch event
-  DISPATCH_TYPE_FCR = 4;
-
-  // FCR prequalification, charge test
-  DISPATCH_TYPE_FCR_PREQUALIFICATION_CHARGE = 5;
-
-  // FCR prequalification, discharge test
-  DISPATCH_TYPE_FCR_PREQUALIFICATION_DISCHARGE = 6;
-
-  // FCR prequalification, cancellation of a charge and discharge test
-  // for a given battery
-  DISPATCH_TYPE_FCR_PREQUALIFICATION_CANCEL = 7;
-}
-
 // Possible dispatch statuses
 enum DispatchStatus {
   // Unspecified dispatch status, used mainly for error handling
@@ -127,7 +99,7 @@ message DispatchFilter {
   repeated uint64 microgrid_ids = 2;
 
   // Filter by dispatch type
-  repeated DispatchType types = 3;
+  repeated string types = 3;
 
   // Filter by component ID or category
   repeated DispatchComponentSelector selectors = 4;
@@ -145,7 +117,7 @@ message Dispatch {
   uint64 microgrid_id = 2;
 
   // The type of dispatch
-  DispatchType type = 3;
+  string type = 3;
 
   // The start time
   google.protobuf.Timestamp start_time = 4;
@@ -178,7 +150,7 @@ message DispatchCreateRequest {
   uint64 microgrid_id = 1;
 
   // The type of dispatch
-  DispatchType type = 2;
+  string type = 2;
 
   // The start time
   google.protobuf.Timestamp start_time = 3;
@@ -205,7 +177,7 @@ message DispatchUpdateRequest {
   optional uint64 microgrid_id = 2;
 
   // The type of dispatch
-  optional DispatchType type = 3;
+  optional string type = 3;
 
   // The start time
   optional google.protobuf.Timestamp start_time = 4;
