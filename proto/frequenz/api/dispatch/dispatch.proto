@@ -42,21 +42,6 @@ service DispatchService {
   }
 }
 
-// Possible dispatch statuses
-enum DispatchStatus {
-  // Unspecified dispatch status, used mainly for error handling
-  DISPATCH_STATUS_UNSPECIFIED = 0;
-
-  // Active dispatch status
-  DISPATCH_STATUS_ACTIVE = 1;
-
-  // Inactive dispatch status
-  DISPATCH_STATUS_INACTIVE = 2;
-
-  // Simulated dispatch status
-  DISPATCH_STATUS_SIMULATE = 3;
-}
-
 // Filter parameter for specifying multiple time intervals
 message TimeIntervalFilter {
   // Filter by start_time >= this timestamp
@@ -106,6 +91,12 @@ message DispatchFilter {
 
   // Filter by time interval
   TimeIntervalFilter time_interval = 5;
+
+  // Filter by "active" status
+  optional bool active = 6;
+
+  // Filter by "dry run" status
+  optional bool dry_run = 7;
 }
 
 // Message representing one dispatch
@@ -131,11 +122,14 @@ message Dispatch {
   // The creation time
   google.protobuf.Timestamp create_time = 7;
 
-  // The dispatch status
-  DispatchStatus status = 8;
+  // The "active" status
+  bool active = 8;
+
+  // The "dry run" status
+  bool dry_run = 9;
 
   // The dispatch payload
-  google.protobuf.Struct payload = 9;
+  google.protobuf.Struct payload = 10;
 }
 
 // A list of dispatches
@@ -161,11 +155,14 @@ message DispatchCreateRequest {
   // The component selector
   DispatchComponentSelector selector = 5;
 
-  // The dispatch status
-  DispatchStatus status = 6;
+  // The "active" status
+  bool status = 6;
+
+  // The "dry run" status
+  bool dry_run = 7;
 
   // The dispatch payload
-  google.protobuf.Struct payload = 7;
+  google.protobuf.Struct payload = 8;
 }
 
 // Message to update the dispatch with the given ID, with the given attributes
@@ -191,9 +188,12 @@ message DispatchUpdateRequest {
   // The creation time
   optional google.protobuf.Timestamp create_time = 7;
 
-  // The dispatch status
-  optional DispatchStatus status = 8;
+  // The "active" status
+  optional bool status = 8;
+
+  // The "dry run" status
+  optional bool dry_run = 9;
 
   // The dispatch payload
-  optional google.protobuf.Struct payload = 9;
+  optional google.protobuf.Struct payload = 10;
 }
