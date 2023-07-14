@@ -90,7 +90,7 @@ message DispatchFilter {
   repeated DispatchComponentSelector selectors = 4;
 
   // Filter by time interval
-  TimeIntervalFilter time_interval = 5;
+  optional TimeIntervalFilter time_interval = 5;
 
   // Filter by "active" status
   optional bool active = 6;
