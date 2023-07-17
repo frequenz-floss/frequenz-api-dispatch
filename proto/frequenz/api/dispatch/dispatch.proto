@@ -93,10 +93,10 @@ message DispatchFilter {
   TimeIntervalFilter time_interval = 5;
 
   // Filter by "active" status
-  optional bool active = 6;
+  optional bool is_active = 6;
 
   // Filter by "dry run" status
-  optional bool dry_run = 7;
+  optional bool is_dry_run = 7;
 }
 
 // Message representing one dispatch
@@ -123,10 +123,10 @@ message Dispatch {
   google.protobuf.Timestamp create_time = 7;
 
   // The "active" status
-  bool active = 8;
+  bool is_active = 8;
 
   // The "dry run" status
-  bool dry_run = 9;
+  bool is_dry_run = 9;
 
   // The dispatch payload
   google.protobuf.Struct payload = 10;
@@ -156,10 +156,10 @@ message DispatchCreateRequest {
   DispatchComponentSelector selector = 5;
 
   // The "active" status
-  bool status = 6;
+  bool is_active = 6;
 
   // The "dry run" status
-  bool dry_run = 7;
+  bool is_dry_run = 7;
 
   // The dispatch payload
   google.protobuf.Struct payload = 8;
@@ -189,10 +189,10 @@ message DispatchUpdateRequest {
   optional google.protobuf.Timestamp create_time = 7;
 
   // The "active" status
-  optional bool status = 8;
+  optional bool is_active = 8;
 
   // The "dry run" status
-  optional bool dry_run = 9;
+  optional bool is_dry_run = 9;
 
   // The dispatch payload
   optional google.protobuf.Struct payload = 10;
