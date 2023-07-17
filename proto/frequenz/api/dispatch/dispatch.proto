@@ -42,6 +42,42 @@ service DispatchService {
   }
 }
 
+// Message representing one dispatch
+message Dispatch {
+  // The dispatch identifier
+  uint64 id = 1;
+
+  // The microgrid identifier
+  uint64 microgrid_id = 2;
+
+  // The dispatch type.
+  // Contains user-defined information about what "type" of dispatch this is.
+  // Downstream applications that consume the dispatch API are responsible for
+  // understanding and processing this field.
+  string type = 3;
+
+  // The start time
+  google.protobuf.Timestamp start_time = 4;
+
+  // The end time
+  google.protobuf.Timestamp end_time = 5;
+
+  // The component selector
+  DispatchComponentSelector selector = 6;
+
+  // The creation time
+  google.protobuf.Timestamp create_time = 7;
+
+  // The "active" status
+  bool is_active = 8;
+
+  // The "dry run" status
+  bool is_dry_run = 9;
+
+  // The dispatch payload
+  google.protobuf.Struct payload = 10;
+}
+
 // Filter parameter for specifying multiple time intervals
 message TimeIntervalFilter {
   // Filter by start_time >= this timestamp
@@ -99,41 +135,6 @@ message DispatchFilter {
   optional bool is_dry_run = 7;
 }
 
-// Message representing one dispatch
-message Dispatch {
-  // The dispatch identifier
-  uint64 id = 1;
-
-  // The microgrid identifier
-  uint64 microgrid_id = 2;
-
-  // The dispatch type.
-  // Contains user-defined information about what "type" of dispatch this is.
-  // Downstream applications that consume the dispatch API are responsible for
-  // understanding and processing this field.
-  string type = 3;
-
-  // The start time
-  google.protobuf.Timestamp start_time = 4;
-
-  // The end time
-  google.protobuf.Timestamp end_time = 5;
-
-  // The component selector
-  DispatchComponentSelector selector = 6;
-
-  // The creation time
-  google.protobuf.Timestamp create_time = 7;
-
-  // The "active" status
-  bool is_active = 8;
-
-  // The "dry run" status
-  bool is_dry_run = 9;
-
-  // The dispatch payload
-  google.protobuf.Struct payload = 10;
-}
 
 // A list of dispatches
 message DispatchList {
