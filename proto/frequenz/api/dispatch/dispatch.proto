@@ -177,16 +177,16 @@ message DispatchUpdateRequest {
   optional string type = 3;
 
   // The start time
-  optional google.protobuf.Timestamp start_time = 4;
+  google.protobuf.Timestamp start_time = 4;
 
   // The end time
-  optional google.protobuf.Timestamp end_time = 5;
+  google.protobuf.Timestamp end_time = 5;
 
   // The component selector
-  optional DispatchComponentSelector selector = 6;
+  DispatchComponentSelector selector = 6;
 
   // The creation time
-  optional google.protobuf.Timestamp create_time = 7;
+  google.protobuf.Timestamp create_time = 7;
 
   // The "active" status
   optional bool is_active = 8;
@@ -195,5 +195,5 @@ message DispatchUpdateRequest {
   optional bool is_dry_run = 9;
 
   // The dispatch payload
-  optional google.protobuf.Struct payload = 10;
+  google.protobuf.Struct payload = 10;
 }
