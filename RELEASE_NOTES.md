@@ -1,3 +1,5 @@
 # Release notes
 
-- Added python module & test case for submodule `fcr`.
+- The `FcrPrequalificationSettings` message has been removed, and settings
+fields have been modified/reverted to use protobuf Structs, in order to
+represent arbitrary JSON objects.

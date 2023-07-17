@@ -14,11 +14,10 @@ package frequenz.api.dispatch;
 
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
 import "frequenz/api/common/components.proto";
-
-import "frequenz/api/dispatch/fcr/prequalification.proto";
 
 service DispatchService {
   // Returns a list of all dispatches
@@ -43,47 +42,40 @@ service DispatchService {
   }
 }
 
-// Possible dispatch types
-enum DispatchType {
-  // Unspecified dispatch type, used mainly for error handling
-  DISPATCH_TYPE_UNSPECIFIED = 0;
+// Message representing one dispatch
+message Dispatch {
+  // The dispatch identifier
+  uint64 id = 1;
 
-  // Shutdown dispatch event
-  DISPATCH_TYPE_SHUTDOWN = 1;
+  // The microgrid identifier
+  uint64 microgrid_id = 2;
 
-  // Charge battery dispatch event
-  DISPATCH_TYPE_BATTERY_CHARGE = 2;
+  // The dispatch type.
+  // Contains user-defined information about what "type" of dispatch this is.
+  // Downstream applications that consume the dispatch API are responsible for
+  // understanding and processing this field.
+  string type = 3;
 
-  // Discharge battery dispatch event
-  DISPATCH_TYPE_BATTERY_DISCHARGE = 3;
+  // The start time
+  google.protobuf.Timestamp start_time = 4;
 
-  // Frequency containment reserve dispatch event
-  DISPATCH_TYPE_FCR = 4;
+  // The end time
+  google.protobuf.Timestamp end_time = 5;
 
-  // FCR prequalification, charge test
-  DISPATCH_TYPE_FCR_PREQUALIFICATION_CHARGE = 5;
+  // The component selector
+  DispatchComponentSelector selector = 6;
 
-  // FCR prequalification, discharge test
-  DISPATCH_TYPE_FCR_PREQUALIFICATION_DISCHARGE = 6;
+  // The creation time
+  google.protobuf.Timestamp create_time = 7;
 
-  // FCR prequalification, cancellation of a charge and discharge test
-  // for a given battery
-  DISPATCH_TYPE_FCR_PREQUALIFICATION_CANCEL = 7;
-}
+  // The "active" status
+  bool is_active = 8;
 
-// Possible dispatch statuses
-enum DispatchStatus {
-  // Unspecified dispatch status, used mainly for error handling
-  DISPATCH_STATUS_UNSPECIFIED = 0;
+  // The "dry run" status
+  bool is_dry_run = 9;
 
-  // Active dispatch status
-  DISPATCH_STATUS_ACTIVE = 1;
-
-  // Inactive dispatch status
-  DISPATCH_STATUS_INACTIVE = 2;
-
-  // Simulated dispatch status
-  DISPATCH_STATUS_SIMULATE = 3;
+  // The dispatch payload
+  google.protobuf.Struct payload = 10;
 }
 
 // Filter parameter for specifying multiple time intervals
@@ -128,50 +120,21 @@ message DispatchFilter {
   repeated uint64 microgrid_ids = 2;
 
   // Filter by dispatch type
-  repeated DispatchType types = 3;
+  repeated string types = 3;
 
   // Filter by component ID or category
   repeated DispatchComponentSelector selectors = 4;
 
   // Filter by time interval
   TimeIntervalFilter time_interval = 5;
+
+  // Filter by "active" status
+  optional bool is_active = 6;
+
+  // Filter by "dry run" status
+  optional bool is_dry_run = 7;
 }
 
-message DispatchSettings {
-  oneof settings {
-    fcr.prequalification.FcrPrequalificationSettings fcr_prequalification = 1;
-  }
-}
-
-// Message representing one dispatch
-message Dispatch {
-  // The dispatch identifier
-  uint64 id = 1;
-
-  // The microgrid identifier
-  uint64 microgrid_id = 2;
-
-  // The type of dispatch
-  DispatchType type = 3;
-
-  // The start time
-  google.protobuf.Timestamp start_time = 4;
-
-  // The end time
-  google.protobuf.Timestamp end_time = 5;
-
-  // The component selector
-  DispatchComponentSelector selector = 6;
-
-  // The creation time
-  google.protobuf.Timestamp create_time = 7;
-
-  // The dispatch status
-  DispatchStatus status = 8;
-
-  // The dispatch settings
-  DispatchSettings settings = 9;
-}
 
 // A list of dispatches
 message DispatchList {
@@ -185,7 +148,7 @@ message DispatchCreateRequest {
   uint64 microgrid_id = 1;
 
   // The type of dispatch
-  DispatchType type = 2;
+  string type = 2;
 
   // The start time
   google.protobuf.Timestamp start_time = 3;
@@ -196,11 +159,14 @@ message DispatchCreateRequest {
   // The component selector
   DispatchComponentSelector selector = 5;
 
-  // The dispatch status
-  DispatchStatus status = 6;
+  // The "active" status
+  bool is_active = 6;
 
-  // The dispatch settings
-  DispatchSettings settings = 7;
+  // The "dry run" status
+  bool is_dry_run = 7;
+
+  // The dispatch payload
+  google.protobuf.Struct payload = 8;
 }
 
 // Message to update the dispatch with the given ID, with the given attributes
@@ -212,23 +178,26 @@ message DispatchUpdateRequest {
   optional uint64 microgrid_id = 2;
 
   // The type of dispatch
-  optional DispatchType type = 3;
+  optional string type = 3;
 
   // The start time
-  optional google.protobuf.Timestamp start_time = 4;
+  google.protobuf.Timestamp start_time = 4;
 
   // The end time
-  optional google.protobuf.Timestamp end_time = 5;
+  google.protobuf.Timestamp end_time = 5;
 
   // The component selector
-  optional DispatchComponentSelector selector = 6;
+  DispatchComponentSelector selector = 6;
 
   // The creation time
-  optional google.protobuf.Timestamp create_time = 7;
+  google.protobuf.Timestamp create_time = 7;
 
-  // The dispatch status
-  optional DispatchStatus status = 8;
+  // The "active" status
+  optional bool is_active = 8;
 
-  // The dispatch settings
-  optional DispatchSettings settings = 9;
+  // The "dry run" status
+  optional bool is_dry_run = 9;
+
+  // The dispatch payload
+  google.protobuf.Struct payload = 10;
 }
