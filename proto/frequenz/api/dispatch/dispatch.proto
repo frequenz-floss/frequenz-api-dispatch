@@ -107,7 +107,10 @@ message Dispatch {
   // The microgrid identifier
   uint64 microgrid_id = 2;
 
-  // The type of dispatch
+  // The dispatch type.
+  // Contains user-defined information about what "type" of dispatch this is.
+  // Downstream applications that consume the dispatch API are responsible for
+  // understanding and processing this field.
   string type = 3;
 
   // The start time
