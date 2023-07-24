@@ -77,6 +77,10 @@ message Dispatch {
   // The creation time
   // This is set when a dispatch is created via the create request message
   google.protobuf.Timestamp create_time = 10;
+
+  // The update time
+  // This is set when a dispatch is modified via the update request message
+  google.protobuf.Timestamp update_time = 11;
 }
 
 // Filter parameter for specifying multiple time intervals
