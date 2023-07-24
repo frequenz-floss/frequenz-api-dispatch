@@ -65,17 +65,18 @@ message Dispatch {
   // The component selector
   DispatchComponentSelector selector = 6;
 
-  // The creation time
-  google.protobuf.Timestamp create_time = 7;
-
   // The "active" status
-  bool is_active = 8;
+  bool is_active = 7;
 
   // The "dry run" status
-  bool is_dry_run = 9;
+  bool is_dry_run = 8;
 
   // The dispatch payload
-  google.protobuf.Struct payload = 10;
+  google.protobuf.Struct payload = 9;
+
+  // The creation time
+  // This is set when a dispatch is created via the create request message
+  google.protobuf.Timestamp create_time = 10;
 }
 
 // Filter parameter for specifying multiple time intervals
