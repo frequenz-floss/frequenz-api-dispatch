@@ -56,26 +56,31 @@ message Dispatch {
   // understanding and processing this field.
   string type = 3;
 
+  // The creation time
+  // This is set when a dispatch is created via the create request message
+  google.protobuf.Timestamp create_time = 4;
+
+  // The update time
+  // This is set when a dispatch is modified via the update request message
+  google.protobuf.Timestamp update_time = 5;
+
   // The start time
-  google.protobuf.Timestamp start_time = 4;
+  google.protobuf.Timestamp start_time = 6;
 
   // The end time
-  google.protobuf.Timestamp end_time = 5;
+  google.protobuf.Timestamp end_time = 7;
 
   // The component selector
-  DispatchComponentSelector selector = 6;
-
-  // The creation time
-  google.protobuf.Timestamp create_time = 7;
+  DispatchComponentSelector selector = 8;
 
   // The "active" status
-  bool is_active = 8;
+  bool is_active = 9;
 
   // The "dry run" status
-  bool is_dry_run = 9;
+  bool is_dry_run = 10;
 
   // The dispatch payload
-  google.protobuf.Struct payload = 10;
+  google.protobuf.Struct payload = 11;
 }
 
 // Filter parameter for specifying multiple time intervals
@@ -151,6 +156,9 @@ message DispatchCreateRequest {
   string type = 2;
 
   // The start time
+  // When creating a dispatch, ensure that the starting timestamp is set to
+  // the current time or any future time.
+  // Timestamps earlier than the current time are not allowed.
   google.protobuf.Timestamp start_time = 3;
 
   // The end time
@@ -177,27 +185,24 @@ message DispatchUpdateRequest {
   // The microgrid identifier
   optional uint64 microgrid_id = 2;
 
-  // The type of dispatch
-  optional string type = 3;
-
   // The start time
-  google.protobuf.Timestamp start_time = 4;
+  // When updating a dispatch, ensure that the starting timestamp is set to
+  // the current time or any future time.
+  // Timestamps earlier than the current time are not allowed.
+  google.protobuf.Timestamp start_time = 3;
 
   // The end time
-  google.protobuf.Timestamp end_time = 5;
+  google.protobuf.Timestamp end_time = 4;
 
   // The component selector
-  DispatchComponentSelector selector = 6;
-
-  // The creation time
-  google.protobuf.Timestamp create_time = 7;
+  DispatchComponentSelector selector = 5;
 
   // The "active" status
-  optional bool is_active = 8;
+  optional bool is_active = 6;
 
   // The "dry run" status
-  optional bool is_dry_run = 9;
+  optional bool is_dry_run = 7;
 
   // The dispatch payload
-  google.protobuf.Struct payload = 10;
+  google.protobuf.Struct payload = 8;
 }
