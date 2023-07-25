@@ -185,27 +185,24 @@ message DispatchUpdateRequest {
   // The microgrid identifier
   optional uint64 microgrid_id = 2;
 
-  // The type of dispatch
-  optional string type = 3;
-
   // The start time
   // When updating a dispatch, ensure that the starting timestamp is set to
   // the current time or any future time.
   // Timestamps earlier than the current time are not allowed.
-  google.protobuf.Timestamp start_time = 4;
+  google.protobuf.Timestamp start_time = 3;
 
   // The end time
-  google.protobuf.Timestamp end_time = 5;
+  google.protobuf.Timestamp end_time = 4;
 
   // The component selector
-  DispatchComponentSelector selector = 6;
+  DispatchComponentSelector selector = 5;
 
   // The "active" status
-  optional bool is_active = 7;
+  optional bool is_active = 6;
 
   // The "dry run" status
-  optional bool is_dry_run = 8;
+  optional bool is_dry_run = 7;
 
   // The dispatch payload
-  google.protobuf.Struct payload = 9;
+  google.protobuf.Struct payload = 8;
 }
