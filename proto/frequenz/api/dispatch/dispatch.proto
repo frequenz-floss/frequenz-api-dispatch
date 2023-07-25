@@ -56,31 +56,31 @@ message Dispatch {
   // understanding and processing this field.
   string type = 3;
 
-  // The start time
-  google.protobuf.Timestamp start_time = 4;
-
-  // The end time
-  google.protobuf.Timestamp end_time = 5;
-
-  // The component selector
-  DispatchComponentSelector selector = 6;
-
-  // The "active" status
-  bool is_active = 7;
-
-  // The "dry run" status
-  bool is_dry_run = 8;
-
-  // The dispatch payload
-  google.protobuf.Struct payload = 9;
-
   // The creation time
   // This is set when a dispatch is created via the create request message
-  google.protobuf.Timestamp create_time = 10;
+  google.protobuf.Timestamp create_time = 4;
 
   // The update time
   // This is set when a dispatch is modified via the update request message
-  google.protobuf.Timestamp update_time = 11;
+  google.protobuf.Timestamp update_time = 5;
+
+  // The start time
+  google.protobuf.Timestamp start_time = 6;
+
+  // The end time
+  google.protobuf.Timestamp end_time = 7;
+
+  // The component selector
+  DispatchComponentSelector selector = 8;
+
+  // The "active" status
+  bool is_active = 9;
+
+  // The "dry run" status
+  bool is_dry_run = 10;
+
+  // The dispatch payload
+  google.protobuf.Struct payload = 11;
 }
 
 // Filter parameter for specifying multiple time intervals
