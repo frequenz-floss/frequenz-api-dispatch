@@ -21,7 +21,7 @@ import "frequenz/api/common/components.proto";
 
 service DispatchService {
   // Returns a list of all dispatches
-  rpc ListDispatches(DispatchFilter) returns (DispatchList) {
+  rpc ListDispatches(DispatchListRequest) returns (DispatchList) {
     option (google.api.http) = {
       get: "/v1/dispatches"
     };
@@ -116,30 +116,25 @@ message DispatchComponentIDs {
   repeated uint64 component_ids = 1;
 }
 
-// Parameters for filtering the dispatch list
-message DispatchFilter {
-  // Filter by dispatch ID
-  repeated uint64 ids = 1;
+// Message for listing dispatches for a given microgrid, and an optional filter
+message DispatchListRequest {
+  // The microgrid ID
+  uint64 microgrid_id = 1;
 
-  // Filter by microgrid ID
-  repeated uint64 microgrid_ids = 2;
-
-  // Filter by dispatch type
-  repeated string types = 3;
-
-  // Filter by component ID or category
-  repeated DispatchComponentSelector selectors = 4;
-
-  // Filter by time interval
-  TimeIntervalFilter time_interval = 5;
-
-  // Filter by "active" status
-  optional bool is_active = 6;
-
-  // Filter by "dry run" status
-  optional bool is_dry_run = 7;
+  // Additional filter parameters
+  DispatchFilter filter = 2;
 }
 
+// Parameters for filtering the dispatch list
+message DispatchFilter {
+  // Filter by component ID or category
+  repeated DispatchComponentSelector selectors = 1;
+
+  // Filter by time interval
+  // If no interval is provided, all dispatches starting from the
+  // current timestamp will be included.
+  TimeIntervalFilter time_interval = 2;
+}
 
 // A list of dispatches
 message DispatchList {
