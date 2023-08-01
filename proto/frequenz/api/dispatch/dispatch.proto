@@ -21,25 +21,13 @@ import "frequenz/api/common/components.proto";
 
 service DispatchService {
   // Returns a list of all dispatches
-  rpc ListDispatches(DispatchListRequest) returns (DispatchList) {
-    option (google.api.http) = {
-      get: "/v1/dispatches"
-    };
-  }
+  rpc ListDispatches(DispatchListRequest) returns (DispatchList);
 
   // Create a new dispatch
-  rpc CreateDispatch(DispatchCreateRequest) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      post: "/v1/dispatches"
-    };
-  }
+  rpc CreateDispatch(DispatchCreateRequest) returns (google.protobuf.Empty);
 
   // Update a dispatch
-  rpc UpdateDispatch(DispatchUpdateRequest) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      patch: "/v1/dispatches"
-    };
-  }
+  rpc UpdateDispatch(DispatchUpdateRequest) returns (google.protobuf.Empty);
 }
 
 // Message representing one dispatch
