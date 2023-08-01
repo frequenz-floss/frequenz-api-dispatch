@@ -28,6 +28,12 @@ service DispatchService {
 
   // Update a dispatch
   rpc UpdateDispatch(DispatchUpdateRequest) returns (google.protobuf.Empty);
+
+  // Get a single dispatch
+  rpc GetDispatch(DispatchGetRequest) returns (Dispatch);
+
+  // Delete a given dispatch
+  rpc DeleteDispatch(DispatchDeleteRequest) returns (google.protobuf.Empty);
 }
 
 // Message representing one dispatch
@@ -185,4 +191,16 @@ message DispatchUpdateRequest {
 
   // The dispatch payload
   google.protobuf.Struct payload = 7;
+}
+
+// Message to get a single dispatch by its ID
+message DispatchGetRequest {
+  // The dispatch identifier
+  uint64 id = 1;
+}
+
+// Message to delete a single dispatch by its ID
+message DispatchDeleteRequest {
+  // The dispatch identifier
+  uint64 id = 1;
 }
