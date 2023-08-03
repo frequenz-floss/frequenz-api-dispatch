@@ -7,7 +7,7 @@
 
 syntax = "proto3";
 
-package frequenz.api.dispatch;
+package frequenz.dispatch.v1;
 
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
