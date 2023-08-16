@@ -83,8 +83,8 @@ dev = [
 
 [project.urls]
 Changelog = "https://github.com/frequenz-floss/frequenz-api-dispatch/releases"
-Repository = "https://github.com/frequenz-floss/frequenz-api-dispatch"
 Issues = "https://github.com/frequenz-floss/frequenz-api-dispatch/issues"
+Repository = "https://github.com/frequenz-floss/frequenz-api-dispatch"
 Support = "https://github.com/frequenz-floss/frequenz-api-dispatch/discussions/categories/support"
 
 [tool.setuptools.package-dir]
