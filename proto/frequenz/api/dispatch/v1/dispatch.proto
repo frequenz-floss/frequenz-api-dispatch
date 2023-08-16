@@ -38,7 +38,7 @@
 
 syntax = "proto3";
 
-package frequenz.dispatch.v1;
+package frequenz.api.dispatch.v1;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/struct.proto";
