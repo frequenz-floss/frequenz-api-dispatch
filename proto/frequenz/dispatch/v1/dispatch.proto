@@ -40,7 +40,6 @@ syntax = "proto3";
 
 package frequenz.dispatch.v1;
 
-import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
