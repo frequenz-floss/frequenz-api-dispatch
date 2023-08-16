@@ -11,7 +11,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "frequenz-api-dispatch"
-description = "Frequenz dispatch gRPC API and bindings"
+description = "Frequenz gRPC API to propagate dispatches to microgrids"
 readme = "README.md"
 license = { text = "MIT" }
 keywords = [
