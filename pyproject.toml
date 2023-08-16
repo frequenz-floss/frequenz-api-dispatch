@@ -47,7 +47,11 @@ name = "Frequenz Energy-as-a-Service GmbH"
 email = "floss@frequenz.com"
 
 [project.optional-dependencies]
-dev-docstrings = ["pydocstyle == 6.3.0", "darglint == 1.8.1"]
+dev-docstrings = [
+  "pydocstyle == 6.3.0",
+  "darglint == 1.8.1",
+  "tomli == 2.0.1",      # Needed by pydocstyle to read pyproject.toml
+]
 dev-formatting = ["black == 23.3.0", "isort == 5.12.0"]
 dev-mkdocs = [
   "mike == 1.1.2",
