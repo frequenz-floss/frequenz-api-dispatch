@@ -3,6 +3,6 @@
 
 """Configuration file for nox."""
 
-from frequenz.repo.config import nox
+from frequenz.repo.config import RepositoryType, nox
 
-nox.configure(nox.default.api_config)
+nox.configure(RepositoryType.API)
