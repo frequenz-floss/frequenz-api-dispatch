@@ -87,6 +87,35 @@ Issues = "https://github.com/frequenz-floss/frequenz-api-dispatch/issues"
 Repository = "https://github.com/frequenz-floss/frequenz-api-dispatch"
 Support = "https://github.com/frequenz-floss/frequenz-api-dispatch/discussions/categories/support"
 
+[tool.black]
+line-length = 88
+target-version = ['py311']
+
+[tool.isort]
+profile = "black"
+line_length = 88
+src_paths = ["benchmarks", "examples", "src", "tests"]
+
+[tool.pylint.similarities]
+ignore-comments = ['yes']
+ignore-docstrings = ['yes']
+ignore-imports = ['no']
+min-similarity-lines = 40
+
+[tool.pylint.messages_control]
+disable = [
+  "too-few-public-methods",
+  # disabled because it conflicts with isort
+  "wrong-import-order",
+  "ungrouped-imports",
+  # pylint's unsubscriptable check is buggy and is not needed because
+  # it is a type-check, for which we already have mypy.
+  "unsubscriptable-object",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["pytests"]
+
 [tool.setuptools.package-dir]
 "" = "py"
 
@@ -95,6 +124,3 @@ Support = "https://github.com/frequenz-floss/frequenz-api-dispatch/discussions/c
 
 [tool.setuptools_scm]
 version_scheme = "post-release"
-
-[tools.pytest.ini_options]
-testpaths = ["pytests"]
