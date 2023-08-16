@@ -6,11 +6,11 @@
 
 ## Upgrading
 
-- As part of introducing versioning, the protobuf definitions and generated python code now has the path `frequenz.dispatch.v1`.
+<!-- Here goes notes on how to upgrade from previous versions, including deprecations and what they should be replaced with -->
 
 ## New Features
 
-- Package-based versioning has been introduced.
+<!-- Here goes the main new features and examples or instructions on how to use them -->
 
 ## Bug Fixes
 
