@@ -6,26 +6,30 @@
 # For more details on the configuration please see:
 # https://github.com/marketplace/actions/labeler
 
-"part:docs": 
+"part:docs":
   - "**/*.md"
+  - "docs/**"
+  - "examples/**"
   - LICENSE
 
 "part:tests":
-  - "tests/**"
+  - "pytests/**"
 
 "part:tooling":
+  - "**/*.ini"
+  - "**/*.toml"
+  - "**/*.yaml"
+  - "**/*.yml"
+  - ".editorconfig"
   - ".git*"
   - ".git*/**"
-  - "**/*.toml"
-  - "**/*.ini"
+  - "docs/*.py"
   - CODEOWNERS
   - MANIFEST.in
-  - "*requirements*.txt"
-  - setup.py
-  - setup.cfg
+  - noxfile.py
 
 "part:protobuf":
   - "proto/**"
-  
+
 "part:python":
   - "py/**"
