@@ -1,0 +1,19 @@
+{
+  "cookiecutter": {
+    "Introduction": "",
+    "type": "api",
+    "name": "dispatch",
+    "description": "Frequenz gRPC API to propagate dispatches to microgrids",
+    "title": "Frequenz Dispatch API",
+    "keywords": "cloud,microgrid",
+    "github_org": "frequenz-floss",
+    "license": "MIT",
+    "author_name": "Frequenz Energy-as-a-Service GmbH",
+    "author_email": "floss@frequenz.com",
+    "python_package": "frequenz.api.dispatch",
+    "pypi_package_name": "frequenz-api-dispatch",
+    "github_repo_name": "frequenz-api-dispatch",
+    "default_codeowners": "(like @some-org/some-team; defaults to a team based on the repo type)",
+    "_template": "gh:frequenz-floss/frequenz-repo-config-python"
+  }
+}
