@@ -12,7 +12,7 @@ def test_package_import() -> None:
     assert v1 is not None
 
 
-def test_module_import() -> None:
+def test_module_import_components() -> None:
     """Test that the modules can be imported."""
     # pylint: disable=import-outside-toplevel
     from frequenz.dispatch.v1 import dispatch_pb2
