@@ -9,3 +9,7 @@ py/frequenz/api/dispatch/**/*_pb2_grpc.pyi
 .nox/*
 __pycache__
 .coverage
+
+# Automatically generated documentation
+docs/reference/
+site/

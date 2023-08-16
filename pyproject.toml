@@ -36,20 +36,29 @@ email = "floss@frequenz.com"
 [project.optional-dependencies]
 dev-docstrings = ["pydocstyle == 6.3.0", "darglint == 1.8.1"]
 dev-formatting = ["black == 23.3.0", "isort == 5.12.0"]
+dev-mkdocs = [
+  "mike == 1.1.2",
+  "mkdocs-gen-files == 0.5.0",
+  "mkdocs-literate-nav == 0.6.0",
+  "mkdocs-material == 9.1.16",
+  "mkdocs-section-index == 0.3.5",
+  "mkdocstrings[python] == 0.22.0",
+  "frequenz-repo-config[api] == 0.5.2",
+]
 dev-mypy = [
   "mypy == 1.1.1",
-  # For checking the noxfile and tests
-  "frequenz-api-dispatch[dev-noxfile,dev-pytest]",
+  # For checking the noxfile, docs/ script, and tests
+  "frequenz-api-dispatch[dev-mkdocs,dev-noxfile,dev-pytest]",
 ]
 dev-noxfile = ["nox == 2022.11.21", "frequenz-repo-config[api] == 0.2.0"]
 dev-pylint = [
   "pylint == 2.17.1",
-  # For checking the noxfile and tests
-  "frequenz-api-dispatch[dev-noxfile,dev-pytest]",
+  # For checking the noxfile, docs/ script, and tests
+  "frequenz-api-dispatch[dev-mkdocs,dev-noxfile,dev-pytest]",
 ]
 dev-pytest = ["pytest == 7.2.2"]
 dev = [
-  "frequenz-api-dispatch[dev-docstrings,dev-formatting,dev-mypy,dev-noxfile,dev-pylint,dev-pytest]",
+  "frequenz-api-dispatch[dev-mkdocs,dev-docstrings,dev-formatting,dev-mkdocs,dev-mypy,dev-noxfile,dev-pylint,dev-pytest]",
 ]
 
 [project.urls]
