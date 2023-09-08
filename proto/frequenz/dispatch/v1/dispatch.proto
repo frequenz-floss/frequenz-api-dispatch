@@ -1,6 +1,32 @@
-// Frequenz Dispatch API
+// Frequenz Dispatch Automation API
 //
-// Frequenz gRPC API to propagate dispatches to microgrids
+// Overview:
+// The API serves to automate the process of electricity dispatches for microgrids.
+// In the context of the energy industry, a 'dispatch' refers to the act of routing electrical power
+// between different components within a microgrid or between a microgrid and the main grid.
+// This could be for the purpose of supply (sending electricity to the grid or components within the microgrid),
+// or demand (drawing electricity from the grid or from other components like batteries and solar arrays).
+//
+// Objective:
+// The primary objective of this API is to streamline and automate the complex task of electricity dispatching,
+// making it easier to manage local electricity supply and demand efficiently.
+//
+// Key Features:
+// - Dispatching Electricity: Comprehensive CRUD operations for dispatching microgrid components.
+// - Automation: Support for one-time as well as recurring dispatches based on flexible recurrence rules.
+// - Fine-grained control: Dispatch individual microgrid components or entire component categories.
+//
+// Example Use Cases:
+// - Charging or discharging a battery based on optimal time-of-use rates.
+// - Limiting the output of a Photovoltaic (PV) array during periods of low demand.
+// - Invoking Frequency Containment Reserves (FCR) or Automatic Frequency Restoration Reserves (aFRR) to
+//    support grid operations.
+// - Adjusting the output of electric vehicle charging stations to match grid availability or to avoid peak pricing.
+//
+// Target Audience:
+// This API is designed for application developers in the energy sector who focus on the tasks of optimizing microgrid
+// electricity flows. Its design aims to be as developer-friendly as possible, requiring no prior knowledge in
+// electrical engineering and systems.
 //
 // Copyright:
 // Copyright 2022 Frequenz Energy-as-a-Service GmbH
@@ -21,12 +47,7 @@ import "google/protobuf/timestamp.proto";
 
 import "frequenz/api/common/components.proto";
 
-// The MicrogridDispatchService serves to automate the process of energy dispatches for various microgrids.
-// In the context of the energy industry, a 'dispatch' refers to the act of routing electrical power
-// or energy between different components within a microgrid or between a microgrid and the main grid.
-// This could be for the purpose of supply (sending energy to the grid, or to components within the microgrid),
-// or demand (drawing energy from the grid or from other components like batteries and solar arrays).
-// The service allows for both one-off dispatches, and recurring dispatches.
+// Service providing operations related to dispatching microgrid components.
 service MicrogridDispatchService {
   // Returns a list of all dispatches
   rpc ListMicrogridDispatches(DispatchListRequest) returns (DispatchList);
