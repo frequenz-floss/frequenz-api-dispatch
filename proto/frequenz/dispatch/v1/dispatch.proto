@@ -65,7 +65,10 @@ service MicrogridDispatchService {
   rpc DeleteMicrogridDispatch(DispatchDeleteRequest) returns (google.protobuf.Empty);
 }
 
-// Message representing one dispatch
+// Message representing one dispatch.
+//
+// Timezone Note: Timestamps are in UTC. It is the responsibility of each microgrid to translate UTC
+// to its local timezone.
 message Dispatch {
   // The dispatch identifier
   uint64 id = 1;
@@ -79,18 +82,18 @@ message Dispatch {
   // understanding and processing this field.
   string type = 3;
 
-  // The creation time
+  // The creation time in UTC
   // This is set when a dispatch is created via the create request message
   google.protobuf.Timestamp create_time = 4;
 
-  // The update time
+  // The update time in UTC
   // This is set when a dispatch is modified via the update request message
   google.protobuf.Timestamp update_time = 5;
 
-  // The start time
+  // The start time in UTC
   google.protobuf.Timestamp start_time = 6;
 
-  // The end time
+  // The end time in UTC
   google.protobuf.Timestamp end_time = 7;
 
   // The component selector
@@ -152,7 +155,10 @@ message DispatchComponentIDs {
   repeated uint64 component_ids = 1;
 }
 
-// Ruleset governing when and how a dispatch should re-occur
+// Ruleset governing when and how a dispatch should re-occur.
+//
+// Timezone Note: Timestamps are in UTC. It is the responsibility of each microgrid to translate UTC
+// to its local timezone.
 //
 // This definition tries to adhere closely to the iCalendar specification (RFC 5545),
 // particularly for recurrence rules. For advanced use-cases or further clarifications,
