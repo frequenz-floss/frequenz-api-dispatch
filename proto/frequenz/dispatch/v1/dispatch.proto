@@ -97,7 +97,7 @@ message Dispatch {
   google.protobuf.Timestamp end_time = 7;
 
   // The component selector
-  DispatchComponentSelector selector = 8;
+  ComponentSelector selector = 8;
 
   // The "active" status
   // An active dispatch is eligible for processing, either immediately or at a scheduled
@@ -139,18 +139,18 @@ message TimeIntervalFilter {
 
 // Parameter for controlling which components a dispatch applies to
 // Either a set of component IDs, or all components belonging to a category
-message DispatchComponentSelector {
+message ComponentSelector {
   oneof selector {
     // Set of component IDs
-    DispatchComponentIDs dispatch_component_ids = 1;
+    ComponentIDs component_ids = 1;
 
     // Component category
-    frequenz.api.common.components.ComponentCategory dispatch_component_category = 2;
+    frequenz.api.common.components.ComponentCategory component_category = 2;
   }
 }
 
 // Wrapper for controlling dispatches with a set of component IDs
-message DispatchComponentIDs {
+message ComponentIDs {
   // Set of component IDs
   repeated uint64 component_ids = 1;
 }
@@ -262,7 +262,7 @@ message DispatchListRequest {
 // Parameters for filtering the dispatch list
 message DispatchFilter {
   // Filter by component ID or category
-  repeated DispatchComponentSelector selectors = 1;
+  repeated ComponentSelector selectors = 1;
 
   // Filter by time interval
   // If no interval is provided, all dispatches starting from the
@@ -302,7 +302,7 @@ message DispatchCreateRequest {
   google.protobuf.Timestamp end_time = 4;
 
   // The component selector
-  DispatchComponentSelector selector = 5;
+  ComponentSelector selector = 5;
 
   // The "active" status
   bool is_active = 6;
@@ -332,7 +332,7 @@ message DispatchUpdateRequest {
   google.protobuf.Timestamp end_time = 3;
 
   // The component selector
-  DispatchComponentSelector selector = 4;
+  ComponentSelector selector = 4;
 
   // The "active" status
   optional bool is_active = 5;
