@@ -2,48 +2,17 @@
 
 ## Summary
 
-This release is mainly about creating a ruleset for recurring dispatches.
+This release is mainly about updating the names of some objects, and improving documentation.
 
 ## Upgrading
 
-- As part of introducing versioning, the protobuf definitions and generated python code now has the path `frequenz.dispatch.v1`.
+- Service and its methods have been renamed to `MicrogridDispatchService`
+- `DispatchComponentSelector` has been renamed to `ComponentSelector`
+- `DispatchComponentIDs` has been renamed to `ComponentIDs`
 
 ## New Features
 
-- Package-based versioning has been introduced.
-- Rules for recurring dispatches have been added.
-  Examples:
-    Every 6 months:
-    ```
-    message RecurrenceRule {
-      Frequency freq = FREQUENCY_MONTHLY;
-      uint32 interval = 6;
-    }
-    ```
-
-    Weekends only:
-    ```
-    message RecurrenceRule {
-      Frequency freq = FREQUENCY_WEEKLY;
-      repeated Weekday byweekdays = [WEEKDAY_SATURDAY, WEEKDAY_SUNDAY];
-    }
-    ```
-
-    Every day at midnight:
-    ```
-    message RecurrenceRule {
-      Frequency freq = FREQUENCY_DAILY;
-      repeated uint32 byhours = [0];
-    }
-    ```
-
-    Nightly, assuming "night" means from 8 PM to 6 AM:
-    ```
-    message RecurrenceRule {
-      Frequency freq = FREQUENCY_DAILY;
-      repeated uint32 byhours = [20, 21, 22, 23, 0, 1, 2, 3, 4, 5];
-    }
-    ```
+- `DispatchFilter` now supports filtering by `is_active` and `is_dry_run`
 
 ## Bug Fixes
 
