@@ -71,9 +71,19 @@ message Dispatch {
   DispatchComponentSelector selector = 8;
 
   // The "active" status
+  // An active dispatch is eligible for processing, either immediately or at a scheduled
+  // time in the future, including recurring dispatches. If a dispatch is set to
+  // inactive, it won't be processed even if it matches all other conditions, allowing
+  // for temporary disabling of dispatches without deletion.
   bool is_active = 9;
 
   // The "dry run" status
+  // A dry run dispatch is executed for logging and monitoring purposes
+  // without affecting the microgrid components. This is useful, for example,
+  // in scenarios where a user may want to test dispatch behavior without
+  // actually affecting any component states.
+  // Notably, a dispatch can be both "dry run" and "active," allowing for
+  // the system to generate logs and observe behavior without making actual changes.
   bool is_dry_run = 10;
 
   // The dispatch payload
