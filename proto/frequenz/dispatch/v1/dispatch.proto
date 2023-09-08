@@ -1,3 +1,5 @@
+// protolint:disable MAX_LINE_LENGTH
+
 // Frequenz Dispatch Automation API
 //
 // Overview:
@@ -33,8 +35,6 @@
 //
 // License:
 // MIT
-
-// protolint:disable MAX_LINE_LENGTH
 
 syntax = "proto3";
 
