@@ -21,22 +21,27 @@ import "google/protobuf/timestamp.proto";
 
 import "frequenz/api/common/components.proto";
 
-// Service providing operations related to dispatching microgrid components.
-service DispatchService {
+// The MicrogridDispatchService serves to automate the process of energy dispatches for various microgrids.
+// In the context of the energy industry, a 'dispatch' refers to the act of routing electrical power
+// or energy between different components within a microgrid or between a microgrid and the main grid.
+// This could be for the purpose of supply (sending energy to the grid, or to components within the microgrid),
+// or demand (drawing energy from the grid or from other components like batteries and solar arrays).
+// The service allows for both one-off dispatches, and recurring dispatches.
+service MicrogridDispatchService {
   // Returns a list of all dispatches
-  rpc ListDispatches(DispatchListRequest) returns (DispatchList);
+  rpc ListMicrogridDispatches(DispatchListRequest) returns (DispatchList);
 
   // Create a new dispatch
-  rpc CreateDispatch(DispatchCreateRequest) returns (google.protobuf.Empty);
+  rpc CreateMicrogridDispatch(DispatchCreateRequest) returns (google.protobuf.Empty);
 
   // Update a dispatch
-  rpc UpdateDispatch(DispatchUpdateRequest) returns (google.protobuf.Empty);
+  rpc UpdateMicrogridDispatch(DispatchUpdateRequest) returns (google.protobuf.Empty);
 
   // Get a single dispatch
-  rpc GetDispatch(DispatchGetRequest) returns (Dispatch);
+  rpc GetMicrogridDispatch(DispatchGetRequest) returns (Dispatch);
 
   // Delete a given dispatch
-  rpc DeleteDispatch(DispatchDeleteRequest) returns (google.protobuf.Empty);
+  rpc DeleteMicrogridDispatch(DispatchDeleteRequest) returns (google.protobuf.Empty);
 }
 
 // Message representing one dispatch
