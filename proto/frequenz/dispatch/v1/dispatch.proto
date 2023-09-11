@@ -1,14 +1,40 @@
-// Frequenz Dispatch API
+// protolint:disable MAX_LINE_LENGTH
+
+// Frequenz Dispatch Automation API
 //
-// Frequenz gRPC API to propagate dispatches to microgrids
+// Overview:
+// The API serves to automate the process of electricity dispatches for microgrids.
+// In the context of the energy industry, a 'dispatch' refers to the act of routing electrical power
+// between different components within a microgrid or between a microgrid and the main grid.
+// This could be for the purpose of supply (sending electricity to the grid or components within the microgrid),
+// or demand (drawing electricity from the grid or from other components like batteries and solar arrays).
+//
+// Objective:
+// The primary objective of this API is to streamline and automate the complex task of electricity dispatching,
+// making it easier to manage local electricity supply and demand efficiently.
+//
+// Key Features:
+// - Dispatching Electricity: Comprehensive CRUD operations for dispatching microgrid components.
+// - Automation: Support for one-time as well as recurring dispatches based on flexible recurrence rules.
+// - Fine-grained control: Dispatch individual microgrid components or entire component categories.
+//
+// Example Use Cases:
+// - Charging or discharging a battery based on optimal time-of-use rates.
+// - Limiting the output of a Photovoltaic (PV) array during periods of low demand.
+// - Invoking Frequency Containment Reserves (FCR) or Automatic Frequency Restoration Reserves (aFRR) to
+//    support grid operations.
+// - Adjusting the output of electric vehicle charging stations to match grid availability or to avoid peak pricing.
+//
+// Target Audience:
+// This API is designed for application developers in the energy sector who focus on the tasks of optimizing microgrid
+// electricity flows. Its design aims to be as developer-friendly as possible, requiring no prior knowledge in
+// electrical engineering and systems.
 //
 // Copyright:
 // Copyright 2022 Frequenz Energy-as-a-Service GmbH
 //
 // License:
 // MIT
-
-// protolint:disable MAX_LINE_LENGTH
 
 syntax = "proto3";
 
@@ -22,24 +48,27 @@ import "google/protobuf/timestamp.proto";
 import "frequenz/api/common/components.proto";
 
 // Service providing operations related to dispatching microgrid components.
-service DispatchService {
+service MicrogridDispatchService {
   // Returns a list of all dispatches
-  rpc ListDispatches(DispatchListRequest) returns (DispatchList);
+  rpc ListMicrogridDispatches(DispatchListRequest) returns (DispatchList);
 
   // Create a new dispatch
-  rpc CreateDispatch(DispatchCreateRequest) returns (google.protobuf.Empty);
+  rpc CreateMicrogridDispatch(DispatchCreateRequest) returns (google.protobuf.Empty);
 
   // Update a dispatch
-  rpc UpdateDispatch(DispatchUpdateRequest) returns (google.protobuf.Empty);
+  rpc UpdateMicrogridDispatch(DispatchUpdateRequest) returns (google.protobuf.Empty);
 
   // Get a single dispatch
-  rpc GetDispatch(DispatchGetRequest) returns (Dispatch);
+  rpc GetMicrogridDispatch(DispatchGetRequest) returns (Dispatch);
 
   // Delete a given dispatch
-  rpc DeleteDispatch(DispatchDeleteRequest) returns (google.protobuf.Empty);
+  rpc DeleteMicrogridDispatch(DispatchDeleteRequest) returns (google.protobuf.Empty);
 }
 
-// Message representing one dispatch
+// Message representing one dispatch.
+//
+// Timezone Note: Timestamps are in UTC. It is the responsibility of each microgrid to translate UTC
+// to its local timezone.
 message Dispatch {
   // The dispatch identifier
   uint64 id = 1;
@@ -53,27 +82,37 @@ message Dispatch {
   // understanding and processing this field.
   string type = 3;
 
-  // The creation time
+  // The creation time in UTC
   // This is set when a dispatch is created via the create request message
   google.protobuf.Timestamp create_time = 4;
 
-  // The update time
+  // The update time in UTC
   // This is set when a dispatch is modified via the update request message
   google.protobuf.Timestamp update_time = 5;
 
-  // The start time
+  // The start time in UTC
   google.protobuf.Timestamp start_time = 6;
 
-  // The end time
+  // The end time in UTC
   google.protobuf.Timestamp end_time = 7;
 
   // The component selector
-  DispatchComponentSelector selector = 8;
+  ComponentSelector selector = 8;
 
   // The "active" status
+  // An active dispatch is eligible for processing, either immediately or at a scheduled
+  // time in the future, including recurring dispatches. If a dispatch is set to
+  // inactive, it won't be processed even if it matches all other conditions, allowing
+  // for temporary disabling of dispatches without deletion.
   bool is_active = 9;
 
   // The "dry run" status
+  // A dry run dispatch is executed for logging and monitoring purposes
+  // without affecting the microgrid components. This is useful, for example,
+  // in scenarios where a user may want to test dispatch behavior without
+  // actually affecting any component states.
+  // Notably, a dispatch can be both "dry run" and "active," allowing for
+  // the system to generate logs and observe behavior without making actual changes.
   bool is_dry_run = 10;
 
   // The dispatch payload
@@ -100,23 +139,26 @@ message TimeIntervalFilter {
 
 // Parameter for controlling which components a dispatch applies to
 // Either a set of component IDs, or all components belonging to a category
-message DispatchComponentSelector {
+message ComponentSelector {
   oneof selector {
     // Set of component IDs
-    DispatchComponentIDs dispatch_component_ids = 1;
+    ComponentIDs component_ids = 1;
 
     // Component category
-    frequenz.api.common.components.ComponentCategory dispatch_component_category = 2;
+    frequenz.api.common.components.ComponentCategory component_category = 2;
   }
 }
 
 // Wrapper for controlling dispatches with a set of component IDs
-message DispatchComponentIDs {
+message ComponentIDs {
   // Set of component IDs
   repeated uint64 component_ids = 1;
 }
 
-// Ruleset governing when and how a dispatch should re-occur
+// Ruleset governing when and how a dispatch should re-occur.
+//
+// Timezone Note: Timestamps are in UTC. It is the responsibility of each microgrid to translate UTC
+// to its local timezone.
 //
 // This definition tries to adhere closely to the iCalendar specification (RFC 5545),
 // particularly for recurrence rules. For advanced use-cases or further clarifications,
@@ -220,12 +262,20 @@ message DispatchListRequest {
 // Parameters for filtering the dispatch list
 message DispatchFilter {
   // Filter by component ID or category
-  repeated DispatchComponentSelector selectors = 1;
+  repeated ComponentSelector selectors = 1;
 
   // Filter by time interval
   // If no interval is provided, all dispatches starting from the
   // current timestamp will be included.
   TimeIntervalFilter time_interval = 2;
+
+  // Filter by active status
+  // If this field is not set, dispatches of any active status will be included.
+  optional bool is_active = 3;
+
+  // Filter by dry run status
+  // If this field is not set, dispatches of any dry run status will be included.
+  optional bool is_dry_run = 4;
 }
 
 // A list of dispatches
@@ -252,7 +302,7 @@ message DispatchCreateRequest {
   google.protobuf.Timestamp end_time = 4;
 
   // The component selector
-  DispatchComponentSelector selector = 5;
+  ComponentSelector selector = 5;
 
   // The "active" status
   bool is_active = 6;
@@ -282,7 +332,7 @@ message DispatchUpdateRequest {
   google.protobuf.Timestamp end_time = 3;
 
   // The component selector
-  DispatchComponentSelector selector = 4;
+  ComponentSelector selector = 4;
 
   // The "active" status
   optional bool is_active = 5;
