@@ -21,30 +21,35 @@ import "frequenz/api/common/components.proto";
 
 // Service providing operations related to dispatching microgrid components.
 //
-// Overview:
+// #### Overview
+//
 // The API serves to automate the process of electricity dispatches for microgrids.
 // In the context of the energy industry, a 'dispatch' refers to the act of routing electrical power
 // between different components within a microgrid or between a microgrid and the main grid.
 // This could be for the purpose of supply (sending electricity to the grid or components within the microgrid),
 // or demand (drawing electricity from the grid or from other components like batteries and solar arrays).
 //
-// Objective:
+// #### Objective
+//
 // The primary objective of this API is to streamline and automate the complex task of electricity dispatching,
 // making it easier to manage local electricity supply and demand efficiently.
 //
-// Key Features:
+// #### Key Features
+//
 // - Dispatching Electricity: Comprehensive CRUD operations for dispatching microgrid components.
 // - Automation: Support for one-time as well as recurring dispatches based on flexible recurrence rules.
 // - Fine-grained control: Dispatch individual microgrid components or entire component categories.
 //
-// Example Use Cases:
+// #### Example Use Cases
+//
 // - Charging or discharging a battery based on optimal time-of-use rates.
 // - Limiting the output of a Photovoltaic (PV) array during periods of low demand.
 // - Invoking Frequency Containment Reserves (FCR) or Automatic Frequency Restoration Reserves (aFRR) to
 //    support grid operations.
 // - Adjusting the output of electric vehicle charging stations to match grid availability or to avoid peak pricing.
 //
-// Target Audience:
+// #### Target Audience
+//
 // This API is designed for application developers in the energy sector who focus on the tasks of optimizing microgrid
 // electricity flows. Its design aims to be as developer-friendly as possible, requiring no prior knowledge in
 // electrical engineering and systems.
@@ -164,9 +169,10 @@ message ComponentIDs {
 // particularly for recurrence rules. For advanced use-cases or further clarifications,
 // refer to RFC 5545.
 //
-// Examples:
+// #### Examples
 //
-// Every 6 months:
+// ##### Every 6 months
+//
 // ```
 // message RecurrenceRule {
 //   Frequency freq = FREQUENCY_MONTHLY;
@@ -174,7 +180,8 @@ message ComponentIDs {
 // }
 // ```
 //
-// Weekends only:
+// ##### Weekends only
+//
 // ```
 // message RecurrenceRule {
 //   Frequency freq = FREQUENCY_WEEKLY;
@@ -182,7 +189,10 @@ message ComponentIDs {
 // }
 // ```
 //
-// Every day at midnight:
+// ##### At midnight
+//
+// Every day at midnight.
+//
 // ```
 // message RecurrenceRule {
 //   Frequency freq = FREQUENCY_DAILY;
@@ -190,7 +200,10 @@ message ComponentIDs {
 // }
 // ```
 //
-// Nightly, assuming "night" means from 8 PM to 6 AM:
+// ##### Nightly
+//
+// Assuming "night" means from 8 PM to 6 AM.
+//
 // ```
 // message RecurrenceRule {
 //   Frequency freq = FREQUENCY_DAILY;
