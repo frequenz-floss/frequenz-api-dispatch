@@ -165,9 +165,11 @@ message ComponentIDs {
 // Timezone Note: Timestamps are in UTC. It is the responsibility of each microgrid to translate UTC
 // to its local timezone.
 //
-// This definition tries to adhere closely to the iCalendar specification (RFC 5545),
+// This definition tries to adhere closely to the iCalendar specification ([RFC5545]),
 // particularly for recurrence rules. For advanced use-cases or further clarifications,
-// refer to RFC 5545.
+// refer to [RFC5545].
+//
+// [RFC5545]: https://tools.ietf.org/html/rfc5545
 //
 // #### Examples
 //
