@@ -638,22 +638,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#componentids" class="md-nav__link">
+    ComponentIDs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#componentselector" class="md-nav__link">
+    ComponentSelector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dispatch" class="md-nav__link">
     Dispatch
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dispatchcomponentids" class="md-nav__link">
-    DispatchComponentIDs
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dispatchcomponentselector" class="md-nav__link">
-    DispatchComponentSelector
   </a>
   
 </li>
@@ -736,8 +736,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dispatchservice" class="md-nav__link">
-    DispatchService
+  <a href="#microgriddispatchservice" class="md-nav__link">
+    MicrogridDispatchService
   </a>
   
 </li>
@@ -1070,22 +1070,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#componentids" class="md-nav__link">
+    ComponentIDs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#componentselector" class="md-nav__link">
+    ComponentSelector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dispatch" class="md-nav__link">
     Dispatch
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dispatchcomponentids" class="md-nav__link">
-    DispatchComponentIDs
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dispatchcomponentselector" class="md-nav__link">
-    DispatchComponentSelector
   </a>
   
 </li>
@@ -1168,8 +1168,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dispatchservice" class="md-nav__link">
-    DispatchService
+  <a href="#microgriddispatchservice" class="md-nav__link">
+    MicrogridDispatchService
   </a>
   
 </li>
@@ -1211,9 +1211,9 @@
 <li>
 <p><a href="#frequenz_dispatch_v1_dispatch-proto">frequenz/dispatch/v1/dispatch.proto</a></p>
 <ul>
+<li><a href="#frequenz-dispatch-v1-ComponentIDs">ComponentIDs</a></li>
+<li><a href="#frequenz-dispatch-v1-ComponentSelector">ComponentSelector</a></li>
 <li><a href="#frequenz-dispatch-v1-Dispatch">Dispatch</a></li>
-<li><a href="#frequenz-dispatch-v1-DispatchComponentIDs">DispatchComponentIDs</a></li>
-<li><a href="#frequenz-dispatch-v1-DispatchComponentSelector">DispatchComponentSelector</a></li>
 <li><a href="#frequenz-dispatch-v1-DispatchCreateRequest">DispatchCreateRequest</a></li>
 <li><a href="#frequenz-dispatch-v1-DispatchDeleteRequest">DispatchDeleteRequest</a></li>
 <li><a href="#frequenz-dispatch-v1-DispatchFilter">DispatchFilter</a></li>
@@ -1232,7 +1232,7 @@
 <p><a href="#frequenz-dispatch-v1-RecurrenceRule-Weekday">RecurrenceRule.Weekday</a></p>
 </li>
 <li>
-<p><a href="#frequenz-dispatch-v1-DispatchService">DispatchService</a></p>
+<p><a href="#frequenz-dispatch-v1-MicrogridDispatchService">MicrogridDispatchService</a></p>
 </li>
 </ul>
 </li>
@@ -1244,9 +1244,60 @@
 <p align="right"><a href="#top">Top</a></p>
 
 <h2 id="frequenzdispatchv1dispatchproto">frequenz/dispatch/v1/dispatch.proto<a class="headerlink" href="#frequenzdispatchv1dispatchproto" title="Permanent link">¤</a></h2>
+<p><a name="frequenz-dispatch-v1-ComponentIDs"></a></p>
+<h3 id="componentids">ComponentIDs<a class="headerlink" href="#componentids" title="Permanent link">¤</a></h3>
+<p>Wrapper for controlling dispatches with a set of component IDs</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>component_ids</td>
+<td><a href="#uint64">uint64</a></td>
+<td>repeated</td>
+<td>Set of component IDs</td>
+</tr>
+</tbody>
+</table>
+<p><a name="frequenz-dispatch-v1-ComponentSelector"></a></p>
+<h3 id="componentselector">ComponentSelector<a class="headerlink" href="#componentselector" title="Permanent link">¤</a></h3>
+<p>Parameter for controlling which components a dispatch applies to
+Either a set of component IDs, or all components belonging to a category</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>component_ids</td>
+<td><a href="#frequenz-dispatch-v1-ComponentIDs">ComponentIDs</a></td>
+<td></td>
+<td>Set of component IDs</td>
+</tr>
+<tr>
+<td>component_category</td>
+<td><a href="#frequenz-api-common-components-ComponentCategory">frequenz.api.common.components.ComponentCategory</a></td>
+<td></td>
+<td>Component category</td>
+</tr>
+</tbody>
+</table>
 <p><a name="frequenz-dispatch-v1-Dispatch"></a></p>
 <h3 id="dispatch">Dispatch<a class="headerlink" href="#dispatch" title="Permanent link">¤</a></h3>
-<p>Message representing one dispatch</p>
+<p>Message representing one dispatch.</p>
+<p>Timezone Note: Timestamps are in UTC. It is the responsibility of each microgrid to translate UTC
+to its local timezone.</p>
 <table>
 <thead>
 <tr>
@@ -1279,29 +1330,29 @@
 <td>create_time</td>
 <td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
 <td></td>
-<td>The creation time This is set when a dispatch is created via the create request message</td>
+<td>The creation time in UTC This is set when a dispatch is created via the create request message</td>
 </tr>
 <tr>
 <td>update_time</td>
 <td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
 <td></td>
-<td>The update time This is set when a dispatch is modified via the update request message</td>
+<td>The update time in UTC This is set when a dispatch is modified via the update request message</td>
 </tr>
 <tr>
 <td>start_time</td>
 <td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
 <td></td>
-<td>The start time</td>
+<td>The start time in UTC</td>
 </tr>
 <tr>
 <td>end_time</td>
 <td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
 <td></td>
-<td>The end time</td>
+<td>The end time in UTC</td>
 </tr>
 <tr>
 <td>selector</td>
-<td><a href="#frequenz-dispatch-v1-DispatchComponentSelector">DispatchComponentSelector</a></td>
+<td><a href="#frequenz-dispatch-v1-ComponentSelector">ComponentSelector</a></td>
 <td></td>
 <td>The component selector</td>
 </tr>
@@ -1309,13 +1360,13 @@
 <td>is_active</td>
 <td><a href="#bool">bool</a></td>
 <td></td>
-<td>The &#34;active&#34; status</td>
+<td>The &#34;active&#34; status An active dispatch is eligible for processing, either immediately or at a scheduled time in the future, including recurring dispatches. If a dispatch is set to inactive, it won&#39;t be processed even if it matches all other conditions, allowing for temporary disabling of dispatches without deletion.</td>
 </tr>
 <tr>
 <td>is_dry_run</td>
 <td><a href="#bool">bool</a></td>
 <td></td>
-<td>The &#34;dry run&#34; status</td>
+<td>The &#34;dry run&#34; status A dry run dispatch is executed for logging and monitoring purposes without affecting the microgrid components. This is useful, for example, in scenarios where a user may want to test dispatch behavior without actually affecting any component states. Notably, a dispatch can be both &#34;dry run&#34; and &#34;active,&#34; allowing for the system to generate logs and observe behavior without making actual changes.</td>
 </tr>
 <tr>
 <td>payload</td>
@@ -1328,55 +1379,6 @@
 <td><a href="#frequenz-dispatch-v1-RecurrenceRule">RecurrenceRule</a></td>
 <td></td>
 <td>The recurrence rule</td>
-</tr>
-</tbody>
-</table>
-<p><a name="frequenz-dispatch-v1-DispatchComponentIDs"></a></p>
-<h3 id="dispatchcomponentids">DispatchComponentIDs<a class="headerlink" href="#dispatchcomponentids" title="Permanent link">¤</a></h3>
-<p>Wrapper for controlling dispatches with a set of component IDs</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Label</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>component_ids</td>
-<td><a href="#uint64">uint64</a></td>
-<td>repeated</td>
-<td>Set of component IDs</td>
-</tr>
-</tbody>
-</table>
-<p><a name="frequenz-dispatch-v1-DispatchComponentSelector"></a></p>
-<h3 id="dispatchcomponentselector">DispatchComponentSelector<a class="headerlink" href="#dispatchcomponentselector" title="Permanent link">¤</a></h3>
-<p>Parameter for controlling which components a dispatch applies to
-Either a set of component IDs, or all components belonging to a category</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Label</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>dispatch_component_ids</td>
-<td><a href="#frequenz-dispatch-v1-DispatchComponentIDs">DispatchComponentIDs</a></td>
-<td></td>
-<td>Set of component IDs</td>
-</tr>
-<tr>
-<td>dispatch_component_category</td>
-<td><a href="#frequenz-api-common-components-ComponentCategory">frequenz.api.common.components.ComponentCategory</a></td>
-<td></td>
-<td>Component category</td>
 </tr>
 </tbody>
 </table>
@@ -1419,7 +1421,7 @@ Either a set of component IDs, or all components belonging to a category</p>
 </tr>
 <tr>
 <td>selector</td>
-<td><a href="#frequenz-dispatch-v1-DispatchComponentSelector">DispatchComponentSelector</a></td>
+<td><a href="#frequenz-dispatch-v1-ComponentSelector">ComponentSelector</a></td>
 <td></td>
 <td>The component selector</td>
 </tr>
@@ -1485,7 +1487,7 @@ Either a set of component IDs, or all components belonging to a category</p>
 <tbody>
 <tr>
 <td>selectors</td>
-<td><a href="#frequenz-dispatch-v1-DispatchComponentSelector">DispatchComponentSelector</a></td>
+<td><a href="#frequenz-dispatch-v1-ComponentSelector">ComponentSelector</a></td>
 <td>repeated</td>
 <td>Filter by component ID or category</td>
 </tr>
@@ -1494,6 +1496,18 @@ Either a set of component IDs, or all components belonging to a category</p>
 <td><a href="#frequenz-dispatch-v1-TimeIntervalFilter">TimeIntervalFilter</a></td>
 <td></td>
 <td>Filter by time interval If no interval is provided, all dispatches starting from the current timestamp will be included.</td>
+</tr>
+<tr>
+<td>is_active</td>
+<td><a href="#bool">bool</a></td>
+<td>optional</td>
+<td>Filter by active status If this field is not set, dispatches of any active status will be included.</td>
+</tr>
+<tr>
+<td>is_dry_run</td>
+<td><a href="#bool">bool</a></td>
+<td>optional</td>
+<td>Filter by dry run status If this field is not set, dispatches of any dry run status will be included.</td>
 </tr>
 </tbody>
 </table>
@@ -1599,7 +1613,7 @@ Either a set of component IDs, or all components belonging to a category</p>
 </tr>
 <tr>
 <td>selector</td>
-<td><a href="#frequenz-dispatch-v1-DispatchComponentSelector">DispatchComponentSelector</a></td>
+<td><a href="#frequenz-dispatch-v1-ComponentSelector">ComponentSelector</a></td>
 <td></td>
 <td>The component selector</td>
 </tr>
@@ -1631,7 +1645,9 @@ Either a set of component IDs, or all components belonging to a category</p>
 </table>
 <p><a name="frequenz-dispatch-v1-RecurrenceRule"></a></p>
 <h3 id="recurrencerule">RecurrenceRule<a class="headerlink" href="#recurrencerule" title="Permanent link">¤</a></h3>
-<p>Ruleset governing when and how a dispatch should re-occur</p>
+<p>Ruleset governing when and how a dispatch should re-occur.</p>
+<p>Timezone Note: Timestamps are in UTC. It is the responsibility of each microgrid to translate UTC
+to its local timezone.</p>
 <p>This definition tries to adhere closely to the iCalendar specification (RFC 5545),
 particularly for recurrence rules. For advanced use-cases or further clarifications,
 refer to RFC 5545.</p>
@@ -1857,8 +1873,8 @@ refer to RFC 5545.</p>
 </tr>
 </tbody>
 </table>
-<p><a name="frequenz-dispatch-v1-DispatchService"></a></p>
-<h3 id="dispatchservice">DispatchService<a class="headerlink" href="#dispatchservice" title="Permanent link">¤</a></h3>
+<p><a name="frequenz-dispatch-v1-MicrogridDispatchService"></a></p>
+<h3 id="microgriddispatchservice">MicrogridDispatchService<a class="headerlink" href="#microgriddispatchservice" title="Permanent link">¤</a></h3>
 <p>Service providing operations related to dispatching microgrid components.</p>
 <table>
 <thead>
@@ -1871,31 +1887,31 @@ refer to RFC 5545.</p>
 </thead>
 <tbody>
 <tr>
-<td>ListDispatches</td>
+<td>ListMicrogridDispatches</td>
 <td><a href="#frequenz-dispatch-v1-DispatchListRequest">DispatchListRequest</a></td>
 <td><a href="#frequenz-dispatch-v1-DispatchList">DispatchList</a></td>
 <td>Returns a list of all dispatches</td>
 </tr>
 <tr>
-<td>CreateDispatch</td>
+<td>CreateMicrogridDispatch</td>
 <td><a href="#frequenz-dispatch-v1-DispatchCreateRequest">DispatchCreateRequest</a></td>
 <td><a href="#google-protobuf-Empty">.google.protobuf.Empty</a></td>
 <td>Create a new dispatch</td>
 </tr>
 <tr>
-<td>UpdateDispatch</td>
+<td>UpdateMicrogridDispatch</td>
 <td><a href="#frequenz-dispatch-v1-DispatchUpdateRequest">DispatchUpdateRequest</a></td>
 <td><a href="#google-protobuf-Empty">.google.protobuf.Empty</a></td>
 <td>Update a dispatch</td>
 </tr>
 <tr>
-<td>GetDispatch</td>
+<td>GetMicrogridDispatch</td>
 <td><a href="#frequenz-dispatch-v1-DispatchGetRequest">DispatchGetRequest</a></td>
 <td><a href="#frequenz-dispatch-v1-Dispatch">Dispatch</a></td>
 <td>Get a single dispatch</td>
 </tr>
 <tr>
-<td>DeleteDispatch</td>
+<td>DeleteMicrogridDispatch</td>
 <td><a href="#frequenz-dispatch-v1-DispatchDeleteRequest">DispatchDeleteRequest</a></td>
 <td><a href="#google-protobuf-Empty">.google.protobuf.Empty</a></td>
 <td>Delete a given dispatch</td>
