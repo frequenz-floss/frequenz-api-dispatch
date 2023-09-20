@@ -2,15 +2,16 @@
 
 ## Summary
 
-<!-- Here goes a general summary of what this release is about -->
+- End time has been moved to the recurrence rule object, replaced by `duration` on the base dispatch object.
 
 ## Upgrading
 
-<!-- Here goes notes on how to upgrade from previous versions, including deprecations and what they should be replaced with -->
+- Queries that compare against a time interval filter should check for the end time inside the recurrence rule.
 
 ## New Features
 
-<!-- Here goes the main new features and examples or instructions on how to use them -->
+- Moved the field `end_time` to inside the recurrence rule object.
+- Introduced a new field `duration`.
 
 ## Bug Fixes
 

@@ -92,8 +92,8 @@ message Dispatch {
   // The start time in UTC
   google.protobuf.Timestamp start_time = 6;
 
-  // The end time in UTC
-  google.protobuf.Timestamp end_time = 7;
+  // Duration in seconds
+  uint32 duration = 7;
 
   // The component selector
   ComponentSelector selector = 8;
@@ -129,10 +129,10 @@ message TimeIntervalFilter {
   // Filter by start_time < this timestamp
   google.protobuf.Timestamp start_to = 2;
 
-  // Filter by end_time >= this timestamp
+  // Filter by recurrence.end_time >= this timestamp
   google.protobuf.Timestamp end_from = 3;
 
-  // Filter by end_time < this timestamp
+  // Filter by recurrence.end_time < this timestamp
   google.protobuf.Timestamp end_to = 4;
 }
 
@@ -247,6 +247,9 @@ message RecurrenceRule {
 
   // On which month(s) of the year does the event occur
   repeated uint32 bymonths = 8;
+
+  // The end time in UTC
+  google.protobuf.Timestamp end_time = 9;
 }
 
 // Message for listing dispatches for a given microgrid, and an optional filter
@@ -297,8 +300,8 @@ message DispatchCreateRequest {
   // Timestamps earlier than the current time are not allowed.
   google.protobuf.Timestamp start_time = 3;
 
-  // The end time
-  google.protobuf.Timestamp end_time = 4;
+  // Duration in seconds
+  uint32 duration = 4;
 
   // The component selector
   ComponentSelector selector = 5;
@@ -327,8 +330,8 @@ message DispatchUpdateRequest {
   // Timestamps earlier than the current time are not allowed.
   google.protobuf.Timestamp start_time = 2;
 
-  // The end time
-  google.protobuf.Timestamp end_time = 3;
+  // Duration in seconds
+  optional uint32 duration = 3;
 
   // The component selector
   ComponentSelector selector = 4;
