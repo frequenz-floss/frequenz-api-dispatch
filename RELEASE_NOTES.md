@@ -2,17 +2,15 @@
 
 ## Summary
 
-This release is mainly about updating the names of some objects, and improving documentation.
+<!-- Here goes a general summary of what this release is about -->
 
 ## Upgrading
 
-- Service and its methods have been renamed to `MicrogridDispatchService`
-- `DispatchComponentSelector` has been renamed to `ComponentSelector`
-- `DispatchComponentIDs` has been renamed to `ComponentIDs`
+<!-- Here goes notes on how to upgrade from previous versions, including deprecations and what they should be replaced with -->
 
 ## New Features
 
-- `DispatchFilter` now supports filtering by `is_active` and `is_dry_run`
+<!-- Here goes the main new features and examples or instructions on how to use them -->
 
 ## Bug Fixes
 
