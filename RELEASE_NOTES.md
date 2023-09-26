@@ -2,17 +2,16 @@
 
 ## Summary
 
-This release is mainly about updating the names of some objects, and improving documentation.
+- End time has been moved to the recurrence rule object, replaced by `duration` on the base dispatch object.
 
 ## Upgrading
 
-- Service and its methods have been renamed to `MicrogridDispatchService`
-- `DispatchComponentSelector` has been renamed to `ComponentSelector`
-- `DispatchComponentIDs` has been renamed to `ComponentIDs`
+- Queries that compare against a time interval filter should check for the end time inside the recurrence rule.
+- `end_time` has been renamed `until` and is mutually exclusive with `count`.
 
 ## New Features
 
-- `DispatchFilter` now supports filtering by `is_active` and `is_dry_run`
+- Introduced a new field `duration`.
 
 ## Bug Fixes
 
