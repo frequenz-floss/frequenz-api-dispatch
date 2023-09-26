@@ -1024,8 +1024,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.Dispatch.end_time" class="md-nav__link">
-    end_time
+  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.Dispatch.duration" class="md-nav__link">
+    duration
   </a>
   
 </li>
@@ -1127,8 +1127,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchCreateRequest.end_time" class="md-nav__link">
-    end_time
+  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchCreateRequest.duration" class="md-nav__link">
+    duration
   </a>
   
 </li>
@@ -1409,8 +1409,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchUpdateRequest.end_time" class="md-nav__link">
-    end_time
+  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchUpdateRequest.duration" class="md-nav__link">
+    duration
   </a>
   
 </li>
@@ -1526,8 +1526,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.count" class="md-nav__link">
-    count
+  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.end_criteria" class="md-nav__link">
+    end_criteria
   </a>
   
 </li>
@@ -1558,6 +1558,13 @@
   
     <nav class="md-nav" aria-label="Classes">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.EndCriteria" class="md-nav__link">
+    EndCriteria
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.Frequency" class="md-nav__link">
@@ -1871,8 +1878,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.Dispatch.end_time" class="md-nav__link">
-    end_time
+  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.Dispatch.duration" class="md-nav__link">
+    duration
   </a>
   
 </li>
@@ -1974,8 +1981,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchCreateRequest.end_time" class="md-nav__link">
-    end_time
+  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchCreateRequest.duration" class="md-nav__link">
+    duration
   </a>
   
 </li>
@@ -2256,8 +2263,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchUpdateRequest.end_time" class="md-nav__link">
-    end_time
+  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchUpdateRequest.duration" class="md-nav__link">
+    duration
   </a>
   
 </li>
@@ -2373,8 +2380,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.count" class="md-nav__link">
-    count
+  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.end_criteria" class="md-nav__link">
+    end_criteria
   </a>
   
 </li>
@@ -2405,6 +2412,13 @@
   
     <nav class="md-nav" aria-label="Classes">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.EndCriteria" class="md-nav__link">
+    EndCriteria
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.Frequency" class="md-nav__link">
@@ -2708,6 +2722,13 @@ Either a set of component IDs, or all components belonging to a category</p>
 <p>Timezone Note: Timestamps are in UTC. It is the responsibility of each microgrid to translate UTC
 to its local timezone.</p>
 
+            <details class="quote">
+              <summary>Source code in <code>/opt/hostedtoolcache/Python/3.11.5/x64/lib/python3.11/site-packages/frequenz/api/dispatch/v1/dispatch_pb2.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-59">59</a></span>
+<span class="normal"><a href="#__codelineno-0-60">60</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59"></a>  <span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_MICROGRIDDISPATCHSERVICE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">3537</span>
+</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="c1"># @@protoc_insertion_point(module_scope)</span>
+</span></code></pre></div></td></tr></table></div>
+            </details>
 
   
 
@@ -2747,19 +2768,19 @@ This is set when a dispatch is created via the create request message</p>
 
 
 
-<h6 id="frequenz.api.dispatch.v1.dispatch_pb2.Dispatch.end_time" class="doc doc-heading">
-          <code class="highlight language-python"><span class="n">end_time</span><span class="p">:</span> <span class="n">google</span><span class="o">.</span><span class="n">protobuf</span><span class="o">.</span><span class="n">timestamp_pb2</span><span class="o">.</span><span class="n">Timestamp</span></code>
+<h6 id="frequenz.api.dispatch.v1.dispatch_pb2.Dispatch.duration" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">duration</span><span class="p">:</span> <span class="n">builtins</span><span class="o">.</span><span class="n">int</span></code>
   
   <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-property"><code>property</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
   </span>
 
-<a href="#frequenz.api.dispatch.v1.dispatch_pb2.Dispatch.end_time" class="headerlink" title="Permanent link">¤</a></h6>
+<a href="#frequenz.api.dispatch.v1.dispatch_pb2.Dispatch.duration" class="headerlink" title="Permanent link">¤</a></h6>
 
 
   <div class="doc doc-contents ">
   
-      <p>The end time in UTC</p>
+      <p>Duration in seconds</p>
   </div>
 
 </div>
@@ -3043,19 +3064,19 @@ This is set when a dispatch is modified via the update request message</p>
 
 
 
-<h6 id="frequenz.api.dispatch.v1.dispatch_pb2.DispatchCreateRequest.end_time" class="doc doc-heading">
-          <code class="highlight language-python"><span class="n">end_time</span><span class="p">:</span> <span class="n">google</span><span class="o">.</span><span class="n">protobuf</span><span class="o">.</span><span class="n">timestamp_pb2</span><span class="o">.</span><span class="n">Timestamp</span></code>
+<h6 id="frequenz.api.dispatch.v1.dispatch_pb2.DispatchCreateRequest.duration" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">duration</span><span class="p">:</span> <span class="n">builtins</span><span class="o">.</span><span class="n">int</span></code>
   
   <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-property"><code>property</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
   </span>
 
-<a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchCreateRequest.end_time" class="headerlink" title="Permanent link">¤</a></h6>
+<a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchCreateRequest.duration" class="headerlink" title="Permanent link">¤</a></h6>
 
 
   <div class="doc doc-contents ">
   
-      <p>The end time</p>
+      <p>Duration in seconds</p>
   </div>
 
 </div>
@@ -3686,19 +3707,19 @@ current timestamp will be included.</p>
 
 
 
-<h6 id="frequenz.api.dispatch.v1.dispatch_pb2.DispatchUpdateRequest.end_time" class="doc doc-heading">
-          <code class="highlight language-python"><span class="n">end_time</span><span class="p">:</span> <span class="n">google</span><span class="o">.</span><span class="n">protobuf</span><span class="o">.</span><span class="n">timestamp_pb2</span><span class="o">.</span><span class="n">Timestamp</span></code>
+<h6 id="frequenz.api.dispatch.v1.dispatch_pb2.DispatchUpdateRequest.duration" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">duration</span><span class="p">:</span> <span class="n">builtins</span><span class="o">.</span><span class="n">int</span></code>
   
   <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-property"><code>property</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
   </span>
 
-<a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchUpdateRequest.end_time" class="headerlink" title="Permanent link">¤</a></h6>
+<a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchUpdateRequest.duration" class="headerlink" title="Permanent link">¤</a></h6>
 
 
   <div class="doc doc-contents ">
   
-      <p>The end time</p>
+      <p>Duration in seconds</p>
   </div>
 
 </div>
@@ -4045,20 +4066,21 @@ refer to RFC 5545.</p>
 
 
 
-<h6 id="frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.count" class="doc doc-heading">
-          <code class="highlight language-python"><span class="n">count</span><span class="p">:</span> <span class="n">builtins</span><span class="o">.</span><span class="n">int</span></code>
+<h6 id="frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.end_criteria" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">end_criteria</span><span class="p">:</span> <span class="n">global___RecurrenceRule</span><span class="o">.</span><span class="n">EndCriteria</span></code>
   
   <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
   </span>
 
-<a href="#frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.count" class="headerlink" title="Permanent link">¤</a></h6>
+<a href="#frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.end_criteria" class="headerlink" title="Permanent link">¤</a></h6>
 
 
   <div class="doc doc-contents ">
   
-      <p>(Optional) limit the number of occurences
-If this field is not set, the dispatch will recur indefinitely</p>
+      <p>When this dispatch should end.
+A dispatch can either recur a fixed number of times, or until a given timestamp.
+If this field is not set, the dispatch will recur indefinitely.bool</p>
   </div>
 
 </div>
@@ -4111,6 +4133,92 @@ Example:
 
 </div>
 <h5 id="frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule-classes">Classes<a href="#frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule-classes" class="headerlink" title="Permanent link">¤</a></h5>
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h6 id="frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.EndCriteria" class="doc doc-heading">
+          <code>EndCriteria</code>
+
+
+<a href="#frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.EndCriteria" class="headerlink" title="Permanent link">¤</a></h6>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
+
+  
+      <p>Controls when a recurring dispatch should end</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+<h7 id="frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.EndCriteria-attributes">Attributes<a href="#frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.EndCriteria-attributes" class="headerlink" title="Permanent link">¤</a></h7>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h8 id="frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.EndCriteria.count" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">count</span><span class="p">:</span> <span class="n">builtins</span><span class="o">.</span><span class="n">int</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.EndCriteria.count" class="headerlink" title="Permanent link">¤</a></h8>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>The number of times this dispatch should recur.
+If this field is set, the dispatch will recur the given number of times.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h8 id="frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.EndCriteria.until" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">until</span><span class="p">:</span> <span class="n">google</span><span class="o">.</span><span class="n">protobuf</span><span class="o">.</span><span class="n">timestamp_pb2</span><span class="o">.</span><span class="n">Timestamp</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+<a href="#frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule.EndCriteria.until" class="headerlink" title="Permanent link">¤</a></h8>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>The end time of this dispatch in UTC.
+If this field is set, the dispatch will recur until the given timestamp.</p>
+  </div>
+
+</div>
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
 
 <div class="doc doc-object doc-class">
 
@@ -4216,7 +4324,7 @@ Example:
 
   <div class="doc doc-contents ">
   
-      <p>Filter by end_time &gt;= this timestamp</p>
+      <p>Filter by recurrence.end_time &gt;= this timestamp</p>
   </div>
 
 </div>
@@ -4238,7 +4346,7 @@ Example:
 
   <div class="doc doc-contents ">
   
-      <p>Filter by end_time &lt; this timestamp</p>
+      <p>Filter by recurrence.end_time &lt; this timestamp</p>
   </div>
 
 </div>

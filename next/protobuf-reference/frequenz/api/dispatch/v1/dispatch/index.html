@@ -771,6 +771,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#recurrenceruleendcriteria" class="md-nav__link">
+    RecurrenceRule.EndCriteria
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#timeintervalfilter" class="md-nav__link">
     TimeIntervalFilter
   </a>
@@ -1253,6 +1260,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#recurrenceruleendcriteria" class="md-nav__link">
+    RecurrenceRule.EndCriteria
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#timeintervalfilter" class="md-nav__link">
     TimeIntervalFilter
   </a>
@@ -1328,6 +1342,7 @@
 <li><a href="#frequenz-api-dispatch-v1-DispatchListRequest">DispatchListRequest</a></li>
 <li><a href="#frequenz-api-dispatch-v1-DispatchUpdateRequest">DispatchUpdateRequest</a></li>
 <li><a href="#frequenz-api-dispatch-v1-RecurrenceRule">RecurrenceRule</a></li>
+<li><a href="#frequenz-api-dispatch-v1-RecurrenceRule-EndCriteria">RecurrenceRule.EndCriteria</a></li>
 <li>
 <p><a href="#frequenz-api-dispatch-v1-TimeIntervalFilter">TimeIntervalFilter</a></p>
 </li>
@@ -1451,10 +1466,10 @@ to its local timezone.</p>
 <td>The start time in UTC</td>
 </tr>
 <tr>
-<td>end_time</td>
-<td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
+<td>duration</td>
+<td><a href="#uint32">uint32</a></td>
 <td></td>
-<td>The end time in UTC</td>
+<td>Duration in seconds</td>
 </tr>
 <tr>
 <td>selector</td>
@@ -1520,10 +1535,10 @@ to its local timezone.</p>
 <td>The start time When creating a dispatch, ensure that the starting timestamp is set to the current time or any future time. Timestamps earlier than the current time are not allowed.</td>
 </tr>
 <tr>
-<td>end_time</td>
-<td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
+<td>duration</td>
+<td><a href="#uint32">uint32</a></td>
 <td></td>
-<td>The end time</td>
+<td>Duration in seconds</td>
 </tr>
 <tr>
 <td>selector</td>
@@ -1712,10 +1727,10 @@ to its local timezone.</p>
 <td>The start time When updating a dispatch, ensure that the starting timestamp is set to the current time or any future time. Timestamps earlier than the current time are not allowed.</td>
 </tr>
 <tr>
-<td>end_time</td>
-<td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
-<td></td>
-<td>The end time</td>
+<td>duration</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td>Duration in seconds</td>
 </tr>
 <tr>
 <td>selector</td>
@@ -1805,10 +1820,10 @@ refer to RFC 5545.</p>
 <td>How often this dispatch should recur, based on the frequency Example: - Every 2 hours: freq = FREQUENCY_HOURLY interval = 2</td>
 </tr>
 <tr>
-<td>count</td>
-<td><a href="#uint32">uint32</a></td>
-<td>optional</td>
-<td>(Optional) limit the number of occurences If this field is not set, the dispatch will recur indefinitely</td>
+<td>end_criteria</td>
+<td><a href="#frequenz-api-dispatch-v1-RecurrenceRule-EndCriteria">RecurrenceRule.EndCriteria</a></td>
+<td></td>
+<td>When this dispatch should end. A dispatch can either recur a fixed number of times, or until a given timestamp. If this field is not set, the dispatch will recur indefinitely.bool</td>
 </tr>
 <tr>
 <td>byminutes</td>
@@ -1842,6 +1857,33 @@ refer to RFC 5545.</p>
 </tr>
 </tbody>
 </table>
+<p><a name="frequenz-api-dispatch-v1-RecurrenceRule-EndCriteria"></a></p>
+<h3 id="recurrenceruleendcriteria">RecurrenceRule.EndCriteria<a class="headerlink" href="#recurrenceruleendcriteria" title="Permanent link">¤</a></h3>
+<p>Controls when a recurring dispatch should end</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>count</td>
+<td><a href="#uint32">uint32</a></td>
+<td></td>
+<td>The number of times this dispatch should recur. If this field is set, the dispatch will recur the given number of times.</td>
+</tr>
+<tr>
+<td>until</td>
+<td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
+<td></td>
+<td>The end time of this dispatch in UTC. If this field is set, the dispatch will recur until the given timestamp.</td>
+</tr>
+</tbody>
+</table>
 <p><a name="frequenz-api-dispatch-v1-TimeIntervalFilter"></a></p>
 <h3 id="timeintervalfilter">TimeIntervalFilter<a class="headerlink" href="#timeintervalfilter" title="Permanent link">¤</a></h3>
 <p>Filter parameter for specifying multiple time intervals</p>
@@ -1871,13 +1913,13 @@ refer to RFC 5545.</p>
 <td>end_from</td>
 <td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
 <td></td>
-<td>Filter by end_time &gt;= this timestamp</td>
+<td>Filter by recurrence.end_time &gt;= this timestamp</td>
 </tr>
 <tr>
 <td>end_to</td>
 <td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
 <td></td>
-<td>Filter by end_time &lt; this timestamp</td>
+<td>Filter by recurrence.end_time &lt; this timestamp</td>
 </tr>
 </tbody>
 </table>
