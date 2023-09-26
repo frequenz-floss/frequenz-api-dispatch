@@ -219,6 +219,19 @@ message RecurrenceRule {
     FREQUENCY_MONTHLY = 5;
   }
 
+  // Controls when a recurring dispatch should end
+  message EndCriteria {
+    oneof count_or_until {
+      // The number of times this dispatch should recur.
+      // If this field is set, the dispatch will recur the given number of times.
+      uint32 count = 1;
+
+      // The end time of this dispatch in UTC.
+      // If this field is set, the dispatch will recur until the given timestamp.
+      google.protobuf.Timestamp until = 2;
+    }
+  }
+
   // The frequency specifier of this recurring dispatch
   Frequency freq = 1;
 
@@ -229,9 +242,10 @@ message RecurrenceRule {
   //   interval = 2
   uint32 interval = 2;
 
-  // (Optional) limit the number of occurences
-  // If this field is not set, the dispatch will recur indefinitely
-  optional uint32 count = 3;
+  // When this dispatch should end.
+  // A dispatch can either recur a fixed number of times, or until a given timestamp.
+  // If this field is not set, the dispatch will recur indefinitely.bool
+  EndCriteria end_criteria = 3;
 
   // On which minute(s) of the hour does the event occur
   repeated uint32 byminutes = 4;
@@ -247,9 +261,6 @@ message RecurrenceRule {
 
   // On which month(s) of the year does the event occur
   repeated uint32 bymonths = 8;
-
-  // The end time in UTC
-  google.protobuf.Timestamp end_time = 9;
 }
 
 // Message for listing dispatches for a given microgrid, and an optional filter

@@ -7,10 +7,10 @@
 ## Upgrading
 
 - Queries that compare against a time interval filter should check for the end time inside the recurrence rule.
+- `end_time` has been renamed `until` and is mutually exclusive with `count`.
 
 ## New Features
 
-- Moved the field `end_time` to inside the recurrence rule object.
 - Introduced a new field `duration`.
 
 ## Bug Fixes
