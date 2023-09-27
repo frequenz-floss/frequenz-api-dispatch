@@ -41,6 +41,7 @@ syntax = "proto3";
 package frequenz.api.dispatch.v1;
 
 import "google/protobuf/empty.proto";
+import "google/protobuf/field_mask.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -332,32 +333,71 @@ message DispatchCreateRequest {
 
 // Message to update the dispatch with the given ID, with the given attributes
 message DispatchUpdateRequest {
+  // Message containing the updated dispatch attributes
+  message DispatchUpdate {
+    // Message containing the updated recurrence rule attributes
+    message RecurrenceRuleUpdate {
+      // The frequency specifier of this recurring dispatch
+      optional RecurrenceRule.Frequency freq = 1;
+
+      // How often this dispatch should recur, based on the frequency
+      optional uint32 interval = 2;
+
+      // When this dispatch should end.
+      RecurrenceRule.EndCriteria end_criteria = 3;
+
+      // On which minute(s) of the hour does the event occur
+      repeated uint32 byminutes = 4;
+
+      // On which hour(s) of the day does the event occur
+      repeated uint32 byhours = 5;
+
+      // On which day(s) of the week does the event occur
+      repeated RecurrenceRule.Weekday byweekdays = 6;
+
+      // On which day(s) of the month does the event occur
+      repeated uint32 bymonthdays = 7;
+
+      // On which month(s) of the year does the event occur
+      repeated uint32 bymonths = 8;
+    }
+
+    // The type of dispatch
+    optional string type = 1;
+
+    // The start time
+    // When updating a dispatch, ensure that the starting timestamp is set to
+    // the current time or any future time.
+    // Timestamps earlier than the current time are not allowed.
+    google.protobuf.Timestamp start_time = 2;
+
+    // Duration in seconds
+    optional uint32 duration = 3;
+
+    // The component selector
+    ComponentSelector selector = 4;
+
+    // The "active" status
+    optional bool is_active = 5;
+
+    // The "dry run" status
+    optional bool is_dry_run = 6;
+
+    // The dispatch payload
+    google.protobuf.Struct payload = 7;
+
+    // The recurrence rule
+    RecurrenceRuleUpdate recurrence = 8;
+  }
+
   // The dispatch identifier
   uint64 id = 1;
 
-  // The start time
-  // When updating a dispatch, ensure that the starting timestamp is set to
-  // the current time or any future time.
-  // Timestamps earlier than the current time are not allowed.
-  google.protobuf.Timestamp start_time = 2;
+  // Field mask specifying which fields should be updated
+  google.protobuf.FieldMask update_mask = 2;
 
-  // Duration in seconds
-  optional uint32 duration = 3;
-
-  // The component selector
-  ComponentSelector selector = 4;
-
-  // The "active" status
-  optional bool is_active = 5;
-
-  // The "dry run" status
-  optional bool is_dry_run = 6;
-
-  // The dispatch payload
-  google.protobuf.Struct payload = 7;
-
-  // The recurrence rule
-  RecurrenceRule recurrence = 8;
+  // The updated dispatch attributes
+  DispatchUpdate update = 3;
 }
 
 // Message to get a single dispatch by its ID
