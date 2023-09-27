@@ -764,6 +764,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#dispatchupdaterequestdispatchupdate" class="md-nav__link">
+    DispatchUpdateRequest.DispatchUpdate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispatchupdaterequestdispatchupdaterecurrenceruleupdate" class="md-nav__link">
+    DispatchUpdateRequest.DispatchUpdate.RecurrenceRuleUpdate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#recurrencerule" class="md-nav__link">
     RecurrenceRule
   </a>
@@ -1253,6 +1267,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#dispatchupdaterequestdispatchupdate" class="md-nav__link">
+    DispatchUpdateRequest.DispatchUpdate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispatchupdaterequestdispatchupdaterecurrenceruleupdate" class="md-nav__link">
+    DispatchUpdateRequest.DispatchUpdate.RecurrenceRuleUpdate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#recurrencerule" class="md-nav__link">
     RecurrenceRule
   </a>
@@ -1341,6 +1369,8 @@
 <li><a href="#frequenz-api-dispatch-v1-DispatchList">DispatchList</a></li>
 <li><a href="#frequenz-api-dispatch-v1-DispatchListRequest">DispatchListRequest</a></li>
 <li><a href="#frequenz-api-dispatch-v1-DispatchUpdateRequest">DispatchUpdateRequest</a></li>
+<li><a href="#frequenz-api-dispatch-v1-DispatchUpdateRequest-DispatchUpdate">DispatchUpdateRequest.DispatchUpdate</a></li>
+<li><a href="#frequenz-api-dispatch-v1-DispatchUpdateRequest-DispatchUpdate-RecurrenceRuleUpdate">DispatchUpdateRequest.DispatchUpdate.RecurrenceRuleUpdate</a></li>
 <li><a href="#frequenz-api-dispatch-v1-RecurrenceRule">RecurrenceRule</a></li>
 <li><a href="#frequenz-api-dispatch-v1-RecurrenceRule-EndCriteria">RecurrenceRule.EndCriteria</a></li>
 <li>
@@ -1721,6 +1751,39 @@ to its local timezone.</p>
 <td>The dispatch identifier</td>
 </tr>
 <tr>
+<td>update_mask</td>
+<td><a href="#google-protobuf-FieldMask">google.protobuf.FieldMask</a></td>
+<td></td>
+<td>Field mask specifying which fields should be updated</td>
+</tr>
+<tr>
+<td>update</td>
+<td><a href="#frequenz-api-dispatch-v1-DispatchUpdateRequest-DispatchUpdate">DispatchUpdateRequest.DispatchUpdate</a></td>
+<td></td>
+<td>The updated dispatch attributes</td>
+</tr>
+</tbody>
+</table>
+<p><a name="frequenz-api-dispatch-v1-DispatchUpdateRequest-DispatchUpdate"></a></p>
+<h3 id="dispatchupdaterequestdispatchupdate">DispatchUpdateRequest.DispatchUpdate<a class="headerlink" href="#dispatchupdaterequestdispatchupdate" title="Permanent link">¤</a></h3>
+<p>Message containing the updated dispatch attributes</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="#string">string</a></td>
+<td>optional</td>
+<td>The type of dispatch</td>
+</tr>
+<tr>
 <td>start_time</td>
 <td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
 <td></td>
@@ -1758,9 +1821,72 @@ to its local timezone.</p>
 </tr>
 <tr>
 <td>recurrence</td>
-<td><a href="#frequenz-api-dispatch-v1-RecurrenceRule">RecurrenceRule</a></td>
+<td><a href="#frequenz-api-dispatch-v1-DispatchUpdateRequest-DispatchUpdate-RecurrenceRuleUpdate">DispatchUpdateRequest.DispatchUpdate.RecurrenceRuleUpdate</a></td>
 <td></td>
 <td>The recurrence rule</td>
+</tr>
+</tbody>
+</table>
+<p><a name="frequenz-api-dispatch-v1-DispatchUpdateRequest-DispatchUpdate-RecurrenceRuleUpdate"></a></p>
+<h3 id="dispatchupdaterequestdispatchupdaterecurrenceruleupdate">DispatchUpdateRequest.DispatchUpdate.RecurrenceRuleUpdate<a class="headerlink" href="#dispatchupdaterequestdispatchupdaterecurrenceruleupdate" title="Permanent link">¤</a></h3>
+<p>Message containing the updated recurrence rule attributes</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>freq</td>
+<td><a href="#frequenz-api-dispatch-v1-RecurrenceRule-Frequency">RecurrenceRule.Frequency</a></td>
+<td>optional</td>
+<td>The frequency specifier of this recurring dispatch</td>
+</tr>
+<tr>
+<td>interval</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td>How often this dispatch should recur, based on the frequency</td>
+</tr>
+<tr>
+<td>end_criteria</td>
+<td><a href="#frequenz-api-dispatch-v1-RecurrenceRule-EndCriteria">RecurrenceRule.EndCriteria</a></td>
+<td></td>
+<td>When this dispatch should end.</td>
+</tr>
+<tr>
+<td>byminutes</td>
+<td><a href="#uint32">uint32</a></td>
+<td>repeated</td>
+<td>On which minute(s) of the hour does the event occur</td>
+</tr>
+<tr>
+<td>byhours</td>
+<td><a href="#uint32">uint32</a></td>
+<td>repeated</td>
+<td>On which hour(s) of the day does the event occur</td>
+</tr>
+<tr>
+<td>byweekdays</td>
+<td><a href="#frequenz-api-dispatch-v1-RecurrenceRule-Weekday">RecurrenceRule.Weekday</a></td>
+<td>repeated</td>
+<td>On which day(s) of the week does the event occur</td>
+</tr>
+<tr>
+<td>bymonthdays</td>
+<td><a href="#uint32">uint32</a></td>
+<td>repeated</td>
+<td>On which day(s) of the month does the event occur</td>
+</tr>
+<tr>
+<td>bymonths</td>
+<td><a href="#uint32">uint32</a></td>
+<td>repeated</td>
+<td>On which month(s) of the year does the event occur</td>
 </tr>
 </tbody>
 </table>
