@@ -26,7 +26,7 @@ classifiers = [
 ]
 requires-python = ">= 3.11, < 4"
 dependencies = [
-  "frequenz-api-common >= 0.3.1, < 0.4.0",
+  "frequenz-api-common >= 0.3.1, < 0.5.0",
   "googleapis-common-protos >= 1.56.2, < 2",
   "grpcio >= 1.51.1, < 2",
 ]
@@ -41,7 +41,7 @@ dev-flake8 = [
   "flake8 == 6.1.0",
   "flake8-docstrings == 1.7.0",
   "flake8-pyproject == 1.2.3",  # For reading the flake8 config from pyproject.toml
-  "pydoclint == 0.3.1",
+  "pydoclint == 0.3.4",
   "pydocstyle == 6.3.0",
 ]
 dev-formatting = ["black == 23.9.1", "isort == 5.12.0"]
@@ -49,12 +49,12 @@ dev-mkdocs = [
   "mike == 1.1.2",
   "mkdocs-gen-files == 0.5.0",
   "mkdocs-literate-nav == 0.6.1",
-  "mkdocs-material == 9.4.3",
+  "mkdocs-material == 9.4.6",
   "mkdocstrings[python] == 0.23.0",
   "frequenz-repo-config[api] == 0.6.2",
 ]
 dev-mypy = [
-  "mypy == 1.5.1",
+  "mypy == 1.6.0",
   "grpc-stubs == 1.53.0.2",
   # For checking the noxfile, docs/ script, and tests
   "frequenz-api-dispatch[dev-mkdocs,dev-noxfile,dev-pytest]",
