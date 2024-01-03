@@ -7,31 +7,41 @@
 # https://github.com/marketplace/actions/labeler
 
 "part:docs":
-  - "**/*.md"
-  - "docs/**"
-  - "examples/**"
-  - LICENSE
+  - changed-files:
+    - any-glob-to-any-file:
+      - "**/*.md"
+      - "docs/**"
+      - "examples/**"
+      - LICENSE
 
 "part:tests":
-  - "**/conftest.py"
-  - "pytests/**"
+  - changed-files:
+    - any-glob-to-any-file:
+      - "**/conftest.py"
+      - "pytests/**"
 
 "part:tooling":
-  - "**/*.ini"
-  - "**/*.toml"
-  - "**/*.yaml"
-  - "**/*.yml"
-  - "**/conftest.py"
-  - ".editorconfig"
-  - ".git*"
-  - ".git*/**"
-  - "docs/*.py"
-  - CODEOWNERS
-  - MANIFEST.in
-  - noxfile.py
+  - changed-files:
+    - any-glob-to-any-file:
+      - "**/*.ini"
+      - "**/*.toml"
+      - "**/*.yaml"
+      - "**/*.yml"
+      - "**/conftest.py"
+      - ".editorconfig"
+      - ".git*"
+      - ".git*/**"
+      - "docs/*.py"
+      - CODEOWNERS
+      - MANIFEST.in
+      - noxfile.py
 
 "part:protobuf":
-  - "proto/**"
+  - changed-files:
+    - any-glob-to-any-file:
+      - "proto/**"
 
 "part:python":
-  - "py/**"
+  - changed-files:
+    - any-glob-to-any-file:
+      - "py/**"
