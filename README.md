@@ -6,6 +6,8 @@
 
 ## Introduction
 
+Check out the [high-level overview](https://github.com/frequenz-io/rnd/wiki/APIs-repository-structure) of the API related repositories and how they work together.
+
 Frequenz gRPC API to propagate dispatches to microgrids.
 
 Dispatches might include, for example:
