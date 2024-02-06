@@ -5,7 +5,7 @@
 requires = [
   "setuptools == 68.1.0",
   "setuptools_scm[toml] == 7.1.0",
-  "frequenz-repo-config[api] == 0.6.2",
+  "frequenz-repo-config[api] == 0.8.0",
 ]
 build-backend = "setuptools.build_meta"
 
@@ -41,42 +41,47 @@ dev-flake8 = [
   "flake8 == 6.1.0",
   "flake8-docstrings == 1.7.0",
   "flake8-pyproject == 1.2.3",  # For reading the flake8 config from pyproject.toml
-  "pydoclint == 0.3.1",
+  "pydoclint == 0.3.2",
   "pydocstyle == 6.3.0",
 ]
 dev-formatting = ["black == 23.9.1", "isort == 5.12.0"]
 dev-mkdocs = [
+  "black == 23.9.1",
+  "Markdown==3.4.4",
   "mike == 2.0.0",
   "mkdocs-gen-files == 0.5.0",
   "mkdocs-literate-nav == 0.6.1",
+  "mkdocs-macros-plugin == 1.0.4",
   "mkdocs-material == 9.4.3",
   "mkdocstrings[python] == 0.23.0",
-  "frequenz-repo-config[api] == 0.6.2",
+  "frequenz-repo-config[api] == 0.8.0",
 ]
 dev-mypy = [
   "mypy == 1.5.1",
   "grpc-stubs == 1.53.0.5",
+  "types-Markdown == 3.4.2.10",
   # For checking the noxfile, docs/ script, and tests
   "frequenz-api-dispatch[dev-mkdocs,dev-noxfile,dev-pytest]",
 ]
 dev-noxfile = [
   "nox == 2023.4.22",
-  "frequenz-repo-config[api] == 0.6.2",
+  "frequenz-repo-config[api] == 0.8.0",
 ]
 dev-pylint = [
-  "pylint == 2.17.6",
+  "pylint == 3.0.2",
   # For checking the noxfile, docs/ script, and tests
   "frequenz-api-dispatch[dev-mkdocs,dev-noxfile,dev-pytest]",
 ]
 dev-pytest = [
   "pytest == 7.4.2",
-  "frequenz-repo-config[extra-lint-examples] == 0.6.2",
+  "frequenz-repo-config[extra-lint-examples] == 0.8.0",
 ]
 dev = [
   "frequenz-api-dispatch[dev-mkdocs,dev-flake8,dev-formatting,dev-mkdocs,dev-mypy,dev-noxfile,dev-pylint,dev-pytest]",
 ]
 
 [project.urls]
+Documentation = "https://frequenz-floss.github.io/frequenz-api-dispatch/"
 Changelog = "https://github.com/frequenz-floss/frequenz-api-dispatch/releases"
 Issues = "https://github.com/frequenz-floss/frequenz-api-dispatch/issues"
 Repository = "https://github.com/frequenz-floss/frequenz-api-dispatch"
@@ -117,6 +122,7 @@ min-similarity-lines = 40
 [tool.pylint.messages_control]
 disable = [
   "too-few-public-methods",
+  "too-many-return-statements",
   # disabled because it conflicts with isort
   "wrong-import-order",
   "ungrouped-imports",
@@ -143,6 +149,10 @@ namespace_packages = true
 #no_incremental = true
 packages = ["frequenz.api.dispatch"]
 strict = true
+
+[[tool.mypy.overrides]]
+module = ["mkdocs_macros.*", "sybil", "sybil.*"]
+ignore_missing_imports = true
 
 [tool.setuptools.package-dir]
 "" = "py"
