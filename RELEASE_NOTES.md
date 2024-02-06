@@ -2,19 +2,15 @@
 
 ## Summary
 
-- End time has been moved to the recurrence rule object, replaced by `duration` on the base dispatch object.
-- Update requests now use a `FieldMask` to indicate which fields should be updated.
+<!-- Here goes a general summary of what this release is about -->
 
 ## Upgrading
 
-- Queries that compare against a time interval filter should check for the end time inside the recurrence rule.
-- `end_time` has been renamed `until` and is mutually exclusive with `count`.
-- Update request handlers should check the field mask for which attributes to update.
+<!-- Here goes notes on how to upgrade from previous versions, including deprecations and what they should be replaced with -->
 
 ## New Features
 
-- Introduced a new field `duration`.
-- Introduced `FieldMask` to the update request.
+<!-- Here goes the main new features and examples or instructions on how to use them -->
 
 ## Bug Fixes
 
