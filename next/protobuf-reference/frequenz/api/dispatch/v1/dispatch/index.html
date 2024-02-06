@@ -811,6 +811,53 @@
     RecurrenceRule
   </a>
   
+    <nav class="md-nav" aria-label="RecurrenceRule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#every-6-months" class="md-nav__link">
+    Every 6 months
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weekends-only" class="md-nav__link">
+    Weekends only
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#at-midnight" class="md-nav__link">
+    At midnight
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nightly" class="md-nav__link">
+    Nightly
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -845,6 +892,47 @@
   <a href="#microgriddispatchservice" class="md-nav__link">
     MicrogridDispatchService
   </a>
+  
+    <nav class="md-nav" aria-label="MicrogridDispatchService">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    Key Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-use-cases" class="md-nav__link">
+    Example Use Cases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target-audience" class="md-nav__link">
+    Target Audience
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1369,6 +1457,53 @@
     RecurrenceRule
   </a>
   
+    <nav class="md-nav" aria-label="RecurrenceRule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#every-6-months" class="md-nav__link">
+    Every 6 months
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weekends-only" class="md-nav__link">
+    Weekends only
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#at-midnight" class="md-nav__link">
+    At midnight
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nightly" class="md-nav__link">
+    Nightly
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1403,6 +1538,47 @@
   <a href="#microgriddispatchservice" class="md-nav__link">
     MicrogridDispatchService
   </a>
+  
+    <nav class="md-nav" aria-label="MicrogridDispatchService">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    Key Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-use-cases" class="md-nav__link">
+    Example Use Cases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target-audience" class="md-nav__link">
+    Target Audience
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1979,34 +2155,36 @@ to its local timezone.</p>
 <p>Ruleset governing when and how a dispatch should re-occur.</p>
 <p>Timezone Note: Timestamps are in UTC. It is the responsibility of each microgrid to translate UTC
 to its local timezone.</p>
-<p>This definition tries to adhere closely to the iCalendar specification (RFC 5545),
+<p>This definition tries to adhere closely to the iCalendar specification (<a href="https://tools.ietf.org/html/rfc5545">RFC5545</a>),
 particularly for recurrence rules. For advanced use-cases or further clarifications,
-refer to RFC 5545.</p>
-<p>Examples:</p>
-<p>Every 6 months:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>message RecurrenceRule {
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  Frequency freq = FREQUENCY_MONTHLY;
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  uint32 interval = 6;
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>}
-</span></code></pre></div></p>
-<p>Weekends only:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>message RecurrenceRule {
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  Frequency freq = FREQUENCY_WEEKLY;
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  repeated Weekday byweekdays = [WEEKDAY_SATURDAY, WEEKDAY_SUNDAY];
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>}
-</span></code></pre></div></p>
-<p>Every day at midnight:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>message RecurrenceRule {
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  Frequency freq = FREQUENCY_DAILY;
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  repeated uint32 byhours = [0];
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>}
-</span></code></pre></div></p>
-<p>Nightly, assuming &#34;night&#34; means from 8 PM to 6 AM:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>message RecurrenceRule {
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  Frequency freq = FREQUENCY_DAILY;
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  repeated uint32 byhours = [20, 21, 22, 23, 0, 1, 2, 3, 4, 5];
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>}
-</span></code></pre></div></p>
+refer to <a href="https://tools.ietf.org/html/rfc5545">RFC5545</a>.</p>
+<h4 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">¤</a></h4>
+<h5 id="every-6-months">Every 6 months<a class="headerlink" href="#every-6-months" title="Permanent link">¤</a></h5>
+<div class="language-proto highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">message</span><span class="w"> </span><span class="nc">RecurrenceRule</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="n">Frequency</span><span class="w"> </span><span class="na">freq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FREQUENCY_MONTHLY</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="kt">uint32</span><span class="w"> </span><span class="na">interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<h5 id="weekends-only">Weekends only<a class="headerlink" href="#weekends-only" title="Permanent link">¤</a></h5>
+<div class="language-proto highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">message</span><span class="w"> </span><span class="nc">RecurrenceRule</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="n">Frequency</span><span class="w"> </span><span class="na">freq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FREQUENCY_WEEKLY</span><span class="p">;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="n">Weekday</span><span class="w"> </span><span class="na">byweekdays</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">WEEKDAY_SATURDAY</span><span class="p">,</span><span class="w"> </span><span class="n">WEEKDAY_SUNDAY</span><span class="p">];</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<h5 id="at-midnight">At midnight<a class="headerlink" href="#at-midnight" title="Permanent link">¤</a></h5>
+<p>Every day at midnight.</p>
+<div class="language-proto highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">message</span><span class="w"> </span><span class="nc">RecurrenceRule</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="n">Frequency</span><span class="w"> </span><span class="na">freq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FREQUENCY_DAILY</span><span class="p">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="kt">uint32</span><span class="w"> </span><span class="na">byhours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<h5 id="nightly">Nightly<a class="headerlink" href="#nightly" title="Permanent link">¤</a></h5>
+<p>Assuming &#34;night&#34; means from 8 PM to 6 AM.</p>
+<div class="language-proto highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">message</span><span class="w"> </span><span class="nc">RecurrenceRule</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="n">Frequency</span><span class="w"> </span><span class="na">freq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FREQUENCY_DAILY</span><span class="p">;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="kt">uint32</span><span class="w"> </span><span class="na">byhours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">];</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2234,6 +2412,33 @@ refer to RFC 5545.</p>
 <p><a name="frequenz-api-dispatch-v1-MicrogridDispatchService"></a></p>
 <h3 id="microgriddispatchservice">MicrogridDispatchService<a class="headerlink" href="#microgriddispatchservice" title="Permanent link">¤</a></h3>
 <p>Service providing operations related to dispatching microgrid components.</p>
+<h4 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¤</a></h4>
+<p>The API serves to automate the process of electricity dispatches for microgrids.
+In the context of the energy industry, a &#39;dispatch&#39; refers to the act of routing electrical power
+between different components within a microgrid or between a microgrid and the main grid.
+This could be for the purpose of supply (sending electricity to the grid or components within the microgrid),
+or demand (drawing electricity from the grid or from other components like batteries and solar arrays).</p>
+<h4 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">¤</a></h4>
+<p>The primary objective of this API is to streamline and automate the complex task of electricity dispatching,
+making it easier to manage local electricity supply and demand efficiently.</p>
+<h4 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">¤</a></h4>
+<ul>
+<li>Dispatching Electricity: Comprehensive CRUD operations for dispatching microgrid components.</li>
+<li>Automation: Support for one-time as well as recurring dispatches based on flexible recurrence rules.</li>
+<li>Fine-grained control: Dispatch individual microgrid components or entire component categories.</li>
+</ul>
+<h4 id="example-use-cases">Example Use Cases<a class="headerlink" href="#example-use-cases" title="Permanent link">¤</a></h4>
+<ul>
+<li>Charging or discharging a battery based on optimal time-of-use rates.</li>
+<li>Limiting the output of a Photovoltaic (PV) array during periods of low demand.</li>
+<li>Invoking Frequency Containment Reserves (FCR) or Automatic Frequency Restoration Reserves (aFRR) to
+   support grid operations.</li>
+<li>Adjusting the output of electric vehicle charging stations to match grid availability or to avoid peak pricing.</li>
+</ul>
+<h4 id="target-audience">Target Audience<a class="headerlink" href="#target-audience" title="Permanent link">¤</a></h4>
+<p>This API is designed for application developers in the energy sector who focus on the tasks of optimizing microgrid
+electricity flows. Its design aims to be as developer-friendly as possible, requiring no prior knowledge in
+electrical engineering and systems.</p>
 <table>
 <thead>
 <tr>
