@@ -2,34 +2,6 @@
 
 // Frequenz Dispatch Automation API
 //
-// Overview:
-// The API serves to automate the process of electricity dispatches for microgrids.
-// In the context of the energy industry, a 'dispatch' refers to the act of routing electrical power
-// between different components within a microgrid or between a microgrid and the main grid.
-// This could be for the purpose of supply (sending electricity to the grid or components within the microgrid),
-// or demand (drawing electricity from the grid or from other components like batteries and solar arrays).
-//
-// Objective:
-// The primary objective of this API is to streamline and automate the complex task of electricity dispatching,
-// making it easier to manage local electricity supply and demand efficiently.
-//
-// Key Features:
-// - Dispatching Electricity: Comprehensive CRUD operations for dispatching microgrid components.
-// - Automation: Support for one-time as well as recurring dispatches based on flexible recurrence rules.
-// - Fine-grained control: Dispatch individual microgrid components or entire component categories.
-//
-// Example Use Cases:
-// - Charging or discharging a battery based on optimal time-of-use rates.
-// - Limiting the output of a Photovoltaic (PV) array during periods of low demand.
-// - Invoking Frequency Containment Reserves (FCR) or Automatic Frequency Restoration Reserves (aFRR) to
-//    support grid operations.
-// - Adjusting the output of electric vehicle charging stations to match grid availability or to avoid peak pricing.
-//
-// Target Audience:
-// This API is designed for application developers in the energy sector who focus on the tasks of optimizing microgrid
-// electricity flows. Its design aims to be as developer-friendly as possible, requiring no prior knowledge in
-// electrical engineering and systems.
-//
 // Copyright:
 // Copyright 2022 Frequenz Energy-as-a-Service GmbH
 //
@@ -48,6 +20,39 @@ import "google/protobuf/timestamp.proto";
 import "frequenz/api/common/components.proto";
 
 // Service providing operations related to dispatching microgrid components.
+//
+// #### Overview
+//
+// The API serves to automate the process of electricity dispatches for microgrids.
+// In the context of the energy industry, a 'dispatch' refers to the act of routing electrical power
+// between different components within a microgrid or between a microgrid and the main grid.
+// This could be for the purpose of supply (sending electricity to the grid or components within the microgrid),
+// or demand (drawing electricity from the grid or from other components like batteries and solar arrays).
+//
+// #### Objective
+//
+// The primary objective of this API is to streamline and automate the complex task of electricity dispatching,
+// making it easier to manage local electricity supply and demand efficiently.
+//
+// #### Key Features
+//
+// - Dispatching Electricity: Comprehensive CRUD operations for dispatching microgrid components.
+// - Automation: Support for one-time as well as recurring dispatches based on flexible recurrence rules.
+// - Fine-grained control: Dispatch individual microgrid components or entire component categories.
+//
+// #### Example Use Cases
+//
+// - Charging or discharging a battery based on optimal time-of-use rates.
+// - Limiting the output of a Photovoltaic (PV) array during periods of low demand.
+// - Invoking Frequency Containment Reserves (FCR) or Automatic Frequency Restoration Reserves (aFRR) to
+//    support grid operations.
+// - Adjusting the output of electric vehicle charging stations to match grid availability or to avoid peak pricing.
+//
+// #### Target Audience
+//
+// This API is designed for application developers in the energy sector who focus on the tasks of optimizing microgrid
+// electricity flows. Its design aims to be as developer-friendly as possible, requiring no prior knowledge in
+// electrical engineering and systems.
 service MicrogridDispatchService {
   // Returns a list of all dispatches
   rpc ListMicrogridDispatches(DispatchListRequest) returns (DispatchList);
@@ -160,38 +165,48 @@ message ComponentIDs {
 // Timezone Note: Timestamps are in UTC. It is the responsibility of each microgrid to translate UTC
 // to its local timezone.
 //
-// This definition tries to adhere closely to the iCalendar specification (RFC 5545),
+// This definition tries to adhere closely to the iCalendar specification ([RFC5545]),
 // particularly for recurrence rules. For advanced use-cases or further clarifications,
-// refer to RFC 5545.
+// refer to [RFC5545].
 //
-// Examples:
+// [RFC5545]: https://tools.ietf.org/html/rfc5545
 //
-// Every 6 months:
-// ```
+// #### Examples
+//
+// ##### Every 6 months
+//
+// ```proto
 // message RecurrenceRule {
 //   Frequency freq = FREQUENCY_MONTHLY;
 //   uint32 interval = 6;
 // }
 // ```
 //
-// Weekends only:
-// ```
+// ##### Weekends only
+//
+// ```proto
 // message RecurrenceRule {
 //   Frequency freq = FREQUENCY_WEEKLY;
 //   repeated Weekday byweekdays = [WEEKDAY_SATURDAY, WEEKDAY_SUNDAY];
 // }
 // ```
 //
-// Every day at midnight:
-// ```
+// ##### At midnight
+//
+// Every day at midnight.
+//
+// ```proto
 // message RecurrenceRule {
 //   Frequency freq = FREQUENCY_DAILY;
 //   repeated uint32 byhours = [0];
 // }
 // ```
 //
-// Nightly, assuming "night" means from 8 PM to 6 AM:
-// ```
+// ##### Nightly
+//
+// Assuming "night" means from 8 PM to 6 AM.
+//
+// ```proto
 // message RecurrenceRule {
 //   Frequency freq = FREQUENCY_DAILY;
 //   repeated uint32 byhours = [20, 21, 22, 23, 0, 1, 2, 3, 4, 5];
