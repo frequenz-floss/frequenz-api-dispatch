@@ -17,7 +17,7 @@ import "google/protobuf/field_mask.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
-import "frequenz/api/common/components.proto";
+import "frequenz/api/common/v1/microgrid/components/components.proto";
 
 // Service providing operations related to dispatching microgrid components.
 //
@@ -150,7 +150,7 @@ message ComponentSelector {
     ComponentIDs component_ids = 1;
 
     // Component category
-    frequenz.api.common.components.ComponentCategory component_category = 2;
+    frequenz.api.common.v1.microgrid.components.ComponentCategory component_category = 2;
   }
 }
 
