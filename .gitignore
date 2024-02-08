@@ -6,13 +6,6 @@ __pycache__/
 # C extensions
 *.so
 
-# Auto-generated protobuf files
-py/frequenz_api_dispatch.egg-info/*
-py/frequenz/api/dispatch/**/*_pb2.py
-py/frequenz/api/dispatch/**/*_pb2.pyi
-py/frequenz/api/dispatch/**/*_pb2_grpc.py
-py/frequenz/api/dispatch/**/*_pb2_grpc.pyi
-
 # Distribution / packaging
 .Python
 build/
@@ -151,6 +144,13 @@ cython_debug/
 
 # PyCharm
 .idea
+
+# Auto-generated python files from the protocol buffer compiler
+py/frequenz_api_dispatch.egg-info/*
+py/**/*_pb2.py
+py/**/*_pb2.pyi
+py/**/*_pb2_grpc.py
+py/**/*_pb2_grpc.pyi
 
 # Automatically generated documentation
 docs/reference/
