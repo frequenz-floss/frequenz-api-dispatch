@@ -8,6 +8,8 @@
 
 Frequenz gRPC API to propagate dispatches to microgrids.
 
+Also checkout the [high-level overview](https://github.com/frequenz-floss/frequenz-sdk-python/wiki/APIs-stack-and-repositories-structure) of the various api repositories and how they work together
+
 Dispatches might include, for example:
 
 * Hard shutdown of a location or an individual microgrid component
