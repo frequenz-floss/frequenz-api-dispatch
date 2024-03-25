@@ -135,10 +135,10 @@ message TimeIntervalFilter {
   // Filter by start_time < this timestamp
   google.protobuf.Timestamp start_to = 2;
 
-  // Filter by recurrence.end_time >= this timestamp
+  // Filter by recurrence.end_criteria.until >= this timestamp
   google.protobuf.Timestamp end_from = 3;
 
-  // Filter by recurrence.end_time < this timestamp
+  // Filter by recurrence.end_criteria.until < this timestamp
   google.protobuf.Timestamp end_to = 4;
 }
 
