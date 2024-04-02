@@ -26,7 +26,7 @@ classifiers = [
 ]
 requires-python = ">= 3.11, < 4"
 dependencies = [
-  "frequenz-api-common >= 0.5.4, < 0.6",
+  "frequenz-api-common >= 0.5.4, < 0.7",
   "googleapis-common-protos >= 1.56.4, < 2",
   "grpcio >= 1.54.2, < 2",
 ]
@@ -44,22 +44,22 @@ dev-flake8 = [
   "pydoclint == 0.4.1",
   "pydocstyle == 6.3.0",
 ]
-dev-formatting = ["black == 24.2.0", "isort == 5.13.2"]
+dev-formatting = ["black == 24.3.0", "isort == 5.13.2"]
 dev-mkdocs = [
-  "black == 24.2.0",
-  "Markdown==3.5.2",
+  "black == 24.3.0",
+  "Markdown==3.6",
   "mike == 2.0.0",
   "mkdocs-gen-files == 0.5.0",
   "mkdocs-literate-nav == 0.6.1",
   "mkdocs-macros-plugin == 1.0.5",
-  "mkdocs-material == 9.5.12",
+  "mkdocs-material == 9.5.16",
   "mkdocstrings[python] == 0.24.1",
   "frequenz-repo-config[api] == 0.9.1",
 ]
 dev-mypy = [
-  "mypy == 1.8.0",
+  "mypy == 1.9.0",
   "grpc-stubs == 1.53.0.5",
-  "types-Markdown == 3.5.0.20240129",
+  "types-Markdown == 3.6.0.20240316",
   # For checking the noxfile, docs/ script, and tests
   "frequenz-api-dispatch[dev-mkdocs,dev-noxfile,dev-pytest]",
 ]
@@ -73,7 +73,7 @@ dev-pylint = [
   "frequenz-api-dispatch[dev-mkdocs,dev-noxfile,dev-pytest]",
 ]
 dev-pytest = [
-  "pytest == 8.0.2",
+  "pytest == 8.1.1",
   "frequenz-repo-config[extra-lint-examples] == 0.9.1",
 ]
 dev = [
