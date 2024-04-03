@@ -52,8 +52,8 @@ dev-mkdocs = [
   "mkdocs-gen-files == 0.5.0",
   "mkdocs-literate-nav == 0.6.1",
   "mkdocs-macros-plugin == 1.0.5",
-  "mkdocs-material == 9.5.16",
-  "mkdocstrings[python] == 0.24.1",
+  "mkdocs-material == 9.5.17",
+  "mkdocstrings[python] == 0.24.2",
   "frequenz-repo-config[api] == 0.9.1",
 ]
 dev-mypy = [
