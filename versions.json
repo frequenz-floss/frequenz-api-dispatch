@@ -5,11 +5,19 @@
     "aliases": []
   },
   {
+    "version": "v0.14-dev",
+    "title": "v0.14-dev (4c345ad)",
+    "aliases": [
+      "latest-dev",
+      "v0-dev"
+    ]
+  },
+  {
     "version": "v0.12",
     "title": "v0.12",
     "aliases": [
-      "v0",
-      "latest"
+      "latest",
+      "v0"
     ]
   },
   {
