@@ -140,6 +140,8 @@ jobs:
     steps:
       - name: Fetch sources
         uses: actions/checkout@v4
+        with:
+          submodules: true
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -201,7 +203,7 @@ jobs:
             --net=host \
             --platform linux/${{ matrix.arch }} \
             localhost/nox-cross-arch:latest \
-            bash -c "pip install -e .[dev-noxfile]; nox --install-only -e ${{ matrix.nox-session }}; pip freeze; nox -e ${{ matrix.nox-session }}"
+            bash -c "pip install -e .[dev-noxfile]; nox --install-only -e ${{ matrix.nox-session }}; pip freeze; nox -R -e ${{ matrix.nox-session }}"
         timeout-minutes: 30
 
       # This ensures that the runner has access to the pip cache.
