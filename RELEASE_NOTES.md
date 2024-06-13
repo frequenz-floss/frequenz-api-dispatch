@@ -14,4 +14,4 @@
 
 ## Bug Fixes
 
-<!-- Here goes notable bug fixes that are worth a special mention or explanation -->
+* The field `bymonthdays` the recurrence definition also supports negative values and was updated accordingly.

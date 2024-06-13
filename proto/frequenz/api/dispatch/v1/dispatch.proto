@@ -276,8 +276,11 @@ message RecurrenceRule {
   // On which day(s) of the week does the event occur
   repeated Weekday byweekdays = 6;
 
-  // On which day(s) of the month does the event occur
-  repeated uint32 bymonthdays = 7;
+  // On which day(s) of the month does the event occur. Valid values are 1 to 31 or -31 to -1.
+  //
+  // For example, -10 represents the tenth to the last day of the month.
+  // The bymonthdays rule part MUST NOT be specified when the FREQ rule part is set to WEEKLY.
+  repeated int32 bymonthdays = 7;
 
   // On which month(s) of the year does the event occur
   repeated uint32 bymonths = 8;
