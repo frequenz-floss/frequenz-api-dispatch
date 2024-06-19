@@ -143,7 +143,11 @@ message TimeIntervalFilter {
 }
 
 // Parameter for controlling which components a dispatch applies to
-// Either a set of component IDs, or all components belonging to a category
+// either a set of component IDs, or all components belonging to a category.
+//
+// When specifying a set of IDs, all IDs should have the same component
+// category, mixing components from different categories in one dispatch
+// message is not supported.
 message ComponentSelector {
   oneof selector {
     // Set of component IDs
