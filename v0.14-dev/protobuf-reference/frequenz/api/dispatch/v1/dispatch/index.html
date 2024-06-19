@@ -1825,7 +1825,10 @@
 <p><a name="frequenz-api-dispatch-v1-ComponentSelector"></a></p>
 <h3 id="componentselector">ComponentSelector<a class="headerlink" href="#componentselector" title="Permanent link">¤</a></h3>
 <p>Parameter for controlling which components a dispatch applies to
-Either a set of component IDs, or all components belonging to a category</p>
+either a set of component IDs, or all components belonging to a category.</p>
+<p>When specifying a set of IDs, all IDs should have the same component
+category, mixing components from different categories in one dispatch
+message is not supported.</p>
 <table>
 <thead>
 <tr>
