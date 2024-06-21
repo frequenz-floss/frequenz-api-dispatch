@@ -2382,18 +2382,14 @@ refer to <a href="https://tools.ietf.org/html/rfc5545">RFC5545</a>.</p>
 </tr>
 <tr>
 <td>bymonthdays</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#int32">int32</a></td>
 <td>repeated</td>
-<td>On which day(s) of the month does the event occur</td>
-</tr>
-<tr>
-<td>bymonths</td>
-<td><a href="#uint32">uint32</a></td>
-<td>repeated</td>
-<td>On which month(s) of the year does the event occur</td>
+<td>On which day(s) of the month does the event occur. Valid values are 1 to 31 or -31 to -1.</td>
 </tr>
 </tbody>
 </table>
+<p>For example, -10 represents the tenth to the last day of the month. The bymonthdays rule part MUST NOT be specified when the FREQ rule part is set to WEEKLY. |
+| bymonths | <a href="#uint32">uint32</a> | repeated | On which month(s) of the year does the event occur |</p>
 <p><a name="frequenz-api-dispatch-v1-RecurrenceRule-EndCriteria"></a></p>
 <h3 id="recurrenceruleendcriteria">RecurrenceRule.EndCriteria<a class="headerlink" href="#recurrenceruleendcriteria" title="Permanent link">¤</a></h3>
 <p>Controls when a recurring dispatch should end</p>
