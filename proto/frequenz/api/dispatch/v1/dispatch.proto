@@ -55,7 +55,7 @@ import "frequenz/api/common/v1/microgrid/components/components.proto";
 // electrical engineering and systems.
 service MicrogridDispatchService {
   // Returns a list of all dispatches
-  rpc ListMicrogridDispatches(DispatchListRequest) returns (DispatchList);
+  rpc ListMicrogridDispatches(ListMicrogridDispatchesRequest) returns (ListMicrogridDispatchesResponse);
 
   // Create a new dispatch
   rpc CreateMicrogridDispatch(DispatchCreateRequest) returns (google.protobuf.Empty);
@@ -291,7 +291,7 @@ message RecurrenceRule {
 }
 
 // Message for listing dispatches for a given microgrid, and an optional filter
-message DispatchListRequest {
+message ListMicrogridDispatchesRequest {
   // The microgrid ID
   uint64 microgrid_id = 1;
 
@@ -319,7 +319,7 @@ message DispatchFilter {
 }
 
 // A list of dispatches
-message DispatchList {
+message ListMicrogridDispatchesResponse {
   // The dispatches
   repeated DispatchDetail dispatches = 1;
 }
