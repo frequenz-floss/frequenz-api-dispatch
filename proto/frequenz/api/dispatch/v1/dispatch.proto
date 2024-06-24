@@ -72,7 +72,7 @@ service MicrogridDispatchService {
   rpc UpdateMicrogridDispatch(UpdateMicrogridDispatchRequest) returns (UpdateMicrogridDispatchResponse);
 
   // Get a single dispatch
-  rpc GetMicrogridDispatch(GetMicrogridDispatchRequest) returns (Dispatch);
+  rpc GetMicrogridDispatch(GetMicrogridDispatchRequest) returns (GetMicrogridDispatchResponse);
 
   // Delete a given dispatch
   rpc DeleteMicrogridDispatch(DeleteMicrogridDispatchRequest) returns (google.protobuf.Empty);
@@ -432,6 +432,15 @@ message GetMicrogridDispatchRequest {
 
   // The dispatch identifier
   uint64 dispatch_id = 2;
+}
+
+// Response message for getting a single dispatch
+message GetMicrogridDispatchResponse {
+  // The microgrid ID that the dispatch belongs to
+  uint64 microgrid_id = 1;
+
+  // The dispatch
+  DispatchDetail dispatch = 2;
 }
 
 // Message to delete a single dispatch by its ID
