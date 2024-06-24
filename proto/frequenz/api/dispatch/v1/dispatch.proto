@@ -378,32 +378,26 @@ message UpdateMicrogridDispatchRequest {
       repeated uint32 bymonths = 8;
     }
 
-    // The type of dispatch
-    optional string type = 1;
-
     // The start time
     // When updating a dispatch, ensure that the starting timestamp is set to
     // the current time or any future time.
     // Timestamps earlier than the current time are not allowed.
-    google.protobuf.Timestamp start_time = 2;
+    google.protobuf.Timestamp start_time = 1;
 
     // Duration in seconds
-    optional uint32 duration = 3;
+    optional uint32 duration = 2;
 
     // The component selector
-    ComponentSelector selector = 4;
+    ComponentSelector selector = 3;
 
     // The "active" status
-    optional bool is_active = 5;
-
-    // The "dry run" status
-    optional bool is_dry_run = 6;
+    optional bool is_active = 4;
 
     // The dispatch payload
-    google.protobuf.Struct payload = 7;
+    google.protobuf.Struct payload = 5;
 
     // The recurrence rule
-    RecurrenceRuleUpdate recurrence = 8;
+    RecurrenceRuleUpdate recurrence = 6;
   }
 
   // ID of the microgrid
