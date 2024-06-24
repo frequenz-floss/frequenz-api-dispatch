@@ -53,6 +53,14 @@ import "frequenz/api/common/v1/microgrid/components/components.proto";
 // This API is designed for application developers in the energy sector who focus on the tasks of optimizing microgrid
 // electricity flows. Its design aims to be as developer-friendly as possible, requiring no prior knowledge in
 // electrical engineering and systems.
+//
+// #### Security
+//
+// ALL requests to this service must be signed. The key and signature
+// should be added to the request metadata (HTTP headers). The signature
+// should be computed using the HMAC-SHA256 algorithm and the user's secret key.
+//
+// ALL requests to this service must be made over HTTPS.
 service MicrogridDispatchService {
   // Returns a list of all dispatches
   rpc ListMicrogridDispatches(ListMicrogridDispatchesRequest) returns (ListMicrogridDispatchesResponse);
