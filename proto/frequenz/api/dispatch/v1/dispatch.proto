@@ -69,7 +69,7 @@ service MicrogridDispatchService {
   rpc CreateMicrogridDispatch(CreateMicrogridDispatchRequest) returns (CreateMicrogridDispatchResponse);
 
   // Update a dispatch
-  rpc UpdateMicrogridDispatch(UpdateMicrogridDispatchRequest) returns (google.protobuf.Empty);
+  rpc UpdateMicrogridDispatch(UpdateMicrogridDispatchRequest) returns (UpdateMicrogridDispatchResponse);
 
   // Get a single dispatch
   rpc GetMicrogridDispatch(GetMicrogridDispatchRequest) returns (Dispatch);
@@ -417,6 +417,12 @@ message UpdateMicrogridDispatchRequest {
 
   // The updated dispatch attributes
   DispatchUpdate update = 4;
+}
+
+// Response message for updating a dispatch
+message UpdateMicrogridDispatchResponse {
+  // The updated dispatch
+  DispatchDetail dispatch = 1;
 }
 
 // Message to get a single dispatch by its ID
