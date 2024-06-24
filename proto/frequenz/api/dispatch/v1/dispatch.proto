@@ -398,7 +398,7 @@ message DispatchUpdateRequest {
   uint64 microgrid_id = 1;
 
   // The dispatch identifier
-  uint64 id = 2;
+  uint64 dispatch_id = 2;
 
   // Field mask specifying which fields should be updated
   google.protobuf.FieldMask update_mask = 3;
@@ -413,7 +413,7 @@ message DispatchGetRequest {
   uint64 microgrid_id = 1;
 
   // The dispatch identifier
-  uint64 id = 2;
+  uint64 dispatch_id = 2;
 }
 
 // Message to delete a single dispatch by its ID
@@ -422,5 +422,5 @@ message DispatchDeleteRequest {
   uint64 microgrid_id = 1;
 
   // The dispatch identifier
-  uint64 id = 2;
+  uint64 dispatch_id = 2;
 }
