@@ -58,16 +58,16 @@ service MicrogridDispatchService {
   rpc ListMicrogridDispatches(ListMicrogridDispatchesRequest) returns (ListMicrogridDispatchesResponse);
 
   // Create a new dispatch
-  rpc CreateMicrogridDispatch(DispatchCreateRequest) returns (google.protobuf.Empty);
+  rpc CreateMicrogridDispatch(CreateMicrogridDispatchRequest) returns (google.protobuf.Empty);
 
   // Update a dispatch
-  rpc UpdateMicrogridDispatch(DispatchUpdateRequest) returns (google.protobuf.Empty);
+  rpc UpdateMicrogridDispatch(UpdateMicrogridDispatchRequest) returns (google.protobuf.Empty);
 
   // Get a single dispatch
-  rpc GetMicrogridDispatch(DispatchGetRequest) returns (Dispatch);
+  rpc GetMicrogridDispatch(GetMicrogridDispatchRequest) returns (Dispatch);
 
   // Delete a given dispatch
-  rpc DeleteMicrogridDispatch(DispatchDeleteRequest) returns (google.protobuf.Empty);
+  rpc DeleteMicrogridDispatch(DeleteMicrogridDispatchRequest) returns (google.protobuf.Empty);
 }
 
 // Represents a dispatches data, including its type, start time, duration, component selector,
@@ -325,7 +325,7 @@ message ListMicrogridDispatchesResponse {
 }
 
 // Message to create a new dispatch with the given attributes
-message DispatchCreateRequest {
+message CreateMicrogridDispatchRequest {
   // The microgrid identifier
   uint64 microgrid_id = 1;
 
@@ -336,7 +336,7 @@ message DispatchCreateRequest {
 }
 
 // Message to update the dispatch with the given ID, with the given attributes
-message DispatchUpdateRequest {
+message UpdateMicrogridDispatchRequest {
   // Message containing the updated dispatch attributes
   message DispatchUpdate {
     // Message containing the updated recurrence rule attributes
@@ -408,7 +408,7 @@ message DispatchUpdateRequest {
 }
 
 // Message to get a single dispatch by its ID
-message DispatchGetRequest {
+message GetMicrogridDispatchRequest {
   // The microgrid ID that the dispatch belongs to
   uint64 microgrid_id = 1;
 
@@ -417,7 +417,7 @@ message DispatchGetRequest {
 }
 
 // Message to delete a single dispatch by its ID
-message DispatchDeleteRequest {
+message DeleteMicrogridDispatchRequest {
   // The microgrid ID that the dispatch belongs to
   uint64 microgrid_id = 1;
 
