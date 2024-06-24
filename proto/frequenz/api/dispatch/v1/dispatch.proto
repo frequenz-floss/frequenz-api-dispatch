@@ -394,24 +394,33 @@ message DispatchUpdateRequest {
     RecurrenceRuleUpdate recurrence = 8;
   }
 
+  // ID of the microgrid
+  uint64 microgrid_id = 1;
+
   // The dispatch identifier
-  uint64 id = 1;
+  uint64 id = 2;
 
   // Field mask specifying which fields should be updated
-  google.protobuf.FieldMask update_mask = 2;
+  google.protobuf.FieldMask update_mask = 3;
 
   // The updated dispatch attributes
-  DispatchUpdate update = 3;
+  DispatchUpdate update = 4;
 }
 
 // Message to get a single dispatch by its ID
 message DispatchGetRequest {
+  // The microgrid ID that the dispatch belongs to
+  uint64 microgrid_id = 1;
+
   // The dispatch identifier
-  uint64 id = 1;
+  uint64 id = 2;
 }
 
 // Message to delete a single dispatch by its ID
 message DispatchDeleteRequest {
+  // The microgrid ID that the dispatch belongs to
+  uint64 microgrid_id = 1;
+
   // The dispatch identifier
-  uint64 id = 1;
+  uint64 id = 2;
 }
