@@ -70,46 +70,35 @@ service MicrogridDispatchService {
   rpc DeleteMicrogridDispatch(DispatchDeleteRequest) returns (google.protobuf.Empty);
 }
 
-// Message representing one dispatch.
+// Represents a dispatches data, including its type, start time, duration, component selector,
 //
 // Timezone Note: Timestamps are in UTC. It is the responsibility of each microgrid to translate UTC
 // to its local timezone.
 message Dispatch {
-  // The dispatch identifier
-  uint64 id = 1;
-
-  // The microgrid identifier
-  uint64 microgrid_id = 2;
-
   // The dispatch type.
   // Contains user-defined information about what "type" of dispatch this is.
   // Downstream applications that consume the dispatch API are responsible for
   // understanding and processing this field.
-  string type = 3;
+  string type = 1;
 
-  // The creation time in UTC
-  // This is set when a dispatch is created via the create request message
-  google.protobuf.Timestamp create_time = 4;
-
-  // The update time in UTC
-  // This is set when a dispatch is modified via the update request message
-  google.protobuf.Timestamp update_time = 5;
-
-  // The start time in UTC
-  google.protobuf.Timestamp start_time = 6;
+  // The dispatch start time in UTC.
+  // For reoccuring dispatches this is when the first time execution occurs. When
+  // creating a dispatch, ensure that the starting timestamp is set to the current
+  // time or any future time. Timestamps earlier than the current time are not allowed.
+  google.protobuf.Timestamp start_time = 2;
 
   // Duration in seconds
-  uint32 duration = 7;
+  optional uint32 duration = 3;
 
-  // The component selector
-  ComponentSelector selector = 8;
+  // Dispatch microgrid component selector
+  ComponentSelector selector = 4;
 
   // The "active" status
   // An active dispatch is eligible for processing, either immediately or at a scheduled
   // time in the future, including recurring dispatches. If a dispatch is set to
   // inactive, it won't be processed even if it matches all other conditions, allowing
   // for temporary disabling of dispatches without deletion.
-  bool is_active = 9;
+  bool is_active = 5;
 
   // The "dry run" status
   // A dry run dispatch is executed for logging and monitoring purposes
@@ -118,13 +107,28 @@ message Dispatch {
   // actually affecting any component states.
   // Notably, a dispatch can be both "dry run" and "active," allowing for
   // the system to generate logs and observe behavior without making actual changes.
-  bool is_dry_run = 10;
+  bool is_dry_run = 6;
 
   // The dispatch payload
-  google.protobuf.Struct payload = 11;
+  google.protobuf.Struct payload = 7;
 
   // The recurrence rule
-  RecurrenceRule recurrence = 12;
+  RecurrenceRule recurrence = 8;
+}
+
+// Represents a dispatch, including its metadata
+message DispatchDetail {
+  // Unique identifier of the microgrid dispatch.
+  uint64 dispatch_id = 1;
+
+  // The dispatch data
+  Dispatch dispatch = 2;
+
+  // UTC Timestamp when the order was created.
+  google.protobuf.Timestamp create_time = 3;
+
+  // UTC Timestamp of the last update to the order.
+  google.protobuf.Timestamp modification_time = 4;
 }
 
 // Filter parameter for specifying multiple time intervals
@@ -317,7 +321,7 @@ message DispatchFilter {
 // A list of dispatches
 message DispatchList {
   // The dispatches
-  repeated Dispatch dispatches = 1;
+  repeated DispatchDetail dispatches = 1;
 }
 
 // Message to create a new dispatch with the given attributes
@@ -325,32 +329,10 @@ message DispatchCreateRequest {
   // The microgrid identifier
   uint64 microgrid_id = 1;
 
-  // The type of dispatch
-  string type = 2;
+  // Content of the dispatch to be created
+  Dispatch dispatch = 2;
+}
 
-  // The start time
-  // When creating a dispatch, ensure that the starting timestamp is set to
-  // the current time or any future time.
-  // Timestamps earlier than the current time are not allowed.
-  google.protobuf.Timestamp start_time = 3;
-
-  // Duration in seconds
-  uint32 duration = 4;
-
-  // The component selector
-  ComponentSelector selector = 5;
-
-  // The "active" status
-  bool is_active = 6;
-
-  // The "dry run" status
-  bool is_dry_run = 7;
-
-  // The dispatch payload
-  google.protobuf.Struct payload = 8;
-
-  // The recurrence rule
-  RecurrenceRule recurrence = 9;
 }
 
 // Message to update the dispatch with the given ID, with the given attributes
