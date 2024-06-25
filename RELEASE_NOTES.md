@@ -16,6 +16,7 @@ In this release, we have made some changes to the API to improve the user experi
 
 * Create and Update request now returns the new dispatch object.
 * Documentation about authentication and encryption was added.
+* Enhanced `payload` documentation.
 
 ## Bug Fixes
 
