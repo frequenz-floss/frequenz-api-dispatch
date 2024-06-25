@@ -2123,16 +2123,12 @@ to its local timezone.</p>
 <td>payload</td>
 <td><a href="#google-protobuf-Struct">google.protobuf.Struct</a></td>
 <td></td>
-<td>The dispatch payload</td>
-</tr>
-<tr>
-<td>recurrence</td>
-<td><a href="#frequenz-api-dispatch-v1-RecurrenceRule">RecurrenceRule</a></td>
-<td></td>
-<td>The recurrence rule</td>
+<td>The dispatch payload.</td>
 </tr>
 </tbody>
 </table>
+<p>Note!!! The payload field allows for flexible JSON data to be associated with this dispatch. The payload must adhere to the following constraints: - Maximum JSON nesting depth: 5 levels. - The data should not contain executable code or scripts. - Ensure all data is properly sanitized and encoded. - The total size of the payload should not exceed 50 KB. |
+| recurrence | <a href="#frequenz-api-dispatch-v1-RecurrenceRule">RecurrenceRule</a> |  | The recurrence rule |</p>
 <p><a name="frequenz-api-dispatch-v1-DispatchDetail"></a></p>
 <h3 id="dispatchdetail">DispatchDetail<a class="headerlink" href="#dispatchdetail" title="Permanent link">¤</a></h3>
 <p>Represents a dispatch, including its metadata</p>
