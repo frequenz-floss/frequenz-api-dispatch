@@ -2,15 +2,20 @@
 
 ## Summary
 
-<!-- Here goes a general summary of what this release is about -->
+In this release, we have made some changes to the API to improve the user experience and to fix some bugs.
 
 ## Upgrading
 
-<!-- Here goes notes on how to upgrade from previous versions, including deprecations and what they should be replaced with -->
+* The dispatch message was split into into metadata and data.
+* `microgrid_id` is required for all requests.
+* `id` was renamed to `dispatch_id` in all requests.
+* Naming conventions were updated to match API projects.
+* The possibility to update the `dry_run` and `type` fields was removed.
 
 ## New Features
 
-<!-- Here goes the main new features and examples or instructions on how to use them -->
+* Create and Update request now returns the new dispatch object.
+* Documentation about authentication and encryption was added.
 
 ## Bug Fixes
 
