@@ -117,7 +117,15 @@ message Dispatch {
   // the system to generate logs and observe behavior without making actual changes.
   bool is_dry_run = 6;
 
-  // The dispatch payload
+  // The dispatch payload.
+  //
+  // Note!!!
+  //     The payload field allows for flexible JSON data to be associated with this dispatch.
+  //     The payload must adhere to the following constraints:
+  //      - Maximum JSON nesting depth: 5 levels.
+  //      - The data should not contain executable code or scripts.
+  //      - Ensure all data is properly sanitized and encoded.
+  //      - The total size of the payload should not exceed 50 KB.
   google.protobuf.Struct payload = 7;
 
   // The recurrence rule
