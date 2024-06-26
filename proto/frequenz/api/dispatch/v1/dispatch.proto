@@ -257,6 +257,7 @@ message RecurrenceRule {
     FREQUENCY_DAILY = 3;
     FREQUENCY_WEEKLY = 4;
     FREQUENCY_MONTHLY = 5;
+    FREQUENCY_YEARLY = 6;
   }
 
   // Controls when a recurring dispatch should end
