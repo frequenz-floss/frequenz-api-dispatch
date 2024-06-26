@@ -1,1 +1,38 @@
-[{"version":"next","title":"next","aliases":[]},{"version":"v0.14-dev","title":"v0.14-dev (cc7bb4b)","aliases":["latest-dev","v0-dev"]},{"version":"v0.13","title":"v0.13.0","aliases":["latest","v0"]},{"version":"v0.12","title":"v0.12","aliases":[]},{"version":"v0.11","title":"v0.11","aliases":[]},{"version":"v0.10","title":"v0.10","aliases":[]}]
+[
+  {
+    "version": "next",
+    "title": "next",
+    "aliases": []
+  },
+  {
+    "version": "v0.14-dev",
+    "title": "v0.14-dev (874dc6d)",
+    "aliases": [
+      "latest-dev",
+      "v0-dev"
+    ]
+  },
+  {
+    "version": "v0.13",
+    "title": "v0.13.0",
+    "aliases": [
+      "latest",
+      "v0"
+    ]
+  },
+  {
+    "version": "v0.12",
+    "title": "v0.12",
+    "aliases": []
+  },
+  {
+    "version": "v0.11",
+    "title": "v0.11",
+    "aliases": []
+  },
+  {
+    "version": "v0.10",
+    "title": "v0.10",
+    "aliases": []
+  }
+]
