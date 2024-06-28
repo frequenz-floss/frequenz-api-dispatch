@@ -182,6 +182,12 @@ message DispatchDetail {
 
   // UTC Timestamp of the last update to the order.
   google.protobuf.Timestamp modification_time = 4;
+
+  // UTC Timestamp when the dispatch will stop working.
+  // Will be calculated internally based on the given: start_time,
+  // duration and RecurenceRule
+  // None if dispatch duration time is infinite and this value can't be calculated.
+  google.protobuf.Timestamp end_time = 5;
 }
 
 // Filter parameter for specifying multiple time intervals

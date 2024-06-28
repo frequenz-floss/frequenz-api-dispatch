@@ -22,6 +22,7 @@ In this release, we have made some changes to the API to improve the user experi
 * Add parameters for pagination and sorting.
 * Documentation of valid values for `count` and `interval` fields was added.
 * Extended filter parameters for recurrence and end time.
+* Add new field end\_time to the DispatchDetail.
 
 ## Bug Fixes
 
