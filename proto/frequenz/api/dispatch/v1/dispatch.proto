@@ -267,6 +267,7 @@ message RecurrenceRule {
     oneof count_or_until {
       // The number of times this dispatch should recur.
       // If this field is set, the dispatch will recur the given number of times.
+      // Valid values are 1 to 4096.
       uint32 count = 1;
 
       // The end time of this dispatch in UTC.
@@ -283,6 +284,7 @@ message RecurrenceRule {
   // - Every 2 hours:
   //   freq = FREQUENCY_HOURLY
   //   interval = 2
+  // Valid values typically range between 1 and 10_000, depending on the implementation.
   uint32 interval = 2;
 
   // When this dispatch should end.
