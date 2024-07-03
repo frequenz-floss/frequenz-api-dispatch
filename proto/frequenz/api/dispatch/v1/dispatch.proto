@@ -18,6 +18,8 @@ import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
 import "frequenz/api/common/v1/microgrid/components/components.proto";
+import "frequenz/api/common/v1/pagination/pagination_info.proto";
+import "frequenz/api/common/v1/pagination/pagination_params.proto";
 
 // Service providing operations related to dispatching microgrid components.
 //
@@ -307,13 +309,64 @@ message RecurrenceRule {
   repeated uint32 bymonths = 8;
 }
 
-// Message for listing dispatches for a given microgrid, and an optional filter
+// Enum for the fields to by sorted by.
+enum SortField {
+  // UNSPECIFIED: Default, unspecified sort field.
+  SORT_FIELD_UNSPECIFIED = 0;
+
+  // START_TIME: Sort by start time of the dispatch.
+  SORT_FIELD_START_TIME = 1;
+
+  // CREATE_TIME: Sort by creation time of the dispatch.
+  SORT_FIELD_CREATE_TIME = 2;
+
+  // UPDATE_TIME: Sort by last update time of the dispatch.
+  SORT_FIELD_LAST_UPDATE_TIME = 3;
+}
+
+// Enum for sort order.
+enum SortOrder {
+  // UNSPECIFIED: Default, unspecified sort order.
+  SORT_ORDER_UNSPECIFIED = 0;
+
+  // ASCENDING: Results are returned in ascending order.
+  SORT_ORDER_ASCENDING = 1;
+
+  // DESCENDING: Results are returned in descending order.
+  SORT_ORDER_DESCENDING = 2;
+}
+
+// Message defining parameters for sorting list requests.
+//
+// Example Usage:
+// To retrieve dispatches sorted by creation time in descending order:
+// sort_options: { field: CREATE_TIME, order: DESCENDING }
+//
+message SortOptions {
+  // Optional field by which to sort the results.
+  SortField sort_field = 1;
+
+  // Optional Order in which to sort the results.
+  SortOrder sort_order = 2;
+}
+
+// Message for listing dispatches for a given microgrid.
+//
+// Allows retrieval of dispatches for a specified microgrid with optional filtering and sorting.
+// Sorting can be specified by setting 'sort_field' and 'sort_order'. If no sorting is specified,
+// the results will be returned by their create time in a descending order.
 message ListMicrogridDispatchesRequest {
   // The microgrid ID
   uint64 microgrid_id = 1;
 
-  // Additional filter parameters
+  // Optional filters to apply
   DispatchFilter filter = 2;
+
+  // Sorting options for the result
+  SortOptions sort_options = 3;
+
+  // Pagination parameters
+  frequenz.api.common.v1.pagination.PaginationParams pagination_params = 4;
 }
 
 // Parameters for filtering the dispatch list
@@ -339,6 +392,9 @@ message DispatchFilter {
 message ListMicrogridDispatchesResponse {
   // The dispatches
   repeated DispatchDetail dispatches = 1;
+
+  // Pagination parameters
+  frequenz.api.common.v1.pagination.PaginationParams pagination_params = 4;
 }
 
 // Message to create a new dispatch with the given attributes
