@@ -67,6 +67,9 @@ service MicrogridDispatchService {
   // Returns a list of all dispatches
   rpc ListMicrogridDispatches(ListMicrogridDispatchesRequest) returns (ListMicrogridDispatchesResponse);
 
+  // Streaming RPC for receiving dispatch updates for a given microgrid
+  rpc StreamMicrogridDispatches(StreamMicrogridDispatchesRequest) returns (stream StreamMicrogridDispatchesResponse);
+
   // Create a new dispatch
   rpc CreateMicrogridDispatch(CreateMicrogridDispatchRequest) returns (CreateMicrogridDispatchResponse);
 
@@ -78,6 +81,38 @@ service MicrogridDispatchService {
 
   // Delete a given dispatch
   rpc DeleteMicrogridDispatch(DeleteMicrogridDispatchRequest) returns (DeleteMicrogridDispatchResponse);
+}
+
+// Subscribe to a stream of microgrid dispatch requests.
+// This method provides real-time updates on newly or updated dispatch requests for edge-based
+// realtime decision making.
+message StreamMicrogridDispatchesRequest {
+  // ID of the microgrid to subscribe to
+  uint64 microgrid_id = 1;
+}
+
+// Response to a subscription request for a stream of microgrid dispatches.
+// Real-time information on dispatches affecting a certain microgrid are pushed through this response.
+message StreamMicrogridDispatchesResponse {
+  enum Event {
+    // Default, unspecified event
+    EVENT_UNSPECIFIED = 0;
+
+    // A new dispatch has been created
+    EVENT_CREATED = 1;
+
+    // An existing dispatch has been updated
+    EVENT_UPDATED = 2;
+
+    // An existing dispatch has been deleted
+    EVENT_DELETED = 3;
+  }
+
+  // Dispatch record returned.
+  DispatchDetail dispatch_detail = 1;
+
+  // Which event this response was triggered by
+  Event event = 2;
 }
 
 // Represents a dispatches data, including its type, start time, duration, component selector,
