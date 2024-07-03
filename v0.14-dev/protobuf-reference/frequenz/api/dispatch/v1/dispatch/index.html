@@ -931,6 +931,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sortoptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      SortOptions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#timeintervalfilter" class="md-nav__link">
     <span class="md-ellipsis">
       TimeIntervalFilter
@@ -988,6 +997,24 @@
   <a href="#recurrenceruleweekday" class="md-nav__link">
     <span class="md-ellipsis">
       RecurrenceRule.Weekday
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sortfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      SortField
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sortorder" class="md-nav__link">
+    <span class="md-ellipsis">
+      SortOrder
     </span>
   </a>
   
@@ -1703,6 +1730,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sortoptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      SortOptions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#timeintervalfilter" class="md-nav__link">
     <span class="md-ellipsis">
       TimeIntervalFilter
@@ -1760,6 +1796,24 @@
   <a href="#recurrenceruleweekday" class="md-nav__link">
     <span class="md-ellipsis">
       RecurrenceRule.Weekday
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sortfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      SortField
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sortorder" class="md-nav__link">
+    <span class="md-ellipsis">
+      SortOrder
     </span>
   </a>
   
@@ -1888,6 +1942,7 @@
 <li><a href="#frequenz-api-dispatch-v1-ListMicrogridDispatchesResponse">ListMicrogridDispatchesResponse</a></li>
 <li><a href="#frequenz-api-dispatch-v1-RecurrenceRule">RecurrenceRule</a></li>
 <li><a href="#frequenz-api-dispatch-v1-RecurrenceRule-EndCriteria">RecurrenceRule.EndCriteria</a></li>
+<li><a href="#frequenz-api-dispatch-v1-SortOptions">SortOptions</a></li>
 <li><a href="#frequenz-api-dispatch-v1-TimeIntervalFilter">TimeIntervalFilter</a></li>
 <li><a href="#frequenz-api-dispatch-v1-UpdateMicrogridDispatchRequest">UpdateMicrogridDispatchRequest</a></li>
 <li><a href="#frequenz-api-dispatch-v1-UpdateMicrogridDispatchRequest-DispatchUpdate">UpdateMicrogridDispatchRequest.DispatchUpdate</a></li>
@@ -1898,8 +1953,10 @@
 <li>
 <p><a href="#frequenz-api-dispatch-v1-RecurrenceRule-Frequency">RecurrenceRule.Frequency</a></p>
 </li>
+<li><a href="#frequenz-api-dispatch-v1-RecurrenceRule-Weekday">RecurrenceRule.Weekday</a></li>
+<li><a href="#frequenz-api-dispatch-v1-SortField">SortField</a></li>
 <li>
-<p><a href="#frequenz-api-dispatch-v1-RecurrenceRule-Weekday">RecurrenceRule.Weekday</a></p>
+<p><a href="#frequenz-api-dispatch-v1-SortOrder">SortOrder</a></p>
 </li>
 <li>
 <p><a href="#frequenz-api-dispatch-v1-MicrogridDispatchService">MicrogridDispatchService</a></p>
@@ -2263,7 +2320,10 @@ to its local timezone.</p>
 </table>
 <p><a name="frequenz-api-dispatch-v1-ListMicrogridDispatchesRequest"></a></p>
 <h3 id="listmicrogriddispatchesrequest">ListMicrogridDispatchesRequest<a class="headerlink" href="#listmicrogriddispatchesrequest" title="Permanent link">¤</a></h3>
-<p>Message for listing dispatches for a given microgrid, and an optional filter</p>
+<p>Message for listing dispatches for a given microgrid.</p>
+<p>Allows retrieval of dispatches for a specified microgrid with optional filtering and sorting.
+Sorting can be specified by setting &#39;sort_field&#39; and &#39;sort_order&#39;. If no sorting is specified,
+the results will be returned by their create time in a descending order.</p>
 <table>
 <thead>
 <tr>
@@ -2284,7 +2344,19 @@ to its local timezone.</p>
 <td>filter</td>
 <td><a href="#frequenz-api-dispatch-v1-DispatchFilter">DispatchFilter</a></td>
 <td></td>
-<td>Additional filter parameters</td>
+<td>Optional filters to apply</td>
+</tr>
+<tr>
+<td>sort_options</td>
+<td><a href="#frequenz-api-dispatch-v1-SortOptions">SortOptions</a></td>
+<td></td>
+<td>Sorting options for the result</td>
+</tr>
+<tr>
+<td>pagination_params</td>
+<td><a href="#frequenz-api-common-v1-pagination-PaginationParams">frequenz.api.common.v1.pagination.PaginationParams</a></td>
+<td></td>
+<td>Pagination parameters</td>
 </tr>
 </tbody>
 </table>
@@ -2306,6 +2378,12 @@ to its local timezone.</p>
 <td><a href="#frequenz-api-dispatch-v1-DispatchDetail">DispatchDetail</a></td>
 <td>repeated</td>
 <td>The dispatches</td>
+</tr>
+<tr>
+<td>pagination_params</td>
+<td><a href="#frequenz-api-common-v1-pagination-PaginationParams">frequenz.api.common.v1.pagination.PaginationParams</a></td>
+<td></td>
+<td>Pagination parameters</td>
 </tr>
 </tbody>
 </table>
@@ -2424,6 +2502,36 @@ refer to <a href="https://tools.ietf.org/html/rfc5545">RFC5545</a>.</p>
 <td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
 <td></td>
 <td>The end time of this dispatch in UTC. If this field is set, the dispatch will recur until the given timestamp.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="frequenz-api-dispatch-v1-SortOptions"></a></p>
+<h3 id="sortoptions">SortOptions<a class="headerlink" href="#sortoptions" title="Permanent link">¤</a></h3>
+<p>Message defining parameters for sorting list requests.</p>
+<p>Example Usage:
+To retrieve dispatches sorted by creation time in descending order:
+sort_options: { field: CREATE_TIME, order: DESCENDING }</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sort_field</td>
+<td><a href="#frequenz-api-dispatch-v1-SortField">SortField</a></td>
+<td></td>
+<td>Optional field by which to sort the results.</td>
+</tr>
+<tr>
+<td>sort_order</td>
+<td><a href="#frequenz-api-dispatch-v1-SortOrder">SortOrder</a></td>
+<td></td>
+<td>Optional Order in which to sort the results.</td>
 </tr>
 </tbody>
 </table>
@@ -2736,6 +2844,69 @@ refer to <a href="https://tools.ietf.org/html/rfc5545">RFC5545</a>.</p>
 <td>WEEKDAY_SUNDAY</td>
 <td>7</td>
 <td></td>
+</tr>
+</tbody>
+</table>
+<p><a name="frequenz-api-dispatch-v1-SortField"></a></p>
+<h3 id="sortfield">SortField<a class="headerlink" href="#sortfield" title="Permanent link">¤</a></h3>
+<p>Enum for the fields to by sorted by.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SORT_FIELD_UNSPECIFIED</td>
+<td>0</td>
+<td>UNSPECIFIED: Default, unspecified sort field.</td>
+</tr>
+<tr>
+<td>SORT_FIELD_START_TIME</td>
+<td>1</td>
+<td>START_TIME: Sort by start time of the dispatch.</td>
+</tr>
+<tr>
+<td>SORT_FIELD_CREATE_TIME</td>
+<td>2</td>
+<td>CREATE_TIME: Sort by creation time of the dispatch.</td>
+</tr>
+<tr>
+<td>SORT_FIELD_LAST_UPDATE_TIME</td>
+<td>3</td>
+<td>UPDATE_TIME: Sort by last update time of the dispatch.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="frequenz-api-dispatch-v1-SortOrder"></a></p>
+<h3 id="sortorder">SortOrder<a class="headerlink" href="#sortorder" title="Permanent link">¤</a></h3>
+<p>Enum for sort order.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SORT_ORDER_UNSPECIFIED</td>
+<td>0</td>
+<td>UNSPECIFIED: Default, unspecified sort order.</td>
+</tr>
+<tr>
+<td>SORT_ORDER_ASCENDING</td>
+<td>1</td>
+<td>ASCENDING: Results are returned in ascending order.</td>
+</tr>
+<tr>
+<td>SORT_ORDER_DESCENDING</td>
+<td>2</td>
+<td>DESCENDING: Results are returned in descending order.</td>
 </tr>
 </tbody>
 </table>
