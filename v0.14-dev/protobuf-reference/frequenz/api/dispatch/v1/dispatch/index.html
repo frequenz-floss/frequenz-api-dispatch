@@ -2442,7 +2442,7 @@ refer to <a href="https://tools.ietf.org/html/rfc5545">RFC5545</a>.</p>
 <td>interval</td>
 <td><a href="#uint32">uint32</a></td>
 <td></td>
-<td>How often this dispatch should recur, based on the frequency Example: - Every 2 hours: freq = FREQUENCY_HOURLY interval = 2</td>
+<td>How often this dispatch should recur, based on the frequency Example: - Every 2 hours: freq = FREQUENCY_HOURLY interval = 2 Valid values typically range between 1 and 10_000, depending on the implementation.</td>
 </tr>
 <tr>
 <td>end_criteria</td>
@@ -2495,7 +2495,7 @@ refer to <a href="https://tools.ietf.org/html/rfc5545">RFC5545</a>.</p>
 <td>count</td>
 <td><a href="#uint32">uint32</a></td>
 <td></td>
-<td>The number of times this dispatch should recur. If this field is set, the dispatch will recur the given number of times.</td>
+<td>The number of times this dispatch should recur. If this field is set, the dispatch will recur the given number of times. Valid values are 1 to 4096.</td>
 </tr>
 <tr>
 <td>until</td>
