@@ -19,6 +19,7 @@ In this release, we have made some changes to the API to improve the user experi
 * Enhanced `payload` documentation.
 * Add YEARLY frequency to the recurrence definition.
 * Add parameters for pagination and sorting.
+* Documentation of valid values for `count` and `interval` fields was added.
 
 ## Bug Fixes
 
