@@ -17,6 +17,7 @@ In this release, we have made some changes to the API to improve the user experi
 * Create and Update request now returns the new dispatch object.
 * Documentation about authentication and encryption was added.
 * Enhanced `payload` documentation.
+* Add RPC streaming methods.
 * Add YEARLY frequency to the recurrence definition.
 * Add parameters for pagination and sorting.
 * Documentation of valid values for `count` and `interval` fields was added.
