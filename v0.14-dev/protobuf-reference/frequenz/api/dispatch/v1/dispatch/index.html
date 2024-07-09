@@ -940,6 +940,24 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#streammicrogriddispatchesrequest" class="md-nav__link">
+    <span class="md-ellipsis">
+      StreamMicrogridDispatchesRequest
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streammicrogriddispatchesresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      StreamMicrogridDispatchesResponse
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#timeintervalfilter" class="md-nav__link">
     <span class="md-ellipsis">
       TimeIntervalFilter
@@ -1015,6 +1033,15 @@
   <a href="#sortorder" class="md-nav__link">
     <span class="md-ellipsis">
       SortOrder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streammicrogriddispatchesresponseevent" class="md-nav__link">
+    <span class="md-ellipsis">
+      StreamMicrogridDispatchesResponse.Event
     </span>
   </a>
   
@@ -1739,6 +1766,24 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#streammicrogriddispatchesrequest" class="md-nav__link">
+    <span class="md-ellipsis">
+      StreamMicrogridDispatchesRequest
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streammicrogriddispatchesresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      StreamMicrogridDispatchesResponse
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#timeintervalfilter" class="md-nav__link">
     <span class="md-ellipsis">
       TimeIntervalFilter
@@ -1814,6 +1859,15 @@
   <a href="#sortorder" class="md-nav__link">
     <span class="md-ellipsis">
       SortOrder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streammicrogriddispatchesresponseevent" class="md-nav__link">
+    <span class="md-ellipsis">
+      StreamMicrogridDispatchesResponse.Event
     </span>
   </a>
   
@@ -1943,6 +1997,8 @@
 <li><a href="#frequenz-api-dispatch-v1-RecurrenceRule">RecurrenceRule</a></li>
 <li><a href="#frequenz-api-dispatch-v1-RecurrenceRule-EndCriteria">RecurrenceRule.EndCriteria</a></li>
 <li><a href="#frequenz-api-dispatch-v1-SortOptions">SortOptions</a></li>
+<li><a href="#frequenz-api-dispatch-v1-StreamMicrogridDispatchesRequest">StreamMicrogridDispatchesRequest</a></li>
+<li><a href="#frequenz-api-dispatch-v1-StreamMicrogridDispatchesResponse">StreamMicrogridDispatchesResponse</a></li>
 <li><a href="#frequenz-api-dispatch-v1-TimeIntervalFilter">TimeIntervalFilter</a></li>
 <li><a href="#frequenz-api-dispatch-v1-UpdateMicrogridDispatchRequest">UpdateMicrogridDispatchRequest</a></li>
 <li><a href="#frequenz-api-dispatch-v1-UpdateMicrogridDispatchRequest-DispatchUpdate">UpdateMicrogridDispatchRequest.DispatchUpdate</a></li>
@@ -1955,8 +2011,9 @@
 </li>
 <li><a href="#frequenz-api-dispatch-v1-RecurrenceRule-Weekday">RecurrenceRule.Weekday</a></li>
 <li><a href="#frequenz-api-dispatch-v1-SortField">SortField</a></li>
+<li><a href="#frequenz-api-dispatch-v1-SortOrder">SortOrder</a></li>
 <li>
-<p><a href="#frequenz-api-dispatch-v1-SortOrder">SortOrder</a></p>
+<p><a href="#frequenz-api-dispatch-v1-StreamMicrogridDispatchesResponse-Event">StreamMicrogridDispatchesResponse.Event</a></p>
 </li>
 <li>
 <p><a href="#frequenz-api-dispatch-v1-MicrogridDispatchService">MicrogridDispatchService</a></p>
@@ -2535,6 +2592,57 @@ sort_options: { field: CREATE_TIME, order: DESCENDING }</p>
 </tr>
 </tbody>
 </table>
+<p><a name="frequenz-api-dispatch-v1-StreamMicrogridDispatchesRequest"></a></p>
+<h3 id="streammicrogriddispatchesrequest">StreamMicrogridDispatchesRequest<a class="headerlink" href="#streammicrogriddispatchesrequest" title="Permanent link">¤</a></h3>
+<p>Subscribe to a stream of microgrid dispatch requests.
+This method provides real-time updates on newly or updated dispatch requests for edge-based
+realtime decision making.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>microgrid_id</td>
+<td><a href="#uint64">uint64</a></td>
+<td></td>
+<td>ID of the microgrid to subscribe to</td>
+</tr>
+</tbody>
+</table>
+<p><a name="frequenz-api-dispatch-v1-StreamMicrogridDispatchesResponse"></a></p>
+<h3 id="streammicrogriddispatchesresponse">StreamMicrogridDispatchesResponse<a class="headerlink" href="#streammicrogriddispatchesresponse" title="Permanent link">¤</a></h3>
+<p>Response to a subscription request for a stream of microgrid dispatches.
+Real-time information on dispatches affecting a certain microgrid are pushed through this response.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dispatch_detail</td>
+<td><a href="#frequenz-api-dispatch-v1-DispatchDetail">DispatchDetail</a></td>
+<td></td>
+<td>Dispatch record returned.</td>
+</tr>
+<tr>
+<td>event</td>
+<td><a href="#frequenz-api-dispatch-v1-StreamMicrogridDispatchesResponse-Event">StreamMicrogridDispatchesResponse.Event</a></td>
+<td></td>
+<td>Which event this response was triggered by</td>
+</tr>
+</tbody>
+</table>
 <p><a name="frequenz-api-dispatch-v1-TimeIntervalFilter"></a></p>
 <h3 id="timeintervalfilter">TimeIntervalFilter<a class="headerlink" href="#timeintervalfilter" title="Permanent link">¤</a></h3>
 <p>Filter parameter for specifying multiple time intervals</p>
@@ -2910,6 +3018,39 @@ sort_options: { field: CREATE_TIME, order: DESCENDING }</p>
 </tr>
 </tbody>
 </table>
+<p><a name="frequenz-api-dispatch-v1-StreamMicrogridDispatchesResponse-Event"></a></p>
+<h3 id="streammicrogriddispatchesresponseevent">StreamMicrogridDispatchesResponse.Event<a class="headerlink" href="#streammicrogriddispatchesresponseevent" title="Permanent link">¤</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EVENT_UNSPECIFIED</td>
+<td>0</td>
+<td>Default, unspecified event</td>
+</tr>
+<tr>
+<td>EVENT_CREATED</td>
+<td>1</td>
+<td>A new dispatch has been created</td>
+</tr>
+<tr>
+<td>EVENT_UPDATED</td>
+<td>2</td>
+<td>An existing dispatch has been updated</td>
+</tr>
+<tr>
+<td>EVENT_DELETED</td>
+<td>3</td>
+<td>An existing dispatch has been deleted</td>
+</tr>
+</tbody>
+</table>
 <p><a name="frequenz-api-dispatch-v1-MicrogridDispatchService"></a></p>
 <h3 id="microgriddispatchservice">MicrogridDispatchService<a class="headerlink" href="#microgriddispatchservice" title="Permanent link">¤</a></h3>
 <p>Service providing operations related to dispatching microgrid components.</p>
@@ -2960,6 +3101,12 @@ should be computed using the HMAC-SHA256 algorithm and the user&#39;s secret key
 <td><a href="#frequenz-api-dispatch-v1-ListMicrogridDispatchesRequest">ListMicrogridDispatchesRequest</a></td>
 <td><a href="#frequenz-api-dispatch-v1-ListMicrogridDispatchesResponse">ListMicrogridDispatchesResponse</a></td>
 <td>Returns a list of all dispatches</td>
+</tr>
+<tr>
+<td>StreamMicrogridDispatches</td>
+<td><a href="#frequenz-api-dispatch-v1-StreamMicrogridDispatchesRequest">StreamMicrogridDispatchesRequest</a></td>
+<td><a href="#frequenz-api-dispatch-v1-StreamMicrogridDispatchesResponse">StreamMicrogridDispatchesResponse</a> stream</td>
+<td>Streaming RPC for receiving dispatch updates for a given microgrid</td>
 </tr>
 <tr>
 <td>CreateMicrogridDispatch</td>
