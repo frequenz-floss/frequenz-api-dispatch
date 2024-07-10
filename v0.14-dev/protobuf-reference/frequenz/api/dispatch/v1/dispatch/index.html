@@ -2299,6 +2299,12 @@ to its local timezone.</p>
 <td></td>
 <td>UTC Timestamp of the last update to the order.</td>
 </tr>
+<tr>
+<td>end_time</td>
+<td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
+<td></td>
+<td>UTC Timestamp when the dispatch will stop working. Will be calculated internally based on the given: start_time, duration and RecurenceRule None if dispatch duration time is infinite and this value can&#39;t be calculated.</td>
+</tr>
 </tbody>
 </table>
 <p><a name="frequenz-api-dispatch-v1-DispatchFilter"></a></p>

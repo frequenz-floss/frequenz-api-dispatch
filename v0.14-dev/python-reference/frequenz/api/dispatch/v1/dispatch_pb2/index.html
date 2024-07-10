@@ -1531,6 +1531,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchDetail.end_time" class="md-nav__link">
+    <span class="md-ellipsis">
+      end_time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchDetail.modification_time" class="md-nav__link">
     <span class="md-ellipsis">
       modification_time
@@ -3057,6 +3066,15 @@
   <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchDetail.dispatch_id" class="md-nav__link">
     <span class="md-ellipsis">
       dispatch_id
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchDetail.end_time" class="md-nav__link">
+    <span class="md-ellipsis">
+      end_time
     </span>
   </a>
   
@@ -4986,6 +5004,32 @@ understanding and processing this field.</p>
 
 
 
+<h6 id="frequenz.api.dispatch.v1.dispatch_pb2.DispatchDetail.end_time" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">end_time</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+<a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchDetail.end_time" class="headerlink" title="Permanent link">¤</a></h6>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">end_time</span><span class="p">:</span> <span class="n"><span title="google.protobuf.timestamp_pb2.Timestamp">Timestamp</span></span>
+</span></code></pre></div>
+
+    <div class="doc doc-contents ">
+
+      <p>UTC Timestamp when the dispatch will stop working.
+Will be calculated internally based on the given: start_time,
+duration and RecurenceRule
+None if dispatch duration time is infinite and this value can't be calculated.</p>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
 <h6 id="frequenz.api.dispatch.v1.dispatch_pb2.DispatchDetail.modification_time" class="doc doc-heading">
             <span class="doc doc-object-name doc-attribute-name">modification_time</span>
 
@@ -6137,8 +6181,8 @@ If this field is set, the dispatch will recur until the given timestamp.</p>
               <details class="quote">
                 <summary>Source code in <code>frequenz/api/dispatch/v1/dispatch_pb2.py</code></summary>
                 <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-49">49</a></span>
-<span class="normal"><a href="#__codelineno-0-50">50</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_DISPATCHFILTER_RECURRENCEFILTER&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">1769</span>
-</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_DISPATCHFILTER_RECURRENCEFILTER&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">1898</span>
+<span class="normal"><a href="#__codelineno-0-50">50</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_DISPATCHFILTER_RECURRENCEFILTER&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">1815</span>
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_DISPATCHFILTER_RECURRENCEFILTER&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">1944</span>
 </span></code></pre></div></td></tr></table></div>
               </details>
 
@@ -6255,8 +6299,8 @@ sort_options: { field: CREATE_TIME, order: DESCENDING }</p>
               <details class="quote">
                 <summary>Source code in <code>frequenz/api/dispatch/v1/dispatch_pb2.py</code></summary>
                 <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-75">75</a></span>
-<span class="normal"><a href="#__codelineno-0-76">76</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-75"><a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHREQUEST_DISPATCHUPDATE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">3925</span>
-</span><span id="__span-0-76"><a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHREQUEST_DISPATCHUPDATE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">4644</span>
+<span class="normal"><a href="#__codelineno-0-76">76</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-75"><a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHREQUEST_DISPATCHUPDATE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">3971</span>
+</span><span id="__span-0-76"><a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHREQUEST_DISPATCHUPDATE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">4690</span>
 </span></code></pre></div></td></tr></table></div>
               </details>
 
@@ -6291,11 +6335,11 @@ realtime decision making.</p>
 <span class="normal"><a href="#__codelineno-0-88">88</a></span>
 <span class="normal"><a href="#__codelineno-0-89">89</a></span>
 <span class="normal"><a href="#__codelineno-0-90">90</a></span>
-<span class="normal"><a href="#__codelineno-0-91">91</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-86"><a id="__codelineno-0-86" name="__codelineno-0-86"></a>  <span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_DELETEMICROGRIDDISPATCHREQUEST&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5004</span>
-</span><span id="__span-0-87"><a id="__codelineno-0-87" name="__codelineno-0-87"></a>  <span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_DELETEMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">5006</span>
-</span><span id="__span-0-88"><a id="__codelineno-0-88" name="__codelineno-0-88"></a>  <span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_DELETEMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5082</span>
-</span><span id="__span-0-89"><a id="__codelineno-0-89" name="__codelineno-0-89"></a>  <span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_MICROGRIDDISPATCHSERVICE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">5308</span>
-</span><span id="__span-0-90"><a id="__codelineno-0-90" name="__codelineno-0-90"></a>  <span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_MICROGRIDDISPATCHSERVICE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">6203</span>
+<span class="normal"><a href="#__codelineno-0-91">91</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-86"><a id="__codelineno-0-86" name="__codelineno-0-86"></a>  <span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_DELETEMICROGRIDDISPATCHREQUEST&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5050</span>
+</span><span id="__span-0-87"><a id="__codelineno-0-87" name="__codelineno-0-87"></a>  <span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_DELETEMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">5052</span>
+</span><span id="__span-0-88"><a id="__codelineno-0-88" name="__codelineno-0-88"></a>  <span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_DELETEMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5128</span>
+</span><span id="__span-0-89"><a id="__codelineno-0-89" name="__codelineno-0-89"></a>  <span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_MICROGRIDDISPATCHSERVICE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">5354</span>
+</span><span id="__span-0-90"><a id="__codelineno-0-90" name="__codelineno-0-90"></a>  <span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_MICROGRIDDISPATCHSERVICE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">6249</span>
 </span><span id="__span-0-91"><a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="c1"># @@protoc_insertion_point(module_scope)</span>
 </span></code></pre></div></td></tr></table></div>
               </details>
