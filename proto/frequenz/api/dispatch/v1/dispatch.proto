@@ -201,32 +201,44 @@ message TimeIntervalFilter {
 
 // Parameters for filtering the dispatch list
 message DispatchFilter {
+  // Recurrence filters
+  //
+  // The fields are left commented out for now as the exact definition and requirements
+  // for recurrence filtering are still being finalized.
   message RecurrenceFilter {
-    // Filter by recurring status
-    // True: Only recurring dispatches will be returned.
-    // False: Only non-recurring dispatches will be returned.
-    // Unset: Both recurring and non-recurring dispatches will be returned,
-    //        recurring dispatches will be filtered based on the recurrence
-    //        filter, while non-recurring dispatches will be returned regardless.
-    // Examples:
-    // - To retrieve only recurring dispatches:
-    //   filter { recurrence_filter { is_recurring: true } }
-    // - To retrieve only non-recurring dispatches:
-    //   filter { recurrence_filter { is_recurring: false } }
-    // - To retrieve all dispatches:
-    //   filter { recurrence_filter {} }
-    // - To retrieve only recurring dispatches with a specific frequency:
-    //   filter { recurrence_filter { is_recurring: true, freq: [FREQUENCY_DAILY] } }
-    // - To retrieve only recurring dispatches with a specific frequency but
-    //   also include non-recurring dispatches:
-    //   filter { recurrence_filter { freq: [FREQUENCY_DAILY] } }
+    // The frequency specifier of this recurring dispatch
+    //optional RecurrenceRule.Frequency freq = 1;
 
-    // - only_recurring = true: Only recurring dispatches will be returned.
-    optional bool is_recurring = 1;
+    //// How often this dispatch should recur, based on the frequency
+    //// Example:
+    //// - Every 2 hours:
+    ////   freq = FREQUENCY_HOURLY
+    ////   interval = 2
+    //// Valid values typically range between 1 and 10_000, depending on the implementation.
+    //optional uint32 interval = 2;
 
-    // Filter by frequency
-    // If not specified, all frequencies will be returned.
-    repeated RecurrenceRule.Frequency freqs = 2;
+    //// When this dispatch should end.
+    //// A dispatch can either recur a fixed number of times, or until a given timestamp.
+    //// If this field is not set, the dispatch will recur indefinitely.
+    //optional EndCriteria end_criteria = 3;
+
+    //// On which minute(s) of the hour does the event occur
+    //repeated uint32 byminutes = 4;
+
+    //// On which hour(s) of the day does the event occur
+    //repeated uint32 byhours = 5;
+
+    //// On which day(s) of the week does the event occur
+    //repeated RecurrenceRule.Weekday byweekdays = 6;
+
+    //// On which day(s) of the month does the event occur. Valid values are 1 to 31 or -31 to -1.
+    ////
+    //// For example, -10 represents the tenth to the last day of the month.
+    //// The bymonthdays rule part MUST NOT be specified when the FREQ rule part is set to WEEKLY.
+    //repeated int32 bymonthdays = 7;
+
+    //// On which month(s) of the year does the event occur
+    //repeated uint32 bymonths = 8;
   }
 
   // Optional filter by component ID or category.
@@ -240,20 +252,52 @@ message DispatchFilter {
   // If this field is not set, dispatches of any dry run status will be included.
   optional bool is_dry_run = 3;
 
-  // Optional recurrence filter
-  // If not specified both types will be returned.
-  RecurrenceFilter recurrence_filter = 4;
+  // Optional filter by recurrence fields.
+  oneof recurrence {
+    // Filter by recurring status
+    // True: Only recurring dispatches will be returned.
+    // False: Only non-recurring dispatches will be returned.
+    // Examples:
+    // - To retrieve only recurring dispatches:
+    //   filter { recurrence { is_recurring: true } }
+    // - To retrieve only non-recurring dispatches:
+    //   filter { recurrence { is_recurring: false } }
+    // - To retrieve all dispatches:
+    //   filter { recurrence {} }
+    // For advanced recurrence filtering, use the `filter` field.
+    bool is_recurring = 4;
+
+    // Filter by recurrence details
+    // Examples:
+    // - To retrieve only recurring dispatches with a specific frequency:
+    //   filter { recurrence { filter { freq: FREQUENCY_DAILY } } }
+    // - To retrieve recurring dispatches with a specific frequency and interval:
+    //   filter { recurrence { filter { freq: FREQUENCY_HOURLY, interval: 2 } } }
+    // - To retrieve recurring dispatches that end after a specific criteria:
+    //   filter { recurrence { filter { end_criteria: { count: 10 } } } }
+    // - To retrieve recurring dispatches at specific minutes of the hour:
+    //   filter { recurrence { filter { byminutes: [0, 15, 30, 45] } } }
+    // - To retrieve recurring dispatches at specific hours of the day:
+    //   filter { recurrence { filter { byhours: [8, 12, 16] } } }
+    // - To retrieve recurring dispatches on specific days of the week:
+    //   filter { recurrence { filter { byweekdays: [WEEKDAY_MONDAY, WEEKDAY_WEDNESDAY] } } }
+    // - To retrieve recurring dispatches on specific days of the month:
+    //   filter { recurrence { filter { bymonthdays: [1, 15, 30, -1] } } }
+    // - To retrieve recurring dispatches in specific months of the year:
+    //   filter { recurrence { filter { bymonths: [1, 6, 12] } } }
+    RecurrenceFilter filter = 5;
+  }
 
   // Optional filter by start time.
   // If no interval is provided, all dispatches will be returned.
-  TimeIntervalFilter start_time_interval = 5;
+  TimeIntervalFilter start_time_interval = 6;
 
   // Optional filter by end time
   // Filter dispatches based on their explicit end time.
-  TimeIntervalFilter end_time_interval = 6;
+  TimeIntervalFilter end_time_interval = 7;
 
   // Optional filter by update time
-  TimeIntervalFilter update_time_interval = 7;
+  TimeIntervalFilter update_time_interval = 8;
 }
 
 // Parameter for controlling which components a dispatch applies to
