@@ -739,27 +739,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#componentcategories" class="md-nav__link">
-    <span class="md-ellipsis">
-      ComponentCategories
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#componentids" class="md-nav__link">
-    <span class="md-ellipsis">
-      ComponentIDs
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#componentselector" class="md-nav__link">
     <span class="md-ellipsis">
       ComponentSelector
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#componentselectorcategoryset" class="md-nav__link">
+    <span class="md-ellipsis">
+      ComponentSelector.CategorySet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#componentselectoridset" class="md-nav__link">
+    <span class="md-ellipsis">
+      ComponentSelector.IdSet
     </span>
   </a>
   
@@ -1583,27 +1583,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#componentcategories" class="md-nav__link">
-    <span class="md-ellipsis">
-      ComponentCategories
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#componentids" class="md-nav__link">
-    <span class="md-ellipsis">
-      ComponentIDs
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#componentselector" class="md-nav__link">
     <span class="md-ellipsis">
       ComponentSelector
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#componentselectorcategoryset" class="md-nav__link">
+    <span class="md-ellipsis">
+      ComponentSelector.CategorySet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#componentselectoridset" class="md-nav__link">
+    <span class="md-ellipsis">
+      ComponentSelector.IdSet
     </span>
   </a>
   
@@ -2017,9 +2017,9 @@
 <li>
 <p><a href="#frequenz_api_dispatch_v1_dispatch-proto">frequenz/api/dispatch/v1/dispatch.proto</a></p>
 <ul>
-<li><a href="#frequenz-api-dispatch-v1-ComponentCategories">ComponentCategories</a></li>
-<li><a href="#frequenz-api-dispatch-v1-ComponentIDs">ComponentIDs</a></li>
 <li><a href="#frequenz-api-dispatch-v1-ComponentSelector">ComponentSelector</a></li>
+<li><a href="#frequenz-api-dispatch-v1-ComponentSelector-CategorySet">ComponentSelector.CategorySet</a></li>
+<li><a href="#frequenz-api-dispatch-v1-ComponentSelector-IdSet">ComponentSelector.IdSet</a></li>
 <li><a href="#frequenz-api-dispatch-v1-CreateMicrogridDispatchRequest">CreateMicrogridDispatchRequest</a></li>
 <li><a href="#frequenz-api-dispatch-v1-CreateMicrogridDispatchResponse">CreateMicrogridDispatchResponse</a></li>
 <li><a href="#frequenz-api-dispatch-v1-DeleteMicrogridDispatchRequest">DeleteMicrogridDispatchRequest</a></li>
@@ -2066,8 +2066,41 @@
 <p align="right"><a href="#top">Top</a></p>
 
 <h2 id="frequenzapidispatchv1dispatchproto">frequenz/api/dispatch/v1/dispatch.proto<a class="headerlink" href="#frequenzapidispatchv1dispatchproto" title="Permanent link">¤</a></h2>
-<p><a name="frequenz-api-dispatch-v1-ComponentCategories"></a></p>
-<h3 id="componentcategories">ComponentCategories<a class="headerlink" href="#componentcategories" title="Permanent link">¤</a></h3>
+<p><a name="frequenz-api-dispatch-v1-ComponentSelector"></a></p>
+<h3 id="componentselector">ComponentSelector<a class="headerlink" href="#componentselector" title="Permanent link">¤</a></h3>
+<p>Parameter for controlling which components a dispatch applies to
+either a set of component IDs, or a set of component categories.
+Examples:
+- To dispatch to a set of component IDs:
+  selector { component_ids { ids: [1, 2, 3] } }
+- To dispatch to a set of component categories:
+  selector { component_categories { categories: [COMPONENT_CATEGORY_BATTERY, COMPONENT_CRYPTO_MINER] } }</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>component_ids</td>
+<td><a href="#frequenz-api-dispatch-v1-ComponentSelector-IdSet">ComponentSelector.IdSet</a></td>
+<td></td>
+<td>Set of component IDs</td>
+</tr>
+<tr>
+<td>component_categories</td>
+<td><a href="#frequenz-api-dispatch-v1-ComponentSelector-CategorySet">ComponentSelector.CategorySet</a></td>
+<td></td>
+<td>Component categories</td>
+</tr>
+</tbody>
+</table>
+<p><a name="frequenz-api-dispatch-v1-ComponentSelector-CategorySet"></a></p>
+<h3 id="componentselectorcategoryset">ComponentSelector.CategorySet<a class="headerlink" href="#componentselectorcategoryset" title="Permanent link">¤</a></h3>
 <p>Wrapper for controlling dispatches with a set of component categories
 Required as we can&#39;t use <code>repeated</code> directly in a <code>oneof</code></p>
 <table>
@@ -2081,15 +2114,15 @@ Required as we can&#39;t use <code>repeated</code> directly in a <code>oneof</co
 </thead>
 <tbody>
 <tr>
-<td>component_categories</td>
+<td>categories</td>
 <td><a href="#frequenz-api-common-v1-microgrid-components-ComponentCategory">frequenz.api.common.v1.microgrid.components.ComponentCategory</a></td>
 <td>repeated</td>
 <td>Set of component categories</td>
 </tr>
 </tbody>
 </table>
-<p><a name="frequenz-api-dispatch-v1-ComponentIDs"></a></p>
-<h3 id="componentids">ComponentIDs<a class="headerlink" href="#componentids" title="Permanent link">¤</a></h3>
+<p><a name="frequenz-api-dispatch-v1-ComponentSelector-IdSet"></a></p>
+<h3 id="componentselectoridset">ComponentSelector.IdSet<a class="headerlink" href="#componentselectoridset" title="Permanent link">¤</a></h3>
 <p>Wrapper for controlling dispatches with a set of component IDs
 Required as we can&#39;t use <code>repeated</code> directly in a <code>oneof</code></p>
 <table>
@@ -2103,38 +2136,10 @@ Required as we can&#39;t use <code>repeated</code> directly in a <code>oneof</co
 </thead>
 <tbody>
 <tr>
-<td>component_ids</td>
+<td>ids</td>
 <td><a href="#uint64">uint64</a></td>
 <td>repeated</td>
 <td>Set of component IDs</td>
-</tr>
-</tbody>
-</table>
-<p><a name="frequenz-api-dispatch-v1-ComponentSelector"></a></p>
-<h3 id="componentselector">ComponentSelector<a class="headerlink" href="#componentselector" title="Permanent link">¤</a></h3>
-<p>Parameter for controlling which components a dispatch applies to
-either a set of component IDs, or a set of component categories.</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Label</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>component_ids</td>
-<td><a href="#frequenz-api-dispatch-v1-ComponentIDs">ComponentIDs</a></td>
-<td></td>
-<td>Set of component IDs</td>
-</tr>
-<tr>
-<td>component_category</td>
-<td><a href="#frequenz-api-dispatch-v1-ComponentCategories">ComponentCategories</a></td>
-<td></td>
-<td>Component categories</td>
 </tr>
 </tbody>
 </table>
