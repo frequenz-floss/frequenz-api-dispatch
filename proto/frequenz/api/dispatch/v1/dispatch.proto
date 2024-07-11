@@ -258,30 +258,34 @@ message DispatchFilter {
 
 // Parameter for controlling which components a dispatch applies to
 // either a set of component IDs, or a set of component categories.
+// Examples:
+// - To dispatch to a set of component IDs:
+//   selector { component_ids { ids: [1, 2, 3] } }
+// - To dispatch to a set of component categories:
+//   selector { component_categories { categories: [COMPONENT_CATEGORY_BATTERY, COMPONENT_CRYPTO_MINER] } }
 message ComponentSelector {
+  // Wrapper for controlling dispatches with a set of component IDs
+  // Required as we can't use `repeated` directly in a `oneof`
+  message IdSet {
+    // Set of component IDs
+    repeated uint64 ids = 1;
+  }
+
+  // Wrapper for controlling dispatches with a set of component categories
+  // Required as we can't use `repeated` directly in a `oneof`
+  message CategorySet {
+    // Set of component categories
+    repeated frequenz.api.common.v1.microgrid.components.ComponentCategory categories = 1;
+  }
+
   oneof selector {
     // Set of component IDs
-    ComponentIDs component_ids = 1;
+    IdSet component_ids = 1;
 
     // Component categories
-    ComponentCategories component_category = 2;
+    CategorySet component_categories = 2;
   }
 }
-
-// Wrapper for controlling dispatches with a set of component IDs
-// Required as we can't use `repeated` directly in a `oneof`
-message ComponentIDs {
-  // Set of component IDs
-  repeated uint64 component_ids = 1;
-}
-
-// Wrapper for controlling dispatches with a set of component categories
-// Required as we can't use `repeated` directly in a `oneof`
-message ComponentCategories {
-  // Set of component categories
-  repeated frequenz.api.common.v1.microgrid.components.ComponentCategory component_categories = 1;
-}
-
 
 // Ruleset governing when and how a dispatch should re-occur.
 //
