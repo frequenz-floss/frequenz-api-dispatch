@@ -11,6 +11,7 @@ In this release, we have made some changes to the API to improve the user experi
 * `id` was renamed to `dispatch_id` in all requests.
 * Naming conventions were updated to match API projects.
 * The possibility to update the `dry_run` and `type` fields was removed.
+* The ComponentSelector now can contain multiple component categories.
 
 ## New Features
 
