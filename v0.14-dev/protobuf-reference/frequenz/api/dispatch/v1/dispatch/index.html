@@ -2658,7 +2658,7 @@ refer to <a href="https://tools.ietf.org/html/rfc5545">RFC5545</a>.</p>
 <td>until</td>
 <td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
 <td></td>
-<td>The end time of this dispatch in UTC. If this field is set, the dispatch will recur until the given timestamp.</td>
+<td>The end time of this dispatch in UTC. If this field is set, the last recurrence event will start before this timestamp. Note that the duration of the event is not considered in this value, so the dispatch may end after the timestamp.</td>
 </tr>
 </tbody>
 </table>

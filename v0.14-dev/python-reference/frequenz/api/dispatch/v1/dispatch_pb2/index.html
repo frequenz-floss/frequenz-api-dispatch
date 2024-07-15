@@ -6149,7 +6149,10 @@ Valid values are 1 to 4096.</p>
     <div class="doc doc-contents ">
 
       <p>The end time of this dispatch in UTC.
-If this field is set, the dispatch will recur until the given timestamp.</p>
+If this field is set, the last recurrence event will start before this
+timestamp.
+Note that the duration of the event is not considered in this value,
+so the dispatch may end after the timestamp.</p>
     </div>
 
 </div>
