@@ -3,6 +3,10 @@
 ## Summary
 
 In this release, we have made some changes to the API to improve the user experience and to fix some bugs.
+This might be the last breaking release, at least I tried hard to make it so.
+Fingers crossed.
+
+Note: The API supporting a feature does not mean that the service or client supports it as well, just yet.
 
 ## Upgrading
 
