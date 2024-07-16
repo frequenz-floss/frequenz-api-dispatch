@@ -6,7 +6,9 @@
 
 ## Upgrading
 
-<!-- Here goes notes on how to upgrade from previous versions, including deprecations and what they should be replaced with -->
+* `DispatchDetail` is now `Dispatch`
+* `Dispatch` became `DispatchData`
+* Member part of `Dispatch` is now the new message `DispatchMedatata`
 
 ## New Features
 
