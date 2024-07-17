@@ -811,9 +811,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dispatchdetail" class="md-nav__link">
+  <a href="#dispatchdata" class="md-nav__link">
     <span class="md-ellipsis">
-      DispatchDetail
+      DispatchData
     </span>
   </a>
   
@@ -832,6 +832,15 @@
   <a href="#dispatchfilterrecurrencefilter" class="md-nav__link">
     <span class="md-ellipsis">
       DispatchFilter.RecurrenceFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispatchmetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      DispatchMetadata
     </span>
   </a>
   
@@ -1655,9 +1664,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dispatchdetail" class="md-nav__link">
+  <a href="#dispatchdata" class="md-nav__link">
     <span class="md-ellipsis">
-      DispatchDetail
+      DispatchData
     </span>
   </a>
   
@@ -1676,6 +1685,15 @@
   <a href="#dispatchfilterrecurrencefilter" class="md-nav__link">
     <span class="md-ellipsis">
       DispatchFilter.RecurrenceFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispatchmetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      DispatchMetadata
     </span>
   </a>
   
@@ -2025,9 +2043,10 @@
 <li><a href="#frequenz-api-dispatch-v1-DeleteMicrogridDispatchRequest">DeleteMicrogridDispatchRequest</a></li>
 <li><a href="#frequenz-api-dispatch-v1-DeleteMicrogridDispatchResponse">DeleteMicrogridDispatchResponse</a></li>
 <li><a href="#frequenz-api-dispatch-v1-Dispatch">Dispatch</a></li>
-<li><a href="#frequenz-api-dispatch-v1-DispatchDetail">DispatchDetail</a></li>
+<li><a href="#frequenz-api-dispatch-v1-DispatchData">DispatchData</a></li>
 <li><a href="#frequenz-api-dispatch-v1-DispatchFilter">DispatchFilter</a></li>
 <li><a href="#frequenz-api-dispatch-v1-DispatchFilter-RecurrenceFilter">DispatchFilter.RecurrenceFilter</a></li>
+<li><a href="#frequenz-api-dispatch-v1-DispatchMetadata">DispatchMetadata</a></li>
 <li><a href="#frequenz-api-dispatch-v1-GetMicrogridDispatchRequest">GetMicrogridDispatchRequest</a></li>
 <li><a href="#frequenz-api-dispatch-v1-GetMicrogridDispatchResponse">GetMicrogridDispatchResponse</a></li>
 <li><a href="#frequenz-api-dispatch-v1-ListMicrogridDispatchesRequest">ListMicrogridDispatchesRequest</a></li>
@@ -2163,8 +2182,8 @@ Required as we can&#39;t use <code>repeated</code> directly in a <code>oneof</co
 <td>The microgrid identifier</td>
 </tr>
 <tr>
-<td>dispatch</td>
-<td><a href="#frequenz-api-dispatch-v1-Dispatch">Dispatch</a></td>
+<td>dispatch_data</td>
+<td><a href="#frequenz-api-dispatch-v1-DispatchData">DispatchData</a></td>
 <td></td>
 <td>Content of the dispatch to be created</td>
 </tr>
@@ -2185,7 +2204,7 @@ Required as we can&#39;t use <code>repeated</code> directly in a <code>oneof</co
 <tbody>
 <tr>
 <td>dispatch</td>
-<td><a href="#frequenz-api-dispatch-v1-DispatchDetail">DispatchDetail</a></td>
+<td><a href="#frequenz-api-dispatch-v1-Dispatch">Dispatch</a></td>
 <td></td>
 <td>The created dispatch</td>
 </tr>
@@ -2247,6 +2266,33 @@ Required as we can&#39;t use <code>repeated</code> directly in a <code>oneof</co
 </table>
 <p><a name="frequenz-api-dispatch-v1-Dispatch"></a></p>
 <h3 id="dispatch">Dispatch<a class="headerlink" href="#dispatch" title="Permanent link">¤</a></h3>
+<p>Represents a dispatch, including its metadata</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>metadata</td>
+<td><a href="#frequenz-api-dispatch-v1-DispatchMetadata">DispatchMetadata</a></td>
+<td></td>
+<td>Dispatch Metadata (id, create time, etc)</td>
+</tr>
+<tr>
+<td>data</td>
+<td><a href="#frequenz-api-dispatch-v1-DispatchData">DispatchData</a></td>
+<td></td>
+<td>The dispatch data</td>
+</tr>
+</tbody>
+</table>
+<p><a name="frequenz-api-dispatch-v1-DispatchData"></a></p>
+<h3 id="dispatchdata">DispatchData<a class="headerlink" href="#dispatchdata" title="Permanent link">¤</a></h3>
 <p>Represents a dispatches data, including its type, start time, duration, component selector,</p>
 <p>Timezone Note: Timestamps are in UTC. It is the responsibility of each microgrid to translate UTC
 to its local timezone.</p>
@@ -2306,51 +2352,6 @@ to its local timezone.</p>
 </table>
 <p>Note!!! The payload field allows for flexible JSON data to be associated with this dispatch. The payload must adhere to the following constraints: - Maximum JSON nesting depth: 5 levels. - The data should not contain executable code or scripts. - Ensure all data is properly sanitized and encoded. - The total size of the payload should not exceed 50 KB. |
 | recurrence | <a href="#frequenz-api-dispatch-v1-RecurrenceRule">RecurrenceRule</a> |  | The recurrence rule |</p>
-<p><a name="frequenz-api-dispatch-v1-DispatchDetail"></a></p>
-<h3 id="dispatchdetail">DispatchDetail<a class="headerlink" href="#dispatchdetail" title="Permanent link">¤</a></h3>
-<p>Represents a dispatch, including its metadata</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Label</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>dispatch_id</td>
-<td><a href="#uint64">uint64</a></td>
-<td></td>
-<td>Unique identifier of the microgrid dispatch.</td>
-</tr>
-<tr>
-<td>dispatch</td>
-<td><a href="#frequenz-api-dispatch-v1-Dispatch">Dispatch</a></td>
-<td></td>
-<td>The dispatch data</td>
-</tr>
-<tr>
-<td>create_time</td>
-<td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
-<td></td>
-<td>UTC Timestamp when the order was created.</td>
-</tr>
-<tr>
-<td>modification_time</td>
-<td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
-<td></td>
-<td>UTC Timestamp of the last update to the order.</td>
-</tr>
-<tr>
-<td>end_time</td>
-<td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
-<td></td>
-<td>UTC Timestamp when the dispatch will stop working. Will be calculated internally based on the given: start_time, duration and RecurenceRule None if dispatch duration time is infinite and this value can&#39;t be calculated.</td>
-</tr>
-</tbody>
-</table>
 <p><a name="frequenz-api-dispatch-v1-DispatchFilter"></a></p>
 <h3 id="dispatchfilter">DispatchFilter<a class="headerlink" href="#dispatchfilter" title="Permanent link">¤</a></h3>
 <p>Parameters for filtering the dispatch list</p>
@@ -2421,6 +2422,45 @@ to its local timezone.</p>
 for recurrence filtering are still being finalized.</p>
 <p>The frequency specifier of this recurring dispatch
 optional RecurrenceRule.Frequency freq = 1;</p>
+<p><a name="frequenz-api-dispatch-v1-DispatchMetadata"></a></p>
+<h3 id="dispatchmetadata">DispatchMetadata<a class="headerlink" href="#dispatchmetadata" title="Permanent link">¤</a></h3>
+<p>Represents the metadata of a dispatch</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dispatch_id</td>
+<td><a href="#uint64">uint64</a></td>
+<td></td>
+<td>Unique identifier of the microgrid dispatch.</td>
+</tr>
+<tr>
+<td>create_time</td>
+<td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
+<td></td>
+<td>UTC Timestamp when the order was created.</td>
+</tr>
+<tr>
+<td>modification_time</td>
+<td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
+<td></td>
+<td>UTC Timestamp of the last update to the order.</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
+<td></td>
+<td>UTC Timestamp when the dispatch will stop working. Will be calculated internally based on the given: start_time, duration and RecurenceRule None if dispatch duration time is infinite and this value can&#39;t be calculated.</td>
+</tr>
+</tbody>
+</table>
 <p><a name="frequenz-api-dispatch-v1-GetMicrogridDispatchRequest"></a></p>
 <h3 id="getmicrogriddispatchrequest">GetMicrogridDispatchRequest<a class="headerlink" href="#getmicrogriddispatchrequest" title="Permanent link">¤</a></h3>
 <p>Message to get a single dispatch by its ID</p>
@@ -2469,7 +2509,7 @@ optional RecurrenceRule.Frequency freq = 1;</p>
 </tr>
 <tr>
 <td>dispatch</td>
-<td><a href="#frequenz-api-dispatch-v1-DispatchDetail">DispatchDetail</a></td>
+<td><a href="#frequenz-api-dispatch-v1-Dispatch">Dispatch</a></td>
 <td></td>
 <td>The dispatch</td>
 </tr>
@@ -2532,7 +2572,7 @@ the results will be returned by their create time in a descending order.</p>
 <tbody>
 <tr>
 <td>dispatches</td>
-<td><a href="#frequenz-api-dispatch-v1-DispatchDetail">DispatchDetail</a></td>
+<td><a href="#frequenz-api-dispatch-v1-Dispatch">Dispatch</a></td>
 <td>repeated</td>
 <td>The dispatches</td>
 </tr>
@@ -2730,8 +2770,8 @@ Real-time information on dispatches affecting a certain microgrid are pushed thr
 </thead>
 <tbody>
 <tr>
-<td>dispatch_detail</td>
-<td><a href="#frequenz-api-dispatch-v1-DispatchDetail">DispatchDetail</a></td>
+<td>dispatch</td>
+<td><a href="#frequenz-api-dispatch-v1-Dispatch">Dispatch</a></td>
 <td></td>
 <td>Dispatch record returned.</td>
 </tr>
@@ -2934,7 +2974,7 @@ Real-time information on dispatches affecting a certain microgrid are pushed thr
 <tbody>
 <tr>
 <td>dispatch</td>
-<td><a href="#frequenz-api-dispatch-v1-DispatchDetail">DispatchDetail</a></td>
+<td><a href="#frequenz-api-dispatch-v1-Dispatch">Dispatch</a></td>
 <td></td>
 <td>The updated dispatch</td>
 </tr>
