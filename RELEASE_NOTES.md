@@ -2,10 +2,16 @@
 
 ## Summary
 
-This is just a minor update that changes the `Dispatch` message structure a bit.
+<!-- Here goes a general summary of what this release is about -->
 
 ## Upgrading
 
-* `DispatchDetail` is now `Dispatch`
-* `Dispatch` became `DispatchData`
-* Member part of `Dispatch` is now the new message `DispatchMedatata`
+<!-- Here goes notes on how to upgrade from previous versions, including deprecations and what they should be replaced with -->
+
+## New Features
+
+<!-- Here goes the main new features and examples or instructions on how to use them -->
+
+## Bug Fixes
+
+* Fixed pagination fields in the response (`pagination_params` -> `pagination_info`)
