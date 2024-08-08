@@ -54,6 +54,7 @@ dev-mkdocs = [
   "mkdocs-macros-plugin == 1.0.5",
   "mkdocs-material == 9.5.30",
   "mkdocstrings[python] == 0.25.2",
+  "mkdocstrings-python == 1.9.2",
   "frequenz-repo-config[api] == 0.10.0",
 ]
 dev-mypy = [
@@ -129,10 +130,14 @@ disable = [
   # pylint's unsubscriptable check is buggy and is not needed because
   # it is a type-check, for which we already have mypy.
   "unsubscriptable-object",
+  # Checked by mypy
+  "no-member",
   # Checked by flake8
+  "f-string-without-interpolation",
   "redefined-outer-name",
   "unused-import",
   "line-too-long",
+  "missing-function-docstring",
   "unused-variable",
   "unnecessary-lambda-assignment",
 ]

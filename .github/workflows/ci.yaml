@@ -110,10 +110,14 @@ jobs:
     # The job name should match the name of the `nox` job.
     name: Test with nox
     needs: ["nox"]
+    # We skip this job only if nox was also skipped
+    if: always() && needs.nox.result != 'skipped'
     runs-on: ubuntu-20.04
+    env:
+      DEPS_RESULT: ${{ needs.nox.result }}
     steps:
-      - name: Return true
-        run: "true"
+      - name: Check matrix job result
+        run: test "$DEPS_RESULT" = "success"
 
   nox-cross-arch:
     name: Cross-arch tests with nox
@@ -183,7 +187,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: /tmp/pip-cache
-          key: nox-${{ matrix.nox-session }}-${{ matrix.arch }}-${{ matrix.os }}-${{ matrix.python }}-${{ hashFiles('**/pyproject.toml') }}
+          key: nox-${{ matrix.nox-session }}-${{ matrix.arch }}-${{ matrix.os }}-${{ matrix.python }}-${{ hashFiles('pyproject.toml') }}
 
       # This ensures that the docker container has access to the pip cache.
       # Changing the user in the docker-run step causes it to fail due to
@@ -224,10 +228,14 @@ jobs:
     # The job name should match the name of the `nox-cross-arch` job.
     name: Cross-arch tests with nox
     needs: ["nox-cross-arch"]
+    # We skip this job only if nox-cross-arch was also skipped
+    if: always() && needs.nox-cross-arch.result != 'skipped'
     runs-on: ubuntu-20.04
+    env:
+      DEPS_RESULT: ${{ needs.nox-cross-arch.result }}
     steps:
-      - name: Return true
-        run: "true"
+      - name: Check matrix job result
+        run: test "$DEPS_RESULT" = "success"
 
   build:
     name: Build distribution packages
