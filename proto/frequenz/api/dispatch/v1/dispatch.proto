@@ -521,7 +521,12 @@ message ListMicrogridDispatchesRequest {
   // Sorting options for the result
   SortOptions sort_options = 3;
 
-  // Pagination parameters
+  // Pagination Parameters
+  // page_size: Amount of items to return per page. Should only be provided in the first request.
+  // page_token: Cursor to specify which page to return. Should not be set in the first request.
+  //             Should be populated in subsequent requests by the `next_page_token` found in
+  //             the `pagination_info` in the response.
+  //             The tokens stays valid indefinitely.
   frequenz.api.common.v1.pagination.PaginationParams pagination_params = 4;
 }
 
@@ -530,9 +535,13 @@ message ListMicrogridDispatchesResponse {
   // The dispatches
   repeated Dispatch dispatches = 1;
 
-  // Pagination parameters
-  frequenz.api.common.v1.pagination.PaginationParams pagination_params = 4;
+  // Pagination Info
+  // total_items: Total amount of entries found by the list request.
+  // next_page_token: Token that can be used to request the next page.
+  //                  Will be unset if no further pages exist.
+  frequenz.api.common.v1.pagination.PaginationInfo pagination_info = 2;
 }
+
 
 // Message to create a new dispatch with the given attributes
 message CreateMicrogridDispatchRequest {
