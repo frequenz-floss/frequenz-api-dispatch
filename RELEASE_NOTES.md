@@ -2,15 +2,15 @@
 
 ## Summary
 
-<!-- Here goes a general summary of what this release is about -->
+This update focuses on pagination.
 
 ## Upgrading
 
-<!-- Here goes notes on how to upgrade from previous versions, including deprecations and what they should be replaced with -->
+* Updated to the latest common-api which provides slighlty modified pagination messages.
 
 ## New Features
 
-<!-- Here goes the main new features and examples or instructions on how to use them -->
+* Added more detailed documentation on how to use pagination.
 
 ## Bug Fixes
 
