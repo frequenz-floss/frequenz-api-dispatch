@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../../../../logo.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.30">
     
     
       
@@ -2322,7 +2322,7 @@ to its local timezone.</p>
 <td>duration</td>
 <td><a href="#uint32">uint32</a></td>
 <td>optional</td>
-<td>Duration in seconds</td>
+<td>Duration in seconds The duration of the dispatch in seconds. If the duration is not set, the dispatch will be considered to have an infinite duration. A duration of 0 seconds is also valid, indicating a dispatch that immediately starts and ends, e.g. switching a component on and off.</td>
 </tr>
 <tr>
 <td>selector</td>
