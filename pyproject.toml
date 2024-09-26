@@ -6,6 +6,13 @@ requires = [
   "setuptools == 68.1.0",
   "setuptools_scm[toml] == 7.1.0",
   "frequenz-repo-config[api] == 0.10.0",
+   # We need to pin the protobuf, grpcio and  grpcio-tools dependencies to make
+   # sure the code is generated using the minimum supported versions, as older
+   # versions can't work with code that was generated with newer versions.
+   # https://protobuf.dev/support/cross-version-runtime-guarantee/#backwards
+   "protobuf == 5.28.0",
+   "grpcio-tools == 1.66.1",
+   "grpcio == 1.66.1",
 ]
 build-backend = "setuptools.build_meta"
 
@@ -27,8 +34,15 @@ classifiers = [
 requires-python = ">= 3.11, < 4"
 dependencies = [
   "frequenz-api-common >= 0.5.4, < 0.7",
-  "googleapis-common-protos >= 1.56.4, < 2",
-  "grpcio >= 1.54.2, < 2",
+  "googleapis-common-protos >= 1.65.0, < 2",
+   # We can't widen beyond the current value unless we bump the minimum
+   # requirements too because of protobuf cross-version runtime guarantees:
+   # https://protobuf.dev/support/cross-version-runtime-guarantee/#major
+   "protobuf >= 5.28.0, < 7", # Do not widen beyond 7!
+   # We couldn't find any document with a spec about the cross-version runtime
+   # guarantee for grpcio, so unless we find one in the future, we'll assume
+   # major version jumps are not compatible
+   "grpcio >= 1.66.1, < 2", # Do not widen beyond 2!
 ]
 dynamic = ["version"]
 
@@ -54,7 +68,7 @@ dev-mkdocs = [
   "mkdocs-macros-plugin == 1.0.5",
   "mkdocs-material == 9.5.30",
   "mkdocstrings[python] == 0.25.2",
-  "mkdocstrings-python == 1.9.2",
+  "mkdocstrings-python == 1.10.8",
   "frequenz-repo-config[api] == 0.10.0",
 ]
 dev-mypy = [

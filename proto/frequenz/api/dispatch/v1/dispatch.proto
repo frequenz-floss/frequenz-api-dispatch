@@ -133,6 +133,10 @@ message DispatchData {
   google.protobuf.Timestamp start_time = 2;
 
   // Duration in seconds
+  // The duration of the dispatch in seconds. If the duration is not set, the dispatch
+  // will be considered to have an infinite duration.
+  // A duration of 0 seconds is also valid, indicating a dispatch that
+  // immediately starts and ends, e.g. switching a component on and off.
   optional uint32 duration = 3;
 
   // Dispatch microgrid component selector
