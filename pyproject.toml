@@ -55,7 +55,7 @@ dev-flake8 = [
   "flake8 == 7.1.1",
   "flake8-docstrings == 1.7.0",
   "flake8-pyproject == 1.2.3",  # For reading the flake8 config from pyproject.toml
-  "pydoclint == 0.5.8",
+  "pydoclint == 0.5.9",
   "pydocstyle == 6.3.0",
 ]
 dev-formatting = ["black == 24.8.0", "isort == 5.13.2"]
@@ -66,7 +66,7 @@ dev-mkdocs = [
   "mkdocs-gen-files == 0.5.0",
   "mkdocs-literate-nav == 0.6.1",
   "mkdocs-macros-plugin == 1.2.0",
-  "mkdocs-material == 9.5.38",
+  "mkdocs-material == 9.5.39",
   "mkdocstrings[python] == 0.26.1",
   "mkdocstrings-python == 1.11.1",
   "frequenz-repo-config[api] == 0.10.0",
