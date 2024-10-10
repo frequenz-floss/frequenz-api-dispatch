@@ -115,7 +115,8 @@ message StreamMicrogridDispatchesResponse {
   Event event = 2;
 }
 
-// Represents a dispatches data, including its type, start time, duration, component selector,
+// Represents a dispatches data, including its type, start time, duration,
+// and target components.
 //
 // Timezone Note: Timestamps are in UTC. It is the responsibility of each microgrid to translate UTC
 // to its local timezone.
@@ -139,8 +140,8 @@ message DispatchData {
   // immediately starts and ends, e.g. switching a component on and off.
   optional uint32 duration = 3;
 
-  // Dispatch microgrid component selector
-  ComponentSelector selector = 4;
+  // The components this dispatch should apply to.
+  TargetComponents target = 4;
 
   // The "active" status
   // An active dispatch is eligible for processing, either immediately or at a scheduled
@@ -252,7 +253,7 @@ message DispatchFilter {
   }
 
   // Optional filter by component ID or category.
-  repeated ComponentSelector selectors = 1;
+  repeated TargetComponents targets = 1;
 
   // Optional filter by active status.
   // If this field is not set, dispatches of any active status will be included.
@@ -314,10 +315,10 @@ message DispatchFilter {
 // either a set of component IDs, or a set of component categories.
 // Examples:
 // - To dispatch to a set of component IDs:
-//   selector { component_ids { ids: [1, 2, 3] } }
+//   components { component_ids { ids: [1, 2, 3] } }
 // - To dispatch to a set of component categories:
-//   selector { component_categories { categories: [COMPONENT_CATEGORY_BATTERY, COMPONENT_CRYPTO_MINER] } }
-message ComponentSelector {
+//   components { component_categories { categories: [COMPONENT_CATEGORY_BATTERY, COMPONENT_CRYPTO_MINER] } }
+message TargetComponents {
   // Wrapper for controlling dispatches with a set of component IDs
   // Required as we can't use `repeated` directly in a `oneof`
   message IdSet {
@@ -332,7 +333,7 @@ message ComponentSelector {
     repeated frequenz.api.common.v1.microgrid.components.ComponentCategory categories = 1;
   }
 
-  oneof selector {
+  oneof components {
     // Set of component IDs
     IdSet component_ids = 1;
 
@@ -605,8 +606,8 @@ message UpdateMicrogridDispatchRequest {
     // Duration in seconds
     optional uint32 duration = 2;
 
-    // The component selector
-    ComponentSelector selector = 3;
+    // The target components
+    TargetComponents target = 3;
 
     // The "active" status
     optional bool is_active = 4;
