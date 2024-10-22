@@ -7,6 +7,7 @@ This update focuses on pagination.
 ## Upgrading
 
 * Updated to the latest common-api which provides slighlty modified pagination messages.
+* The `TimeIntervalFilter` is now inclusive on both ends.
 
 ## New Features
 

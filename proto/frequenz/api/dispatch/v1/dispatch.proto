@@ -206,7 +206,7 @@ message TimeIntervalFilter {
   // Filter by time >= this timestamp.
   google.protobuf.Timestamp from = 1;
 
-  // Filter by time < this timestamp.
+  // Filter by time <= this timestamp.
   google.protobuf.Timestamp to = 2;
 }
 
