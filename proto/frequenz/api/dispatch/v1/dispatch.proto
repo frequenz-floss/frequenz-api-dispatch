@@ -448,7 +448,7 @@ message RecurrenceRule {
 
   // When this dispatch should end.
   // A dispatch can either recur a fixed number of times, or until a given timestamp.
-  // If this field is not set, the dispatch will recur indefinitely.bool
+  // If this field is not set, the dispatch will recur indefinitely.
   EndCriteria end_criteria = 3;
 
   // On which minute(s) of the hour does the event occur
