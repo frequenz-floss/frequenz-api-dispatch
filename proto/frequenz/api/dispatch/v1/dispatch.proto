@@ -309,6 +309,22 @@ message DispatchFilter {
 
   // Optional filter by update time
   TimeIntervalFilter update_time_interval = 8;
+
+  // Optional filter by partial id matches
+  // If this field is not set, dispatches of any id will be included.
+  // Example:
+  // - To retrieve dispatches with ids containing 123 (e.g.: [5123, 1234, 1235, 123]):
+  //   filter { ids: [123] }
+  // - To retrieve dispatches with ids containing 1 and 5 (e.g.: [5, 1, 15, 51]):
+  //   filter { ids: [1, 5] }
+  repeated uint64 ids = 9;
+
+  // Optional filter by partial type match
+  // If this field is not set, dispatches of any type will be included.
+  // Example:
+  // - To retrieve dispatches with type containing "charge" (e.g.: ["charge", "discharge", "fast_charge"]):
+  //   filter { type: "charge" }
+  optional string type = 10;
 }
 
 // Parameter for controlling which components a dispatch applies to

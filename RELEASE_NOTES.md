@@ -10,7 +10,7 @@
 
 ## New Features
 
-<!-- Here goes the main new features and examples or instructions on how to use them -->
+* New filters for the list rpc have been added: "ids" to search for one or more ids using partial matching and type to filter by the type of the dispatch, also partial matching.
 
 ## Bug Fixes
 
