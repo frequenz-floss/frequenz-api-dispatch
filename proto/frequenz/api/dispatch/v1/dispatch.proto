@@ -555,6 +555,9 @@ message CreateMicrogridDispatchRequest {
 
   // Content of the dispatch to be created
   DispatchData dispatch_data = 2;
+
+  // Optional, set start_time to NOW() (server-time) if set
+  optional bool start_immediately = 3;
 }
 
 // Response message for creating a new dispatch

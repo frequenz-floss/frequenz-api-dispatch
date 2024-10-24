@@ -12,6 +12,7 @@ This update focuses on pagination.
 ## New Features
 
 * Added more detailed documentation on how to use pagination.
+* Added `start_immediately` to the create RPC.
 
 ## Bug Fixes
 
