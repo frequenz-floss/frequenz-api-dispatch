@@ -2,17 +2,16 @@
 
 ## Summary
 
-This update focuses on pagination.
+<!-- Here goes a general summary of what this release is about -->
 
 ## Upgrading
 
-* Updated to the latest common-api which provides slighlty modified pagination messages.
-* The `TimeIntervalFilter` is now inclusive on both ends.
+<!-- Here goes notes on how to upgrade from previous versions, including deprecations and what they should be replaced with -->
 
 ## New Features
 
-* Added more detailed documentation on how to use pagination.
+<!-- Here goes the main new features and examples or instructions on how to use them -->
 
 ## Bug Fixes
 
-* Fixed pagination fields in the response (`pagination_params` -> `pagination_info`)
+<!-- Here goes notable bug fixes that are worth a special mention or explanation -->
