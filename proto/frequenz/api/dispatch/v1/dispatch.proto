@@ -203,10 +203,10 @@ message DispatchMetadata {
 
 // Filter parameter for specifying multiple time intervals
 message TimeIntervalFilter {
-  // Filter by time >= this timestamp.
+  // Filter by time >= this UTC timestamp.
   google.protobuf.Timestamp from = 1;
 
-  // Filter by time <= this timestamp.
+  // Filter by time <= this UTC timestamp.
   google.protobuf.Timestamp to = 2;
 }
 
@@ -597,7 +597,7 @@ message UpdateMicrogridDispatchRequest {
       repeated uint32 bymonths = 8;
     }
 
-    // The start time
+    // The start time in UTC.
     // When updating a dispatch, ensure that the starting timestamp is set to
     // the current time or any future time.
     // Timestamps earlier than the current time are not allowed.
