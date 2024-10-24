@@ -5955,7 +5955,7 @@ The bymonthdays rule part MUST NOT be specified when the FREQ rule part is set t
 
         <p>When this dispatch should end.
 A dispatch can either recur a fixed number of times, or until a given timestamp.
-If this field is not set, the dispatch will recur indefinitely.bool</p>
+If this field is not set, the dispatch will recur indefinitely.</p>
     </div>
 
 </div>
@@ -6915,7 +6915,7 @@ Required as we can't use <code>repeated</code> directly in a <code>oneof</code><
 
     <div class="doc doc-contents ">
 
-        <p>Filter by time &lt;= this timestamp.</p>
+        <p>Filter by time &lt;= this UTC timestamp.</p>
     </div>
 
 </div>
@@ -7191,7 +7191,7 @@ Required as we can't use <code>repeated</code> directly in a <code>oneof</code><
 
     <div class="doc doc-contents ">
 
-        <p>The start time
+        <p>The start time in UTC.
 When updating a dispatch, ensure that the starting timestamp is set to
 the current time or any future time.
 Timestamps earlier than the current time are not allowed.</p>
