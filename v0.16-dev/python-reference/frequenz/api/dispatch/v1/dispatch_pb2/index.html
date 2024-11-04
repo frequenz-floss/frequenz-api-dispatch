@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../../../../logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.0253249f.min.css">
       
         
         <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -4118,6 +4118,11 @@
 
 
 
+
+
+
+
+
   <div class="doc doc-children">
 
 
@@ -4309,6 +4314,11 @@
 
 
 
+
+
+
+
+
   <div class="doc doc-children">
 
 
@@ -4417,6 +4427,11 @@
 
 
 
+
+
+
+
+
   <div class="doc doc-children">
 
 
@@ -4475,6 +4490,11 @@
 
 
         <p>Message to delete a single dispatch by its ID</p>
+
+
+
+
+
 
 
 
@@ -4564,6 +4584,11 @@
 
 
 
+
+
+
+
+
   <div class="doc doc-children">
 
 
@@ -4645,6 +4670,11 @@
 
 
         <p>Represents a dispatch, including its metadata</p>
+
+
+
+
+
 
 
 
@@ -4733,6 +4763,11 @@
 and target components.</p>
 <p>Timezone Note: Timestamps are in UTC. It is the responsibility of each microgrid to translate UTC
 to its local timezone.</p>
+
+
+
+
+
 
 
 
@@ -4983,6 +5018,11 @@ understanding and processing this field.</p>
 
 
         <p>Parameters for filtering the dispatch list</p>
+
+
+
+
+
 
 
 
@@ -5238,6 +5278,11 @@ optional RecurrenceRule.Frequency freq = 1;</p>
 
 
 
+
+
+
+
+
   <div class="doc doc-children">
 
 
@@ -5282,6 +5327,11 @@ optional RecurrenceRule.Frequency freq = 1;</p>
 
 
         <p>Represents the metadata of a dispatch</p>
+
+
+
+
+
 
 
 
@@ -5420,6 +5470,11 @@ None if dispatch duration time is infinite and this value can't be calculated.</
 
 
 
+
+
+
+
+
   <div class="doc doc-children">
 
 
@@ -5501,6 +5556,11 @@ None if dispatch duration time is infinite and this value can't be calculated.</
 
 
         <p>Response message for getting a single dispatch</p>
+
+
+
+
+
 
 
 
@@ -5589,6 +5649,11 @@ None if dispatch duration time is infinite and this value can't be calculated.</
 <p>Allows retrieval of dispatches for a specified microgrid with optional filtering and sorting.
 Sorting can be specified by setting 'sort_field' and 'sort_order'. If no sorting is specified,
 the results will be returned by their create time in a descending order.</p>
+
+
+
+
+
 
 
 
@@ -5729,6 +5794,11 @@ page_token: Cursor to specify which page to return. Should not be set in the fir
 
 
 
+
+
+
+
+
   <div class="doc doc-children">
 
 
@@ -5847,6 +5917,11 @@ refer to <a href="https://tools.ietf.org/html/rfc5545">RFC5545</a>.</p>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="kt">uint32</span><span class="w"> </span><span class="na">byhours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">];</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
 </span></code></pre></div>
+
+
+
+
+
 
 
 
@@ -6074,6 +6149,11 @@ Valid values typically range between 1 and 10_000, depending on the implementati
 
 
 
+
+
+
+
+
   <div class="doc doc-children">
 
 
@@ -6165,6 +6245,11 @@ so the dispatch may end after the timestamp.</p>
 
 
 
+
+
+
+
+
   <div class="doc doc-children">
 
 
@@ -6200,6 +6285,11 @@ so the dispatch may end after the timestamp.</p>
 
 
         <p>Enum representing the day of the week</p>
+
+
+
+
+
 
 
 
@@ -6249,6 +6339,11 @@ so the dispatch may end after the timestamp.</p>
 
         <p>Enum for the fields to by sorted by.</p>
 
+
+
+
+
+
               <details class="quote">
                 <summary>Source code in <code>frequenz/api/dispatch/v1/dispatch_pb2.py</code></summary>
                 <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-50">50</a></span>
@@ -6297,6 +6392,11 @@ so the dispatch may end after the timestamp.</p>
 <p>Example Usage:
 To retrieve dispatches sorted by creation time in descending order:
 sort_options: { field: CREATE_TIME, order: DESCENDING }</p>
+
+
+
+
+
 
 
 
@@ -6383,6 +6483,11 @@ sort_options: { field: CREATE_TIME, order: DESCENDING }</p>
 
         <p>Enum for sort order.</p>
 
+
+
+
+
+
               <details class="quote">
                 <summary>Source code in <code>frequenz/api/dispatch/v1/dispatch_pb2.py</code></summary>
                 <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-76">76</a></span>
@@ -6430,6 +6535,11 @@ sort_options: { field: CREATE_TIME, order: DESCENDING }</p>
         <p>Subscribe to a stream of microgrid dispatch requests.
 This method provides real-time updates on newly or updated dispatch requests for edge-based
 realtime decision making.</p>
+
+
+
+
+
 
               <details class="quote">
                 <summary>Source code in <code>frequenz/api/dispatch/v1/dispatch_pb2.py</code></summary>
@@ -6532,6 +6642,11 @@ realtime decision making.</p>
 
         <p>Response to a subscription request for a stream of microgrid dispatches.
 Real-time information on dispatches affecting a certain microgrid are pushed through this response.</p>
+
+
+
+
+
 
 
 
@@ -6719,6 +6834,11 @@ Examples:
 
 
 
+
+
+
+
+
   <div class="doc doc-children">
 
 
@@ -6796,6 +6916,11 @@ Required as we can't use <code>repeated</code> directly in a <code>oneof</code><
 
 
 
+
+
+
+
+
   <div class="doc doc-children">
 
 
@@ -6855,6 +6980,11 @@ Required as we can't use <code>repeated</code> directly in a <code>oneof</code><
 
         <p>Wrapper for controlling dispatches with a set of component IDs
 Required as we can't use <code>repeated</code> directly in a <code>oneof</code></p>
+
+
+
+
+
 
 
 
@@ -6930,6 +7060,11 @@ Required as we can't use <code>repeated</code> directly in a <code>oneof</code><
 
 
 
+
+
+
+
+
   <div class="doc doc-children">
 
 
@@ -6988,6 +7123,11 @@ Required as we can't use <code>repeated</code> directly in a <code>oneof</code><
 
 
         <p>Message to update the dispatch with the given ID, with the given attributes</p>
+
+
+
+
+
 
 
 
@@ -7110,6 +7250,11 @@ Required as we can't use <code>repeated</code> directly in a <code>oneof</code><
 
 
         <p>Message containing the updated dispatch attributes</p>
+
+
+
+
+
 
 
 
@@ -7281,6 +7426,11 @@ Timestamps earlier than the current time are not allowed.</p>
 
 
         <p>Message containing the updated recurrence rule attributes</p>
+
+
+
+
+
 
 
 
@@ -7528,6 +7678,11 @@ The bymonthdays rule part MUST NOT be specified when the FREQ rule part is set t
 
 
 
+
+
+
+
+
   <div class="doc doc-children">
 
 
@@ -7702,7 +7857,7 @@ The bymonthdays rule part MUST NOT be specified when the FREQ rule part is set t
     <script id="__config" type="application/json">{"base": "../../../../../..", "features": ["content.code.annotate", "content.code.copy", "navigation.indexes", "navigation.instant", "navigation.footer", "navigation.tabs", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../../../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
-      <script src="../../../../../../assets/javascripts/bundle.525ec568.min.js"></script>
+      <script src="../../../../../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>
