@@ -6,11 +6,11 @@
 
 ## Upgrading
 
-<!-- Here goes notes on how to upgrade from previous versions, including deprecations and what they should be replaced with -->
+* The `TargetComponents` message now accepts an optional `type` too. `.components.component_categories` is no longer just a `ComponentCategory` but a new `CategoryAndType` message that has a required `category` (`ComponentCategory`) and an optional `type` (`oneof BatteryType, EVChargerType, InverterType`).
 
 ## New Features
 
-<!-- Here goes the main new features and examples or instructions on how to use them -->
+- Now specific types of batteries, inverters and EV chargers can be targeted.
 
 ## Bug Fixes
 

@@ -17,7 +17,10 @@ import "google/protobuf/field_mask.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
+import "frequenz/api/common/v1/microgrid/components/battery.proto";
 import "frequenz/api/common/v1/microgrid/components/components.proto";
+import "frequenz/api/common/v1/microgrid/components/ev_charger.proto";
+import "frequenz/api/common/v1/microgrid/components/inverter.proto";
 import "frequenz/api/common/v1/pagination/pagination_info.proto";
 import "frequenz/api/common/v1/pagination/pagination_params.proto";
 
@@ -312,12 +315,19 @@ message DispatchFilter {
 }
 
 // Parameter for controlling which components a dispatch applies to
-// either a set of component IDs, or a set of component categories.
+// either a set of component IDs, or a set of component categories (with optional type).
 // Examples:
 // - To dispatch to a set of component IDs:
 //   components { component_ids { ids: [1, 2, 3] } }
 // - To dispatch to a set of component categories:
-//   components { component_categories { categories: [COMPONENT_CATEGORY_BATTERY, COMPONENT_CRYPTO_MINER] } }
+//   components {
+//     component_categories {
+//       categories: [
+//         {category: COMPONENT_CATEGORY_BATTERY, type: BATTERY_TYPE_LI_ION},
+//         {cateogry: COMPONENT_CRYPTO_MINER}
+//       ]
+//     }
+//   }
 message TargetComponents {
   // Wrapper for controlling dispatches with a set of component IDs
   // Required as we can't use `repeated` directly in a `oneof`
@@ -326,11 +336,34 @@ message TargetComponents {
     repeated uint64 ids = 1;
   }
 
-  // Wrapper for controlling dispatches with a set of component categories
+  // Wrapper for controlling dispatches with a set of component categories and optional types
   // Required as we can't use `repeated` directly in a `oneof`
-  message CategorySet {
+  message CategoryTypeSet {
     // Set of component categories
-    repeated frequenz.api.common.v1.microgrid.components.ComponentCategory categories = 1;
+    repeated CategoryAndType categories = 1;
+  }
+
+  // A tuple of a required category and an optional type
+  // If a type is specified, it must be a valid type for the given category and
+  // only components of that type will be targeted.
+  message CategoryAndType {
+    // The category of the target component (required)
+    frequenz.api.common.v1.microgrid.components.ComponentCategory category = 1;
+
+    // The type of the target component (optional)
+    oneof type {
+      // The type of battery
+      // Only applicable if the category is COMPONENT_CATEGORY_BATTERY
+      frequenz.api.common.v1.microgrid.components.BatteryType battery = 2;
+
+      // The type of solar array
+      // Only applicable if the category is COMPONENT_CATEGORY_INVERTER
+      frequenz.api.common.v1.microgrid.components.InverterType inverter = 3;
+
+      // The type of EV charger
+      // Only applicable if the category is COMPONENT_CATEGORY_EV_CHARGER
+      frequenz.api.common.v1.microgrid.components.EvChargerType ev_charger = 4;
+    }
   }
 
   oneof components {
@@ -338,7 +371,7 @@ message TargetComponents {
     IdSet component_ids = 1;
 
     // Component categories
-    CategorySet component_categories = 2;
+    CategoryTypeSet component_categories = 2;
   }
 }
 
