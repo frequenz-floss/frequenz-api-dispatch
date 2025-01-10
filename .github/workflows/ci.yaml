@@ -47,7 +47,8 @@ jobs:
           filter_mode: nofilter
           github_token: ${{ secrets.github_token }}
           protolint_flags: proto/
-          reporter: github-pr-review
+          protolint_version: "0.52.0"
+          reporter: github-check
 
   nox:
     name: Test with nox
