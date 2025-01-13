@@ -967,9 +967,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#targetcomponentscategoryset" class="md-nav__link">
+  <a href="#targetcomponentscategoryandtype" class="md-nav__link">
     <span class="md-ellipsis">
-      TargetComponents.CategorySet
+      TargetComponents.CategoryAndType
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#targetcomponentscategorytypeset" class="md-nav__link">
+    <span class="md-ellipsis">
+      TargetComponents.CategoryTypeSet
     </span>
   </a>
   
@@ -1820,9 +1829,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#targetcomponentscategoryset" class="md-nav__link">
+  <a href="#targetcomponentscategoryandtype" class="md-nav__link">
     <span class="md-ellipsis">
-      TargetComponents.CategorySet
+      TargetComponents.CategoryAndType
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#targetcomponentscategorytypeset" class="md-nav__link">
+    <span class="md-ellipsis">
+      TargetComponents.CategoryTypeSet
     </span>
   </a>
   
@@ -2054,7 +2072,8 @@
 <li><a href="#frequenz-api-dispatch-v1-StreamMicrogridDispatchesRequest">StreamMicrogridDispatchesRequest</a></li>
 <li><a href="#frequenz-api-dispatch-v1-StreamMicrogridDispatchesResponse">StreamMicrogridDispatchesResponse</a></li>
 <li><a href="#frequenz-api-dispatch-v1-TargetComponents">TargetComponents</a></li>
-<li><a href="#frequenz-api-dispatch-v1-TargetComponents-CategorySet">TargetComponents.CategorySet</a></li>
+<li><a href="#frequenz-api-dispatch-v1-TargetComponents-CategoryAndType">TargetComponents.CategoryAndType</a></li>
+<li><a href="#frequenz-api-dispatch-v1-TargetComponents-CategoryTypeSet">TargetComponents.CategoryTypeSet</a></li>
 <li><a href="#frequenz-api-dispatch-v1-TargetComponents-IdSet">TargetComponents.IdSet</a></li>
 <li><a href="#frequenz-api-dispatch-v1-TimeIntervalFilter">TimeIntervalFilter</a></li>
 <li><a href="#frequenz-api-dispatch-v1-UpdateMicrogridDispatchRequest">UpdateMicrogridDispatchRequest</a></li>
@@ -2716,12 +2735,19 @@ Real-time information on dispatches affecting a certain microgrid are pushed thr
 <p><a name="frequenz-api-dispatch-v1-TargetComponents"></a></p>
 <h3 id="targetcomponents">TargetComponents<a class="headerlink" href="#targetcomponents" title="Permanent link">¤</a></h3>
 <p>Parameter for controlling which components a dispatch applies to
-either a set of component IDs, or a set of component categories.
+either a set of component IDs, or a set of component categories (with optional type).
 Examples:
 - To dispatch to a set of component IDs:
   components { component_ids { ids: [1, 2, 3] } }
 - To dispatch to a set of component categories:
-  components { component_categories { categories: [COMPONENT_CATEGORY_BATTERY, COMPONENT_CRYPTO_MINER] } }</p>
+  components {
+    component_categories {
+      categories: [
+        {category: COMPONENT_CATEGORY_BATTERY, type: BATTERY_TYPE_LI_ION},
+        {cateogry: COMPONENT_CRYPTO_MINER}
+      ]
+    }
+  }</p>
 <table>
 <thead>
 <tr>
@@ -2740,15 +2766,56 @@ Examples:
 </tr>
 <tr>
 <td>component_categories</td>
-<td><a href="#frequenz-api-dispatch-v1-TargetComponents-CategorySet">TargetComponents.CategorySet</a></td>
+<td><a href="#frequenz-api-dispatch-v1-TargetComponents-CategoryTypeSet">TargetComponents.CategoryTypeSet</a></td>
 <td></td>
 <td>Component categories</td>
 </tr>
 </tbody>
 </table>
-<p><a name="frequenz-api-dispatch-v1-TargetComponents-CategorySet"></a></p>
-<h3 id="targetcomponentscategoryset">TargetComponents.CategorySet<a class="headerlink" href="#targetcomponentscategoryset" title="Permanent link">¤</a></h3>
-<p>Wrapper for controlling dispatches with a set of component categories
+<p><a name="frequenz-api-dispatch-v1-TargetComponents-CategoryAndType"></a></p>
+<h3 id="targetcomponentscategoryandtype">TargetComponents.CategoryAndType<a class="headerlink" href="#targetcomponentscategoryandtype" title="Permanent link">¤</a></h3>
+<p>A tuple of a required category and an optional type
+If a type is specified, it must be a valid type for the given category and
+only components of that type will be targeted.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>category</td>
+<td><a href="#frequenz-api-common-v1-microgrid-components-ComponentCategory">frequenz.api.common.v1.microgrid.components.ComponentCategory</a></td>
+<td></td>
+<td>The category of the target component (required)</td>
+</tr>
+<tr>
+<td>battery</td>
+<td><a href="#frequenz-api-common-v1-microgrid-components-BatteryType">frequenz.api.common.v1.microgrid.components.BatteryType</a></td>
+<td></td>
+<td>The type of battery Only applicable if the category is COMPONENT_CATEGORY_BATTERY</td>
+</tr>
+<tr>
+<td>inverter</td>
+<td><a href="#frequenz-api-common-v1-microgrid-components-InverterType">frequenz.api.common.v1.microgrid.components.InverterType</a></td>
+<td></td>
+<td>The type of solar array Only applicable if the category is COMPONENT_CATEGORY_INVERTER</td>
+</tr>
+<tr>
+<td>ev_charger</td>
+<td><a href="#frequenz-api-common-v1-microgrid-components-EvChargerType">frequenz.api.common.v1.microgrid.components.EvChargerType</a></td>
+<td></td>
+<td>The type of EV charger Only applicable if the category is COMPONENT_CATEGORY_EV_CHARGER</td>
+</tr>
+</tbody>
+</table>
+<p><a name="frequenz-api-dispatch-v1-TargetComponents-CategoryTypeSet"></a></p>
+<h3 id="targetcomponentscategorytypeset">TargetComponents.CategoryTypeSet<a class="headerlink" href="#targetcomponentscategorytypeset" title="Permanent link">¤</a></h3>
+<p>Wrapper for controlling dispatches with a set of component categories and optional types
 Required as we can&#39;t use <code>repeated</code> directly in a <code>oneof</code></p>
 <table>
 <thead>
@@ -2762,7 +2829,7 @@ Required as we can&#39;t use <code>repeated</code> directly in a <code>oneof</co
 <tbody>
 <tr>
 <td>categories</td>
-<td><a href="#frequenz-api-common-v1-microgrid-components-ComponentCategory">frequenz.api.common.v1.microgrid.components.ComponentCategory</a></td>
+<td><a href="#frequenz-api-dispatch-v1-TargetComponents-CategoryAndType">TargetComponents.CategoryAndType</a></td>
 <td>repeated</td>
 <td>Set of component categories</td>
 </tr>
