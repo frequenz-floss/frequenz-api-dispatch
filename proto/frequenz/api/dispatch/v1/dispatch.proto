@@ -336,6 +336,13 @@ message TargetComponents {
     repeated uint64 ids = 1;
   }
 
+
+  // Deprecated: Use `CategoryTypeSet` instead
+  message CategorySet {
+    // Set of component categories
+    repeated frequenz.api.common.v1.microgrid.components.ComponentCategory categories = 1;
+  }
+
   // Wrapper for controlling dispatches with a set of component categories and optional types
   // Required as we can't use `repeated` directly in a `oneof`
   message CategoryTypeSet {
@@ -370,8 +377,13 @@ message TargetComponents {
     // Set of component IDs
     IdSet component_ids = 1;
 
-    // Component categories
-    CategoryTypeSet component_categories = 2;
+    // Deprecated: Component categories
+    // Use `CategoryTypeSet` instead
+    // In future versions, this field will be removed.
+    CategorySet component_categories = 2;
+
+    // Component categories with optional types
+    CategoryTypeSet component_categories_types = 3;
   }
 }
 
