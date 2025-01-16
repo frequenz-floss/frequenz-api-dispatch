@@ -976,6 +976,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#targetcomponentscategoryset" class="md-nav__link">
+    <span class="md-ellipsis">
+      TargetComponents.CategorySet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#targetcomponentscategorytypeset" class="md-nav__link">
     <span class="md-ellipsis">
       TargetComponents.CategoryTypeSet
@@ -1838,6 +1847,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#targetcomponentscategoryset" class="md-nav__link">
+    <span class="md-ellipsis">
+      TargetComponents.CategorySet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#targetcomponentscategorytypeset" class="md-nav__link">
     <span class="md-ellipsis">
       TargetComponents.CategoryTypeSet
@@ -2073,6 +2091,7 @@
 <li><a href="#frequenz-api-dispatch-v1-StreamMicrogridDispatchesResponse">StreamMicrogridDispatchesResponse</a></li>
 <li><a href="#frequenz-api-dispatch-v1-TargetComponents">TargetComponents</a></li>
 <li><a href="#frequenz-api-dispatch-v1-TargetComponents-CategoryAndType">TargetComponents.CategoryAndType</a></li>
+<li><a href="#frequenz-api-dispatch-v1-TargetComponents-CategorySet">TargetComponents.CategorySet</a></li>
 <li><a href="#frequenz-api-dispatch-v1-TargetComponents-CategoryTypeSet">TargetComponents.CategoryTypeSet</a></li>
 <li><a href="#frequenz-api-dispatch-v1-TargetComponents-IdSet">TargetComponents.IdSet</a></li>
 <li><a href="#frequenz-api-dispatch-v1-TimeIntervalFilter">TimeIntervalFilter</a></li>
@@ -2766,9 +2785,15 @@ Examples:
 </tr>
 <tr>
 <td>component_categories</td>
+<td><a href="#frequenz-api-dispatch-v1-TargetComponents-CategorySet">TargetComponents.CategorySet</a></td>
+<td></td>
+<td>Deprecated: Component categories Use <code>CategoryTypeSet</code> instead In future versions, this field will be removed.</td>
+</tr>
+<tr>
+<td>component_categories_types</td>
 <td><a href="#frequenz-api-dispatch-v1-TargetComponents-CategoryTypeSet">TargetComponents.CategoryTypeSet</a></td>
 <td></td>
-<td>Component categories</td>
+<td>Component categories with optional types</td>
 </tr>
 </tbody>
 </table>
@@ -2810,6 +2835,27 @@ only components of that type will be targeted.</p>
 <td><a href="#frequenz-api-common-v1-microgrid-components-EvChargerType">frequenz.api.common.v1.microgrid.components.EvChargerType</a></td>
 <td></td>
 <td>The type of EV charger Only applicable if the category is COMPONENT_CATEGORY_EV_CHARGER</td>
+</tr>
+</tbody>
+</table>
+<p><a name="frequenz-api-dispatch-v1-TargetComponents-CategorySet"></a></p>
+<h3 id="targetcomponentscategoryset">TargetComponents.CategorySet<a class="headerlink" href="#targetcomponentscategoryset" title="Permanent link">¤</a></h3>
+<p>Deprecated: Use <code>CategoryTypeSet</code> instead</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>categories</td>
+<td><a href="#frequenz-api-common-v1-microgrid-components-ComponentCategory">frequenz.api.common.v1.microgrid.components.ComponentCategory</a></td>
+<td>repeated</td>
+<td>Set of component categories</td>
 </tr>
 </tbody>
 </table>
