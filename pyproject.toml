@@ -4,7 +4,7 @@
 [build-system]
 requires = [
   "setuptools == 78.1.0",
-  "setuptools_scm[toml] == 8.1.0",
+  "setuptools_scm[toml] == 8.2.0",
   "frequenz-repo-config[api] == 0.13.2",
   # We need to pin the protobuf, grpcio and  grpcio-tools dependencies to make
   # sure the code is generated using the minimum supported versions, as older
@@ -62,7 +62,7 @@ email = "floss@frequenz.com"
 
 [project.optional-dependencies]
 dev-flake8 = [
-  "flake8 == 7.1.1",
+  "flake8 == 7.2.0",
   "flake8-docstrings == 1.7.0",
   "flake8-pyproject == 1.2.3", # For reading the flake8 config from pyproject.toml
   "pydoclint == 0.6.5",
@@ -82,7 +82,7 @@ dev-mkdocs = [
   "frequenz-repo-config[api] == 0.13.2",
 ]
 dev-mypy = [
-  "mypy == 1.14.1",
+  "mypy == 1.15.0",
   "grpc-stubs == 1.53.0.5",
   "types-Markdown == 3.7.0.20250322",
   # For checking the noxfile, docs/ script, and tests
