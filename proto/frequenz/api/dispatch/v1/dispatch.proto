@@ -194,8 +194,8 @@ message DispatchMetadata {
   // UTC Timestamp when the order was created.
   google.protobuf.Timestamp create_time = 2;
 
-  // UTC Timestamp of the last update to the order.
-  google.protobuf.Timestamp modification_time = 3;
+  // UTC time of the last update to the order.
+  google.protobuf.Timestamp update_time = 3;
 
   // UTC Timestamp when the dispatch will stop working.
   // Will be calculated internally based on the given: start_time,
@@ -206,11 +206,11 @@ message DispatchMetadata {
 
 // Filter parameter for specifying multiple time intervals
 message TimeIntervalFilter {
-  // Filter by time >= this UTC timestamp.
-  google.protobuf.Timestamp from = 1;
+  // Filter by time >= this UTC time.
+  google.protobuf.Timestamp from_time = 1;
 
-  // Filter by time <= this UTC timestamp.
-  google.protobuf.Timestamp to = 2;
+  // Filter by time <= this UTC time.
+  google.protobuf.Timestamp to_time = 2;
 }
 
 // Parameters for filtering the dispatch list
@@ -476,7 +476,7 @@ message RecurrenceRule {
       // timestamp.
       // Note that the duration of the event is not considered in this value,
       // so the dispatch may end after the timestamp.
-      google.protobuf.Timestamp until = 2;
+      google.protobuf.Timestamp until_time = 2;
     }
   }
 
