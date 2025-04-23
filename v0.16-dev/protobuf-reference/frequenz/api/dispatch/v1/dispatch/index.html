@@ -2475,10 +2475,10 @@ optional RecurrenceRule.Frequency freq = 1;</p>
 <td>UTC Timestamp when the order was created.</td>
 </tr>
 <tr>
-<td>modification_time</td>
+<td>update_time</td>
 <td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
 <td></td>
-<td>UTC Timestamp of the last update to the order.</td>
+<td>UTC time of the last update to the order.</td>
 </tr>
 <tr>
 <td>end_time</td>
@@ -2722,7 +2722,7 @@ refer to <a href="https://tools.ietf.org/html/rfc5545">RFC5545</a>.</p>
 <td>The number of times this dispatch should recur. If this field is set, the dispatch will recur the given number of times. Valid values are 1 to 4096.</td>
 </tr>
 <tr>
-<td>until</td>
+<td>until_time</td>
 <td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
 <td></td>
 <td>The end time of this dispatch in UTC. If this field is set, the last recurrence event will start before this timestamp. Note that the duration of the event is not considered in this value, so the dispatch may end after the timestamp.</td>
@@ -2976,16 +2976,16 @@ Required as we can&#39;t use <code>repeated</code> directly in a <code>oneof</co
 </thead>
 <tbody>
 <tr>
-<td>from</td>
+<td>from_time</td>
 <td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
 <td></td>
-<td>Filter by time &gt;= this UTC timestamp.</td>
+<td>Filter by time &gt;= this UTC time.</td>
 </tr>
 <tr>
-<td>to</td>
+<td>to_time</td>
 <td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
 <td></td>
-<td>Filter by time &lt;= this UTC timestamp.</td>
+<td>Filter by time &lt;= this UTC time.</td>
 </tr>
 </tbody>
 </table>
