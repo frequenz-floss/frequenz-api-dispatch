@@ -10,7 +10,7 @@ requires = [
   # sure the code is generated using the minimum supported versions, as older
   # versions can't work with code that was generated with newer versions.
   # https://protobuf.dev/support/cross-version-runtime-guarantee/#backwards
-  "protobuf == 5.29.4",
+  "protobuf == 5.29.3",
   "grpcio-tools == 1.70.0",
   "grpcio == 1.70.0",
 ]
@@ -43,7 +43,8 @@ classifiers = [
 ]
 requires-python = ">= 3.11, < 4"
 dependencies = [
-  "frequenz-api-common >= 0.5.4, < 0.7",
+  #  "frequenz-api-common >= 0.5.4, < 0.7",
+  "frequenz-api-common @ git+http://git@github.com/frequenz-floss/frequenz-api-common.git@v0.x.x",
   "googleapis-common-protos >= 1.65.0, < 2",
   # We can't widen beyond the current value unless we bump the minimum
   # requirements too because of protobuf cross-version runtime guarantees:
@@ -90,7 +91,7 @@ dev-mypy = [
 ]
 dev-noxfile = ["nox == 2025.5.1", "frequenz-repo-config[api] == 0.13.3"]
 dev-pylint = [
-  "pylint == 3.3.6",
+  "pylint == 3.3.7",
   # For checking the noxfile, docs/ script, and tests
   "frequenz-api-dispatch[dev-mkdocs,dev-noxfile,dev-pytest]",
 ]
