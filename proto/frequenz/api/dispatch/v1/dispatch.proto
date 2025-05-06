@@ -23,6 +23,7 @@ import "frequenz/api/common/v1/microgrid/components/ev_charger.proto";
 import "frequenz/api/common/v1/microgrid/components/inverter.proto";
 import "frequenz/api/common/v1/pagination/pagination_info.proto";
 import "frequenz/api/common/v1/pagination/pagination_params.proto";
+import "frequenz/api/common/v1/types/time_interval_filter.proto";
 
 // Service providing operations related to dispatching microgrid components.
 //
@@ -204,15 +205,6 @@ message DispatchMetadata {
   google.protobuf.Timestamp end_time = 4;
 }
 
-// Filter parameter for specifying multiple time intervals
-message TimeIntervalFilter {
-  // Filter by time >= this UTC time.
-  google.protobuf.Timestamp from_time = 1;
-
-  // Filter by time <= this UTC time.
-  google.protobuf.Timestamp to_time = 2;
-}
-
 // Parameters for filtering the dispatch list
 message DispatchFilter {
   // Recurrence filters
@@ -304,14 +296,14 @@ message DispatchFilter {
 
   // Optional filter by start time.
   // If no interval is provided, all dispatches will be returned.
-  TimeIntervalFilter start_time_interval = 6;
+  frequenz.api.common.v1.types.TimeIntervalFilter start_time_interval = 6;
 
   // Optional filter by end time
   // Filter dispatches based on their explicit end time.
-  TimeIntervalFilter end_time_interval = 7;
+  frequenz.api.common.v1.types.TimeIntervalFilter end_time_interval = 7;
 
   // Optional filter by update time
-  TimeIntervalFilter update_time_interval = 8;
+  frequenz.api.common.v1.types.TimeIntervalFilter update_time_interval = 8;
 }
 
 // Parameter for controlling which components a dispatch applies to
