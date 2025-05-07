@@ -17,10 +17,10 @@ import "google/protobuf/field_mask.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
-import "frequenz/api/common/v1/microgrid/components/battery.proto";
-import "frequenz/api/common/v1/microgrid/components/components.proto";
-import "frequenz/api/common/v1/microgrid/components/ev_charger.proto";
-import "frequenz/api/common/v1/microgrid/components/inverter.proto";
+import "frequenz/api/common/v1/microgrid/electrical_components/battery.proto";
+import "frequenz/api/common/v1/microgrid/electrical_components/electrical_components.proto";
+import "frequenz/api/common/v1/microgrid/electrical_components/ev_charger.proto";
+import "frequenz/api/common/v1/microgrid/electrical_components/inverter.proto";
 import "frequenz/api/common/v1/pagination/pagination_info.proto";
 import "frequenz/api/common/v1/pagination/pagination_params.proto";
 import "frequenz/api/common/v1/types/time_interval_filter.proto";
@@ -332,7 +332,7 @@ message TargetComponents {
   // Deprecated: Use `CategoryTypeSet` instead
   message CategorySet {
     // Set of component categories
-    repeated frequenz.api.common.v1.microgrid.components.ComponentCategory categories = 1;
+    repeated frequenz.api.common.v1.microgrid.electrical_components.ElectricalComponentCategory categories = 1;
   }
 
   // Wrapper for controlling dispatches with a set of component categories and optional types
@@ -347,21 +347,21 @@ message TargetComponents {
   // only components of that type will be targeted.
   message CategoryAndType {
     // The category of the target component (required)
-    frequenz.api.common.v1.microgrid.components.ComponentCategory category = 1;
+    frequenz.api.common.v1.microgrid.electrical_components.ElectricalComponentCategory category = 1;
 
     // The type of the target component (optional)
     oneof type {
       // The type of battery
       // Only applicable if the category is COMPONENT_CATEGORY_BATTERY
-      frequenz.api.common.v1.microgrid.components.BatteryType battery = 2;
+      frequenz.api.common.v1.microgrid.electrical_components.BatteryType battery = 2;
 
       // The type of solar array
       // Only applicable if the category is COMPONENT_CATEGORY_INVERTER
-      frequenz.api.common.v1.microgrid.components.InverterType inverter = 3;
+      frequenz.api.common.v1.microgrid.electrical_components.InverterType inverter = 3;
 
       // The type of EV charger
       // Only applicable if the category is COMPONENT_CATEGORY_EV_CHARGER
-      frequenz.api.common.v1.microgrid.components.EvChargerType ev_charger = 4;
+      frequenz.api.common.v1.microgrid.electrical_components.EvChargerType ev_charger = 4;
     }
   }
 
