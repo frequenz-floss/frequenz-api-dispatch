@@ -1042,15 +1042,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#timeintervalfilter" class="md-nav__link">
-    <span class="md-ellipsis">
-      TimeIntervalFilter
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#updatemicrogriddispatchrequest" class="md-nav__link">
     <span class="md-ellipsis">
       UpdateMicrogridDispatchRequest
@@ -1932,15 +1923,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#timeintervalfilter" class="md-nav__link">
-    <span class="md-ellipsis">
-      TimeIntervalFilter
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#updatemicrogriddispatchrequest" class="md-nav__link">
     <span class="md-ellipsis">
       UpdateMicrogridDispatchRequest
@@ -2153,7 +2135,6 @@
 <li><a href="#frequenz-api-dispatch-v1-TargetComponents-CategorySet">TargetComponents.CategorySet</a></li>
 <li><a href="#frequenz-api-dispatch-v1-TargetComponents-CategoryTypeSet">TargetComponents.CategoryTypeSet</a></li>
 <li><a href="#frequenz-api-dispatch-v1-TargetComponents-IdSet">TargetComponents.IdSet</a></li>
-<li><a href="#frequenz-api-dispatch-v1-TimeIntervalFilter">TimeIntervalFilter</a></li>
 <li><a href="#frequenz-api-dispatch-v1-UpdateMicrogridDispatchRequest">UpdateMicrogridDispatchRequest</a></li>
 <li><a href="#frequenz-api-dispatch-v1-UpdateMicrogridDispatchRequest-DispatchUpdate">UpdateMicrogridDispatchRequest.DispatchUpdate</a></li>
 <li><a href="#frequenz-api-dispatch-v1-UpdateMicrogridDispatchRequest-DispatchUpdate-RecurrenceRuleUpdate">UpdateMicrogridDispatchRequest.DispatchUpdate.RecurrenceRuleUpdate</a></li>
@@ -2424,19 +2405,19 @@ to its local timezone.</p>
 </tr>
 <tr>
 <td>start_time_interval</td>
-<td><a href="#frequenz-api-dispatch-v1-TimeIntervalFilter">TimeIntervalFilter</a></td>
+<td><a href="#frequenz-api-common-v1alpha8-types-Interval">frequenz.api.common.v1alpha8.types.Interval</a></td>
 <td></td>
 <td>Optional filter by start time. If no interval is provided, all dispatches will be returned.</td>
 </tr>
 <tr>
 <td>end_time_interval</td>
-<td><a href="#frequenz-api-dispatch-v1-TimeIntervalFilter">TimeIntervalFilter</a></td>
+<td><a href="#frequenz-api-common-v1alpha8-types-Interval">frequenz.api.common.v1alpha8.types.Interval</a></td>
 <td></td>
 <td>Optional filter by end time Filter dispatches based on their explicit end time.</td>
 </tr>
 <tr>
 <td>update_time_interval</td>
-<td><a href="#frequenz-api-dispatch-v1-TimeIntervalFilter">TimeIntervalFilter</a></td>
+<td><a href="#frequenz-api-common-v1alpha8-types-Interval">frequenz.api.common.v1alpha8.types.Interval</a></td>
 <td></td>
 <td>Optional filter by update time</td>
 </tr>
@@ -2578,7 +2559,7 @@ the results will be returned by their create time in a descending order.</p>
 </tr>
 <tr>
 <td>pagination_params</td>
-<td><a href="#frequenz-api-common-v1-pagination-PaginationParams">frequenz.api.common.v1.pagination.PaginationParams</a></td>
+<td><a href="#frequenz-api-common-v1alpha8-pagination-PaginationParams">frequenz.api.common.v1alpha8.pagination.PaginationParams</a></td>
 <td></td>
 <td>Pagination Parameters page_size: Amount of items to return per page. Should only be provided in the first request. page_token: Cursor to specify which page to return. Should not be set in the first request. Should be populated in subsequent requests by the <code>next_page_token</code> found in the <code>pagination_info</code> in the response. The tokens stays valid indefinitely.</td>
 </tr>
@@ -2605,7 +2586,7 @@ the results will be returned by their create time in a descending order.</p>
 </tr>
 <tr>
 <td>pagination_info</td>
-<td><a href="#frequenz-api-common-v1-pagination-PaginationInfo">frequenz.api.common.v1.pagination.PaginationInfo</a></td>
+<td><a href="#frequenz-api-common-v1alpha8-pagination-PaginationInfo">frequenz.api.common.v1alpha8.pagination.PaginationInfo</a></td>
 <td></td>
 <td>Pagination Info total_items: Total amount of entries found by the list request. next_page_token: Token that can be used to request the next page. Will be unset if no further pages exist.</td>
 </tr>
@@ -2873,25 +2854,25 @@ only components of that type will be targeted.</p>
 <tbody>
 <tr>
 <td>category</td>
-<td><a href="#frequenz-api-common-v1-microgrid-components-ComponentCategory">frequenz.api.common.v1.microgrid.components.ComponentCategory</a></td>
+<td><a href="#frequenz-api-common-v1alpha8-microgrid-electrical_components-ElectricalComponentCategory">frequenz.api.common.v1alpha8.microgrid.electrical_components.ElectricalComponentCategory</a></td>
 <td></td>
 <td>The category of the target component (required)</td>
 </tr>
 <tr>
 <td>battery</td>
-<td><a href="#frequenz-api-common-v1-microgrid-components-BatteryType">frequenz.api.common.v1.microgrid.components.BatteryType</a></td>
+<td><a href="#frequenz-api-common-v1alpha8-microgrid-electrical_components-BatteryType">frequenz.api.common.v1alpha8.microgrid.electrical_components.BatteryType</a></td>
 <td></td>
 <td>The type of battery Only applicable if the category is COMPONENT_CATEGORY_BATTERY</td>
 </tr>
 <tr>
 <td>inverter</td>
-<td><a href="#frequenz-api-common-v1-microgrid-components-InverterType">frequenz.api.common.v1.microgrid.components.InverterType</a></td>
+<td><a href="#frequenz-api-common-v1alpha8-microgrid-electrical_components-InverterType">frequenz.api.common.v1alpha8.microgrid.electrical_components.InverterType</a></td>
 <td></td>
 <td>The type of solar array Only applicable if the category is COMPONENT_CATEGORY_INVERTER</td>
 </tr>
 <tr>
 <td>ev_charger</td>
-<td><a href="#frequenz-api-common-v1-microgrid-components-EvChargerType">frequenz.api.common.v1.microgrid.components.EvChargerType</a></td>
+<td><a href="#frequenz-api-common-v1alpha8-microgrid-electrical_components-EvChargerType">frequenz.api.common.v1alpha8.microgrid.electrical_components.EvChargerType</a></td>
 <td></td>
 <td>The type of EV charger Only applicable if the category is COMPONENT_CATEGORY_EV_CHARGER</td>
 </tr>
@@ -2912,7 +2893,7 @@ only components of that type will be targeted.</p>
 <tbody>
 <tr>
 <td>categories</td>
-<td><a href="#frequenz-api-common-v1-microgrid-components-ComponentCategory">frequenz.api.common.v1.microgrid.components.ComponentCategory</a></td>
+<td><a href="#frequenz-api-common-v1alpha8-microgrid-electrical_components-ElectricalComponentCategory">frequenz.api.common.v1alpha8.microgrid.electrical_components.ElectricalComponentCategory</a></td>
 <td>repeated</td>
 <td>Set of component categories</td>
 </tr>
@@ -2959,33 +2940,6 @@ Required as we can&#39;t use <code>repeated</code> directly in a <code>oneof</co
 <td><a href="#uint64">uint64</a></td>
 <td>repeated</td>
 <td>Set of component IDs</td>
-</tr>
-</tbody>
-</table>
-<p><a name="frequenz-api-dispatch-v1-TimeIntervalFilter"></a></p>
-<h3 id="timeintervalfilter">TimeIntervalFilter<a class="headerlink" href="#timeintervalfilter" title="Permanent link">¤</a></h3>
-<p>Filter parameter for specifying multiple time intervals</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Label</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>from_time</td>
-<td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
-<td></td>
-<td>Filter by time &gt;= this UTC time.</td>
-</tr>
-<tr>
-<td>to_time</td>
-<td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
-<td></td>
-<td>Filter by time &lt;= this UTC time.</td>
 </tr>
 </tbody>
 </table>
