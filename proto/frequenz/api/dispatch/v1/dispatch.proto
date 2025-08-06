@@ -17,12 +17,10 @@ import "google/protobuf/field_mask.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
-import "frequenz/api/common/v1/microgrid/components/battery.proto";
-import "frequenz/api/common/v1/microgrid/components/components.proto";
-import "frequenz/api/common/v1/microgrid/components/ev_charger.proto";
-import "frequenz/api/common/v1/microgrid/components/inverter.proto";
-import "frequenz/api/common/v1/pagination/pagination_info.proto";
-import "frequenz/api/common/v1/pagination/pagination_params.proto";
+import "frequenz/api/common/v1alpha8/microgrid/electrical_components/electrical_components.proto";
+import "frequenz/api/common/v1alpha8/pagination/pagination_info.proto";
+import "frequenz/api/common/v1alpha8/pagination/pagination_params.proto";
+import "frequenz/api/common/v1alpha8/types/interval.proto";
 
 // Service providing operations related to dispatching microgrid components.
 //
@@ -204,15 +202,6 @@ message DispatchMetadata {
   google.protobuf.Timestamp end_time = 4;
 }
 
-// Filter parameter for specifying multiple time intervals
-message TimeIntervalFilter {
-  // Filter by time >= this UTC time.
-  google.protobuf.Timestamp from_time = 1;
-
-  // Filter by time <= this UTC time.
-  google.protobuf.Timestamp to_time = 2;
-}
-
 // Parameters for filtering the dispatch list
 message DispatchFilter {
   // Recurrence filters
@@ -304,14 +293,14 @@ message DispatchFilter {
 
   // Optional filter by start time.
   // If no interval is provided, all dispatches will be returned.
-  TimeIntervalFilter start_time_interval = 6;
+  frequenz.api.common.v1alpha8.types.Interval start_time_interval = 6;
 
   // Optional filter by end time
   // Filter dispatches based on their explicit end time.
-  TimeIntervalFilter end_time_interval = 7;
+  frequenz.api.common.v1alpha8.types.Interval end_time_interval = 7;
 
   // Optional filter by update time
-  TimeIntervalFilter update_time_interval = 8;
+  frequenz.api.common.v1alpha8.types.Interval update_time_interval = 8;
 }
 
 // Parameter for controlling which components a dispatch applies to
@@ -336,11 +325,11 @@ message TargetComponents {
     repeated uint64 ids = 1;
   }
 
-
   // Deprecated: Use `CategoryTypeSet` instead
   message CategorySet {
     // Set of component categories
-    repeated frequenz.api.common.v1.microgrid.components.ComponentCategory categories = 1;
+    repeated frequenz.api.common.v1alpha8.microgrid.electrical_components
+        .ElectricalComponentCategory categories = 1;
   }
 
   // Wrapper for controlling dispatches with a set of component categories and optional types
@@ -355,21 +344,25 @@ message TargetComponents {
   // only components of that type will be targeted.
   message CategoryAndType {
     // The category of the target component (required)
-    frequenz.api.common.v1.microgrid.components.ComponentCategory category = 1;
+    frequenz.api.common.v1alpha8.microgrid.electrical_components
+        .ElectricalComponentCategory category = 1;
 
     // The type of the target component (optional)
     oneof type {
       // The type of battery
       // Only applicable if the category is COMPONENT_CATEGORY_BATTERY
-      frequenz.api.common.v1.microgrid.components.BatteryType battery = 2;
+      frequenz.api.common.v1alpha8.microgrid.electrical_components.BatteryType
+          battery = 2;
 
       // The type of solar array
       // Only applicable if the category is COMPONENT_CATEGORY_INVERTER
-      frequenz.api.common.v1.microgrid.components.InverterType inverter = 3;
+      frequenz.api.common.v1alpha8.microgrid.electrical_components.InverterType
+          inverter = 3;
 
       // The type of EV charger
       // Only applicable if the category is COMPONENT_CATEGORY_EV_CHARGER
-      frequenz.api.common.v1.microgrid.components.EvChargerType ev_charger = 4;
+      frequenz.api.common.v1alpha8.microgrid.electrical_components.EvChargerType
+          ev_charger = 4;
     }
   }
 
@@ -577,7 +570,7 @@ message ListMicrogridDispatchesRequest {
   //             Should be populated in subsequent requests by the `next_page_token` found in
   //             the `pagination_info` in the response.
   //             The tokens stays valid indefinitely.
-  frequenz.api.common.v1.pagination.PaginationParams pagination_params = 4;
+  frequenz.api.common.v1alpha8.pagination.PaginationParams pagination_params = 4;
 }
 
 // A list of dispatches
@@ -589,7 +582,7 @@ message ListMicrogridDispatchesResponse {
   // total_items: Total amount of entries found by the list request.
   // next_page_token: Token that can be used to request the next page.
   //                  Will be unset if no further pages exist.
-  frequenz.api.common.v1.pagination.PaginationInfo pagination_info = 2;
+  frequenz.api.common.v1alpha8.pagination.PaginationInfo pagination_info = 2;
 }
 
 

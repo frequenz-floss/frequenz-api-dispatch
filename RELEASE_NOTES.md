@@ -2,28 +2,23 @@
 
 ## Summary
 
-This update introduces the possibility to target specific types of batteries, inverters and EV chargers.
+- Updated all `frequenz.api.common` imports from `v1` to `v1alpha8`.
+- Removed the `TimeIntervalFilter` message, replacing its usage with the new `frequenz.api.common.v1alpha8.types.Interval` type.
+- In the `DispatchFilter` message, the `start_time_interval`, `end_time_interval`, and `update_time_interval` fields were updated to use the new `Interval` type.
+- In the `TargetComponents` message:
+    - The `CategorySet` message's `categories` field was updated to use the new `ElectricalComponentCategory` enum.
+    - The `CategoryAndType` message's `category` field was also updated to use the new `ElectricalComponentCategory` enum, and the nested `battery`, `inverter`, and `ev_charger` fields were updated to use their corresponding new types.
+- The `ListMicrogridDispatchesRequest` message's `pagination_params` field was updated to use the new `PaginationParams` type.
+- The `ListMicrogridDispatchesResponse` message's `pagination_info` field was updated to use the new `PaginationInfo` type.
 
-## Deprecations
-
-* In the `TargetComponents` message, the field `components.component_categories` is now deprecated. See the upgrading section for details.
-
-## Changes
-
-*   Renamed several `google.protobuf.Timestamp` fields in Protobuf messages to align with Google API Design Guide naming conventions (`*_time` suffix):
-    *   `DispatchMetadata.modification_time` is now `update_time`.
-    *   `TimeIntervalFilter.from` is now `from_time`.
-    *   `TimeIntervalFilter.to` is now `to_time`.
-    *   `RecurrenceRule.EndCriteria.until` is now `until_time`.
-    *   **Note:** This is a breaking change for clients using the old field names.
 
 ## Upgrading
 
-* The `TargetComponents` message now accepts an optional `type` too. `.components.component_categories` is now deprecated. Instead `.components.component_categories_types`, a new `CategoryAndType` message that has a required `category` (`ComponentCategory`) and an optional `type` (`oneof BatteryType, EVChargerType, InverterType`) should be used.
+<!-- Here goes notes on how to upgrade from previous versions, including deprecations and what they should be replaced with -->
 
 ## New Features
 
-- Now specific types of batteries, inverters and EV chargers can be targeted.
+<!-- Here goes the main new features and examples or instructions on how to use them -->
 
 ## Bug Fixes
 
