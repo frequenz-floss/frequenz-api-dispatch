@@ -1528,6 +1528,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchFilter.dispatch_ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;dispatch_ids
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchFilter.end_time_interval" class="md-nav__link">
     <span class="md-ellipsis">
       <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;end_time_interval
@@ -1567,6 +1576,15 @@
   <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchFilter.is_recurring" class="md-nav__link">
     <span class="md-ellipsis">
       <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;is_recurring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchFilter.queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;queries
     </span>
   </a>
   
@@ -3112,6 +3130,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchFilter.dispatch_ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;dispatch_ids
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchFilter.end_time_interval" class="md-nav__link">
     <span class="md-ellipsis">
       <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;end_time_interval
@@ -3151,6 +3178,15 @@
   <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchFilter.is_recurring" class="md-nav__link">
     <span class="md-ellipsis">
       <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;is_recurring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchFilter.queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;queries
     </span>
   </a>
   
@@ -5107,6 +5143,32 @@ understanding and processing this field.</p>
 
 
 
+<h6 id="frequenz.api.dispatch.v1.dispatch_pb2.DispatchFilter.dispatch_ids" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">dispatch_ids</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+<a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchFilter.dispatch_ids" class="headerlink" title="Permanent link">¤</a></h6>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">dispatch_ids</span><span class="p">:</span> <span class="n"><span title="google.protobuf.internal.containers.RepeatedScalarFieldContainer">RepeatedScalarFieldContainer</span></span><span class="p">[</span><span class="n"><span title="builtins.int">int</span></span><span class="p">]</span>
+</span></code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Optional filter by dispatch IDs.
+If this field is not set, dispatches with any ID will be included.
+Multiple IDs are combined with an OR relationship.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
 <h6 id="frequenz.api.dispatch.v1.dispatch_pb2.DispatchFilter.end_time_interval" class="doc doc-heading">
             <span class="doc doc-object-name doc-attribute-name">end_time_interval</span>
 
@@ -5248,6 +5310,38 @@ Examples:
 - To retrieve all dispatches:
   filter { recurrence {} }
 For advanced recurrence filtering, use the <code>filter</code> field.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h6 id="frequenz.api.dispatch.v1.dispatch_pb2.DispatchFilter.queries" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">queries</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+<a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchFilter.queries" class="headerlink" title="Permanent link">¤</a></h6>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">queries</span><span class="p">:</span> <span class="n"><span title="google.protobuf.internal.containers.RepeatedScalarFieldContainer">RepeatedScalarFieldContainer</span></span><span class="p">[</span><span class="n"><span title="builtins.str">str</span></span><span class="p">]</span>
+</span></code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Optional free-text search filter.</p>
+<p>This filter is applied to the dispatch <code>id</code> and <code>type</code> fields.
+The <code>queries</code> filter combines multiple queries with an OR relationship.</p>
+<p>ID tokens are preceded by a <code>#</code> so we can tell if an id is intended or a type.</p>
+<ul>
+<li>input of [<code>#4</code>] will match only the record with id of <code>4</code></li>
+<li>input of [<code>bar</code>] will match <code>bar</code> and <code>foobar</code></li>
+<li>input of [<code>#4</code>, <code>#24</code>, <code>bar</code>, <code>foo</code>] will match ids of <code>4</code> and <code>24</code> and types <code>foo</code> <code>bar</code> <code>foobar</code> <code>foolish bartender</code></li>
+</ul>
 
     </div>
 
@@ -6606,8 +6700,8 @@ sort_options: { field: CREATE_TIME, order: DESCENDING }</p>
               <details class="quote">
                 <summary>Source code in <code>frequenz/api/dispatch/v1/dispatch_pb2.py</code></summary>
                 <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-77">77</a></span>
-<span class="normal"><a href="#__codelineno-0-78">78</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_RECURRENCERULE_WEEKDAY&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">3510</span>
-</span><span id="__span-0-78"><a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_RECURRENCERULE_FREQUENCY&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">3513</span>
+<span class="normal"><a href="#__codelineno-0-78">78</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_RECURRENCERULE_WEEKDAY&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">3549</span>
+</span><span id="__span-0-78"><a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_RECURRENCERULE_FREQUENCY&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">3552</span>
 </span></code></pre></div></td></tr></table></div>
               </details>
 
@@ -6676,24 +6770,24 @@ realtime decision making.</p>
 <span class="normal"><a href="#__codelineno-0-102">102</a></span>
 <span class="normal"><a href="#__codelineno-0-103">103</a></span>
 <span class="normal"><a href="#__codelineno-0-104">104</a></span>
-<span class="normal"><a href="#__codelineno-0-105">105</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-88"><a id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_CREATEMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">4426</span>
-</span><span id="__span-0-89"><a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_CREATEMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">4513</span>
-</span><span id="__span-0-90"><a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHREQUEST&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">4516</span>
-</span><span id="__span-0-91"><a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHREQUEST&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5448</span>
-</span><span id="__span-0-92"><a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHREQUEST_DISPATCHUPDATE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">4732</span>
-</span><span id="__span-0-93"><a id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHREQUEST_DISPATCHUPDATE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5448</span>
-</span><span id="__span-0-94"><a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHREQUEST_DISPATCHUPDATE_RECURRENCERULEUPDATE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">5062</span>
-</span><span id="__span-0-95"><a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHREQUEST_DISPATCHUPDATE_RECURRENCERULEUPDATE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5421</span>
-</span><span id="__span-0-96"><a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">5450</span>
-</span><span id="__span-0-97"><a id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5537</span>
-</span><span id="__span-0-98"><a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_GETMICROGRIDDISPATCHREQUEST&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">5539</span>
-</span><span id="__span-0-99"><a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_GETMICROGRIDDISPATCHREQUEST&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5611</span>
-</span><span id="__span-0-100"><a id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_GETMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">5613</span>
-</span><span id="__span-0-101"><a id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_GETMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5719</span>
-</span><span id="__span-0-102"><a id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_DELETEMICROGRIDDISPATCHREQUEST&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">5721</span>
-</span><span id="__span-0-103"><a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_DELETEMICROGRIDDISPATCHREQUEST&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5796</span>
-</span><span id="__span-0-104"><a id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_DELETEMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">5798</span>
-</span><span id="__span-0-105"><a id="__codelineno-0-105" name="__codelineno-0-105"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_DELETEMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5874</span>
+<span class="normal"><a href="#__codelineno-0-105">105</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-88"><a id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_CREATEMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">4465</span>
+</span><span id="__span-0-89"><a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_CREATEMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">4552</span>
+</span><span id="__span-0-90"><a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHREQUEST&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">4555</span>
+</span><span id="__span-0-91"><a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHREQUEST&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5487</span>
+</span><span id="__span-0-92"><a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHREQUEST_DISPATCHUPDATE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">4771</span>
+</span><span id="__span-0-93"><a id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHREQUEST_DISPATCHUPDATE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5487</span>
+</span><span id="__span-0-94"><a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHREQUEST_DISPATCHUPDATE_RECURRENCERULEUPDATE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">5101</span>
+</span><span id="__span-0-95"><a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHREQUEST_DISPATCHUPDATE_RECURRENCERULEUPDATE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5460</span>
+</span><span id="__span-0-96"><a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">5489</span>
+</span><span id="__span-0-97"><a id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_UPDATEMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5576</span>
+</span><span id="__span-0-98"><a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_GETMICROGRIDDISPATCHREQUEST&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">5578</span>
+</span><span id="__span-0-99"><a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_GETMICROGRIDDISPATCHREQUEST&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5650</span>
+</span><span id="__span-0-100"><a id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_GETMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">5652</span>
+</span><span id="__span-0-101"><a id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_GETMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5758</span>
+</span><span id="__span-0-102"><a id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_DELETEMICROGRIDDISPATCHREQUEST&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">5760</span>
+</span><span id="__span-0-103"><a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_DELETEMICROGRIDDISPATCHREQUEST&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5835</span>
+</span><span id="__span-0-104"><a id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_DELETEMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_start</span><span class="o">=</span><span class="mi">5837</span>
+</span><span id="__span-0-105"><a id="__codelineno-0-105" name="__codelineno-0-105"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_DELETEMICROGRIDDISPATCHRESPONSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">5913</span>
 </span></code></pre></div></td></tr></table></div>
               </details>
 

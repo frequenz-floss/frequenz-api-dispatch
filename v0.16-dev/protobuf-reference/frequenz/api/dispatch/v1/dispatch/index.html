@@ -2421,8 +2421,25 @@ to its local timezone.</p>
 <td></td>
 <td>Optional filter by update time</td>
 </tr>
+<tr>
+<td>dispatch_ids</td>
+<td><a href="#uint64">uint64</a></td>
+<td>repeated</td>
+<td>Optional filter by dispatch IDs. If this field is not set, dispatches with any ID will be included. Multiple IDs are combined with an OR relationship.</td>
+</tr>
+<tr>
+<td>queries</td>
+<td><a href="#string">string</a></td>
+<td>repeated</td>
+<td>Optional free-text search filter.</td>
+</tr>
 </tbody>
 </table>
+<p>This filter is applied to the dispatch <code>id</code> and <code>type</code> fields. The <code>queries</code> filter combines multiple queries with an OR relationship.</p>
+<p>ID tokens are preceded by a <code>#</code> so we can tell if an id is intended or a type.</p>
+<ul>
+<li>input of [<code>#4</code>] will match only the record with id of <code>4</code> - input of [<code>bar</code>] will match <code>bar</code> and <code>foobar</code> - input of [<code>#4</code>, <code>#24</code>, <code>bar</code>, <code>foo</code>] will match ids of <code>4</code> and <code>24</code> and types <code>foo</code> <code>bar</code> <code>foobar</code> <code>foolish bartender</code> |</li>
+</ul>
 <p><a name="frequenz-api-dispatch-v1-DispatchFilter-RecurrenceFilter"></a></p>
 <h3 id="dispatchfilterrecurrencefilter">DispatchFilter.RecurrenceFilter<a class="headerlink" href="#dispatchfilterrecurrencefilter" title="Permanent link">¤</a></h3>
 <p>Recurrence filters</p>
