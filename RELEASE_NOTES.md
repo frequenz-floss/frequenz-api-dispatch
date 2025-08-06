@@ -18,6 +18,8 @@
 
 ## New Features
 
+- In the `DispatchFilter` message, new fields `dispatch_ids`, and `queries` were added to allow filtering dispatches by ID and a free-text search query across the `id` and `type` fields.
+
 <!-- Here goes the main new features and examples or instructions on how to use them -->
 
 ## Bug Fixes

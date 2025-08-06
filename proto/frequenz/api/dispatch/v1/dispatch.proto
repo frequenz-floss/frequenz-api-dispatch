@@ -301,6 +301,23 @@ message DispatchFilter {
 
   // Optional filter by update time
   frequenz.api.common.v1alpha8.types.Interval update_time_interval = 8;
+
+  // Optional filter by dispatch IDs.
+  // If this field is not set, dispatches with any ID will be included.
+  // Multiple IDs are combined with an OR relationship.
+  repeated uint64 dispatch_ids = 9;
+
+  // Optional free-text search filter.
+  //
+  // This filter is applied to the dispatch `id` and `type` fields.
+  // The `queries` filter combines multiple queries with an OR relationship.
+  //
+  // ID tokens are preceded by a `#` so we can tell if an id is intended or a type.
+  //
+  // - input of [`#4`] will match only the record with id of `4`
+  // - input of [`bar`] will match `bar` and `foobar`
+  // - input of [`#4`, `#24`, `bar`, `foo`] will match ids of `4` and `24` and types `foo` `bar` `foobar` `foolish bartender`
+  repeated string queries = 10;
 }
 
 // Parameter for controlling which components a dispatch applies to
