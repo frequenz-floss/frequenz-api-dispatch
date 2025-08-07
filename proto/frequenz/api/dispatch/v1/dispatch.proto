@@ -391,6 +391,7 @@ message TargetComponents {
 
   // Deprecated: Use `CategoryTypeSet` instead
   message CategorySet {
+    option deprecated = true;
     // Set of component categories
     repeated frequenz.api.common.v1alpha8.microgrid.electrical_components
         .ElectricalComponentCategory categories = 1;
@@ -437,7 +438,7 @@ message TargetComponents {
     // Deprecated: Component categories
     // Use `CategoryTypeSet` instead
     // In future versions, this field will be removed.
-    CategorySet component_categories = 2;
+    CategorySet component_categories = 2 [deprecated = true];
 
     // Component categories with optional types
     CategoryTypeSet component_categories_types = 3;
