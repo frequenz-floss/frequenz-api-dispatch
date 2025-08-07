@@ -117,10 +117,48 @@ message StreamMicrogridDispatchesResponse {
 }
 
 // Represents a dispatches data, including its type, start time, duration,
-// and target components.
+// and target microgrid components.
 //
-// Timezone Note: Timestamps are in UTC. It is the responsibility of each microgrid to translate UTC
-// to its local timezone.
+// This `DispatchData` message describes a single dispatch instance. If a dispatch is set to recur,
+// each occurrence is defined by `DispatchData` in combination with `RecurrenceRule`.
+//
+// !!! note "Indefinite Durations"
+//     This API allows dispatches to have an indefinite duration if the `duration` field
+//     is not set. Indefinite means:
+//     - There is no predefined end time known at dispatch creation.
+//     - The dispatch could, in theory, run indefinitely if no external conditions stop it.
+//     - External logic or changing conditions may end the dispatch at any time. For example,
+//       once a certain operational goal is met (like reaching a particular state-of-charge),
+//       the dispatch may end, or it may be allowed to continue if conditions warrant it.
+//     - Indefinite durations apply to each occurrence individually—every instance of a recurring
+//       dispatch can also be indefinite.
+//
+//     For instance, a dispatch might aim to keep a battery’s SoC stable. If conditions never
+//     change, it could theoretically run forever. Conversely, another indefinite dispatch might
+//     end as soon as a particular SoC goal is reached.
+//
+// !!! note "Recurring Indefinite Dispatches"
+//     How recurring indefinite dispatches are managed is implementation-dependent.
+//     A key consideration is how to handle overlapping occurrences. For example, if a new
+//     dispatch is scheduled to start while a previous one is still running, the system
+//     needs a strategy to manage this.
+//
+//     Commonly used approaches include:
+//     1.  **Start a new instance:** Each dispatch occurrence creates a new, independent
+//         instance that runs in parallel with any existing ones. This can lead to
+//         multiple dispatches "stacking up" if not managed carefully.
+//     2.  **Overwrite existing instances:** A new dispatch can replace an existing one
+//         based on certain criteria, such as having the same `type` or `target`
+//         components. This prevents multiple dispatches from running for the same
+//         purpose simultaneously.
+//
+//     The chosen strategy is critical for preventing resource contention and ensuring
+//     predictable behavior, especially with indefinite, recurring dispatches.
+//
+// !!! note "Timestamps"
+//     Timestamps are in UTC. It is the responsibility of the receiver to translate UTC
+//     to respective local timezone.
+//
 message DispatchData {
   // The dispatch type.
   // Contains user-defined information about what "type" of dispatch this is.
@@ -136,9 +174,12 @@ message DispatchData {
 
   // Duration in seconds
   // The duration of the dispatch in seconds. If the duration is not set, the dispatch
-  // will be considered to have an infinite duration.
+  // will be considered to have an indefinite duration.
+  //
   // A duration of 0 seconds is also valid, indicating a dispatch that
   // immediately starts and ends, e.g. switching a component on and off.
+  //
+  // Indefinite durations do not guarantee an eventual end; they continue until external logic changes it.
   optional uint32 duration = 3;
 
   // The components this dispatch should apply to.
@@ -196,9 +237,15 @@ message DispatchMetadata {
   google.protobuf.Timestamp update_time = 3;
 
   // UTC Timestamp when the dispatch will stop working.
+  //
   // Will be calculated internally based on the given: start_time,
-  // duration and RecurenceRule
-  // None if dispatch duration time is infinite and this value can't be calculated.
+  // duration and `RecurrenceRule` settings. If the duration is not set (indefinite duration),
+  // there may be no calculable `end_time`. This means the dispatch does not have a
+  // predetermined stopping point and might run indefinitely. External logic, changes in
+  // conditions, or achieving certain operational goals may lead to its termination. If no
+  // such terminating condition occurs, it may effectively continue "forever."
+  //
+  // None if dispatch duration time is unset and this value can't be calculated.
   google.protobuf.Timestamp end_time = 4;
 }
 
