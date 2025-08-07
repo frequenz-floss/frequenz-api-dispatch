@@ -2301,9 +2301,43 @@
 <p><a name="frequenz-api-dispatch-v1-DispatchData"></a></p>
 <h3 id="dispatchdata">DispatchData<a class="headerlink" href="#dispatchdata" title="Permanent link">¤</a></h3>
 <p>Represents a dispatches data, including its type, start time, duration,
-and target components.</p>
-<p>Timezone Note: Timestamps are in UTC. It is the responsibility of each microgrid to translate UTC
-to its local timezone.</p>
+and target microgrid components.</p>
+<p>This <code>DispatchData</code> message describes a single dispatch instance. If a dispatch is set to recur,
+each occurrence is defined by <code>DispatchData</code> in combination with <code>RecurrenceRule</code>.</p>
+<p>!!! note &#34;Indefinite Durations&#34;
+    This API allows dispatches to have an indefinite duration if the <code>duration</code> field
+    is not set. Indefinite means:
+    - There is no predefined end time known at dispatch creation.
+    - The dispatch could, in theory, run indefinitely if no external conditions stop it.
+    - External logic or changing conditions may end the dispatch at any time. For example,
+      once a certain operational goal is met (like reaching a particular state-of-charge),
+      the dispatch may end, or it may be allowed to continue if conditions warrant it.
+    - Indefinite durations apply to each occurrence individually—every instance of a recurring
+      dispatch can also be indefinite.</p>
+<div class="language-text highlight"><pre><span></span><code>For instance, a dispatch might aim to keep a battery’s SoC stable. If conditions never
+change, it could theoretically run forever. Conversely, another indefinite dispatch might
+end as soon as a particular SoC goal is reached.
+</code></pre></div>
+<p>!!! note &#34;Recurring Indefinite Dispatches&#34;
+    How recurring indefinite dispatches are managed is implementation-dependent.
+    A key consideration is how to handle overlapping occurrences. For example, if a new
+    dispatch is scheduled to start while a previous one is still running, the system
+    needs a strategy to manage this.</p>
+<div class="language-text highlight"><pre><span></span><code>Commonly used approaches include:
+1.  **Start a new instance:** Each dispatch occurrence creates a new, independent
+    instance that runs in parallel with any existing ones. This can lead to
+    multiple dispatches &amp;#34;stacking up&amp;#34; if not managed carefully.
+2.  **Overwrite existing instances:** A new dispatch can replace an existing one
+    based on certain criteria, such as having the same `type` or `target`
+    components. This prevents multiple dispatches from running for the same
+    purpose simultaneously.
+
+The chosen strategy is critical for preventing resource contention and ensuring
+predictable behavior, especially with indefinite, recurring dispatches.
+</code></pre></div>
+<p>!!! note &#34;Timestamps&#34;
+    Timestamps are in UTC. It is the responsibility of the receiver to translate UTC
+    to respective local timezone.</p>
 <table>
 <thead>
 <tr>
@@ -2330,34 +2364,16 @@ to its local timezone.</p>
 <td>duration</td>
 <td><a href="#uint32">uint32</a></td>
 <td>optional</td>
-<td>Duration in seconds The duration of the dispatch in seconds. If the duration is not set, the dispatch will be considered to have an infinite duration. A duration of 0 seconds is also valid, indicating a dispatch that immediately starts and ends, e.g. switching a component on and off.</td>
-</tr>
-<tr>
-<td>target</td>
-<td><a href="#frequenz-api-dispatch-v1-TargetComponents">TargetComponents</a></td>
-<td></td>
-<td>The components this dispatch should apply to.</td>
-</tr>
-<tr>
-<td>is_active</td>
-<td><a href="#bool">bool</a></td>
-<td></td>
-<td>The &#34;active&#34; status An active dispatch is eligible for processing, either immediately or at a scheduled time in the future, including recurring dispatches. If a dispatch is set to inactive, it won&#39;t be processed even if it matches all other conditions, allowing for temporary disabling of dispatches without deletion.</td>
-</tr>
-<tr>
-<td>is_dry_run</td>
-<td><a href="#bool">bool</a></td>
-<td></td>
-<td>The &#34;dry run&#34; status A dry run dispatch is executed for logging and monitoring purposes without affecting the microgrid components. This is useful, for example, in scenarios where a user may want to test dispatch behavior without actually affecting any component states. Notably, a dispatch can be both &#34;dry run&#34; and &#34;active,&#34; allowing for the system to generate logs and observe behavior without making actual changes.</td>
-</tr>
-<tr>
-<td>payload</td>
-<td><a href="#google-protobuf-Struct">google.protobuf.Struct</a></td>
-<td></td>
-<td>The dispatch payload.</td>
+<td>Duration in seconds The duration of the dispatch in seconds. If the duration is not set, the dispatch will be considered to have an indefinite duration.</td>
 </tr>
 </tbody>
 </table>
+<p>A duration of 0 seconds is also valid, indicating a dispatch that immediately starts and ends, e.g. switching a component on and off.</p>
+<p>Indefinite durations do not guarantee an eventual end; they continue until external logic changes it. |
+| target | <a href="#frequenz-api-dispatch-v1-TargetComponents">TargetComponents</a> |  | The components this dispatch should apply to. |
+| is_active | <a href="#bool">bool</a> |  | The &#34;active&#34; status An active dispatch is eligible for processing, either immediately or at a scheduled time in the future, including recurring dispatches. If a dispatch is set to inactive, it won&#39;t be processed even if it matches all other conditions, allowing for temporary disabling of dispatches without deletion. |
+| is_dry_run | <a href="#bool">bool</a> |  | The &#34;dry run&#34; status A dry run dispatch is executed for logging and monitoring purposes without affecting the microgrid components. This is useful, for example, in scenarios where a user may want to test dispatch behavior without actually affecting any component states. Notably, a dispatch can be both &#34;dry run&#34; and &#34;active,&#34; allowing for the system to generate logs and observe behavior without making actual changes. |
+| payload | <a href="#google-protobuf-Struct">google.protobuf.Struct</a> |  | The dispatch payload.</p>
 <p>Note!!! The payload field allows for flexible JSON data to be associated with this dispatch. The payload must adhere to the following constraints: - Maximum JSON nesting depth: 5 levels. - The data should not contain executable code or scripts. - Ensure all data is properly sanitized and encoded. - The total size of the payload should not exceed 50 KB. |
 | recurrence | <a href="#frequenz-api-dispatch-v1-RecurrenceRule">RecurrenceRule</a> |  | The recurrence rule |</p>
 <p><a name="frequenz-api-dispatch-v1-DispatchFilter"></a></p>
@@ -2482,10 +2498,12 @@ optional RecurrenceRule.Frequency freq = 1;</p>
 <td>end_time</td>
 <td><a href="#google-protobuf-Timestamp">google.protobuf.Timestamp</a></td>
 <td></td>
-<td>UTC Timestamp when the dispatch will stop working. Will be calculated internally based on the given: start_time, duration and RecurenceRule None if dispatch duration time is infinite and this value can&#39;t be calculated.</td>
+<td>UTC Timestamp when the dispatch will stop working.</td>
 </tr>
 </tbody>
 </table>
+<p>Will be calculated internally based on the given: start_time, duration and <code>RecurrenceRule</code> settings. If the duration is not set (indefinite duration), there may be no calculable <code>end_time</code>. This means the dispatch does not have a predetermined stopping point and might run indefinitely. External logic, changes in conditions, or achieving certain operational goals may lead to its termination. If no such terminating condition occurs, it may effectively continue &#34;forever.&#34;</p>
+<p>None if dispatch duration time is unset and this value can&#39;t be calculated. |</p>
 <p><a name="frequenz-api-dispatch-v1-GetMicrogridDispatchRequest"></a></p>
 <h3 id="getmicrogriddispatchrequest">GetMicrogridDispatchRequest<a class="headerlink" href="#getmicrogriddispatchrequest" title="Permanent link">¤</a></h3>
 <p>Message to get a single dispatch by its ID</p>
