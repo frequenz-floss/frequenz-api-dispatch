@@ -57,9 +57,10 @@ After making any changes to the codebase, ALWAYS run these validation steps:
 
 ### Manual Testing Scenarios
 Test actual functionality by exercising the API:
-- Import and inspect the generated protobuf messages: `python -c "from frequenz.api.dispatch.v1.dispatch_pb2 import *; print(dir())"`
+- Import and inspect the generated protobuf messages: `PYTHONPATH=py python3 -c "from frequenz.api.dispatch.v1.dispatch_pb2 import *; print('Available classes:', [name for name in dir() if not name.startswith('_')][:5])"`
 - Verify protobuf serialization works: Create a dispatch message, serialize it, and deserialize it
 - **ALWAYS** test import after regenerating protobuf files
+- **Basic Syntax Validation**: Use `python3 -c "import py_compile; py_compile.compile('path/to/file.py', doraise=True)"` for generated files
 
 ## Common Tasks
 
@@ -116,19 +117,26 @@ nox.configure(RepositoryType.API)
    - Install: `curl -LO https://github.com/yoheimuta/protolint/releases/download/v0.53.0/protolint_0.53.0_Linux_x86_64.tar.gz && tar -xzf protolint_0.53.0_Linux_x86_64.tar.gz && sudo mv protolint /usr/local/bin/`
 
 ### Network-Limited Workaround Workflow
-1. `git submodule update --init` -- 5 seconds
-2. `sudo apt install -y protobuf-compiler python3-protobuf python3-grpcio python3-pytest`
+1. `git submodule update --init` -- 5 seconds. NEVER CANCEL.
+2. `sudo apt install -y protobuf-compiler python3-protobuf python3-grpcio python3-pytest` -- 2-3 minutes. NEVER CANCEL.
 3. Generate protobuf files manually (see commands above)
-4. `PYTHONPATH=py python3 -m pytest pytests/ -v` -- <1 second
-5. **NOTE**: Many development tools unavailable, use basic Python syntax checking
+4. `PYTHONPATH=py python3 -m pytest pytests/ -v` -- <1 second. NEVER CANCEL.
+5. **Syntax Check**: `python3 -c "import py_compile; py_compile.compile('py/frequenz/api/dispatch/v1/dispatch_pb2.py', doraise=True)"` -- basic Python syntax validation
+6. **NOTE**: Many development tools unavailable, use basic Python syntax checking
 
 ### Important Notes
-- **NEVER CANCEL**: In normal circumstances, `nox` can take 15+ minutes, `python -m build` can take 2+ minutes
+- **NEVER CANCEL**: In normal circumstances, `nox` can take 15+ minutes, `python -m build` can take 2+ minutes. Set timeout to 60+ minutes for builds, 30+ minutes for tests.
 - **TIMING ESTIMATES**: With network access, expect 15-30 minutes for full build and test cycle
 - **FIREWALL LIMITATION**: Current environment has PyPI connectivity issues preventing normal pip operations
+  - **Error Pattern**: `ReadTimeoutError: HTTPSConnectionPool(host='pypi.org', port=443): Read timed out.`
+  - **Workaround**: Use system packages (`apt install`) instead of pip when possible
 - **CRITICAL**: Always run `git submodule update --init` before any other operations
 - **GENERATED CODE**: The py/ directory contains generated Python code from protobuf files
 - **TEST DEPENDENCIES**: Basic tests work with system packages, full test suite requires pip-installed dependencies
+- **SUCCESS INDICATORS**: 
+  - Protobuf generation: No errors, warning about unused imports is normal
+  - Test success: `test_package_import PASSED` indicates basic functionality works
+  - Import test: `Import successful` message confirms protobuf modules are available
 
 ### Proto File Workflow
 - Protocol buffer definitions are in `proto/frequenz/api/dispatch/v1/dispatch.proto`
