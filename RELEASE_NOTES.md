@@ -2,6 +2,7 @@
 
 ## Summary
 
+- Use `frequenz.api.common.v1alpha8.streaming.Event` message instead of the local `Event` message.
 - Updated all `frequenz.api.common` imports from `v1` to `v1alpha8`.
 - Removed the `TimeIntervalFilter` message, replacing its usage with the new `frequenz.api.common.v1alpha8.types.Interval` type.
 - In the `DispatchFilter` message, the `start_time_interval`, `end_time_interval`, and `update_time_interval` fields were updated to use the new `Interval` type.
