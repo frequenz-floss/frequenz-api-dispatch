@@ -14,6 +14,8 @@
 
 ## Upgrading
 
+- The `CategorySet` message and `component_categories` field in `TargetComponents` are now properly marked as deprecated in the protobuf schema using the `deprecated` option. Code generators will now emit deprecation warnings when these deprecated elements are used. Use `CategoryTypeSet` and `component_categories_types` instead.
+
 <!-- Here goes notes on how to upgrade from previous versions, including deprecations and what they should be replaced with -->
 
 ## New Features
