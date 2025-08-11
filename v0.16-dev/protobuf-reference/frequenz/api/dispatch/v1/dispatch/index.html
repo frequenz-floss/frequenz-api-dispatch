@@ -1114,15 +1114,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#streammicrogriddispatchesresponseevent" class="md-nav__link">
-    <span class="md-ellipsis">
-      StreamMicrogridDispatchesResponse.Event
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#microgriddispatchservice" class="md-nav__link">
     <span class="md-ellipsis">
       MicrogridDispatchService
@@ -1995,15 +1986,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#streammicrogriddispatchesresponseevent" class="md-nav__link">
-    <span class="md-ellipsis">
-      StreamMicrogridDispatchesResponse.Event
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#microgriddispatchservice" class="md-nav__link">
     <span class="md-ellipsis">
       MicrogridDispatchService
@@ -2146,9 +2128,8 @@
 </li>
 <li><a href="#frequenz-api-dispatch-v1-RecurrenceRule-Weekday">RecurrenceRule.Weekday</a></li>
 <li><a href="#frequenz-api-dispatch-v1-SortField">SortField</a></li>
-<li><a href="#frequenz-api-dispatch-v1-SortOrder">SortOrder</a></li>
 <li>
-<p><a href="#frequenz-api-dispatch-v1-StreamMicrogridDispatchesResponse-Event">StreamMicrogridDispatchesResponse.Event</a></p>
+<p><a href="#frequenz-api-dispatch-v1-SortOrder">SortOrder</a></p>
 </li>
 <li>
 <p><a href="#frequenz-api-dispatch-v1-MicrogridDispatchService">MicrogridDispatchService</a></p>
@@ -2820,7 +2801,7 @@ Real-time information on dispatches affecting a certain microgrid are pushed thr
 </tr>
 <tr>
 <td>event</td>
-<td><a href="#frequenz-api-dispatch-v1-StreamMicrogridDispatchesResponse-Event">StreamMicrogridDispatchesResponse.Event</a></td>
+<td><a href="#frequenz-api-common-v1alpha8-streaming-Event">frequenz.api.common.v1alpha8.streaming.Event</a></td>
 <td></td>
 <td>Which event this response was triggered by</td>
 </tr>
@@ -3311,39 +3292,6 @@ Required as we can&#39;t use <code>repeated</code> directly in a <code>oneof</co
 <td>SORT_ORDER_DESCENDING</td>
 <td>2</td>
 <td>DESCENDING: Results are returned in descending order.</td>
-</tr>
-</tbody>
-</table>
-<p><a name="frequenz-api-dispatch-v1-StreamMicrogridDispatchesResponse-Event"></a></p>
-<h3 id="streammicrogriddispatchesresponseevent">StreamMicrogridDispatchesResponse.Event<a class="headerlink" href="#streammicrogriddispatchesresponseevent" title="Permanent link">¤</a></h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Number</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>EVENT_UNSPECIFIED</td>
-<td>0</td>
-<td>Default, unspecified event</td>
-</tr>
-<tr>
-<td>EVENT_CREATED</td>
-<td>1</td>
-<td>A new dispatch has been created</td>
-</tr>
-<tr>
-<td>EVENT_UPDATED</td>
-<td>2</td>
-<td>An existing dispatch has been updated</td>
-</tr>
-<tr>
-<td>EVENT_DELETED</td>
-<td>3</td>
-<td>An existing dispatch has been deleted</td>
 </tr>
 </tbody>
 </table>
