@@ -4953,6 +4953,20 @@ the system to generate logs and observe behavior without making actual changes.<
      - The data should not contain executable code or scripts.
      - Ensure all data is properly sanitized and encoded.
      - The total size of the payload should not exceed 50 KB.</p>
+<p>The payload is expected to follow a specific format that the downstream applications consuming the dispatch API
+are responsible for understanding and processing.</p>
+<p>Example JSON payload:
+{
+  "settings": {
+    "power_max": 10,   // Maximum power level for the dispatch (in kW)
+    "soc_min": 20,     // Minimum state of charge for battery storage (in %)
+    "soc_max": 80      // Maximum state of charge for battery storage (in %)
+  }
+}</p>
+<p>In this example, a microgrid could use this payload to set operational parameters such as the maximum power output
+of a solar PV array or the charge/discharge limits of a battery storage system. This flexibility allows the microgrid
+to dynamically adjust its behavior based on the current needs or conditions, such as optimizing battery usage or
+limiting PV output during low demand periods.</p>
 
     </div>
 
