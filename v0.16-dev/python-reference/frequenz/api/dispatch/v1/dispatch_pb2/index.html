@@ -4123,6 +4123,7 @@
 
 
 
+
   <div class="doc doc-children">
 
 
@@ -4298,6 +4299,7 @@
     </div>
 
 </div>
+
 <h3 id="frequenz.api.dispatch.v1.dispatch_pb2-classes">Classes<a href="#frequenz.api.dispatch.v1.dispatch_pb2-classes" class="headerlink" title="Permanent link">¤</a></h3>
 
 <div class="doc doc-object doc-class">
@@ -4317,6 +4319,7 @@
 
 
         <p>Message to create a new dispatch with the given attributes</p>
+
 
 
 
@@ -4411,6 +4414,7 @@
 
 
 
+
   </div>
 
     </div>
@@ -4434,6 +4438,7 @@
 
 
         <p>Response message for creating a new dispatch</p>
+
 
 
 
@@ -4480,6 +4485,7 @@
 
 
 
+
   </div>
 
     </div>
@@ -4503,6 +4509,7 @@
 
 
         <p>Message to delete a single dispatch by its ID</p>
+
 
 
 
@@ -4573,6 +4580,7 @@
 
 
 
+
   </div>
 
     </div>
@@ -4596,6 +4604,7 @@
 
 
         <p>Response message for deleting a single dispatch</p>
+
 
 
 
@@ -4666,6 +4675,7 @@
 
 
 
+
   </div>
 
     </div>
@@ -4689,6 +4699,7 @@
 
 
         <p>Represents a dispatch, including its metadata</p>
+
 
 
 
@@ -4759,6 +4770,7 @@
 
 
 
+
   </div>
 
     </div>
@@ -4822,6 +4834,7 @@ predictable behavior, especially with indefinite, recurring dispatches.</p>
 <p>Timestamps are in UTC. It is the responsibility of the receiver to translate UTC
 to respective local timezone.</p>
 </div>
+
 
 
 
@@ -5078,6 +5091,7 @@ understanding and processing this field.</p>
 
 
 
+
   </div>
 
     </div>
@@ -5101,6 +5115,7 @@ understanding and processing this field.</p>
 
 
         <p>Parameters for filtering the dispatch list</p>
+
 
 
 
@@ -5401,6 +5416,7 @@ If no interval is provided, all dispatches will be returned.</p>
     </div>
 
 </div>
+
 <h5 id="frequenz.api.dispatch.v1.dispatch_pb2.DispatchFilter-classes">Classes<a href="#frequenz.api.dispatch.v1.dispatch_pb2.DispatchFilter-classes" class="headerlink" title="Permanent link">¤</a></h5>
 
 <div class="doc doc-object doc-class">
@@ -5434,7 +5450,9 @@ optional RecurrenceRule.Frequency freq = 1;</p>
 
 
 
+
   <div class="doc doc-children">
+
 
 
 
@@ -5478,6 +5496,7 @@ optional RecurrenceRule.Frequency freq = 1;</p>
 
 
         <p>Represents the metadata of a dispatch</p>
+
 
 
 
@@ -5603,6 +5622,7 @@ such terminating condition occurs, it may effectively continue "forever."</p>
 
 
 
+
   </div>
 
     </div>
@@ -5626,6 +5646,7 @@ such terminating condition occurs, it may effectively continue "forever."</p>
 
 
         <p>Message to get a single dispatch by its ID</p>
+
 
 
 
@@ -5696,6 +5717,7 @@ such terminating condition occurs, it may effectively continue "forever."</p>
 
 
 
+
   </div>
 
     </div>
@@ -5719,6 +5741,7 @@ such terminating condition occurs, it may effectively continue "forever."</p>
 
 
         <p>Response message for getting a single dispatch</p>
+
 
 
 
@@ -5789,6 +5812,7 @@ such terminating condition occurs, it may effectively continue "forever."</p>
 
 
 
+
   </div>
 
     </div>
@@ -5815,6 +5839,7 @@ such terminating condition occurs, it may effectively continue "forever."</p>
 <p>Allows retrieval of dispatches for a specified microgrid with optional filtering and sorting.
 Sorting can be specified by setting 'sort_field' and 'sort_order'. If no sorting is specified,
 the results will be returned by their create time in a descending order.</p>
+
 
 
 
@@ -5938,6 +5963,7 @@ page_token: Cursor to specify which page to return. Should not be set in the fir
 
 
 
+
   </div>
 
     </div>
@@ -5961,6 +5987,7 @@ page_token: Cursor to specify which page to return. Should not be set in the fir
 
 
         <p>A list of dispatches</p>
+
 
 
 
@@ -6036,6 +6063,7 @@ next_page_token: Token that can be used to request the next page.
 
 
 
+
   </div>
 
     </div>
@@ -6091,6 +6119,7 @@ refer to <a href="https://tools.ietf.org/html/rfc5545">RFC5545</a>.</p>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="kt">uint32</span><span class="w"> </span><span class="na">byhours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">];</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
 </span></code></pre></div>
+
 
 
 
@@ -6309,6 +6338,7 @@ Valid values typically range between 1 and 10_000, depending on the implementati
     </div>
 
 </div>
+
 <h5 id="frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule-classes">Classes<a href="#frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule-classes" class="headerlink" title="Permanent link">¤</a></h5>
 
 <div class="doc doc-object doc-class">
@@ -6328,6 +6358,7 @@ Valid values typically range between 1 and 10_000, depending on the implementati
 
 
         <p>Controls when a recurring dispatch should end</p>
+
 
 
 
@@ -6404,6 +6435,7 @@ so the dispatch may end after the timestamp.</p>
 
 
 
+
   </div>
 
     </div>
@@ -6437,7 +6469,9 @@ so the dispatch may end after the timestamp.</p>
 
 
 
+
   <div class="doc doc-children">
+
 
 
 
@@ -6482,7 +6516,9 @@ so the dispatch may end after the timestamp.</p>
 
 
 
+
   <div class="doc doc-children">
+
 
 
 
@@ -6533,6 +6569,7 @@ so the dispatch may end after the timestamp.</p>
 
 
 
+
               <details class="quote">
                 <summary>Source code in <code>frequenz/api/dispatch/v1/dispatch_pb2.py</code></summary>
                 <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-52">52</a></span>
@@ -6544,6 +6581,7 @@ so the dispatch may end after the timestamp.</p>
 
 
   <div class="doc doc-children">
+
 
 
 
@@ -6581,6 +6619,7 @@ so the dispatch may end after the timestamp.</p>
 <p>Example Usage:
 To retrieve dispatches sorted by creation time in descending order:
 sort_options: { field: CREATE_TIME, order: DESCENDING }</p>
+
 
 
 
@@ -6651,6 +6690,7 @@ sort_options: { field: CREATE_TIME, order: DESCENDING }</p>
 
 
 
+
   </div>
 
     </div>
@@ -6681,6 +6721,7 @@ sort_options: { field: CREATE_TIME, order: DESCENDING }</p>
 
 
 
+
               <details class="quote">
                 <summary>Source code in <code>frequenz/api/dispatch/v1/dispatch_pb2.py</code></summary>
                 <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-78">78</a></span>
@@ -6692,6 +6733,7 @@ sort_options: { field: CREATE_TIME, order: DESCENDING }</p>
 
 
   <div class="doc doc-children">
+
 
 
 
@@ -6728,6 +6770,7 @@ sort_options: { field: CREATE_TIME, order: DESCENDING }</p>
         <p>Subscribe to a stream of microgrid dispatch requests.
 This method provides real-time updates on newly or updated dispatch requests for edge-based
 realtime decision making.</p>
+
 
 
 
@@ -6813,6 +6856,7 @@ realtime decision making.</p>
 
 
 
+
   </div>
 
     </div>
@@ -6837,6 +6881,7 @@ realtime decision making.</p>
 
         <p>Response to a subscription request for a stream of microgrid dispatches.
 Real-time information on dispatches affecting a certain microgrid are pushed through this response.</p>
+
 
 
 
@@ -6914,6 +6959,7 @@ Real-time information on dispatches affecting a certain microgrid are pushed thr
 
 
 
+
   </div>
 
     </div>
@@ -6950,6 +6996,7 @@ Examples:
       ]
     }
   }</p>
+
 
 
 
@@ -7041,6 +7088,7 @@ In future versions, this field will be removed.</p>
     </div>
 
 </div>
+
 <h5 id="frequenz.api.dispatch.v1.dispatch_pb2.TargetComponents-classes">Classes<a href="#frequenz.api.dispatch.v1.dispatch_pb2.TargetComponents-classes" class="headerlink" title="Permanent link">¤</a></h5>
 
 <div class="doc doc-object doc-class">
@@ -7062,6 +7110,7 @@ In future versions, this field will be removed.</p>
         <p>A tuple of a required category and an optional type
 If a type is specified, it must be a valid type for the given category and
 only components of that type will be targeted.</p>
+
 
 
 
@@ -7183,6 +7232,7 @@ Only applicable if the category is COMPONENT_CATEGORY_INVERTER</p>
 
 
 
+
   </div>
 
     </div>
@@ -7206,6 +7256,7 @@ Only applicable if the category is COMPONENT_CATEGORY_INVERTER</p>
 
 
         <p>Deprecated: Use <code>CategoryTypeSet</code> instead</p>
+
 
 
 
@@ -7252,6 +7303,7 @@ Only applicable if the category is COMPONENT_CATEGORY_INVERTER</p>
 
 
 
+
   </div>
 
     </div>
@@ -7276,6 +7328,7 @@ Only applicable if the category is COMPONENT_CATEGORY_INVERTER</p>
 
         <p>Wrapper for controlling dispatches with a set of component categories and optional types
 Required as we can't use <code>repeated</code> directly in a <code>oneof</code></p>
+
 
 
 
@@ -7322,6 +7375,7 @@ Required as we can't use <code>repeated</code> directly in a <code>oneof</code><
 
 
 
+
   </div>
 
     </div>
@@ -7346,6 +7400,7 @@ Required as we can't use <code>repeated</code> directly in a <code>oneof</code><
 
         <p>Wrapper for controlling dispatches with a set of component IDs
 Required as we can't use <code>repeated</code> directly in a <code>oneof</code></p>
+
 
 
 
@@ -7392,6 +7447,7 @@ Required as we can't use <code>repeated</code> directly in a <code>oneof</code><
 
 
 
+
   </div>
 
     </div>
@@ -7424,6 +7480,7 @@ Required as we can't use <code>repeated</code> directly in a <code>oneof</code><
 
 
         <p>Message to update the dispatch with the given ID, with the given attributes</p>
+
 
 
 
@@ -7537,6 +7594,7 @@ Required as we can't use <code>repeated</code> directly in a <code>oneof</code><
     </div>
 
 </div>
+
 <h5 id="frequenz.api.dispatch.v1.dispatch_pb2.UpdateMicrogridDispatchRequest-classes">Classes<a href="#frequenz.api.dispatch.v1.dispatch_pb2.UpdateMicrogridDispatchRequest-classes" class="headerlink" title="Permanent link">¤</a></h5>
 
 <div class="doc doc-object doc-class">
@@ -7556,6 +7614,7 @@ Required as we can't use <code>repeated</code> directly in a <code>oneof</code><
 
 
         <p>Message containing the updated dispatch attributes</p>
+
 
 
 
@@ -7720,6 +7779,7 @@ Timestamps earlier than the current time are not allowed.</p>
     </div>
 
 </div>
+
 <h7 id="frequenz.api.dispatch.v1.dispatch_pb2.UpdateMicrogridDispatchRequest.DispatchUpdate-classes">Classes<a href="#frequenz.api.dispatch.v1.dispatch_pb2.UpdateMicrogridDispatchRequest.DispatchUpdate-classes" class="headerlink" title="Permanent link">¤</a></h7>
 
 <div class="doc doc-object doc-class">
@@ -7739,6 +7799,7 @@ Timestamps earlier than the current time are not allowed.</p>
 
 
         <p>Message containing the updated recurrence rule attributes</p>
+
 
 
 
@@ -7955,6 +8016,7 @@ The bymonthdays rule part MUST NOT be specified when the FREQ rule part is set t
 
 
 
+
   </div>
 
     </div>
@@ -8006,6 +8068,7 @@ The bymonthdays rule part MUST NOT be specified when the FREQ rule part is set t
 
 
 
+
   <div class="doc doc-children">
 
 
@@ -8037,6 +8100,7 @@ The bymonthdays rule part MUST NOT be specified when the FREQ rule part is set t
     </div>
 
 </div>
+
 
 
 
