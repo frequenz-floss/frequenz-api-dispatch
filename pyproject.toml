@@ -88,7 +88,7 @@ dev-mypy = [
   # For checking the noxfile, docs/ script, and tests
   "frequenz-api-dispatch[dev-mkdocs,dev-noxfile,dev-pytest]",
 ]
-dev-noxfile = ["nox == 2025.5.1", "frequenz-repo-config[api] == 0.13.5"]
+dev-noxfile = ["nox == 2025.10.16", "frequenz-repo-config[api] == 0.13.5"]
 dev-pylint = [
   "pylint == 3.3.9",
   # For checking the noxfile, docs/ script, and tests
