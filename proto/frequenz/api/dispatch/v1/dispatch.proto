@@ -388,13 +388,13 @@ message DispatchFilter {
 message TargetComponents {
   // Wrapper for controlling dispatches with a set of component IDs
   // Required as we can't use `repeated` directly in a `oneof`
-  message IdSet {
+  message ElectricalComponentIdSelector {
     // Set of component IDs
     repeated uint64 ids = 1;
   }
 
-  // Deprecated: Use `CategoryTypeSet` instead
-  message CategorySet {
+  // Deprecated: Use `ElectricalComponentCategorySelector` instead
+  message ElectricalComponentCategorySelectorDeprecated {
     option deprecated = true;
     // Set of component categories
     repeated frequenz.api.common.v1alpha8.microgrid.electrical_components
@@ -403,15 +403,15 @@ message TargetComponents {
 
   // Wrapper for controlling dispatches with a set of component categories and optional types
   // Required as we can't use `repeated` directly in a `oneof`
-  message CategoryTypeSet {
+  message ElectricalComponentCategorySelector {
     // Set of component categories
-    repeated CategoryAndType categories = 1;
+    repeated ComponentCategory categories = 1;
   }
 
   // A tuple of a required category and an optional type
   // If a type is specified, it must be a valid type for the given category and
   // only components of that type will be targeted.
-  message CategoryAndType {
+  message ComponentCategory {
     // The category of the target component (required)
     frequenz.api.common.v1alpha8.microgrid.electrical_components
         .ElectricalComponentCategory category = 1;
@@ -437,15 +437,15 @@ message TargetComponents {
 
   oneof components {
     // Set of component IDs
-    IdSet component_ids = 1;
+    ElectricalComponentIdSelector component_ids = 1;
 
     // Deprecated: Component categories
-    // Use `CategoryTypeSet` instead
+    // Use `ElectricalComponentCategorySelector` instead
     // In future versions, this field will be removed.
-    CategorySet component_categories = 2 [deprecated = true];
+    ElectricalComponentCategorySelectorDeprecated component_categories_deprecated = 2 [deprecated = true];
 
     // Component categories with optional types
-    CategoryTypeSet component_categories_types = 3;
+    ElectricalComponentCategorySelector component_categories = 3;
   }
 }
 

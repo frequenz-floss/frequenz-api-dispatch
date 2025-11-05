@@ -2,4 +2,12 @@
 
 ## Summary
 
-This is the v1.0.0 release. It is equivalent to v1.0.0-rc3 and introduces a period of API stabilization.
+## What's Changed
+
+* Renamed component target message types and fields for consistency with monitoring API:
+  * `IdSet` → `ElectricalComponentIdSelector`
+  * `CategorySet` → `ElectricalComponentCategorySelectorDeprecated`
+  * `CategoryTypeSet` → `ElectricalComponentCategorySelector`
+  * `CategoryAndType` → `ComponentCategory`
+  * `component_categories` → `component_categories_deprecated` (deprecated field)
+  * `component_categories_types` → `component_categories`
