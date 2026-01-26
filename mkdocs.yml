@@ -102,6 +102,8 @@ plugins:
           options:
             paths: ["py"]
             docstring_section_style: spacy
+            docstring_options:
+              warn_missing_types: false
             inherited_members: true
             merge_init_into_class: false
             separate_signature: true
