@@ -1,0 +1,19 @@
+name: Dependabot Auto Manage
+on: pull_request
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  dependabot:
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+    steps:
+      - uses: ad/dependabot-auto-approve@d60f853230db2bb07168b39c180c5dd034b63f28
+        with:
+          dependency-type: 'all'
+          auto-merge: 'true'
+          add-label: 'auto-merged'
+          merge-method: 'merge'
+          ignore-regex-pr-title: '.*grpc.*,.*protobuf.*'
