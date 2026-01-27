@@ -5,12 +5,12 @@
 requires = [
   "setuptools == 80.9.0",
   "setuptools_scm[toml] == 9.2.2",
-  "frequenz-repo-config[api] == 0.13.6",
+  "frequenz-repo-config[api] == 0.14.0",
   # We need to pin the protobuf, grpcio and  grpcio-tools dependencies to make
   # sure the code is generated using the minimum supported versions, as older
   # versions can't work with code that was generated with newer versions.
   # https://protobuf.dev/support/cross-version-runtime-guarantee/#backwards
-  "protobuf == 6.31.1",
+  "protobuf == 6.32.1",
   "grpcio-tools == 1.72.1",
   "grpcio == 1.72.1",
 ]
@@ -48,7 +48,7 @@ dependencies = [
   # We can't widen beyond the current value unless we bump the minimum
   # requirements too because of protobuf cross-version runtime guarantees:
   # https://protobuf.dev/support/cross-version-runtime-guarantee/#major
-  "protobuf >= 6.31.1, < 8", # Do not widen beyond 8!
+  "protobuf >= 6.32.1, < 8", # Do not widen beyond 8!
   # We couldn't find any document with a spec about the cross-version runtime
   # guarantee for grpcio, so unless we find one in the future, we'll assume
   # major version jumps are not compatible
@@ -79,7 +79,7 @@ dev-mkdocs = [
   "mkdocs-material == 9.6.23",
   "mkdocstrings[python] == 0.30.1",
   "mkdocstrings-python == 1.18.2",
-  "frequenz-repo-config[api] == 0.13.6",
+  "frequenz-repo-config[api] == 0.14.0",
 ]
 dev-mypy = [
   "mypy == 1.18.2",
@@ -88,7 +88,7 @@ dev-mypy = [
   # For checking the noxfile, docs/ script, and tests
   "frequenz-api-dispatch[dev-mkdocs,dev-noxfile,dev-pytest]",
 ]
-dev-noxfile = ["nox == 2025.10.16", "frequenz-repo-config[api] == 0.13.6"]
+dev-noxfile = ["nox == 2025.10.16", "frequenz-repo-config[api] == 0.14.0"]
 dev-pylint = [
   "pylint == 4.0.2",
   # For checking the noxfile, docs/ script, and tests
@@ -96,7 +96,7 @@ dev-pylint = [
 ]
 dev-pytest = [
   "pytest == 8.4.2",
-  "frequenz-repo-config[extra-lint-examples] == 0.13.6",
+  "frequenz-repo-config[extra-lint-examples] == 0.14.0",
 ]
 dev = [
   "frequenz-api-dispatch[dev-mkdocs,dev-flake8,dev-formatting,dev-mkdocs,dev-mypy,dev-noxfile,dev-pylint,dev-pytest]",
