@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Auto-merge Dependabot PR
-        uses: frequenz-floss/dependabot-auto-approve@b93b4ae2176f68308499582d43b95646db35c4a1  # v1.3.2 + ignore-regex-pr-title
+        uses: frequenz-floss/dependabot-auto-approve@e943399cc9d76fbb6d7faae446cd57301d110165  # v1.3.2 + ignore-regex-pr-title
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           dependency-type: 'all'
