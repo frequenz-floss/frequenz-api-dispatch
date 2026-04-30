@@ -99,8 +99,8 @@ plugins:
       default_handler: python
       handlers:
         python:
+          paths: ["py"]
           options:
-            paths: ["py"]
             docstring_section_style: spacy
             docstring_options:
               warn_missing_types: false
