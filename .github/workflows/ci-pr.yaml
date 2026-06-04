@@ -24,7 +24,7 @@ jobs:
         uses: frequenz-floss/gh-action-setup-git@f9d86a01228ee1cadaac5224d4d7626f1eb23f90 # v1.0.0
 
       - name: Fetch sources
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           submodules: true
 
@@ -60,12 +60,12 @@ jobs:
         uses: frequenz-floss/gh-action-setup-git@f9d86a01228ee1cadaac5224d4d7626f1eb23f90 # v1.0.0
 
       - name: Fetch sources
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           submodules: true
 
       - name: Setup Python
-        uses: frequenz-floss/gh-action-setup-python-with-deps@e4d0b2ef8f5a1612d7827f3abaef17c931d2b946 # v1.0.2
+        uses: frequenz-floss/gh-action-setup-python-with-deps@b5707ffcd43ec4b24f2b24df712b43148cfa887f # v1.0.4
         with:
           python-version: ${{ env.DEFAULT_PYTHON_VERSION }}
           dependencies: .[dev-mkdocs]
