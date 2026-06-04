@@ -5077,7 +5077,7 @@
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -5271,6 +5271,7 @@
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Message to create a new dispatch with the given attributes</p>
 
 
@@ -5283,7 +5284,7 @@
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -5386,6 +5387,7 @@
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Response message for creating a new dispatch</p>
 
 
@@ -5398,7 +5400,7 @@
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -5453,6 +5455,7 @@
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Message to delete a single dispatch by its ID</p>
 
 
@@ -5465,7 +5468,7 @@
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -5548,6 +5551,7 @@
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Response message for deleting a single dispatch</p>
 
 
@@ -5560,7 +5564,7 @@
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -5643,6 +5647,7 @@
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Represents a dispatch, including its metadata</p>
 
 
@@ -5655,7 +5660,7 @@
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -5730,6 +5735,7 @@
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Represents a dispatches data, including its type, start time, duration,
 and target microgrid components.</p>
 <p>This <code>DispatchData</code> message describes a single dispatch instance. If a dispatch is set to recur,
@@ -5782,7 +5788,7 @@ to respective local timezone.</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -6035,6 +6041,7 @@ time or any future time. Timestamps earlier than the current time are not allowe
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Parameters for filtering the dispatch list</p>
 
 
@@ -6047,7 +6054,7 @@ time or any future time. Timestamps earlier than the current time are not allowe
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -6157,6 +6164,7 @@ For advanced recurrence filtering, use the <code>filter</code> field.</p>
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Recurrence filters</p>
 <p>The fields are left commented out for now as the exact definition and requirements
 for recurrence filtering are still being finalized.
@@ -6173,7 +6181,7 @@ optional RecurrenceRule.Frequency freq = 1;</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -6390,6 +6398,7 @@ If no interval is provided, all dispatches will be returned.</p>
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Represents the metadata of a dispatch</p>
 
 
@@ -6402,7 +6411,7 @@ If no interval is provided, all dispatches will be returned.</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -6528,6 +6537,7 @@ such terminating condition occurs, it may effectively continue "forever."</p>
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Message to get a single dispatch by its ID</p>
 
 
@@ -6540,7 +6550,7 @@ such terminating condition occurs, it may effectively continue "forever."</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -6623,6 +6633,7 @@ such terminating condition occurs, it may effectively continue "forever."</p>
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Response message for getting a single dispatch</p>
 
 
@@ -6635,7 +6646,7 @@ such terminating condition occurs, it may effectively continue "forever."</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -6714,6 +6725,7 @@ such terminating condition occurs, it may effectively continue "forever."</p>
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Message for listing dispatches for a given microgrid.</p>
 <p>Allows retrieval of dispatches for a specified microgrid with optional filtering and sorting.
 Sorting can be specified by setting 'sort_field' and 'sort_order'. If no sorting is specified,
@@ -6729,7 +6741,7 @@ the results will be returned by their create time in a descending order.</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -6853,6 +6865,7 @@ page_token: Cursor to specify which page to return. Should not be set in the fir
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>A list of dispatches</p>
 
 
@@ -6865,7 +6878,7 @@ page_token: Cursor to specify which page to return. Should not be set in the fir
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -6945,6 +6958,7 @@ next_page_token: Token that can be used to request the next page.
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Ruleset governing when and how a dispatch should re-occur.</p>
 <p>Timezone Note: Timestamps are in UTC. It is the responsibility of each microgrid to translate UTC
 to its local timezone.</p>
@@ -6989,7 +7003,7 @@ refer to <a href="https://tools.ietf.org/html/rfc5545">RFC5545</a>.</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -7068,6 +7082,7 @@ Valid values typically range between 1 and 10_000, depending on the implementati
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Controls when a recurring dispatch should end</p>
 
 
@@ -7080,7 +7095,7 @@ Valid values typically range between 1 and 10_000, depending on the implementati
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -7165,6 +7180,7 @@ so the dispatch may end after the timestamp.</p>
               Bases: <code><span title="frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule._Frequency">_Frequency</span></code></p>
 
 
+
         <p>Enum representing the frequency of the recurrence</p>
 
 
@@ -7177,7 +7193,7 @@ so the dispatch may end after the timestamp.</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -7212,6 +7228,7 @@ so the dispatch may end after the timestamp.</p>
               Bases: <code><span title="frequenz.api.dispatch.v1.dispatch_pb2.RecurrenceRule._Weekday">_Weekday</span></code></p>
 
 
+
         <p>Enum representing the day of the week</p>
 
 
@@ -7224,7 +7241,7 @@ so the dispatch may end after the timestamp.</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -7392,6 +7409,7 @@ If this field is not set, the dispatch will recur indefinitely.</p>
               Bases: <code><span title="frequenz.api.dispatch.v1.dispatch_pb2._SortField">_SortField</span></code></p>
 
 
+
         <p>Enum for the fields to by sorted by.</p>
 
 
@@ -7401,7 +7419,7 @@ If this field is not set, the dispatch will recur indefinitely.</p>
 
 
 
-              <details class="quote">
+              <details class="mkdocstrings-source">
                 <summary>Source code in <code>py/frequenz/api/dispatch/v1/dispatch_pb2.py</code></summary>
                 <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-57">57</a></span>
 <span class="normal"><a href="#__codelineno-0-58">58</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_DISPATCH&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">1143</span>
@@ -7411,7 +7429,7 @@ If this field is not set, the dispatch will recur indefinitely.</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -7446,6 +7464,7 @@ If this field is not set, the dispatch will recur indefinitely.</p>
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Message defining parameters for sorting list requests.</p>
 <p>Example Usage:
 To retrieve dispatches sorted by creation time in descending order:
@@ -7461,7 +7480,7 @@ sort_options: { field: CREATE_TIME, order: DESCENDING }</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -7544,6 +7563,7 @@ sort_options: { field: CREATE_TIME, order: DESCENDING }</p>
               Bases: <code><span title="frequenz.api.dispatch.v1.dispatch_pb2._SortOrder">_SortOrder</span></code></p>
 
 
+
         <p>Enum for sort order.</p>
 
 
@@ -7553,7 +7573,7 @@ sort_options: { field: CREATE_TIME, order: DESCENDING }</p>
 
 
 
-              <details class="quote">
+              <details class="mkdocstrings-source">
                 <summary>Source code in <code>py/frequenz/api/dispatch/v1/dispatch_pb2.py</code></summary>
                 <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-83">83</a></span>
 <span class="normal"><a href="#__codelineno-0-84">84</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-83"><a id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="n">_globals</span><span class="p">[</span><span class="s1">&#39;_SORTOPTIONS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_serialized_end</span><span class="o">=</span><span class="mi">3776</span>
@@ -7563,7 +7583,7 @@ sort_options: { field: CREATE_TIME, order: DESCENDING }</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -7598,6 +7618,7 @@ sort_options: { field: CREATE_TIME, order: DESCENDING }</p>
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Subscribe to a stream of microgrid dispatch requests.
 This method provides real-time updates on newly or updated dispatch requests for edge-based
 realtime decision making.</p>
@@ -7609,7 +7630,7 @@ realtime decision making.</p>
 
 
 
-              <details class="quote">
+              <details class="mkdocstrings-source">
                 <summary>Source code in <code>py/frequenz/api/dispatch/v1/dispatch_pb2.py</code></summary>
                 <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-94"> 94</a></span>
 <span class="normal"><a href="#__codelineno-0-95"> 95</a></span>
@@ -7649,7 +7670,7 @@ realtime decision making.</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -7708,6 +7729,7 @@ realtime decision making.</p>
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Response to a subscription request for a stream of microgrid dispatches.
 Real-time information on dispatches affecting a certain microgrid are pushed through this response.</p>
 
@@ -7721,7 +7743,7 @@ Real-time information on dispatches affecting a certain microgrid are pushed thr
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -7800,6 +7822,7 @@ Real-time information on dispatches affecting a certain microgrid are pushed thr
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Parameter for controlling which components a dispatch applies to
 either a set of component IDs, or a set of component categories (with optional type).
 Examples:
@@ -7825,7 +7848,7 @@ Examples:
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -7851,6 +7874,7 @@ Examples:
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>A tuple of a required category and an optional type
 If a type is specified, it must be a valid type for the given category and
 only components of that type will be targeted.</p>
@@ -7865,7 +7889,7 @@ only components of that type will be targeted.</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -7999,6 +8023,7 @@ Only applicable if the category is COMPONENT_CATEGORY_INVERTER</p>
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Deprecated: Use <code>CategoryTypeSet</code> instead</p>
 
 
@@ -8011,7 +8036,7 @@ Only applicable if the category is COMPONENT_CATEGORY_INVERTER</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -8066,6 +8091,7 @@ Only applicable if the category is COMPONENT_CATEGORY_INVERTER</p>
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Wrapper for controlling dispatches with a set of component categories and optional types
 Required as we can't use <code>repeated</code> directly in a <code>oneof</code></p>
 
@@ -8079,7 +8105,7 @@ Required as we can't use <code>repeated</code> directly in a <code>oneof</code><
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -8136,6 +8162,7 @@ Required as we can't use <code>repeated</code> directly in a <code>oneof</code><
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Wrapper for controlling dispatches with a set of component IDs
 Required as we can't use <code>repeated</code> directly in a <code>oneof</code></p>
 
@@ -8149,7 +8176,7 @@ Required as we can't use <code>repeated</code> directly in a <code>oneof</code><
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -8275,6 +8302,7 @@ In future versions, this field will be removed.</p>
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Message to update the dispatch with the given ID, with the given attributes</p>
 
 
@@ -8287,7 +8315,7 @@ In future versions, this field will be removed.</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -8361,6 +8389,7 @@ In future versions, this field will be removed.</p>
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Message containing the updated dispatch attributes</p>
 
 
@@ -8373,7 +8402,7 @@ In future versions, this field will be removed.</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -8447,6 +8476,7 @@ In future versions, this field will be removed.</p>
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Message containing the updated recurrence rule attributes</p>
 
 
@@ -8459,7 +8489,7 @@ In future versions, this field will be removed.</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -8805,6 +8835,7 @@ Timestamps earlier than the current time are not allowed.</p>
               Bases: <code><span title="google.protobuf.message.Message">Message</span></code></p>
 
 
+
         <p>Response message for updating a dispatch</p>
 
 
@@ -8817,7 +8848,7 @@ Timestamps earlier than the current time are not allowed.</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
