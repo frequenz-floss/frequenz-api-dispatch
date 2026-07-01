@@ -69,7 +69,13 @@ service MicrogridDispatchService {
   rpc ListMicrogridDispatches(ListMicrogridDispatchesRequest) returns (ListMicrogridDispatchesResponse);
 
   // Streaming RPC for receiving dispatch updates for a given microgrid
-  rpc StreamMicrogridDispatches(StreamMicrogridDispatchesRequest) returns (stream StreamMicrogridDispatchesResponse);
+  //
+  // Deprecated: This controller-facing operation will be moved out as part of a
+  // future Dispatch API split. It is kept here for now to avoid breaking
+  // existing clients.
+  rpc StreamMicrogridDispatches(StreamMicrogridDispatchesRequest) returns (stream StreamMicrogridDispatchesResponse) {
+    option deprecated = true;
+  }
 
   // Create a new dispatch
   rpc CreateMicrogridDispatch(CreateMicrogridDispatchRequest) returns (CreateMicrogridDispatchResponse);
@@ -87,14 +93,26 @@ service MicrogridDispatchService {
 // Subscribe to a stream of microgrid dispatch requests.
 // This method provides real-time updates on newly or updated dispatch requests for edge-based
 // realtime decision making.
+//
+// Deprecated: This controller-facing message will be moved out as part of a
+// future Dispatch API split. It is kept here for now to avoid breaking existing
+// clients.
 message StreamMicrogridDispatchesRequest {
+  option deprecated = true;
+
   // ID of the microgrid to subscribe to
   uint64 microgrid_id = 1;
 }
 
 // Response to a subscription request for a stream of microgrid dispatches.
 // Real-time information on dispatches affecting a certain microgrid are pushed through this response.
+//
+// Deprecated: This controller-facing message will be moved out as part of a
+// future Dispatch API split. It is kept here for now to avoid breaking existing
+// clients.
 message StreamMicrogridDispatchesResponse {
+  option deprecated = true;
+
   // Dispatch record returned.
   Dispatch dispatch = 1;
 
