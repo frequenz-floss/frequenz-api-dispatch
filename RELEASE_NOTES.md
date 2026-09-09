@@ -3,3 +3,9 @@
 ## Summary
 
 This is the v1.0.0 release. It is equivalent to v1.0.0-rc3 and introduces a period of API stabilization.
+
+## New Features
+
+- Added `HostDispatchService`, a controller-facing service for listing,
+  getting, and streaming microgrid dispatches, plus reporting dispatch execution
+  status.
